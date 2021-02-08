@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://sliding_poster.gd" type="Script" id=2]
+[ext_resource path="res://skin_assets/button_normal.png" type="Texture" id=3]
+[ext_resource path="res://skin_assets/button_pressed.png" type="Texture" id=4]
+[ext_resource path="res://skin_assets/button_focus.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 16, 16 )
+modulate_color = Color( 0.909804, 0.615686, 0.615686, 1 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 16, 16 )
+modulate_color = Color( 0.909804, 0.615686, 0.615686, 1 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 16, 16 )
+modulate_color = Color( 0.909804, 0.615686, 0.615686, 1 )
+
+[node name="sliding_poster" type="Node2D"]
+script = ExtResource( 2 )
+button_path = NodePath("Button")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( -370.207, 0.172964 )
+scale = Vector2( 1.00055, 1.00249 )
+antialiased = true
+polygon = PoolVector2Array( 370.355, -0.277627, 899.201, 0.0407559, 898.575, 268.213, 899.196, 363.353, 899.316, 498.659, 501.941, 498.792, 370.157, 499.784, 370.157, 253.175 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 411.191
+margin_top = 403.824
+margin_right = 512.191
+margin_bottom = 447.824
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "RESET"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
