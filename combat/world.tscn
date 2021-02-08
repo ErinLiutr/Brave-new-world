@@ -1,0 +1,226 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Scene/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scene/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Images/Ground.png" type="Texture" id=3]
+[ext_resource path="res://combat/background-box.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/Border_Up.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/BulletSpawner.gd" type="Script" id=6]
+[ext_resource path="res://Scene/EnemyLifeBar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scene/Life.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scene/PlayerLifeBar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://combat/background.png" type="Texture" id=10]
+[ext_resource path="res://Scene/Weapon_ball.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scene/Popup.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scene/Popup_win.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scene/Weapon_heat.tscn" type="PackedScene" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1001.41, 73.5224 )
+
+[sub_resource type="Theme" id=2]
+
+[node name="World" type="Node2D"]
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="SpiteDown" type="Sprite" parent="Walls"]
+visible = false
+position = Vector2( 1151.7, 497.263 )
+scale = Vector2( 0.193668, 0.56067 )
+z_index = 1
+texture = ExtResource( 4 )
+
+[node name="Ground" type="Sprite" parent="Walls"]
+position = Vector2( 664.043, 439.436 )
+scale = Vector2( 0.955303, 0.758003 )
+z_index = -1
+texture = ExtResource( 10 )
+
+[node name="SpriteUp" type="Sprite" parent="Walls"]
+visible = false
+position = Vector2( 666.846, 431.817 )
+scale = Vector2( 0.345496, 0.29706 )
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="Down" type="CollisionShape2D" parent="Walls"]
+visible = false
+position = Vector2( 545.205, 794.814 )
+shape = SubResource( 1 )
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+visible = false
+position = Vector2( -40.5579, 394.829 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+visible = false
+position = Vector2( 1068.25, 595.551 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Up" type="CollisionShape2D" parent="Walls"]
+visible = false
+position = Vector2( 672.916, 84.1317 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Walls"]
+position = Vector2( 1149.13, 404.638 )
+scale = Vector2( 0.0875086, 0.327212 )
+texture = ExtResource( 3 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 498.685, 414.162 )
+
+[node name="PlayerLife" parent="YSort/Player" instance=ExtResource( 8 )]
+
+[node name="Enemy" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 522.22, 191.029 )
+scale = Vector2( 2, 2 )
+collision_layer = 10
+collision_mask = 6
+
+[node name="EnemyLife" parent="YSort/Enemy" instance=ExtResource( 8 )]
+
+[node name="BulletSpawner" type="Node2D" parent="YSort/Enemy"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="YSort/Enemy/BulletSpawner"]
+wait_time = 0.1
+
+[node name="PlayerLifeBar" parent="." instance=ExtResource( 9 )]
+margin_left = 1046.28
+margin_top = 42.0602
+margin_right = 1246.28
+margin_bottom = 67.0602
+max_value = 5.0
+value = 5.0
+
+[node name="EnemyLifeBar" parent="." instance=ExtResource( 7 )]
+margin_left = 1048.51
+margin_top = 99.0273
+margin_right = 1248.51
+margin_bottom = 124.027
+max_value = 100.0
+value = 100.0
+
+[node name="Bag" type="CenterContainer" parent="."]
+margin_left = 889.397
+margin_top = 100.548
+margin_right = 1335.4
+margin_bottom = 695.548
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="Bag"]
+margin_left = 173.0
+margin_top = 297.0
+margin_right = 273.0
+margin_bottom = 297.0
+custom_constants/vseparation = 120
+custom_constants/hseparation = 100
+columns = 3
+
+[node name="Weapon" parent="Bag/Grid" instance=ExtResource( 11 )]
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="Weapon4" parent="Bag/Grid" instance=ExtResource( 11 )]
+visible = false
+margin_left = 100.0
+margin_right = 100.0
+margin_bottom = 0.0
+
+[node name="Weapon5" parent="Bag/Grid" instance=ExtResource( 11 )]
+visible = false
+margin_left = 100.0
+margin_right = 100.0
+margin_bottom = 0.0
+
+[node name="Weapon6" parent="Bag/Grid" instance=ExtResource( 11 )]
+visible = false
+margin_left = 100.0
+margin_right = 100.0
+margin_bottom = 0.0
+
+[node name="Weapon7" parent="Bag/Grid" instance=ExtResource( 11 )]
+visible = false
+margin_left = 100.0
+margin_right = 100.0
+margin_bottom = 0.0
+
+[node name="Weapon8" parent="Bag/Grid" instance=ExtResource( 11 )]
+visible = false
+margin_left = 100.0
+margin_right = 100.0
+margin_bottom = 0.0
+
+[node name="Weapon9" parent="Bag/Grid" instance=ExtResource( 11 )]
+visible = false
+margin_left = 100.0
+margin_right = 100.0
+margin_bottom = 0.0
+
+[node name="Weapon10" parent="Bag/Grid" instance=ExtResource( 11 )]
+visible = false
+margin_left = 100.0
+margin_right = 100.0
+margin_bottom = 0.0
+
+[node name="Weapon15" parent="Bag/Grid" instance=ExtResource( 11 )]
+visible = false
+margin_left = 100.0
+margin_right = 100.0
+margin_bottom = 0.0
+
+[node name="Weapon12" parent="Bag/Grid" instance=ExtResource( 11 )]
+visible = false
+margin_left = 100.0
+margin_right = 100.0
+margin_bottom = 0.0
+
+[node name="Weapon2" parent="Bag/Grid" instance=ExtResource( 11 )]
+visible = false
+margin_left = 100.0
+margin_right = 100.0
+margin_bottom = 0.0
+
+[node name="Weapon3" parent="Bag/Grid" instance=ExtResource( 11 )]
+visible = false
+margin_left = 100.0
+margin_right = 100.0
+margin_bottom = 0.0
+
+[node name="Weapon11" parent="Bag/Grid" instance=ExtResource( 14 )]
+margin_left = 100.0
+margin_right = 100.0
+margin_bottom = 0.0
+
+[node name="Popup" parent="." instance=ExtResource( 12 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -100.189
+margin_top = 31.1135
+margin_right = -100.189
+margin_bottom = 31.1135
+
+[node name="PopupWin" parent="." instance=ExtResource( 13 )]
+margin_left = -579.017
+margin_top = -125.008
+margin_right = -579.017
+margin_bottom = -125.008
+[connection signal="changed" from="YSort/Player/PlayerLife" to="PlayerLifeBar" method="set_value"]
+[connection signal="changed" from="YSort/Enemy/EnemyLife" to="EnemyLifeBar" method="set_value"]
+[connection signal="changed" from="YSort/Enemy/EnemyLife" to="YSort/Enemy/EnemyLife" method="_on_EnemyLife_changed"]
+[connection signal="timeout" from="YSort/Enemy/BulletSpawner/Timer" to="YSort/Enemy/BulletSpawner" method="_on_Timer_timeout"]

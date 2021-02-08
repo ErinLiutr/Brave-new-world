@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://combat/boss.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 15.3856
+height = 72.8329
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 46.0981, 41.9671 )
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 8
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2( -1.07762, -2.60798 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -7.62939e-06, -39.064 )
+scale = Vector2( 0.657896, 0.489695 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -38.7085 )
+rotation = 1.5708
+shape = SubResource( 2 )
