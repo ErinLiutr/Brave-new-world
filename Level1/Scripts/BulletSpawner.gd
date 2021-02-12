@@ -1,6 +1,6 @@
 extends Node2D
-const WIDTH = 128
-const HEIGHT = 64
+const WIDTH = 96
+const HEIGHT = 48
 const BULLET = preload("res://Scene/Bullet.tscn")
 
 # spawn time management
@@ -13,7 +13,7 @@ func _ready():
 	spawnArea = Rect2(-450, 5, WIDTH, HEIGHT)
 	
 func spawn_bullet():
-	var new_position = Vector2(16+randi()%WIDTH,64+randi()%HEIGHT)
+	var new_position = Vector2(104+randi()%WIDTH,64+randi()%HEIGHT)
 	var direction = (new_position - get_parent().get_global_transform().origin).normalized()
 	var bullet = BULLET.instance()
 	get_parent().add_child(bullet)

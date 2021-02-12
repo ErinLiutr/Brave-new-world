@@ -3,7 +3,7 @@
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://123 (2).png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 6 )
 
 [sub_resource type="Animation" id=2]
@@ -154,7 +154,7 @@ hframes = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -3.8147e-06 )
 rotation = -1.5708
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/IdleDown = SubResource( 2 )

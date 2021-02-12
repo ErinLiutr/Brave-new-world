@@ -83,10 +83,16 @@ func interact(result):
 	for dictionary in result:
 		if typeof(dictionary.collider) == TYPE_OBJECT and (dictionary.collider.has_node("Interact")):
 			canMove = false
-			dictionary.collider.get_node("Interact").show()
-			if dictionary.collider.has_node("Interact/Game"):
-				get_node("/root/Room/cabinet2/StaticBody2D/blur").show()
-			if dictionary.collider.has_node("Interact/RichTextLabel"):
-				dictionary.collider.get_node("Interact")._print_dialogue()
+			var name = dictionary.collider.get_node("Interact").type
+			var node = get_node("/root/Room/YSort/Player/Camera2D/" + name)
+			node.show()
+			if node.has_node("Game"):
+				get_node("Camera2D/blur").show()
+			if name == "Description":
+				var desc = dictionary.collider.get_node("Interact").description
+				node.get_node("Description").text = desc
+				node.get_node(dictionary.collider.get_node("Interact").pic).show()
+			if name == "DialogBox":
+				node._print_dialogue(dictionary.collider.get_node("Interact").text)
 			else:
-				dictionary.collider.get_node("Interact")._start_show()
+				node._start_show()

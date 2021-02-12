@@ -2,7 +2,7 @@ extends Node2D
 
 # set up the reset button
 export (NodePath) var button_path
-onready var button = get_node(button_path)
+onready var button = get_node("Button")
 
 var img_node = load("poster.tscn")
 var img = []
@@ -57,14 +57,15 @@ func reset():
 	# Restart game
 	var root = get_tree().get_root()
 	var pos = get_node(".").position
-	root.get_node("Room/cabinet2/StaticBody2D").remove_child(get_node("."))
+	root.get_node("Room/YSort/Player/Camera2D").remove_child(get_node("."))
 	
 	var new_scene = load("res://sliding_poster.tscn")
 	var new = new_scene.instance()
 	new.position = pos
-	new.name = "Interact"
+	new.scale = Vector2(0.75, 0.75)
+	new.name = "Puzzle"
 	new._start_show()
-	root.get_node("Room/cabinet2/StaticBody2D").add_child(new)
+	root.get_node("Room/YSort/Player/Camera2D").add_child(new)
 
 	#get_tree().paused = false
 
@@ -86,7 +87,7 @@ func _physics_process(_delta):
 			counter = 0
 			hide()
 			showing = false
-			get_node("/root/Room/cabinet2/StaticBody2D/blur").hide()
+			get_node("../blur").hide()
 			get_node("/root/Room/YSort/Player").canMove = true
 	pressed = false
 	
