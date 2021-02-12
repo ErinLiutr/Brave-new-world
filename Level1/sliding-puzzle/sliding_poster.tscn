@@ -26,7 +26,7 @@ script = ExtResource( 2 )
 button_path = NodePath("Button")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2( 0.275986, 5.09652e-05 )
+position = Vector2( 0.275986, -0.999949 )
 scale = Vector2( 1.00055, 1.00249 )
 antialiased = true
 polygon = PoolVector2Array( 0.00169849, 0.011446, 899.201, 0.0407559, 898.575, 268.213, 899.196, 363.353, 899.316, 498.659, 501.941, 498.792, 0.174171, 499.023 )

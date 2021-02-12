@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/puzzled_poster.png-eb8b542e9c2c3821c39c1cd56bcb3b67.stex"
+path="res://.import/puzzled_poster.png-2abebd59eefc47dc4e64ea34bc538158.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://puzzled_poster.png"
-dest_files=[ "res://.import/puzzled_poster.png-eb8b542e9c2c3821c39c1cd56bcb3b67.stex" ]
+source_file="res://sliding-puzzle/puzzled_poster.png"
+dest_files=[ "res://.import/puzzled_poster.png-2abebd59eefc47dc4e64ea34bc538158.stex" ]
 
 [params]
 

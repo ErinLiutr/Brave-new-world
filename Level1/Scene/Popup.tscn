@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Images/Menu/Buttons/Quit_Red_H.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Images/Menu/Am_I_bg.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/Menu/Buttons/Play_Red_H.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Popup.gd" type="Script" id=4]
+
+[node name="Control" type="Control"]
+anchor_left = -0.013
+anchor_top = -0.005
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 17.329
+margin_top = 3.75
+margin_right = -220.0
+margin_bottom = -148.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+visible = true
+margin_left = 33.375
+margin_top = 61.05
+margin_right = 649.375
+margin_bottom = 491.05
+rect_scale = Vector2( 0.15, 0.15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Layer" type="Node2D" parent="PopupMenu"]
+z_index = 5
+
+[node name="Sprite" type="Sprite" parent="PopupMenu/Layer"]
+position = Vector2( 309.676, 215.83 )
+scale = Vector2( 0.239465, 0.296535 )
+texture = ExtResource( 2 )
+
+[node name="Replay" type="TextureButton" parent="PopupMenu/Layer"]
+margin_left = 146.449
+margin_top = 300.0
+margin_right = 280.449
+margin_bottom = 385.0
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="TextureButton" parent="PopupMenu/Layer"]
+margin_left = 353.158
+margin_top = 296.225
+margin_right = 487.158
+margin_bottom = 386.225
+texture_normal = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="PopupMenu/Layer/Replay" to="." method="_on_Replay_pressed"]
+[connection signal="pressed" from="PopupMenu/Layer/Quit" to="." method="_on_Quit_pressed"]

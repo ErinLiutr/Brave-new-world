@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button_normal.png-4a4e96d33a0a2bc758960df169b20593.stex"
+path="res://.import/button_normal.png-0ae6c6287c24a3e860428471abbff138.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://skin_assets/button_normal.png"
-dest_files=[ "res://.import/button_normal.png-4a4e96d33a0a2bc758960df169b20593.stex" ]
+source_file="res://sliding-puzzle/skin_assets/button_normal.png"
+dest_files=[ "res://.import/button_normal.png-0ae6c6287c24a3e860428471abbff138.stex" ]
 
 [params]
 

@@ -34,8 +34,8 @@ z_index = 1
 texture = ExtResource( 4 )
 
 [node name="Ground" type="Sprite" parent="Walls"]
-position = Vector2( 664.043, 439.436 )
-scale = Vector2( 0.955303, 0.758003 )
+position = Vector2( 359.442, 277.985 )
+scale = Vector2( 0.488749, 0.387807 )
 z_index = -1
 texture = ExtResource( 10 )
 
@@ -69,20 +69,19 @@ position = Vector2( 672.916, 84.1317 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Walls"]
-position = Vector2( 1149.13, 404.638 )
-scale = Vector2( 0.0875086, 0.327212 )
+position = Vector2( 604.582, 257.56 )
+scale = Vector2( 0.0454849, 0.170077 )
 texture = ExtResource( 3 )
 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 498.685, 414.162 )
+position = Vector2( 317.666, 292.54 )
 
 [node name="PlayerLife" parent="YSort/Player" instance=ExtResource( 8 )]
 
 [node name="Enemy" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 522.22, 191.029 )
-scale = Vector2( 2, 2 )
+position = Vector2( 318.631, 106.811 )
 collision_layer = 10
 collision_mask = 6
 
@@ -96,36 +95,36 @@ script = ExtResource( 6 )
 wait_time = 0.1
 
 [node name="PlayerLifeBar" parent="." instance=ExtResource( 9 )]
-margin_left = 1046.28
-margin_top = 42.0602
-margin_right = 1246.28
-margin_bottom = 67.0602
+margin_left = 486.251
+margin_top = 39.2318
+margin_right = 686.251
+margin_bottom = 64.2318
 max_value = 5.0
 value = 5.0
 
 [node name="EnemyLifeBar" parent="." instance=ExtResource( 7 )]
-margin_left = 1048.51
-margin_top = 99.0273
-margin_right = 1248.51
-margin_bottom = 124.027
+margin_left = 485.653
+margin_top = 104.684
+margin_right = 685.653
+margin_bottom = 129.684
 max_value = 100.0
 value = 100.0
 
 [node name="Bag" type="CenterContainer" parent="."]
-margin_left = 889.397
-margin_top = 100.548
-margin_right = 1335.4
-margin_bottom = 695.548
+margin_left = 499.0
+margin_top = 126.0
+margin_right = 639.0
+margin_bottom = 313.0
 theme = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Grid" type="GridContainer" parent="Bag"]
-margin_left = 173.0
-margin_top = 297.0
-margin_right = 273.0
-margin_bottom = 297.0
+margin_left = 20.0
+margin_top = 93.0
+margin_right = 120.0
+margin_bottom = 93.0
 custom_constants/vseparation = 120
 custom_constants/hseparation = 100
 columns = 3
