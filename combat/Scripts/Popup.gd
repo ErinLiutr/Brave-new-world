@@ -5,7 +5,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_Replay_pressed():
-	get_tree().change_scene("res://world.tscn")
+	get_tree().change_scene("res://Scene/world.tscn")
 
-func _on_Continue_pressed():
+func _on_Quit_pressed():
 	pass # Replace with function body.

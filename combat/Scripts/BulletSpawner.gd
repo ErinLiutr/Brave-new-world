@@ -1,6 +1,6 @@
 extends Node2D
-const WIDTH = 870
-const HEIGHT = 500
+const WIDTH = 1120
+const HEIGHT = 440
 const BULLET = preload("res://Scene/Bullet.tscn")
 
 # spawn time management
@@ -10,7 +10,7 @@ var spawnArea = Rect2()
 
 func _ready():
 	randomize()
-	spawnArea = Rect2(-450, 5, WIDTH, HEIGHT)
+	spawnArea = Rect2(-560, -50, WIDTH, HEIGHT)
 	next_spawn()
 	
 func spawn_bullet():

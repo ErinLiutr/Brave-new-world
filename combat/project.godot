@@ -16,14 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Combat"
-run/main_scene="res://world.tscn"
+run/main_scene="res://Scene/world.tscn"
 config/icon="res://icon.png"
 
 [display]
 
-window/size/width=1333
+window/size/width=1180
 window/size/height=750
-window/size/test_width=1333
+window/size/test_width=1180
 window/size/test_height=750
 
 [layer_names]
