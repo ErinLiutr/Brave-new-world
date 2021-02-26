@@ -32,10 +32,10 @@ antialiased = true
 polygon = PoolVector2Array( 370.355, -0.277627, 899.201, 0.0407559, 898.575, 268.213, 899.196, 363.353, 899.316, 498.659, 501.941, 498.792, 370.157, 499.784, 370.157, 253.175 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 104.0
-margin_top = 104.0
-margin_right = 132.0
-margin_bottom = 118.0
+margin_left = 98.4983
+margin_top = 101.381
+margin_right = 133.498
+margin_bottom = 118.381
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )

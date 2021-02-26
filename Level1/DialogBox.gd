@@ -90,6 +90,8 @@ func _start(id):
 		_show_choices(json[id]["title"], json[id]["choices"])
 	elif json[id]["type"] == "dialog":
 		_print_dialogue(json[id]["text"])
+	elif json[id]["type"] == "description":
+		_show_description()
 
 func _print_dialogue(text):
 	get_node("RichTextLabel").show()
@@ -115,4 +117,10 @@ func _show_choices(title, choices):
 		get_node("Choices/GridContainer").add_child(new_choice)
 	get_node("Choices").counter = 0
 	get_node("Choices").current_selection = 0
+	get_node("Choices").showing = true
 	get_node("Choices").show()
+	
+func _show_description():
+	get_node("Description").show()
+	get_node("Description")._start_show()
+	

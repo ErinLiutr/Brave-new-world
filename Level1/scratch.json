@@ -4,26 +4,36 @@
     "type": "choice",
     "choices": [
       {"text": "VIEW DESCRIPTION", "go_to": "02"},
-      {"text": "ASK ABOUT...", "go_to": "03"}
+      {"text": "ASK ABOUT HAIR COLOR", "go_to": "03"},
+      {"text": "ASK ABOUT PARENTS", "go_to": "04"},
+      {"text": "ASK ABOUT ROPE IN THE WARDROBE", "go_to": "05"},
+      {"text": "ASK ABOUT PROJECT BRAVE NEW WORLD", "go_to": "06"},
+      {"text": "CONFRONT", "go_to": "07"}
     ],
     "role": "pink_hair_boy"
   },
   "02": {
-    "type": "discription",
+    "type": "description",
     "text": "BOY WITH NEON PINK HAIR."
   },
   "03": {
-    "title": "ASK ABOUT...",
-    "type": "choice",
-    "choices": [
-      {"text": "HAIR COLOR", "go_to": "04"},
-      {"text": "PARENTS", "go_to": "05"},
-      {"text": "ROPE IN THE WARDROBE", "go_to": "06"},
-      {"text": "HAIR COLOR", "go_to": "07"}
-    ]
+    "type": "dialog",
+    "text": ["It’s called ASH BROWN, I’m trendy!"]
   },
   "04": {
     "type": "dialog",
-    "text": ["It’s called ASH BROWN, I’m trendy!"]
+    "text": ["My parents are always somewhere outside the country. I live by myself."]
+  },
+  "05": {
+    "type": "dialog",
+    "text": ["What rope? Where?"]
+  },
+  "06": {
+    "type": "dialog",
+    "text": [""]
+  },
+  "07": {
+    "type": "game",
+    "name": "combat"
   }
 }

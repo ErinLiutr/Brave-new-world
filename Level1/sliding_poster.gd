@@ -62,7 +62,7 @@ func reset():
 	var new_scene = load("res://sliding_poster.tscn")
 	var new = new_scene.instance()
 	new.position = pos
-	new.scale = Vector2(0.75, 0.75)
+	new.scale = Vector2(1, 1)
 	new.name = "Puzzle"
 	new._start_show()
 	root.get_node("Room/YSort/Player/Camera2D").add_child(new)
