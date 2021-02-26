@@ -1,0 +1,29 @@
+{
+  "01": {
+    "title": "CHOOSE TO INTERACT",
+    "type": "choice",
+    "choices": [
+      {"text": "VIEW DESCRIPTION", "go_to": "02"},
+      {"text": "ASK ABOUT...", "go_to": "03"}
+    ],
+    "role": "pink_hair_boy"
+  },
+  "02": {
+    "type": "discription",
+    "text": "BOY WITH NEON PINK HAIR."
+  },
+  "03": {
+    "title": "ASK ABOUT...",
+    "type": "choice",
+    "choices": [
+      {"text": "HAIR COLOR", "go_to": "04"},
+      {"text": "PARENTS", "go_to": "05"},
+      {"text": "ROPE IN THE WARDROBE", "go_to": "06"},
+      {"text": "HAIR COLOR", "go_to": "07"}
+    ]
+  },
+  "04": {
+    "type": "dialog",
+    "text": ["It’s called ASH BROWN, I’m trendy!"]
+  }
+}

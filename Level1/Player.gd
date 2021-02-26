@@ -93,6 +93,6 @@ func interact(result):
 				node.get_node("Description").text = desc
 				node.get_node(dictionary.collider.get_node("Interact").pic).show()
 			if name == "DialogBox":
-				node._print_dialogue(dictionary.collider.get_node("Interact").text)
+				node._start("01")
 			else:
 				node._start_show()

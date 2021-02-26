@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Level1"
-run/main_scene="res://Room.tscn"
+run/main_scene="res://title.tscn"
 config/icon="res://icon.png"
 
 [display]
