@@ -5,6 +5,8 @@ var choice_item = preload("res://Choice.tscn")
 var printing = false
 var donePrinting = false
 
+var showing = false
+
 var pressed = false
 
 var timer = 0
@@ -21,7 +23,6 @@ var json
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	json = load_data(script_url)
-	print(json)
 	set_physics_process(true)
 	set_process_unhandled_key_input(true)
 	
@@ -52,20 +53,15 @@ func _physics_process(delta):
 				textToPrint = []
 				printing = false
 				hide()
+				showing = false
 				get_node("/root/Room/YSort/Player").canMove = true
-			elif Input.is_action_just_pressed("ui_yes"):
-				currentText = 0
-				textToPrint = []
-				printing = false
-				hide()
-				get_node("../World").show()
-				get_node("../World")._start_show()
 			elif pressed:
 				currentText = 0
 				get_node("RichTextLabel").set_bbcode("")
 				textToPrint = []
 				printing = false
 				hide()
+				showing = false
 				get_node("/root/Room/YSort/Player").canMove = true
 		elif pressed:
 			if currentText < textToPrint.size():
@@ -92,6 +88,7 @@ func _start(id):
 		_print_dialogue(json[id]["text"])
 	elif json[id]["type"] == "description":
 		_show_description()
+	
 
 func _print_dialogue(text):
 	get_node("RichTextLabel").show()

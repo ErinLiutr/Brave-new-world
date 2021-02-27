@@ -10,6 +10,10 @@ var move = Vector2.ZERO
 var speed = 6
 var map = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10, 11]]
 var conversion_map = [10, 8, 4, 0, 7, 1, 9, 3, 6, 2, 5, 11]
+var ans = [[120, 360], [240, 240],[120, 120],[0, 0],
+		   [120, 240], [120, 0],[0, 360],[0, 120],
+		   [0, 240], [240, 0],[240, 120],[240, 360]]
+onready var pop_up = get_node("Popup/PopupPanel")
 
 func _ready():
 	button.connect("pressed", self, "reset")
@@ -44,21 +48,27 @@ func step(key, dir):
 
 # flag when the puzzle is finished
 func check_ready():
-	pass
+	for n in range(12):
+		var ans_row = ans[n][0]
+		var ans_col = ans[n][1]
+		if (not img[n].position == Vector2(ans[n][0], ans[n][1])):
+			return false
+	return true
 
 # reset the puzzle game
 func reset():
 	# Restart game
 	get_tree().change_scene("res://sliding_poster.tscn")
 
-	
 func _physics_process(_delta):
-	pass
+#	print(check_ready())
+	if (check_ready()):
+		pop_up.rect_global_position = Vector2(95, 130)
+		pop_up.show()
 	step(KEY_DOWN, Vector2(-1, 0))
 	step(KEY_RIGHT, Vector2(0, -1))
 	step(KEY_LEFT, Vector2(0, 1))
 	step(KEY_UP, Vector2(1, 0))
 	
-
-
-
+func _on_Quit_pressed():
+	pass # Replace with function body.

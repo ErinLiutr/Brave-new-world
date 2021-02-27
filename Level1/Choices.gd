@@ -7,6 +7,8 @@ var current_selection = 0
 
 var counter = 0
 
+export var col = 0
+
 var showing = false
 
 func _ready():
@@ -18,13 +20,13 @@ func _physics_process(delta):
 	
 func _unhandled_key_input(event):
 	if showing:
-		if event.is_action_pressed("ui_down") and current_selection + 2 < choice_results.size():
+		if event.is_action_pressed("ui_down") and current_selection + col < choice_results.size():
 			get_node("GridContainer/choice" + str(current_selection) + "/selector").text = ""
-			current_selection += 2
+			current_selection += col
 			get_node("GridContainer/choice" + str(current_selection) + "/selector").text = ">"
-		elif event.is_action_pressed("ui_up") and current_selection >= 2:
+		elif event.is_action_pressed("ui_up") and current_selection >= col:
 			get_node("GridContainer/choice" + str(current_selection) + "/selector").text = ""
-			current_selection -= 2
+			current_selection -= col
 			get_node("GridContainer/choice" + str(current_selection) + "/selector").text = ">"
 		elif event.is_action_pressed("ui_right") and current_selection + 1 < choice_results.size():
 			get_node("GridContainer/choice" + str(current_selection) + "/selector").text = ""
@@ -36,10 +38,10 @@ func _unhandled_key_input(event):
 			get_node("GridContainer/choice" + str(current_selection) + "/selector").text = ">"
 		elif event.is_action_pressed("ui_interact") and choice_results.size() > current_selection:
 			handle_selection(current_selection)
-	
 
 
 func handle_selection(_current_selection):
+	print(_current_selection)
 	hide()
 	showing = false
 	var choices = get_node("GridContainer")
@@ -48,4 +50,4 @@ func handle_selection(_current_selection):
 	for i in choices.get_children():
 		choices.remove_child(i)
 		i.queue_free()
-	get_parent()._start(destination)
+	get_node("GridContainer").handle_selection(destination)

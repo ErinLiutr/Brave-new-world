@@ -1,3 +1,4 @@
 extends Sprite
 
-export var type = "Puzzle"
+export var type = "Description"
+export var id = 219
