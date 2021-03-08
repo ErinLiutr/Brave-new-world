@@ -24,11 +24,11 @@ func handle_selection(destination, path, id, picture, combine_to):
 		node.queue_free()
 		get_node("/root/Room/YSort/Player/Camera2D/Inventory").item_ids.append(str(id))
 	
-	#elif destination == "equip":
-		#get_node("/root/Room/YSort/Player").equipment = str(id)
-		#print(get_node("/root/Room/YSort/Player").equipment)
-		#var equip_node = get_node("/root/Room/YSort/Player/Camera2D/Equipment/")
-		#for child in equip_node.get_children():
-	#		if child.name != "selected":
-	#			child.hide()
-	#	get_node("/root/Room/YSort/Player/Camera2D/Equipment/" + picture).show()
+	elif destination == "equip":
+		get_node("/root/Room/YSort/Player").equipment = str(id)
+
+		var equip_node = get_node("/root/Room/YSort/Player/Camera2D/Equipment/")
+		for child in equip_node.get_children():
+			if child.name != "selected":
+				child.hide()
+		get_node("/root/Room/YSort/Player/Camera2D/Equipment/" + picture).show()
