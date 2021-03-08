@@ -1,6 +1,6 @@
 extends Node2D
 
-var item_ids = [215, 213, 208, 211]
+var item_ids = []
 
 var showing = false
 var pressed = false
