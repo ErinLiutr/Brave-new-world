@@ -33,4 +33,9 @@ func _stop_show():
 			node.hide()
 	hide()
 	showing = false
-	get_node("/root/Room/YSort/Player").canMove = true
+	get_node("Choices").close()
+	if get_parent().name == "Camera2D":
+		get_node("/root/Room/YSort/Player").canMove = true
+	else:
+		get_parent().get_node("NinePatchRect/GridContainer").showing = true
+		get_parent().showing = true

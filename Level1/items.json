@@ -2,86 +2,117 @@
   "201": {
     "name": "HairBleach",
     "description": "Hair bleach.",
-    "options": ["pick"],
-    "picture": "HairBleach"
+    "options": ["combine"],
+    "combine": {
+      "with": "204",
+      "to": "204"
+    },
+    "picture": "HairBleach",
+    "path": "/root/Room/hair-bleach"
   },
   "202": {
     "name": "BottleOfLiquid",
     "description": "Smell is strong. Can’t tell from the bottle what it is.",
-    "options": ["pick", "combine"],
+    "options": ["combine"],
     "combine": {
       "with": "205",
       "to": "203"
     },
-    "picture": "HairDye"
+    "picture": "HairDye",
+    "path": "/root/Room/hair-dye"
   },
   "203": {
     "name": "PinkHairDye",
     "description": "Pink hair dye.",
     "options": ["pick"],
-    "picture": "HairDye"
+    "picture": "HairDye",
+    "path": "/root/Room/hair-dye"
   },
   "204": {
     "name": "BlackHair",
     "description": "Wonder whose hair this is.",
-    "options": ["pick", "combine"],
+    "options": ["pick"],
     "combine": {
       "with": "201",
       "to": "205"
     },
-    "picture": "Hair"
+    "picture": "Hair",
+    "path": "/root/Room/YSort/hair"
   },
   "205": {
     "name": "BleachedHair",
     "description": "Wonder whose hair this is.",
-    "options": ["pick", "combine"],
+    "options": [],
     "combine": {
       "with": "202",
       "to": "206"
     },
-    "picture": ""
+    "picture": "",
+    "path": "/root/Room/YSort/hair"
   },
   "206": {
     "name": "PinkHair",
     "description": "Wonder whose hair this is.",
-    "options": ["pick"],
-    "picture": ""
+    "options": [],
+    "picture": "",
+    "path": "/root/Room/YSort/hair"
   },
   "207": {
     "name": "EyeTestReport",
     "description": "Results says ‘color-blind’, name is covered by brown stain.",
     "options": ["pick"],
-    "picture": ""
+    "picture": "",
+    "path": ""
   },
   "208": {
     "name": "MagazineCover",
     "description": "Cover of an old third-rate magazine, featuring a movie star with ash brown hair. “Interview with K.K: secrets of being popular”, “20 best hair color trends and ideas” says the cover.",
     "options": ["pick"],
-    "picture": "PuzzleAfter"
+    "picture": "PuzzleAfter",
+    "path": "/root/Room/cabinet2/magazine"
   },
   "209": {
     "name": "BandageBox",
     "description": "Empty bandage box.",
     "options": ["pick"],
-    "picture": "BandageBox"
+    "picture": "BandageBox",
+    "path": "/root/Room/YSort/bandage"
   },
   "210": {
     "name": "DirtyShirt",
     "description": "Covered in dirt, red dark stain on the collar.",
     "options": ["pick"],
-    "picture": "Shirt"
+    "picture": "Shirt",
+    "path": "/root/Room/YSort/shirt"
   },
   "211": {
     "name": "SketchPad",
     "description": "Carefully taped after torn. Someone must cherish those drawings.",
-    "options": ["pick"],
-    "picture": "Pad"
+    "options": ["contain"],
+    "contain": ["212", "213"],
+    "picture": "Pad",
+    "path": "/root/Room/pad"
   },
   "212": {
     "name": "Drawing",
     "description": "Used bright and contrast colors.",
     "options": ["pick"],
-    "picture": ""
+    "picture": "",
+    "path": "/root/Room/hair"
+  },
+  "213": {
+    "name": "BirthdayGift",
+    "description": "Signed “Happy birthday, A, June 6, 20xx”.",
+    "options": ["pick"],
+    "picture": "Gift",
+    "path": "/root/Room/hair"
+  },
+  "215": {
+    "name": "Key",
+    "description": "A key",
+    "options": ["pick"],
+    "picture": "Key",
+    "path": "/root/Room/bottle/Sprite/key"
   },
   "216": {
     "name": "Bottle",
@@ -91,7 +122,8 @@
       "name": "password",
       "to": "215"
     },
-    "picture": "Bottle"
+    "picture": "Bottle",
+    "path": "/root/Room/bottle"
   },
   "219": {
     "name": "ShreddedMagazineCover",
@@ -101,6 +133,7 @@
       "name": "slidingPuzzle",
       "to": "208"
     },
-    "picture": "PuzzleBefore"
+    "picture": "PuzzleBefore",
+    "path": "/root/Room/cabinet2/magazine"
   }
 }

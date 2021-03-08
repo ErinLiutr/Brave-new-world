@@ -1,6 +1,9 @@
 extends VBoxContainer
 
-
+var item_path = ""
+var item_id = 0
+var potential_combine = 0
+var picture_name = ""
 var choice_results = []
 
 var current_selection = 0
@@ -37,17 +40,22 @@ func _unhandled_key_input(event):
 			current_selection -= 1
 			get_node("GridContainer/choice" + str(current_selection) + "/selector").text = ">"
 		elif event.is_action_pressed("ui_interact") and choice_results.size() > current_selection:
-			handle_selection(current_selection)
+			if counter > 10:
+				handle_selection(current_selection)
 
 
 func handle_selection(_current_selection):
-	print(_current_selection)
+	var destination = choice_results[_current_selection]
+	get_node("GridContainer").handle_selection(destination, item_path, item_id, picture_name, potential_combine)
+	close()
+	
+func close():
 	hide()
 	showing = false
 	var choices = get_node("GridContainer")
-	var destination = choice_results[_current_selection]
+	item_path = ""
+	item_id = 0
 	choice_results = []
 	for i in choices.get_children():
 		choices.remove_child(i)
 		i.queue_free()
-	get_node("GridContainer").handle_selection(destination)

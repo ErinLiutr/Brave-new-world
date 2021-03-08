@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://desk1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -16,7 +16,7 @@
 [ext_resource path="res://Interact.gd" type="Script" id=14]
 [ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=15]
 [ext_resource path="res://dirty-shirt.png" type="Texture" id=16]
-[ext_resource path="res://glass-bottle.png" type="Texture" id=17]
+[ext_resource path="res://new_dynamicfontsmall.tres" type="DynamicFont" id=17]
 [ext_resource path="res://Interact1.gd" type="Script" id=18]
 [ext_resource path="res://taped-sketch-pad.png" type="Texture" id=19]
 [ext_resource path="res://glass-bottle1.png" type="Texture" id=20]
@@ -24,21 +24,19 @@
 [ext_resource path="res://sliding_poster.tscn" type="PackedScene" id=22]
 [ext_resource path="res://world.tscn" type="PackedScene" id=23]
 [ext_resource path="res://item_box.png" type="Texture" id=24]
-[ext_resource path="res://sketchpad.png" type="Texture" id=25]
+[ext_resource path="res://InventItems.gd" type="Script" id=25]
 [ext_resource path="res://hair-bleach1.png" type="Texture" id=26]
-[ext_resource path="res://hair-bleach.png" type="Texture" id=27]
-[ext_resource path="res://hair-dye.png" type="Texture" id=28]
+[ext_resource path="res://Description.tscn" type="PackedScene" id=28]
 [ext_resource path="res://hair-dye1.png" type="Texture" id=29]
 [ext_resource path="res://key1.png" type="Texture" id=30]
 [ext_resource path="res://DialogBox.gd" type="Script" id=31]
 [ext_resource path="res://Interact4.gd" type="Script" id=32]
 [ext_resource path="res://Interact2.gd" type="Script" id=33]
-[ext_resource path="res://BottleDesc.gd" type="Script" id=34]
+[ext_resource path="res://Menu.gd" type="Script" id=34]
 [ext_resource path="res://Interact3.gd" type="Script" id=35]
 [ext_resource path="res://Interact5.gd" type="Script" id=36]
-[ext_resource path="res://shirt.png" type="Texture" id=37]
-[ext_resource path="res://bandage_box.png" type="Texture" id=38]
-[ext_resource path="res://hair.png" type="Texture" id=39]
+[ext_resource path="res://arrow.png" type="Texture" id=37]
+[ext_resource path="res://menu.png" type="Texture" id=38]
 [ext_resource path="res://bandage-box.png" type="Texture" id=40]
 [ext_resource path="res://Interact7.gd" type="Script" id=41]
 [ext_resource path="res://Interact6.gd" type="Script" id=42]
@@ -48,10 +46,7 @@
 [ext_resource path="res://Choices.gd" type="Script" id=46]
 [ext_resource path="res://Description.gd" type="Script" id=47]
 [ext_resource path="res://Inventory.gd" type="Script" id=48]
-[ext_resource path="res://new_dynamicfontmiddle.tres" type="DynamicFont" id=49]
-[ext_resource path="res://item_choices.gd" type="Script" id=50]
 [ext_resource path="res://dialog_choices.gd" type="Script" id=51]
-[ext_resource path="res://crumpled_magazine.png" type="Texture" id=52]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 24 )
@@ -263,89 +258,108 @@ scale = Vector2( 0.3, 0.3 )
 z_index = 1
 button_path = NodePath("../Interact/Button")
 
-[node name="Description" type="Sprite" parent="YSort/Player/Camera2D"]
+[node name="Description" parent="YSort/Player/Camera2D" instance=ExtResource( 28 )]
+
+[node name="Menu" type="NinePatchRect" parent="YSort/Player/Camera2D"]
 visible = false
-position = Vector2( 0, -48 )
-scale = Vector2( 0.3, 0.3 )
-z_index = 1
-texture = ExtResource( 24 )
+margin_left = 66.0
+margin_top = -67.0
+margin_right = 122.0
+margin_bottom = 13.0
+texture = ExtResource( 38 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
 script = ExtResource( 34 )
-
-[node name="Choices" type="VBoxContainer" parent="YSort/Player/Camera2D/Description"]
-margin_left = -145.0
-margin_top = -61.0
-margin_right = 259.0
-margin_bottom = 60.0
-script = ExtResource( 46 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-col = 3
-
-[node name="Description" type="Label" parent="YSort/Player/Camera2D/Description/Choices"]
-margin_right = 404.0
-margin_bottom = 23.0
-custom_fonts/font = ExtResource( 49 )
-autowrap = true
-
-[node name="GridContainer" type="GridContainer" parent="YSort/Player/Camera2D/Description/Choices"]
-margin_top = 27.0
-margin_right = 404.0
-margin_bottom = 27.0
-custom_constants/hseparation = 40
-columns = 3
-script = ExtResource( 50 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bottle" type="Sprite" parent="YSort/Player/Camera2D/Description"]
+[node name="Labels" type="Node2D" parent="YSort/Player/Camera2D/Menu"]
+
+[node name="Label1" type="Node2D" parent="YSort/Player/Camera2D/Menu/Labels"]
+
+[node name="arrow" type="Sprite" parent="YSort/Player/Camera2D/Menu/Labels/Label1"]
 visible = false
-position = Vector2( -237.503, 4.33853 )
+position = Vector2( 10.3368, 15.9592 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 17 )
-
-[node name="Pad" type="Sprite" parent="YSort/Player/Camera2D/Description"]
-visible = false
-position = Vector2( -239.509, 0 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 25 )
-
-[node name="HairBleach" type="Sprite" parent="YSort/Player/Camera2D/Description"]
-visible = false
-position = Vector2( -239.509, 0 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 27 )
-
-[node name="HairDye" type="Sprite" parent="YSort/Player/Camera2D/Description"]
-visible = false
-position = Vector2( -239.509, 0 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 28 )
-
-[node name="Shirt" type="Sprite" parent="YSort/Player/Camera2D/Description"]
-visible = false
-position = Vector2( -240.912, -0.301697 )
-scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 37 )
 
-[node name="BandageBox" type="Sprite" parent="YSort/Player/Camera2D/Description"]
-visible = false
-position = Vector2( -240.912, -0.301697 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 38 )
+[node name="Label" type="Label" parent="YSort/Player/Camera2D/Menu/Labels/Label1"]
+margin_left = 15.2235
+margin_top = 6.66752
+margin_right = 50.2235
+margin_bottom = 23.6675
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "ITEMS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Hair" type="Sprite" parent="YSort/Player/Camera2D/Description"]
-visible = false
-position = Vector2( -239, -0.302 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 39 )
+[node name="Label2" type="Node2D" parent="YSort/Player/Camera2D/Menu/Labels"]
+position = Vector2( 0, 16 )
 
-[node name="PuzzleBefore" type="Sprite" parent="YSort/Player/Camera2D/Description"]
+[node name="arrow" type="Sprite" parent="YSort/Player/Camera2D/Menu/Labels/Label2"]
 visible = false
-position = Vector2( -240.033, 2.02211 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 52 )
+position = Vector2( 10.3368, 15.9592 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 37 )
+
+[node name="Label" type="Label" parent="YSort/Player/Camera2D/Menu/Labels/Label2"]
+margin_left = 15.2235
+margin_top = 6.66752
+margin_right = 50.2235
+margin_bottom = 23.6675
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "LOAD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Node2D" parent="YSort/Player/Camera2D/Menu/Labels"]
+position = Vector2( 0, 32 )
+
+[node name="arrow" type="Sprite" parent="YSort/Player/Camera2D/Menu/Labels/Label3"]
+visible = false
+position = Vector2( 10.3368, 15.9592 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 37 )
+
+[node name="Label" type="Label" parent="YSort/Player/Camera2D/Menu/Labels/Label3"]
+margin_left = 15.2235
+margin_top = 6.66752
+margin_right = 50.2235
+margin_bottom = 23.6675
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "HELP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Node2D" parent="YSort/Player/Camera2D/Menu/Labels"]
+position = Vector2( 0, 48 )
+
+[node name="arrow" type="Sprite" parent="YSort/Player/Camera2D/Menu/Labels/Label4"]
+visible = false
+position = Vector2( 10.3368, 15.9592 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 37 )
+
+[node name="Label" type="Label" parent="YSort/Player/Camera2D/Menu/Labels/Label4"]
+margin_left = 15.2235
+margin_top = 6.66752
+margin_right = 50.2235
+margin_bottom = 23.6675
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "EXIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DialogBox" type="Sprite" parent="YSort/Player/Camera2D"]
 visible = false
@@ -415,76 +429,46 @@ __meta__ = {
 visible = false
 script = ExtResource( 48 )
 
+[node name="Description" parent="YSort/Player/Camera2D/Inventory" instance=ExtResource( 28 )]
+position = Vector2( -42.3013, -53.1401 )
+scale = Vector2( 0.25, 0.25 )
+
 [node name="NinePatchRect" type="NinePatchRect" parent="YSort/Player/Camera2D/Inventory"]
-margin_left = 9.0
+margin_left = 29.0
 margin_top = -76.0
 margin_right = 128.0
 margin_bottom = 76.0
 texture = ExtResource( 45 )
 patch_margin_left = 35
-patch_margin_top = 17
+patch_margin_top = 11
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Description2" type="Sprite" parent="YSort/Player/Camera2D/Inventory"]
-position = Vector2( -50, -56 )
-scale = Vector2( 0.22, 0.22 )
-z_index = 1
-texture = ExtResource( 24 )
-script = ExtResource( 34 )
-
-[node name="Bottle" type="Sprite" parent="YSort/Player/Camera2D/Inventory/Description2"]
-visible = false
-position = Vector2( -237.503, 4.33853 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 17 )
-
-[node name="Pad" type="Sprite" parent="YSort/Player/Camera2D/Inventory/Description2"]
-visible = false
-position = Vector2( -239.509, 0 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 25 )
-
-[node name="HairBleach" type="Sprite" parent="YSort/Player/Camera2D/Inventory/Description2"]
-visible = false
-position = Vector2( -239.509, 0 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 27 )
-
-[node name="HairDye" type="Sprite" parent="YSort/Player/Camera2D/Inventory/Description2"]
-visible = false
-position = Vector2( -239.509, 0 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 28 )
-
-[node name="Description" type="RichTextLabel" parent="YSort/Player/Camera2D/Inventory/Description2"]
-margin_left = -132.0
-margin_top = -64.0
-margin_right = 281.0
-margin_bottom = 42.0
-custom_fonts/normal_font = ExtResource( 15 )
+[node name="Label" type="Label" parent="YSort/Player/Camera2D/Inventory/NinePatchRect"]
+margin_left = 29.0387
+margin_top = -1.97695
+margin_right = 99.0387
+margin_bottom = 15.023
+custom_fonts/font = ExtResource( 17 )
+text = "Inventory"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Shirt" type="Sprite" parent="YSort/Player/Camera2D/Inventory/Description2"]
-visible = false
-position = Vector2( -240.912, -0.301697 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 37 )
-
-[node name="BandageBox" type="Sprite" parent="YSort/Player/Camera2D/Inventory/Description2"]
-visible = false
-position = Vector2( -240.912, -0.301697 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 38 )
-
-[node name="Hair" type="Sprite" parent="YSort/Player/Camera2D/Inventory/Description2"]
-visible = false
-position = Vector2( -239, -0.302 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 39 )
+[node name="GridContainer" type="GridContainer" parent="YSort/Player/Camera2D/Inventory/NinePatchRect"]
+margin_left = 24.0
+margin_top = 23.0
+margin_right = 93.0
+margin_bottom = 142.0
+custom_constants/vseparation = 22
+custom_constants/hseparation = 25
+columns = 3
+script = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+col = 3
 
 [node name="bandage" type="StaticBody2D" parent="YSort"]
 position = Vector2( 72, 72 )

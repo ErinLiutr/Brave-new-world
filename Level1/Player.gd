@@ -5,7 +5,8 @@ var startPos = position
 var moving = false
 
 var canMove = true
-var pressed = false
+var interact = false
+var menu = false
 
 const SPEED = 1
 const GRID = 16
@@ -13,6 +14,7 @@ const GRID = 16
 var world
 var sprite
 var animationPlayer
+var equipment = ""
 
 var script_url = "res://items.json"
 var json
@@ -37,9 +39,13 @@ func load_data(url):
 	
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_interact") and canMove:
-		pressed = true
+		interact = true
 	elif event.is_action_released("ui_interact"):
-		pressed = false
+		interact = false
+	elif event.is_action_pressed("ui_menu") and canMove:
+		menu = true
+	elif event.is_action_released("ui_menu"):
+		menu = false
 		
 func _physics_process(delta):
 	if !moving and canMove:
@@ -78,7 +84,7 @@ func _physics_process(delta):
 				startPos = position
 				animationPlayer.play("RunRight")
 		
-		if pressed:
+		if interact:
 			if sprite.get_frame() == 0:
 				interact(resultDown)
 			elif sprite.get_frame() == 4:
@@ -87,13 +93,16 @@ func _physics_process(delta):
 				interact(resultUp)
 			elif sprite.get_frame() == 12:
 				interact(resultRight)
+		
+		if menu:
+			get_node("Camera2D/Menu")._open_menu()
 	elif canMove:
 		move_and_collide(direction * SPEED)
 		var diff = position - (startPos + Vector2(GRID * direction.x, GRID * direction.y))
 
 		if abs(diff.x) < 0.1 && abs(diff.y) < 0.1:
 			moving = false
-	pressed = false
+	interact = false
 			
 func interact(result):
 	for dictionary in result:
@@ -110,7 +119,7 @@ func interact(result):
 				var idx = 0
 				for choice in json[str(id)]["options"]:
 					var new_choice = choice_item.instance()
-					new_choice.name = choice
+					new_choice.name = "choice" + str(idx)
 					if idx == 0:
 						new_choice.get_node("selector").text = ">"
 					else:
@@ -121,12 +130,24 @@ func interact(result):
 						new_choice.get_node("choice").text = "view"
 						var game_name = json[str(id)]["game"]["name"]
 						node.get_node("Choices").choice_results.append(game_name)
+					elif choice == "combine":
+						var target = json[str(id)]["combine"]["with"]
+
+						if equipment == target:
+							new_choice.get_node("choice").text = "combine"
+							node.get_node("Choices").choice_results.append("combine")
+							node.get_node("Choices").potential_combine = json[str(id)]["combine"]["to"]
+						else:
+							continue
 					else:
 						node.get_node("Choices").choice_results.append(choice)
 					node.get_node("Choices/GridContainer").add_child(new_choice)
 				node.get_node("Choices").counter = 0
 				node.get_node("Choices").current_selection = 0
 				node.get_node("Choices").showing = true
+				node.get_node("Choices").item_path = json[str(id)]["path"]
+				node.get_node("Choices").picture_name = json[str(id)]["picture"]
+				node.get_node("Choices").item_id = id
 				node.get_node("Choices").show()
 				node.get_node(json[str(id)]["picture"]).show()
 			if name == "DialogBox":
