@@ -91,7 +91,7 @@
     "options": ["contain"],
     "contain": ["212", "213"],
     "picture": "Pad",
-    "path": "/root/Room/pad"
+    "path": "/root/Room/YSort/table/pad"
   },
   "212": {
     "name": "Drawing",
@@ -112,7 +112,7 @@
     "description": "A key",
     "options": ["pick"],
     "picture": "Key",
-    "path": "/root/Room/bottle/Sprite/key"
+    "path": "/root/Room/YSort/table/bottle/Sprite/key"
   },
   "216": {
     "name": "Bottle",
@@ -123,7 +123,7 @@
       "to": "215"
     },
     "picture": "Bottle",
-    "path": "/root/Room/bottle"
+    "path": "/root/Room/YSort/table/bottle"
   },
   "219": {
     "name": "ShreddedMagazineCover",

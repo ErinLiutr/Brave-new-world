@@ -20,8 +20,9 @@ func handle_selection(destination, path, id, picture, combine_to):
 	elif destination == "pick":
 
 		var node = get_node(path)
-		node.get_parent().remove_child(node)
-		node.queue_free()
+		if node.has_node("CollisionShape2D"):
+			node.get_node("CollisionShape2D").disabled = true
+		node.hide()
 		get_node("/root/Room/YSort/Player/Camera2D/Inventory").item_ids.append(str(id))
 	
 	elif destination == "equip":
