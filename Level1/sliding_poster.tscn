@@ -11,6 +11,12 @@
 script = ExtResource( 2 )
 button_path = NodePath("Reset")
 
+[node name="Popup" parent="." instance=ExtResource( 6 )]
+margin_left = 71.4854
+margin_top = 120.567
+margin_right = 71.4854
+margin_bottom = 120.567
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2( -370.207, -0.827038 )
 scale = Vector2( 1.00055, 1.00249 )
@@ -43,10 +49,4 @@ texture_pressed = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Popup" parent="." instance=ExtResource( 6 )]
-margin_left = 71.4854
-margin_top = 120.567
-margin_right = 71.4854
-margin_bottom = 120.567
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]

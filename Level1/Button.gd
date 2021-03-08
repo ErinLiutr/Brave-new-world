@@ -1,6 +1,6 @@
 extends Button
 
-export var path = ""
+export var path = "res://Room.tscn"
 
 func _ready():
 	connect("mouse_entered", self, "_on_Button_mouse_entered")
@@ -8,7 +8,7 @@ func _ready():
 	
 
 func _on_Button_Pressed():
-	if (path != ""):
-		get_tree().change_scene(path)
-	else:
-		get_tree().quit()
+#	if (path != ""):
+	get_tree().change_scene("res://Room.tscn")
+#	else:
+#		get_tree().quit()

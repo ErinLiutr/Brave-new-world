@@ -52,11 +52,11 @@ func step(key, dir):
 
 # flag when the puzzle is finished
 func check_ready():
-	for n in range(12):
-		var ans_row = ans[n][0]
-		var ans_col = ans[n][1]
-		if (not img[n].position == Vector2(ans[n][0], ans[n][1])):
-			return false
+#	for n in range(12):
+#		var ans_row = ans[n][0]
+#		var ans_col = ans[n][1]
+#		if (not img[n].position == Vector2(ans[n][0], ans[n][1])):
+#			return false
 	return true
 
 # reset the puzzle game
@@ -74,9 +74,9 @@ func reset():
 	root.get_node("Room/YSort/Player/Camera2D").add_child(new)
 
 func _physics_process(_delta):
-#	print(check_ready())
 	if (check_ready()):
-		pop_up.rect_global_position = Vector2(95, 130)
+		print(get_parent().position)
+		pop_up.rect_global_position = get_parent().position#Vector2(95, 130)
 		pop_up.show()
 	if showing:
 		step(KEY_DOWN, Vector2(-1, 0))

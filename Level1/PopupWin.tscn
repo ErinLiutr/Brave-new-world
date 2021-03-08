@@ -17,11 +17,14 @@ __meta__ = {
 }
 
 [node name="PopupPanel" type="PopupMenu" parent="."]
-margin_left = -1.22526
-margin_top = 1.29181
-margin_right = 281.775
-margin_bottom = 189.292
-rect_scale = Vector2( 1.2, 1.2 )
+margin_left = 69.4056
+margin_top = 31.2452
+margin_right = 352.406
+margin_bottom = 219.245
+rect_scale = Vector2( 0.2, 0.2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Sprite" type="Sprite" parent="PopupPanel"]
 position = Vector2( 141.93, 93.9391 )

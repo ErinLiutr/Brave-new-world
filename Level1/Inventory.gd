@@ -80,3 +80,9 @@ func _stop_show():
 	hide()
 	get_node("/root/Room/YSort/Player").canMove = true
 	showing = false
+
+func save():
+	var save_dict = {
+		"item_ids": item_ids
+	}
+	return save_dict
