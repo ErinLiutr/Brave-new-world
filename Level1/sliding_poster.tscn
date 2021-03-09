@@ -1,21 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://reset1.png" type="Texture" id=1]
 [ext_resource path="res://sliding_poster.gd" type="Script" id=2]
 [ext_resource path="res://reset2.png" type="Texture" id=3]
 [ext_resource path="res://Quit2.png" type="Texture" id=4]
 [ext_resource path="res://Quit1.png" type="Texture" id=5]
-[ext_resource path="res://PopupWin.tscn" type="PackedScene" id=6]
 
 [node name="sliding_poster" type="Node2D"]
 script = ExtResource( 2 )
 button_path = NodePath("Reset")
-
-[node name="Popup" parent="." instance=ExtResource( 6 )]
-margin_left = 71.4854
-margin_top = 120.567
-margin_right = 71.4854
-margin_bottom = 120.567
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2( -370.207, -0.827038 )

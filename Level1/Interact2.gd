@@ -1,4 +1,4 @@
 extends Sprite
 
 export var type = "Description"
-export var id = 202
+export var id = "202"

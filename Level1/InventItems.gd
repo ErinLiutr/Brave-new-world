@@ -55,6 +55,7 @@ func handle_selection(_current_selection):
 	var id = item_ids[_current_selection]
 	var desc = invent_node.get_node("Description")
 	desc.get_node("Choices/Description").text = invent_node.get_info(id, "description")
+	desc.get_node("Choices/Name").text = invent_node.get_info(id, "item_name")
 	
 	var new_choice = choice_item.instance()
 	new_choice.name = "equip"
@@ -67,8 +68,6 @@ func handle_selection(_current_selection):
 	desc.get_node("Choices").counter = 0
 	desc.get_node("Choices").current_selection = 0
 	desc.get_node("Choices").showing = true
-	desc.get_node("Choices").item_path = invent_node.get_info(id, "path")
-	desc.get_node("Choices").picture_name  = invent_node.get_info(id, "picture")
 	desc.get_node("Choices").item_id = id
 	desc.get_node("Choices").show()
 	desc.get_node(invent_node.get_info(id, "picture")).show()

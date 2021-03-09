@@ -13,7 +13,7 @@ var conversion_map = [10, 8, 4, 0, 7, 1, 9, 3, 6, 2, 5, 11]
 var ans = [[120, 360], [240, 240],[120, 120],[0, 0],
 		   [120, 240], [120, 0],[0, 360],[0, 120],
 		   [0, 240], [240, 0],[240, 120],[240, 360]]
-onready var pop_up = get_node("Popup/PopupPanel")
+onready var pop_up = get_tree().get_root().get_node("Room/YSort/Player/Camera2D/blur/Puzzle_pop/PopupPanel")
 
 var showing = false
 
@@ -74,11 +74,16 @@ func reset():
 	root.get_node("Room/YSort/Player/Camera2D").add_child(new)
 
 func _physics_process(_delta):
-	if (check_ready()):
-		print(get_parent().position)
-		pop_up.rect_global_position = get_parent().position#Vector2(95, 130)
-		pop_up.show()
 	if showing:
+		if (check_ready() and counter > 100):
+			#print(get_parent().position)
+			#print(get_node("Popup").z_index)
+			pop_up.rect_global_position = Vector2(get_parent().global_position.x - 68, get_parent().global_position.y - 44)
+			print(pop_up.rect_global_position)
+			#get_tree().get_root().get_node("Room/YSort/Player/Camera2D").z_index = 0
+			#hide()
+			self.z_index = 0
+			pop_up.show()
 		step(KEY_DOWN, Vector2(-1, 0))
 		step(KEY_RIGHT, Vector2(0, -1))
 		step(KEY_LEFT, Vector2(0, 1))
@@ -88,9 +93,13 @@ func _physics_process(_delta):
 	
 func _start_show():
 	show()
+	self.z_index = 5
 	showing = true
 		
 func _on_Quit_pressed():
+	_stop_show()
+	
+func _stop_show():
 	counter = 0
 	hide()
 	showing = false

@@ -48,8 +48,20 @@ func init():
 	get_node("NinePatchRect/GridContainer").showing = true
 	
 func get_info(id, key):
-	print(json[str(id)])
 	return json[str(id)][key]
+	
+func combine(id):
+	var combine_info = get_info(id, "combine")
+	var to = combine_info["to"]
+	var node = get_node(get_info(id, "path") + "/Interact")
+	node.id = to
+	
+	var with = combine_info["with"]
+	var with_to = get_info(with, "combine")["to"]
+	var idx = item_ids.find(with)
+	item_ids.remove(idx)
+	item_ids.insert(idx, with_to)
+	get_node("/root/Room/YSort/Player").equipment = with_to
 		
 func _unhandled_key_input(event):
 	if showing:

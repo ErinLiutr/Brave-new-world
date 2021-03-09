@@ -8,7 +8,7 @@ var canMove = true
 var interact = false
 var menu = false
 
-const SPEED = 1
+const SPEED = 0.5
 const GRID = 16
 
 var world
@@ -116,6 +116,7 @@ func interact(result):
 			if name == "Description":
 				var id = dictionary.collider.get_node("Interact").id
 				node.get_node("Choices/Description").text = json[str(id)]["description"]
+				node.get_node("Choices/Name").text = json[str(id)]["item_name"]
 				var idx = 0
 				for choice in json[str(id)]["options"]:
 					var new_choice = choice_item.instance()
@@ -134,9 +135,8 @@ func interact(result):
 						var target = json[str(id)]["combine"]["with"]
 
 						if equipment == target:
-							new_choice.get_node("choice").text = "combine"
+							new_choice.get_node("choice").text = "combine with " + json[target]["item_name"]
 							node.get_node("Choices").choice_results.append("combine")
-							node.get_node("Choices").potential_combine = json[str(id)]["combine"]["to"]
 						else:
 							continue
 					else:
@@ -145,8 +145,6 @@ func interact(result):
 				node.get_node("Choices").counter = 0
 				node.get_node("Choices").current_selection = 0
 				node.get_node("Choices").showing = true
-				node.get_node("Choices").item_path = json[str(id)]["path"]
-				node.get_node("Choices").picture_name = json[str(id)]["picture"]
 				node.get_node("Choices").item_id = id
 				node.get_node("Choices").show()
 				node.get_node(json[str(id)]["picture"]).show()

@@ -1,9 +1,6 @@
 extends VBoxContainer
 
-var item_path = ""
 var item_id = 0
-var potential_combine = 0
-var picture_name = ""
 var choice_results = []
 
 var current_selection = 0
@@ -46,14 +43,13 @@ func _unhandled_key_input(event):
 
 func handle_selection(_current_selection):
 	var destination = choice_results[_current_selection]
-	get_node("GridContainer").handle_selection(destination, item_path, item_id, picture_name, potential_combine)
+	get_node("GridContainer").handle_selection(destination, item_id)
 	close()
 	
 func close():
 	hide()
 	showing = false
 	var choices = get_node("GridContainer")
-	item_path = ""
 	item_id = 0
 	choice_results = []
 	for i in choices.get_children():

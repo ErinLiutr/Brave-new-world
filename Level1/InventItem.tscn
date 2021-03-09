@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://birthdaygift.png" type="Texture" id=1]
 [ext_resource path="res://bandage-box.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://dirty-shirt.png" type="Texture" id=7]
 [ext_resource path="res://magazine.png" type="Texture" id=8]
 [ext_resource path="res://taped-sketch-pad.png" type="Texture" id=9]
+[ext_resource path="res://hair-dye1.png" type="Texture" id=10]
 
 [node name="InventItem" type="Control"]
 anchor_right = 1.0
@@ -32,7 +33,19 @@ position = Vector2( 8, 4 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 6 )
 
+[node name="HairDye" type="Sprite" parent="."]
+visible = false
+position = Vector2( 9, 7 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 10 )
+
 [node name="Hair" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 7.5 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+
+[node name="BleachedHair" type="Sprite" parent="."]
 visible = false
 position = Vector2( 8, 7.5 )
 scale = Vector2( 1.5, 1.5 )

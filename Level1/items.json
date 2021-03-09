@@ -1,17 +1,19 @@
 {
   "201": {
     "name": "HairBleach",
+    "item_name": "Hair bleach",
     "description": "Hair bleach.",
     "options": ["combine"],
     "combine": {
       "with": "204",
-      "to": "204"
+      "to": "201"
     },
     "picture": "HairBleach",
     "path": "/root/Room/hair-bleach"
   },
   "202": {
     "name": "BottleOfLiquid",
+    "item_name": "Bottle of liquid with ammonia-like smell",
     "description": "Smell is strong. Can’t tell from the bottle what it is.",
     "options": ["combine"],
     "combine": {
@@ -23,6 +25,7 @@
   },
   "203": {
     "name": "PinkHairDye",
+    "item_name": "Pink hair dye",
     "description": "Pink hair dye.",
     "options": ["pick"],
     "picture": "HairDye",
@@ -30,6 +33,7 @@
   },
   "204": {
     "name": "BlackHair",
+    "item_name": "A lock of black hair",
     "description": "Wonder whose hair this is.",
     "options": ["pick"],
     "combine": {
@@ -41,45 +45,51 @@
   },
   "205": {
     "name": "BleachedHair",
+    "item_name": "A lock of bleached hair",
     "description": "Wonder whose hair this is.",
     "options": [],
     "combine": {
       "with": "202",
       "to": "206"
     },
-    "picture": "",
+    "picture": "BleachedHair",
     "path": "/root/Room/YSort/hair"
   },
   "206": {
     "name": "PinkHair",
+    "item_name": "A lock of pink hair",
     "description": "Wonder whose hair this is.",
     "options": [],
-    "picture": "",
+    "picture": "Hair",
     "path": "/root/Room/YSort/hair"
   },
   "207": {
     "name": "EyeTestReport",
+    "item_name": "Eye test report",
     "description": "Results says ‘color-blind’, name is covered by brown stain.",
     "options": ["pick"],
-    "picture": "",
+    "picture": "EyeTestReport",
     "path": ""
   },
   "208": {
     "name": "MagazineCover",
+    "item_name": "Crumpled magazine cover with brown hair movie star",
     "description": "Cover of an old third-rate magazine, featuring a movie star with ash brown hair. “Interview with K.K: secrets of being popular”, “20 best hair color trends and ideas” says the cover.",
     "options": ["pick"],
     "picture": "PuzzleAfter",
-    "path": "/root/Room/cabinet2/magazine"
+    "path": "/root/Room/cabinet3/cabinet2"
   },
   "209": {
     "name": "BandageBox",
-    "description": "Empty bandage box.",
+    "item_name": "Bandage boxes",
+    "description": "Two Empty bandage boxes",
     "options": ["pick"],
     "picture": "BandageBox",
     "path": "/root/Room/YSort/bandage"
   },
   "210": {
     "name": "DirtyShirt",
+    "item_name": "Dirty shirt with red stain",
     "description": "Covered in dirt, red dark stain on the collar.",
     "options": ["pick"],
     "picture": "Shirt",
@@ -87,6 +97,7 @@
   },
   "211": {
     "name": "SketchPad",
+    "item_name": "Taped sketch pad",
     "description": "Carefully taped after torn. Someone must cherish those drawings.",
     "options": ["contain"],
     "contain": ["212", "213"],
@@ -95,6 +106,7 @@
   },
   "212": {
     "name": "Drawing",
+    "item_name": "Drawings with contrast colors",
     "description": "Used bright and contrast colors.",
     "options": ["pick"],
     "picture": "",
@@ -102,20 +114,23 @@
   },
   "213": {
     "name": "BirthdayGift",
+    "item_name": "Birthday gift to A",
     "description": "Signed “Happy birthday, A, June 6, 20xx”.",
     "options": ["pick"],
     "picture": "Gift",
-    "path": "/root/Room/hair"
+    "path": "/root/Room/gift"
   },
   "215": {
     "name": "Key",
-    "description": "A key",
+    "item_name": "A key",
+    "description": "A key.",
     "options": ["pick"],
     "picture": "Key",
     "path": "/root/Room/YSort/table/bottle/Sprite/key"
   },
   "216": {
     "name": "Bottle",
+    "item_name": "Glass bottle",
     "description": "",
     "options": ["game"],
     "game": {
@@ -127,6 +142,7 @@
   },
   "219": {
     "name": "ShreddedMagazineCover",
+    "item_name": "Shredded magazine cover",
     "description": "Shredded magazine cover.",
     "options": ["game"],
     "game": {
@@ -134,6 +150,6 @@
       "to": "208"
     },
     "picture": "PuzzleBefore",
-    "path": "/root/Room/cabinet2/magazine"
+    "path": "/root/Room/cabinet3/cabinet2"
   }
 }
