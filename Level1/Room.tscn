@@ -240,8 +240,8 @@ margin_bottom = -32.9671
 visible = false
 margin_left = 66.0
 margin_top = -67.0
-margin_right = 122.0
-margin_bottom = 28.0
+margin_right = 137.0
+margin_bottom = 42.0
 texture = ExtResource( 38 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -342,7 +342,7 @@ position = Vector2( 0, 48 )
 
 [node name="arrow" type="Sprite" parent="YSort/Player/Camera2D/Menu/Labels/Label5"]
 visible = false
-position = Vector2( 10.3368, 31.362 )
+position = Vector2( 10.3368, 32.5468 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 37 )
 
@@ -351,6 +351,27 @@ margin_left = 15.2235
 margin_top = 23.2552
 margin_right = 50.2235
 margin_bottom = 40.2552
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "RESTART"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Node2D" parent="YSort/Player/Camera2D/Menu/Labels"]
+position = Vector2( 0, 48 )
+
+[node name="arrow" type="Sprite" parent="YSort/Player/Camera2D/Menu/Labels/Label6"]
+visible = false
+position = Vector2( 10.3368, 47.9497 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 37 )
+
+[node name="Label" type="Label" parent="YSort/Player/Camera2D/Menu/Labels/Label6"]
+margin_left = 15.2235
+margin_top = 38.658
+margin_right = 50.2235
+margin_bottom = 55.658
 custom_fonts/font = ExtResource( 17 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "EXIT"

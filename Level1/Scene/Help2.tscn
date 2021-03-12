@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://OpenSans-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://new_dynamicfontsmall.tres" type="DynamicFont" id=2]
 
-[sub_resource type="Theme" id=1]
+[sub_resource type="Theme" id=5]
+default_font = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 25
@@ -28,20 +30,21 @@ __meta__ = {
 
 [node name="Help" type="AcceptDialog" parent="."]
 visible = true
+self_modulate = Color( 0.2, 0, 0, 1 )
 margin_top = 9.0
-margin_right = 488.0
-margin_bottom = 288.0
+margin_right = 524.0
+margin_bottom = 293.0
 rect_scale = Vector2( 0.3, 0.3 )
-theme = SubResource( 1 )
-window_title = "Guide"
+theme = SubResource( 5 )
+window_title = ""
 dialog_text = "Welcom to Project: Brave New World!
 
 Look around the room to view and pick up items, some of them will help you understand the story and idenify the criminal. You need to find all the necessary items in a room in order to start \"combat\" with the NPC. Winning the \"combat\" game will automatically send you to the next room. Have no clue where to start? Try to talk to the NPC standing in every room first!
 
-[z]		 		    Interact with objects and NPC.
-[tab] 			    Open menu to view your inventory, save and load game progress.
-[esc] 		   	 Quit dialog box or inventory.
-[arrow keys]	Move around the room and select items in the inventory.
+[z]		 		   		               Interact with objects and NPC.
+[tab] 			              Open menu to view your inventory, save and load game progress.
+[esc] 		   	           Quit dialog box or inventory.
+[arrow keys]	 Move around the room and select items in the inventory.
 "
 dialog_autowrap = true
 __meta__ = {
@@ -51,9 +54,9 @@ __meta__ = {
 [node name="RichTextLabel" type="RichTextLabel" parent="Help"]
 visible = false
 margin_left = 8.0
-margin_top = 243.0
-margin_right = 480.0
-margin_bottom = 243.0
+margin_top = 245.0
+margin_right = 516.0
+margin_bottom = 245.0
 rect_scale = Vector2( 0.6, 0.6 )
 custom_fonts/bold_italics_font = SubResource( 2 )
 custom_fonts/italics_font = SubResource( 3 )
@@ -70,9 +73,9 @@ __meta__ = {
 [node name="RichTextLabel2" type="RichTextLabel" parent="Help"]
 visible = false
 margin_left = 8.0
-margin_top = 243.0
-margin_right = 480.0
-margin_bottom = 243.0
+margin_top = 245.0
+margin_right = 516.0
+margin_bottom = 245.0
 rect_scale = Vector2( 0.6, 0.6 )
 custom_fonts/bold_italics_font = SubResource( 2 )
 custom_fonts/italics_font = SubResource( 3 )
