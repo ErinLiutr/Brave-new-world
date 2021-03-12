@@ -2,7 +2,7 @@ extends StaticBody2D
 
 func save():
 	var save_dict = {
-		"filename": "shirt",
+		"filename": "gift",
 		"visible": visible
 	}
 	return save_dict

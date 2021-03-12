@@ -8,7 +8,7 @@ var canMove = true
 var interact = false
 var menu = false
 
-const SPEED = 0.5
+const SPEED = 1
 const GRID = 16
 
 var world

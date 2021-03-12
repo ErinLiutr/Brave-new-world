@@ -79,9 +79,6 @@ func _physics_process(_delta):
 			#print(get_parent().position)
 			#print(get_node("Popup").z_index)
 			pop_up.rect_global_position = Vector2(get_parent().global_position.x - 68, get_parent().global_position.y - 44)
-			print(pop_up.rect_global_position)
-			#get_tree().get_root().get_node("Room/YSort/Player/Camera2D").z_index = 0
-			#hide()
 			self.z_index = 0
 			pop_up.show()
 		step(KEY_DOWN, Vector2(-1, 0))

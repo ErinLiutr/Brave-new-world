@@ -16,6 +16,13 @@ func _ready():
 	set_process_unhandled_key_input(true)
 	json = load_data(script_url)
 
+func save():
+	var save_dict = {
+		"filename": "Inventory",
+		"items": item_ids
+	}
+	return save_dict
+	
 func load_data(url):
 	var file = File.new()
 	if url == null: return null
@@ -29,6 +36,7 @@ func load_data(url):
 
 func init():
 	var idx = 0
+#	if (get_node("NinePatchRect/GridContainer").item_ids != ):
 	get_node("NinePatchRect/GridContainer").item_ids = []
 	for id in item_ids:
 		var new_item = inventory_item.instance()
@@ -92,9 +100,3 @@ func _stop_show():
 	hide()
 	get_node("/root/Room/YSort/Player").canMove = true
 	showing = false
-
-func save():
-	var save_dict = {
-		"item_ids": item_ids
-	}
-	return save_dict

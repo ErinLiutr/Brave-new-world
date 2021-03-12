@@ -21,6 +21,23 @@ func _handle_interaction():
 		open = false
 		_close_menu()
 		get_parent().get_node("Inventory")._start_show()
+	elif currentLabel == 1:
+		$"../../../../../Room".load_game()
+		open = false
+		_close_menu()
+	elif currentLabel == 2:
+		$"../../../../../Room".save_game()
+		open = false
+		_close_menu()
+	elif currentLabel == 3:	
+		get_node("/root/Room/YSort/Player").canMove = false
+		$"../Help/Help".set_global_position(
+			Vector2(get_node("/root/Room/YSort/Player").position.x-80, 
+			get_node("/root/Room/YSort/Player").position.y-70))
+		$"../Help/Help".show()
+		hide()
+		for child in labels:
+			child.get_node("arrow").hide()
 
 	else:
 		open = false
@@ -28,22 +45,17 @@ func _handle_interaction():
 
 func _physics_process(delta):
 	if open:
-		
 		if Input.is_action_pressed("ui_interact"):
 			_handle_interaction()
-		
 		if menu:
 			_close_menu()
-		
 		if up:
 			labels[currentLabel].get_node("arrow").hide()
 			if currentLabel == 0:
 				currentLabel = labels.size()-1
 			else:
 				currentLabel-=1
-			labels[currentLabel].get_node("arrow").show()
-			
-		
+			labels[currentLabel].get_node("arrow").show()		
 		if down:
 			labels[currentLabel].get_node("arrow").hide()
 			if currentLabel == labels.size()-1:
@@ -51,7 +63,7 @@ func _physics_process(delta):
 			else:
 				currentLabel+=1
 			labels[currentLabel].get_node("arrow").show()
-		
+			
 		menu = false
 		up = false
 		down = false

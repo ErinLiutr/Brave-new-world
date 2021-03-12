@@ -8,4 +8,4 @@ func _ready():
 	
 
 func _on_Button_Pressed():
-	get_tree().quit()
+	get_tree().change_scene(path)
