@@ -16,6 +16,7 @@ __meta__ = {
 }
 
 [node name="PopupPanel" type="PopupMenu" parent="."]
+visible = true
 margin_left = 69.4056
 margin_top = 31.2452
 margin_right = 352.406

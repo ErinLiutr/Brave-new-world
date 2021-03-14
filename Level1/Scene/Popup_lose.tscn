@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://combat/art/Replay2.png" type="Texture" id=1]
+[ext_resource path="res://combat/art/Quit1.png" type="Texture" id=2]
+[ext_resource path="res://combat/art/Failed_Option_BG.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Popup.gd" type="Script" id=4]
+[ext_resource path="res://combat/art/Quit2.png" type="Texture" id=5]
+[ext_resource path="res://combat/art/Replay1.png" type="Texture" id=6]
+
+[node name="Control" type="Control"]
+margin_left = -0.618134
+margin_top = -0.618408
+margin_right = 629.382
+margin_bottom = 399.382
+rect_scale = Vector2( 0.1, 0.1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+margin_left = -6.10352e-05
+margin_top = -9.91821e-05
+margin_right = 630.0
+margin_bottom = 400.0
+rect_scale = Vector2( 0.8, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="PopupMenu"]
+position = Vector2( 315.362, 199.533 )
+scale = Vector2( 1.50166, 1.23403 )
+texture = ExtResource( 3 )
+
+[node name="Replay" type="TextureButton" parent="PopupMenu"]
+anchor_left = -0.642
+anchor_top = -0.573
+anchor_right = -0.642
+anchor_bottom = -0.563
+margin_left = 503.459
+margin_top = 533.874
+margin_right = 610.459
+margin_bottom = 581.754
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="TextureButton" parent="PopupMenu"]
+anchor_left = -0.642
+anchor_top = -0.573
+anchor_right = -0.642
+anchor_bottom = -0.563
+margin_left = 827.301
+margin_top = 534.052
+margin_right = 934.301
+margin_bottom = 581.932
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="PopupMenu/Replay" to="." method="_on_Replay_pressed"]
+[connection signal="pressed" from="PopupMenu/Quit" to="." method="_on_Quit_pressed"]

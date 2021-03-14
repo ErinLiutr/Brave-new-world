@@ -21,24 +21,20 @@ __meta__ = {
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
 visible = true
-margin_left = 33.375
-margin_top = 61.05
-margin_right = 649.375
-margin_bottom = 491.05
-rect_scale = Vector2( 0.15, 0.15 )
+margin_left = 358.264
+margin_top = 176.954
+margin_right = 974.264
+margin_bottom = 606.954
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Layer" type="Node2D" parent="PopupMenu"]
-z_index = 5
-
-[node name="Sprite" type="Sprite" parent="PopupMenu/Layer"]
+[node name="Sprite" type="Sprite" parent="PopupMenu"]
 position = Vector2( 309.676, 215.83 )
 scale = Vector2( 0.239465, 0.296535 )
 texture = ExtResource( 2 )
 
-[node name="Replay" type="TextureButton" parent="PopupMenu/Layer"]
+[node name="Replay" type="TextureButton" parent="PopupMenu"]
 margin_left = 146.449
 margin_top = 300.0
 margin_right = 280.449
@@ -49,7 +45,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit" type="TextureButton" parent="PopupMenu/Layer"]
+[node name="Quit" type="TextureButton" parent="PopupMenu"]
 margin_left = 353.158
 margin_top = 296.225
 margin_right = 487.158
@@ -59,5 +55,5 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="PopupMenu/Layer/Replay" to="." method="_on_Replay_pressed"]
-[connection signal="pressed" from="PopupMenu/Layer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="PopupMenu/Replay" to="." method="_on_Replay_pressed"]
+[connection signal="pressed" from="PopupMenu/Quit" to="." method="_on_Quit_pressed"]

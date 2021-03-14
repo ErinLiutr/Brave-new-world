@@ -2,18 +2,15 @@
 
 [ext_resource path="res://Assets/Images/Player.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
-[ext_resource path="res://combat/player.png" type="Texture" id=3]
+[ext_resource path="res://combat/art/icon-player.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 26.0303
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 102.593, 152 )
+position = Vector2( 0.336857, -0.70853 )
 collision_mask = 4
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -77,11 +74,9 @@ region_rect = Rect2( 127, 119, 11, 27 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2( 0.40686, -4.06847 )
+position = Vector2( 0.14875, -0.971165 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-disabled = true

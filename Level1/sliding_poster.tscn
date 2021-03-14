@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://reset1.png" type="Texture" id=1]
 [ext_resource path="res://sliding_poster.gd" type="Script" id=2]
 [ext_resource path="res://reset2.png" type="Texture" id=3]
 [ext_resource path="res://Quit2.png" type="Texture" id=4]
 [ext_resource path="res://Quit1.png" type="Texture" id=5]
+[ext_resource path="res://detailed_image/confirm1.png" type="Texture" id=6]
+[ext_resource path="res://detailed_image/confirm2.png" type="Texture" id=7]
+[ext_resource path="res://newpixel.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Cheat.gd" type="Script" id=9]
 
 [node name="sliding_poster" type="Node2D"]
 script = ExtResource( 2 )
@@ -29,6 +33,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Confirm" type="TextureButton" parent="."]
+visible = false
+margin_left = 403.0
+margin_top = 336.0
+margin_right = 484.0
+margin_bottom = 376.0
+rect_scale = Vector2( 1.2, 1.2 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Sprite" type="Sprite" parent="."]
 
 [node name="Quit" type="TextureButton" parent="."]
@@ -39,6 +56,18 @@ margin_bottom = 241.0
 rect_scale = Vector2( 1.2, 1.2 )
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 416.0
+margin_top = 160.0
+margin_right = 488.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 8 )
+text = "CHEAT"
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

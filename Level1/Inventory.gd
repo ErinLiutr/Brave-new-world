@@ -1,6 +1,6 @@
 extends Node2D
 
-var item_ids = []
+var item_ids = ["101", "102", "103"]
 
 var showing = false
 var pressed = false
@@ -70,6 +70,7 @@ func combine(id):
 	item_ids.remove(idx)
 	item_ids.insert(idx, with_to)
 	get_node("/root/Room/YSort/Player").equipment = with_to
+	get_node("/root/Room/YSort/Player").update_equip(json[with]["picture"], json[with_to]["picture"])
 		
 func _unhandled_key_input(event):
 	if showing:

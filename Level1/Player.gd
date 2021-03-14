@@ -113,8 +113,13 @@ func interact(result):
 			node.show()
 			if node.has_node("Game"):
 				get_node("Camera2D/blur").show()
-			if name == "Description":
+			elif name == "Description":
+
 				var id = dictionary.collider.get_node("Interact").id
+				if json[str(id)]["picture"] == "":
+					node.hide()
+					node = get_node("/root/Room/YSort/Player/Camera2D/EnvDesc")
+					node.show()
 				node.get_node("Choices/Description").text = json[str(id)]["description"]
 				node.get_node("Choices/Name").text = json[str(id)]["item_name"]
 				var idx = 0
@@ -139,6 +144,22 @@ func interact(result):
 							node.get_node("Choices").choice_results.append("combine")
 						else:
 							continue
+					elif choice == "open":
+						new_choice.get_node("choice").text = "view"
+						var status = dictionary.collider.get_node("Interact").status
+						if status == 0:
+							node.get_node("Choices").choice_results.append("password")
+						elif status == 1:
+							node.get_node("Choices").choice_results.append("key")
+					elif choice == "unlock":
+						if equipment == "215":
+							new_choice.get_node("choice").text = "unlock with key"
+							node.get_node("Choices").choice_results.append("unlock")
+						else:
+							continue
+					elif choice == "report":
+						new_choice.get_node("choice").text = "view"
+						node.get_node("Choices").choice_results.append("report")
 					else:
 						node.get_node("Choices").choice_results.append(choice)
 					node.get_node("Choices/GridContainer").add_child(new_choice)
@@ -147,8 +168,18 @@ func interact(result):
 				node.get_node("Choices").showing = true
 				node.get_node("Choices").item_id = id
 				node.get_node("Choices").show()
-				node.get_node(json[str(id)]["picture"]).show()
+				if json[str(id)]["picture"] != "":
+					node.get_node(json[str(id)]["picture"]).show()
+				
+			elif name == "EnvDesc":
+				var item_name = dictionary.collider.get_node("Interact").item_name
+				node.get_node("Choices/Description").text = "This is just " + item_name + ". No more information here."
+				node.get_node("Choices/Name").text = item_name
 			if name == "DialogBox":
 				node._start("01")
 			else:
 				node._start_show()
+
+func update_equip(previous, next):
+	get_node("Camera2D/Equipment/" + previous).hide()
+	get_node("Camera2D/Equipment/" + next).show()

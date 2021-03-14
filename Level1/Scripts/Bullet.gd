@@ -7,15 +7,14 @@ one life point.
 
 extends KinematicBody2D
 
-const SPEED = 50
+const SPEED = 400
 var velocity = Vector2()
 
 func _physics_process(delta):
 	$Sprite.rotation += 75
-	#print(velocity)
 	var collision = move_and_collide(velocity*delta)
 	if collision:
-		if collision.collider.name == "player":
+		if collision.collider.name == "Player":
 			collision.collider.lose_life()
 		call_deferred("free")
 		

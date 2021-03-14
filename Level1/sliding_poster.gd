@@ -3,6 +3,7 @@ extends Node2D
 # set up the reset button
 export (NodePath) var button_path
 onready var button = get_node("Reset")
+onready var confirm = get_node("Confirm")
 
 var img_node = load("poster.tscn")
 var img = []
@@ -21,6 +22,7 @@ var counter = 0
 
 func _ready():
 	button.connect("pressed", self, "reset")
+	confirm.connect("pressed", self, "confirm")
 	for n in range(12):
 		img.append(img_node.instance())
 		img[n].set_frame(conversion_map[n])
@@ -52,11 +54,11 @@ func step(key, dir):
 
 # flag when the puzzle is finished
 func check_ready():
-#	for n in range(12):
-#		var ans_row = ans[n][0]
-#		var ans_col = ans[n][1]
-#		if (not img[n].position == Vector2(ans[n][0], ans[n][1])):
-#			return false
+	for n in range(12):
+		var ans_row = ans[n][0]
+		var ans_col = ans[n][1]
+		if (not img[n].position == Vector2(ans[n][0], ans[n][1])):
+			return false
 	return true
 
 # reset the puzzle game
@@ -75,17 +77,22 @@ func reset():
 
 func _physics_process(_delta):
 	if showing:
-		if (check_ready() and counter > 100):
+		if (check_ready()):
 			#print(get_parent().position)
 			#print(get_node("Popup").z_index)
-			pop_up.rect_global_position = Vector2(get_parent().global_position.x - 68, get_parent().global_position.y - 44)
-			self.z_index = 0
-			pop_up.show()
+			#pop_up.rect_global_position = Vector2(get_parent().global_position.x - 68, get_parent().global_position.y - 44)
+			#self.z_index = 0
+			#pop_up.show()
+			confirm.show()
 		step(KEY_DOWN, Vector2(-1, 0))
 		step(KEY_RIGHT, Vector2(0, -1))
 		step(KEY_LEFT, Vector2(0, 1))
 		step(KEY_UP, Vector2(1, 0))
 		counter += 1
+	
+func confirm():
+	get_node("/root/Room/YSort/Player/Camera2D/Puzzle")._stop_show()
+	get_node("/root/Room/cabinet3/magazine/Interact").id = "208"
 	
 	
 func _start_show():

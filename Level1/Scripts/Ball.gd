@@ -5,7 +5,7 @@ the boundaries of the scene
 """
 extends KinematicBody2D
 
-const SPEED = 40
+const SPEED = 300
 var velocity = Vector2()
 #var destroyed = false
 
@@ -14,10 +14,10 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity*delta)
 	if collision:
 		if collision.collider.name == "Enemy":
-			collision.collider.lose_life()
+			collision.collider.lose_life(true)
 		call_deferred("free")
 		
-func set_ball_direction(direction):
+func set_bullet_direction(direction):
 	velocity = direction * SPEED
 #
 func stop():

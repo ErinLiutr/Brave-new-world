@@ -1,19 +1,49 @@
 extends KinematicBody2D
 
-var velocity = Vector2(30, 0)
+var velocity = Vector2(300, 0)
 var life_points = 100
-var pop_up_win
-
+var pop_up
+onready var animationPlayer = null
 
 func _ready():
-	pop_up_win = get_node("../../PopupWin/PopupMenu")
+	animationPlayer = $"BleedingAnimator"
+	$"Bleeding".visible = false
+	pop_up = get_node("../../PopupWin/PopupMenu")
+	$"-1/Sprite".visible = false
+	$"-10/Sprite".visible = false
+	$"-20/Sprite".visible = false
+	$"-30/Sprite".visible = false
+	$"-40/Sprite".visible = false
+func lose_10():
+	$"-10/Sprite".visible = true
+	$"-10/AnimationPlayer".play("-1")
+	
+func lose_20():
+	$"-20/Sprite".visible = true
+	$"-20/AnimationPlayer".play("-1")
 
-func lose_life():
+func lose_30():
+	print("hi")
+	$"-30/Sprite".visible = true
+	$"-30/AnimationPlayer".play("-1")
+	
+func lose_40():
+	$"-40/Sprite".visible = true
+	$"-40/AnimationPlayer".play("-1")	
+	
+func lose_life(flag):
 	life_points -= 1
-
+	$"Bleeding".visible = true
+	animationPlayer.play("Bleeding")
+	if flag:
+		$"-1/Sprite".visible = true
+		$"-1/AnimationPlayer".play("-1")	
+	
 func _physics_process(delta):
 	if life_points <= 0:
-		$"../player".stop_player()
+		$"../Player".stop_player()
 		set_physics_process(false)
 		set_process(false)
-		pop_up_win.show()
+		pop_up.rect_global_position = Vector2(50, 250)
+		pop_up.show()
+

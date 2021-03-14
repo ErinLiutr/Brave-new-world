@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://combat/boss.png" type="Texture" id=1]
+[ext_resource path="res://combat/art/boss.png" type="Texture" id=1]
+[ext_resource path="res://combat/art/bleeding.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -9,6 +10,22 @@ height = 72.8329
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 46.0981, 41.9671 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Bleeding"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bleeding:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 8
@@ -24,7 +41,6 @@ visible = false
 position = Vector2( -1.07762, -2.60798 )
 rotation = 1.5708
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -7.62939e-06, -39.064 )
@@ -35,4 +51,12 @@ texture = ExtResource( 1 )
 position = Vector2( 0, -38.7085 )
 rotation = 1.5708
 shape = SubResource( 2 )
-disabled = true
+
+[node name="BleedingAnimator" type="AnimationPlayer" parent="."]
+anims/Bleeding = SubResource( 3 )
+
+[node name="Bleeding" type="Sprite" parent="."]
+position = Vector2( 1.55025, -31.9688 )
+scale = Vector2( 0.697516, 0.802545 )
+texture = ExtResource( 2 )
+hframes = 4

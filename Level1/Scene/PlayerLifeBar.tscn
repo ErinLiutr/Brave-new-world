@@ -1,6 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://combat/icon-player.png" type="Texture" id=1]
+[ext_resource path="res://combat/art/icon-player.png" type="Texture" id=1]
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.309804, 0.207843, 0.219608, 1 )
@@ -41,10 +42,11 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = -17.347
-margin_top = -29.7289
-margin_right = 36.653
-margin_bottom = 30.2711
+margin_left = -39.5297
+margin_top = 25.1469
+margin_right = 14.4703
+margin_bottom = 85.1469
+rect_rotation = 270.0
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6

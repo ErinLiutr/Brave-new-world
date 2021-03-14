@@ -9,7 +9,7 @@
       "to": "201"
     },
     "picture": "HairBleach",
-    "path": "/root/Room/hair-bleach"
+    "path": "/root/Room/YSort/desk1/hair-bleach"
   },
   "202": {
     "name": "BottleOfLiquid",
@@ -60,7 +60,7 @@
     "item_name": "A lock of pink hair",
     "description": "Wonder whose hair this is.",
     "options": [],
-    "picture": "Hair",
+    "picture": "PinkHair",
     "path": "/root/Room/YSort/hair"
   },
   "207": {
@@ -77,7 +77,7 @@
     "description": "Cover of an old third-rate magazine, featuring a movie star with ash brown hair. “Interview with K.K: secrets of being popular”, “20 best hair color trends and ideas” says the cover.",
     "options": ["pick"],
     "picture": "PuzzleAfter",
-    "path": "/root/Room/cabinet3/cabinet2"
+    "path": "/root/Room/cabinet3/magazine"
   },
   "209": {
     "name": "BandageBox",
@@ -98,9 +98,8 @@
   "211": {
     "name": "SketchPad",
     "item_name": "Taped sketch pad",
-    "description": "Carefully taped after torn. Someone must cherish those drawings.",
-    "options": ["contain"],
-    "contain": ["212", "213"],
+    "description": "Carefully taped after torn. Someone must cherish those drawings. The drawings used bright and contrast colors.",
+    "options": ["pick"],
     "picture": "Pad",
     "path": "/root/Room/YSort/table/pad"
   },
@@ -131,13 +130,41 @@
   "216": {
     "name": "Bottle",
     "item_name": "Glass bottle",
-    "description": "",
-    "options": ["game"],
-    "game": {
-      "name": "password",
-      "to": "215"
-    },
+    "description": "This is a bottle with a cipher lock on it.",
+    "options": ["open"],
     "picture": "Bottle",
+    "path": "/root/Room/YSort/table/bottle"
+  },
+  "216-1": {
+    "name": "Bottle",
+    "item_name": "Glass bottle",
+    "description": "This is an empty bottle",
+    "options": [],
+    "picture": "Bottle",
+    "path": "/root/Room/YSort/table/bottle"
+  },
+  "217-1": {
+    "name": "Drawer",
+    "item_name": "Drawer",
+    "description": "Drawer is locked. A key is needed.",
+    "options": ["unlock"],
+    "picture": "",
+    "path": "/root/Room/YSort/table/bottle"
+  },
+  "217-2": {
+    "name": "Drawer",
+    "item_name": "Drawer",
+    "description": "Drawer is open.",
+    "options": ["report"],
+    "picture": "Drawer",
+    "path": "/root/Room/YSort/table/bottle"
+  },
+  "217-3": {
+    "name": "Drawer",
+    "item_name": "Drawer",
+    "description": "Drawer is empty.",
+    "options": [],
+    "picture": "Drawer",
     "path": "/root/Room/YSort/table/bottle"
   },
   "219": {
@@ -151,5 +178,29 @@
     },
     "picture": "PuzzleBefore",
     "path": "/root/Room/cabinet3/cabinet2"
+  },
+  "101": {
+    "name": "StainedID",
+    "item_name": "Stained ID",
+    "description": "Name is covered by stain.",
+    "options": [],
+    "picture": "ID",
+    "path": ""
+  },
+  "102": {
+    "name": "Receipt",
+    "item_name": "Crumpled receipt",
+    "description": "Hair bleach - 1 item\nHair dye - 1 item",
+    "options": [],
+    "picture": "Receipt",
+    "path": ""
+  },
+  "103": {
+    "name": "Check",
+    "item_name": "Torn check",
+    "description": "1000 USD",
+    "options": [],
+    "picture": "Check",
+    "path": ""
   }
 }

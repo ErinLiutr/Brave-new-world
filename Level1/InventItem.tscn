@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://birthdaygift.png" type="Texture" id=1]
 [ext_resource path="res://bandage-box.png" type="Texture" id=2]
@@ -11,6 +11,11 @@
 [ext_resource path="res://taped-sketch-pad.png" type="Texture" id=9]
 [ext_resource path="res://hair-dye1.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/SaveObjects/SaveEquip.gd" type="Script" id=11]
+[ext_resource path="res://hair2.png" type="Texture" id=12]
+[ext_resource path="res://hair3.png" type="Texture" id=13]
+[ext_resource path="res://ID.png" type="Texture" id=14]
+[ext_resource path="res://Check.png" type="Texture" id=15]
+[ext_resource path="res://Receipt.png" type="Texture" id=16]
 
 [node name="InventItem" type="Control"]
 anchor_right = 1.0
@@ -51,9 +56,21 @@ texture = ExtResource( 3 )
 visible = false
 position = Vector2( 8, 7.5 )
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 12 )
+
+[node name="PinkHair" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 7.5 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 13 )
 
 [node name="PuzzleAfter" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8.5, 7 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 8 )
+
+[node name="EyeTestReport" type="Sprite" parent="."]
 visible = false
 position = Vector2( 8.5, 7 )
 scale = Vector2( 1.5, 1.5 )
@@ -79,3 +96,18 @@ texture = ExtResource( 2 )
 visible = false
 position = Vector2( 8, 7 )
 texture = ExtResource( 9 )
+
+[node name="ID" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+texture = ExtResource( 14 )
+
+[node name="Check" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+texture = ExtResource( 15 )
+
+[node name="Receipt" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+texture = ExtResource( 16 )

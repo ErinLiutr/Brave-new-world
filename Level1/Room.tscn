@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=2]
+[gd_scene load_steps=104 format=2]
 
 [ext_resource path="res://desk1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -22,7 +22,6 @@
 [ext_resource path="res://glass-bottle1.png" type="Texture" id=20]
 [ext_resource path="res://magazine.png" type="Texture" id=21]
 [ext_resource path="res://sliding_poster.tscn" type="PackedScene" id=22]
-[ext_resource path="res://world.tscn" type="PackedScene" id=23]
 [ext_resource path="res://item_box.png" type="Texture" id=24]
 [ext_resource path="res://InventItems.gd" type="Script" id=25]
 [ext_resource path="res://hair-bleach1.png" type="Texture" id=26]
@@ -69,7 +68,7 @@
 [ext_resource path="res://decoration/trash3.png" type="Texture" id=67]
 [ext_resource path="res://decoration/carpet2.png" type="Texture" id=68]
 [ext_resource path="res://music/chapter1-theme.wav" type="AudioStream" id=69]
-[ext_resource path="res://PopupWin.tscn" type="PackedScene" id=70]
+[ext_resource path="res://Interact10.gd" type="Script" id=70]
 [ext_resource path="res://birthdaygift.png" type="Texture" id=71]
 [ext_resource path="res://Scripts/load.gd" type="Script" id=72]
 [ext_resource path="res://Scripts/SaveObjects/ShirtSave.gd" type="Script" id=73]
@@ -80,8 +79,22 @@
 [ext_resource path="res://Scripts/SaveObjects/SaveGift.gd" type="Script" id=78]
 [ext_resource path="res://Scene/Helpl.tscn" type="PackedScene" id=79]
 [ext_resource path="res://Scripts/SaveObjects/SaveMag.gd" type="Script" id=80]
+[ext_resource path="res://Interact9.gd" type="Script" id=81]
+[ext_resource path="res://Scene/lock.tscn" type="PackedScene" id=82]
+[ext_resource path="res://Scene/PopupWin.tscn" type="PackedScene" id=83]
+[ext_resource path="res://Scene/PopupLose.tscn" type="PackedScene" id=84]
+[ext_resource path="res://EnvDesc.gd" type="Script" id=85]
+[ext_resource path="res://item_box1.png" type="Texture" id=86]
+[ext_resource path="res://Choices.tscn" type="PackedScene" id=87]
+[ext_resource path="res://Interact_env.gd" type="Script" id=88]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 16 )
+
+[sub_resource type="Shader" id=3]
 code = "shader_type canvas_item;
 
 uniform float blur : hint_range(0, 6) = 0.5;
@@ -91,24 +104,18 @@ void fragment() {
 	COLOR = color;
 }"
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
 shader_param/blur = 1.259
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 16, 24 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 8, 8 )
-
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 8, 16 )
+extents = Vector2( 16, 24 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 8, 8 )
+extents = Vector2( 8, 16 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8, 8 )
@@ -117,16 +124,16 @@ extents = Vector2( 8, 8 )
 extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 16, 8 )
+extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 16, 16 )
+extents = Vector2( 16, 8 )
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 24, 8 )
+extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 8, 8 )
+extents = Vector2( 24, 8 )
 
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 8, 8 )
@@ -135,7 +142,7 @@ extents = Vector2( 8, 8 )
 extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 8, 16 )
+extents = Vector2( 8, 8 )
 
 [node name="Room" type="Node2D"]
 script = ExtResource( 72 )
@@ -177,6 +184,78 @@ texture = ExtResource( 6 )
 position = Vector2( 304, 136 )
 texture = ExtResource( 10 )
 
+[node name="hair-dye" type="StaticBody2D" parent="." groups=[
+"Persist",
+]]
+position = Vector2( 80, 304 )
+script = ExtResource( 75 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="hair-dye"]
+position = Vector2( 12.6772, -5.79083 )
+texture = ExtResource( 29 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hair-dye"]
+position = Vector2( 7.99999, -8 )
+shape = SubResource( 1 )
+
+[node name="Interact" type="Sprite" parent="hair-dye"]
+visible = false
+position = Vector2( 91.0676, -118.896 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 1
+texture = ExtResource( 24 )
+script = ExtResource( 33 )
+
+[node name="gift" type="StaticBody2D" parent="." groups=[
+"Persist",
+]]
+position = Vector2( 40, 248 )
+script = ExtResource( 78 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="gift"]
+position = Vector2( -9.53674e-07, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 71 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gift"]
+position = Vector2( 1.90734e-06, -9.53689e-07 )
+shape = SubResource( 1 )
+
+[node name="Interact" type="Sprite" parent="gift"]
+visible = false
+position = Vector2( 91.0676, -118.896 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 1
+script = ExtResource( 81 )
+
+[node name="cabinet3" type="Sprite" parent="."]
+position = Vector2( 284.5, 31.5 )
+texture = ExtResource( 3 )
+
+[node name="magazine" type="StaticBody2D" parent="cabinet3" groups=[
+"Persist",
+]]
+position = Vector2( 3.5, 8.5 )
+script = ExtResource( 80 )
+
+[node name="Sprite" type="Sprite" parent="cabinet3/magazine"]
+position = Vector2( 7.75, -0.5 )
+texture = ExtResource( 21 )
+
+[node name="Interact" type="Sprite" parent="cabinet3/magazine"]
+visible = false
+script = ExtResource( 36 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cabinet3/magazine"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
@@ -197,7 +276,7 @@ margin_bottom = -75.0041
 
 [node name="blur" type="TextureRect" parent="YSort/Player/Camera2D"]
 visible = false
-material = SubResource( 2 )
+material = SubResource( 4 )
 margin_left = -199.571
 margin_top = -113.744
 margin_right = 160.429
@@ -208,17 +287,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Puzzle_pop" parent="YSort/Player/Camera2D/blur" instance=ExtResource( 70 )]
-margin_left = 26.0022
-margin_top = -5.53131e-05
-margin_right = 26.0022
-margin_bottom = -6.10352e-05
+[node name="PopupLose" parent="YSort/Player/Camera2D/blur" instance=ExtResource( 84 )]
+rect_scale = Vector2( 0.2, 0.2 )
 
-[node name="World" parent="YSort/Player/Camera2D" instance=ExtResource( 23 )]
+[node name="PopupWin" parent="YSort/Player/Camera2D/blur" instance=ExtResource( 83 )]
+
+[node name="Password" parent="YSort/Player/Camera2D" instance=ExtResource( 82 )]
 visible = false
-position = Vector2( -67.5251, -40 )
-scale = Vector2( 0.1, 0.1 )
-z_index = 4
+position = Vector2( -52.2253, -56.872 )
+scale = Vector2( 0.3, 0.3 )
 
 [node name="Puzzle" parent="YSort/Player/Camera2D" instance=ExtResource( 22 )]
 visible = false
@@ -228,7 +305,21 @@ z_index = 5
 z_as_relative = false
 button_path = NodePath("../Interact/Button")
 
+[node name="EnvDesc" type="Sprite" parent="YSort/Player/Camera2D"]
+visible = false
+position = Vector2( -0.221008, -47.3934 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 86 )
+script = ExtResource( 85 )
+
+[node name="Choices" parent="YSort/Player/Camera2D/EnvDesc" instance=ExtResource( 87 )]
+margin_left = -202.239
+margin_top = -63.1911
+margin_right = 201.761
+margin_bottom = 57.8089
+
 [node name="Description" parent="YSort/Player/Camera2D" instance=ExtResource( 28 )]
+visible = false
 
 [node name="Help" parent="YSort/Player/Camera2D" instance=ExtResource( 79 )]
 margin_left = -38.803
@@ -428,6 +519,7 @@ visible = false
 script = ExtResource( 48 )
 
 [node name="Description" parent="YSort/Player/Camera2D/Inventory" instance=ExtResource( 28 )]
+visible = false
 position = Vector2( -42.3013, -53.1401 )
 scale = Vector2( 0.25, 0.25 )
 
@@ -471,6 +563,30 @@ col = 3
 [node name="desk1" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 384, 352 )
 
+[node name="hair-bleach" type="StaticBody2D" parent="YSort/desk1" groups=[
+"Persist",
+]]
+position = Vector2( 8, 24 )
+script = ExtResource( 76 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/desk1/hair-bleach"]
+position = Vector2( -3.5892, -10.5892 )
+texture = ExtResource( 26 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/desk1/hair-bleach"]
+position = Vector2( -5.72205e-06, 1.43051e-05 )
+shape = SubResource( 1 )
+
+[node name="Interact" type="Sprite" parent="YSort/desk1/hair-bleach"]
+visible = false
+position = Vector2( 91.0676, -118.896 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 1
+script = ExtResource( 35 )
+
 [node name="bed" type="StaticBody2D" parent="YSort"]
 position = Vector2( 80, 80 )
 __meta__ = {
@@ -483,7 +599,7 @@ texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/bed"]
 position = Vector2( 0, 8 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="cabinet1" type="StaticBody2D" parent="YSort"]
 position = Vector2( 88, 240 )
@@ -496,7 +612,10 @@ texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/cabinet1"]
 position = Vector2( 0, 8 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
+
+[node name="Interact" type="Sprite" parent="YSort/cabinet1"]
+script = ExtResource( 70 )
 
 [node name="table" type="StaticBody2D" parent="YSort"]
 position = Vector2( 304, 160 )
@@ -511,7 +630,7 @@ texture = ExtResource( 11 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/table"]
 position = Vector2( 0, 8 )
 rotation = -1.5708
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="bottle" type="StaticBody2D" parent="YSort/table"]
 position = Vector2( 8, 0 )
@@ -529,7 +648,7 @@ texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/table/bottle"]
 position = Vector2( 0, 8 )
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="Interact" type="Sprite" parent="YSort/table/bottle"]
 visible = false
@@ -553,7 +672,7 @@ script = ExtResource( 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/table/pad"]
 position = Vector2( 0, 16.095 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="NPC" type="StaticBody2D" parent="YSort"]
 position = Vector2( -16, 16 )
@@ -567,7 +686,7 @@ texture = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NPC"]
 position = Vector2( 168, 56 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="Interact" type="Sprite" parent="YSort/NPC"]
 position = Vector2( 105.07, 16 )
@@ -591,13 +710,22 @@ texture = ExtResource( 55 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/cabinet3"]
 position = Vector2( -184, 32 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
+
+[node name="Interact" type="Sprite" parent="YSort/cabinet3"]
+script = ExtResource( 88 )
+item_name = "cabinet"
 
 [node name="cabinet4" type="StaticBody2D" parent="YSort"]
 position = Vector2( 360, 40 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="Interact" type="Sprite" parent="YSort/cabinet4"]
+position = Vector2( -40, 0 )
+script = ExtResource( 88 )
+item_name = "cabinet"
 
 [node name="cabinet2" type="Sprite" parent="YSort/cabinet4"]
 position = Vector2( -183.79, 26.5227 )
@@ -609,7 +737,7 @@ texture = ExtResource( 52 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/cabinet4"]
 position = Vector2( -184, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="shelf" type="StaticBody2D" parent="YSort"]
 position = Vector2( 520, 40 )
@@ -623,21 +751,30 @@ texture = ExtResource( 56 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/shelf"]
 position = Vector2( -184, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
+
+[node name="Interact" type="Sprite" parent="YSort/shelf"]
+position = Vector2( -200, 0 )
+script = ExtResource( 88 )
+item_name = "bookshelf"
 
 [node name="washer" type="StaticBody2D" parent="YSort"]
-position = Vector2( 568, 248 )
+position = Vector2( 384, 280 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="cabinet2" type="Sprite" parent="YSort/washer"]
-position = Vector2( -182.441, 24 )
+position = Vector2( 0, -8 )
 texture = ExtResource( 64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/washer"]
-position = Vector2( -184, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
+
+[node name="Interact" type="Sprite" parent="YSort/washer"]
+position = Vector2( -64, -240 )
+script = ExtResource( 88 )
+item_name = "washer"
 
 [node name="trash4" type="StaticBody2D" parent="YSort"]
 position = Vector2( 32, 280 )
@@ -647,10 +784,18 @@ position = Vector2( 0, -8 )
 texture = ExtResource( 61 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/trash4"]
-shape = SubResource( 10 )
+shape = SubResource( 11 )
+
+[node name="Interact" type="Sprite" parent="YSort/trash4"]
+position = Vector2( 288, -240 )
+script = ExtResource( 88 )
+item_name = "trash"
 
 [node name="trash3" type="StaticBody2D" parent="YSort"]
 position = Vector2( 80, 272 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="cabinet2" type="Sprite" parent="YSort/trash3"]
 position = Vector2( 2.6727, 2.6727 )
@@ -658,35 +803,48 @@ texture = ExtResource( 67 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/trash3"]
 position = Vector2( 0, 8 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
+
+[node name="Interact" type="Sprite" parent="YSort/trash3"]
+position = Vector2( 240, -232 )
+script = ExtResource( 88 )
+item_name = "trash"
 
 [node name="trash5" type="StaticBody2D" parent="YSort"]
-position = Vector2( 200, 232 )
+position = Vector2( 16, 264 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="cabinet2" type="Sprite" parent="YSort/trash5"]
-position = Vector2( -185.647, 27.5478 )
+position = Vector2( 0, -4 )
 texture = ExtResource( 59 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/trash5"]
-position = Vector2( -184, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
+
+[node name="Interact" type="Sprite" parent="YSort/trash5"]
+position = Vector2( 304, -224 )
+script = ExtResource( 88 )
+item_name = "trash"
 
 [node name="trash1" type="StaticBody2D" parent="YSort"]
-position = Vector2( 200, 216 )
+position = Vector2( 16, 248 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="cabinet2" type="Sprite" parent="YSort/trash1"]
-position = Vector2( -184, 17.4865 )
+position = Vector2( 0, -16 )
 texture = ExtResource( 60 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/trash1"]
-position = Vector2( -184, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
+
+[node name="Interact" type="Sprite" parent="YSort/trash1"]
+position = Vector2( 304, -208 )
+script = ExtResource( 88 )
+item_name = "trash"
 
 [node name="plant" type="StaticBody2D" parent="YSort"]
 position = Vector2( 320, 40 )
@@ -700,7 +858,11 @@ texture = ExtResource( 49 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/plant"]
 position = Vector2( -184, 32 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
+
+[node name="Interact" type="Sprite" parent="YSort/plant"]
+script = ExtResource( 88 )
+item_name = "plant"
 
 [node name="plant3" type="StaticBody2D" parent="YSort"]
 position = Vector2( 496, 40 )
@@ -714,7 +876,12 @@ texture = ExtResource( 58 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/plant3"]
 position = Vector2( -184, 32 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
+
+[node name="Interact" type="Sprite" parent="YSort/plant3"]
+position = Vector2( -176, 0 )
+script = ExtResource( 88 )
+item_name = "plant"
 
 [node name="lamp" type="StaticBody2D" parent="YSort"]
 position = Vector2( 280, 168 )
@@ -727,45 +894,63 @@ position = Vector2( 0, -9.18921 )
 texture = ExtResource( 57 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/lamp"]
-shape = SubResource( 9 )
+shape = SubResource( 10 )
+
+[node name="Interact" type="Sprite" parent="YSort/lamp"]
+position = Vector2( 40, -128 )
+script = ExtResource( 88 )
+item_name = "lamp"
 
 [node name="toilet" type="StaticBody2D" parent="YSort"]
-position = Vector2( 496, 248 )
+position = Vector2( 312, 280 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="cabinet2" type="Sprite" parent="YSort/toilet"]
-position = Vector2( -182.211, 19.7783 )
+position = Vector2( 0, -12 )
 texture = ExtResource( 63 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/toilet"]
-position = Vector2( -184, 32 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
+
+[node name="Interact" type="Sprite" parent="YSort/toilet"]
+position = Vector2( 8, -240 )
+script = ExtResource( 88 )
+item_name = "toilet"
 
 [node name="bath" type="StaticBody2D" parent="YSort"]
 position = Vector2( 320, 368 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="cabinet2" type="Sprite" parent="YSort/bath"]
 position = Vector2( -1.87289, -3.52608 )
 texture = ExtResource( 65 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/bath"]
-shape = SubResource( 11 )
+shape = SubResource( 12 )
+
+[node name="Interact" type="Sprite" parent="YSort/bath"]
+position = Vector2( 0, -328 )
+script = ExtResource( 88 )
+item_name = "bath"
 
 [node name="trash2" type="StaticBody2D" parent="YSort"]
-position = Vector2( 192, 264 )
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( 8, 296 )
 
 [node name="cabinet2" type="Sprite" parent="YSort/trash2"]
-position = Vector2( -180.162, 32 )
+position = Vector2( 4, 0 )
 texture = ExtResource( 62 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/trash2"]
-position = Vector2( -184, 32 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
+
+[node name="Interact" type="Sprite" parent="YSort/trash2"]
+position = Vector2( 312, -256 )
+script = ExtResource( 88 )
+item_name = "trash"
 
 [node name="plant2" type="StaticBody2D" parent="YSort"]
 position = Vector2( 543.206, 40 )
@@ -779,21 +964,30 @@ texture = ExtResource( 49 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/plant2"]
 position = Vector2( -184, 32 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
+
+[node name="Interact" type="Sprite" parent="YSort/plant2"]
+position = Vector2( -223.206, 0 )
+script = ExtResource( 88 )
+item_name = "plant"
 
 [node name="Wardrobe" type="StaticBody2D" parent="YSort"]
-position = Vector2( 168.204, 102.982 )
+position = Vector2( 40, 72 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="YSort/Wardrobe"]
-position = Vector2( -128.204, -54.982 )
+position = Vector2( 0, -24 )
 texture = ExtResource( 53 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Wardrobe"]
-position = Vector2( -128.204, -30.982 )
-shape = SubResource( 12 )
+position = Vector2( 0, 9.53674e-06 )
+shape = SubResource( 13 )
+
+[node name="Interact" type="Sprite" parent="YSort/Wardrobe"]
+script = ExtResource( 88 )
+item_name = "wardrobe"
 
 [node name="shirt" type="StaticBody2D" parent="YSort" groups=[
 "Persist",
@@ -809,7 +1003,7 @@ position = Vector2( 0, -4 )
 texture = ExtResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/shirt"]
-shape = SubResource( 13 )
+shape = SubResource( 14 )
 
 [node name="Interact" type="Sprite" parent="YSort/shirt"]
 script = ExtResource( 42 )
@@ -828,7 +1022,7 @@ position = Vector2( -3, -3 )
 texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/bandage"]
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 
 [node name="Interact" type="Node2D" parent="YSort/bandage"]
 script = ExtResource( 41 )
@@ -847,106 +1041,11 @@ texture = ExtResource( 44 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/hair"]
-shape = SubResource( 15 )
+shape = SubResource( 16 )
 
 [node name="Interact" type="Sprite" parent="YSort/hair"]
 script = ExtResource( 43 )
 
-[node name="hair-dye" type="StaticBody2D" parent="." groups=[
-"Persist",
-]]
-position = Vector2( 64.408, 271.974 )
-script = ExtResource( 75 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="hair-dye"]
-position = Vector2( 12.6772, -5.79083 )
-texture = ExtResource( 29 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hair-dye"]
-position = Vector2( 8, 8 )
-shape = SubResource( 6 )
-
-[node name="Interact" type="Sprite" parent="hair-dye"]
-visible = false
-position = Vector2( 91.0676, -118.896 )
-scale = Vector2( 0.25, 0.25 )
-z_index = 1
-texture = ExtResource( 24 )
-script = ExtResource( 33 )
-
-[node name="hair-bleach" type="StaticBody2D" parent="." groups=[
-"Persist",
-]]
-position = Vector2( 392, 376 )
-script = ExtResource( 76 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="hair-bleach"]
-position = Vector2( -3.5892, -10.5892 )
-texture = ExtResource( 26 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hair-bleach"]
-position = Vector2( -5.72205e-06, 1.43051e-05 )
-shape = SubResource( 6 )
-
-[node name="Interact" type="Sprite" parent="hair-bleach"]
-visible = false
-position = Vector2( 91.0676, -118.896 )
-scale = Vector2( 0.25, 0.25 )
-z_index = 1
-script = ExtResource( 35 )
-
-[node name="gift" type="StaticBody2D" parent="." groups=[
-"Persist",
-]]
-position = Vector2( 120, 56 )
-script = ExtResource( 78 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="gift"]
-position = Vector2( -3.5738, -14.9489 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 71 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="gift"]
-position = Vector2( -5.72205e-06, 1.43051e-05 )
-shape = SubResource( 6 )
-
-[node name="Interact" type="Sprite" parent="gift"]
-visible = false
-position = Vector2( 91.0676, -118.896 )
-scale = Vector2( 0.25, 0.25 )
-z_index = 1
-script = ExtResource( 35 )
-
-[node name="cabinet3" type="Sprite" parent="."]
-position = Vector2( 284.5, 31.5 )
-texture = ExtResource( 3 )
-
-[node name="magazine" type="StaticBody2D" parent="cabinet3" groups=[
-"Persist",
-]]
-position = Vector2( 3.5, 8.5 )
-script = ExtResource( 80 )
-
-[node name="Sprite" type="Sprite" parent="cabinet3/magazine"]
-position = Vector2( 7.75, -0.5 )
-texture = ExtResource( 21 )
-
-[node name="Interact" type="Sprite" parent="cabinet3/magazine"]
-visible = false
-script = ExtResource( 36 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cabinet3/magazine"]
-position = Vector2( 8, 8 )
-shape = SubResource( 16 )
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 69 )
+volume_db = -80.0

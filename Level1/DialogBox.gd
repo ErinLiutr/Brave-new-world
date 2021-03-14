@@ -1,9 +1,11 @@
 extends Sprite
 
 var choice_item = preload("res://Choice.tscn")
+var combat_scene = preload("res://Scene/world.tscn")
 
 var printing = false
 var donePrinting = false
+var combat = false
 
 var showing = false
 
@@ -62,7 +64,15 @@ func _physics_process(delta):
 				printing = false
 				hide()
 				showing = false
-				get_node("/root/Room/YSort/Player").canMove = true
+				if combat:
+					var TheRoot = get_node("/root")
+					var this_scene = TheRoot.get_node("Room")
+					var next_scene = combat_scene.instance()
+					next_scene.previous_scene = this_scene
+					TheRoot.remove_child(this_scene)
+					TheRoot.add_child(next_scene)
+				else:
+					get_node("/root/Room/YSort/Player").canMove = true
 		elif pressed:
 			if currentText < textToPrint.size():
 				donePrinting = false
@@ -85,9 +95,13 @@ func _start(id):
 	if json[id]["type"] == "choice":
 		_show_choices(json[id]["title"], json[id]["choices"])
 	elif json[id]["type"] == "dialog":
+		combat = false
 		_print_dialogue(json[id]["text"])
 	elif json[id]["type"] == "description":
 		_show_description()
+	elif json[id]["type"] == "game":
+		combat = true
+		_print_dialogue(json[id]["text"])
 	
 
 func _print_dialogue(text):
@@ -102,6 +116,10 @@ func _show_choices(title, choices):
 	var idx = 0
 	
 	for choice in choices:
+		if choice["text"] == "CONFRONT":
+			var items = get_node("/root/Room/YSort/Player/Camera2D/Inventory").item_ids
+			if !(items.has("203") and items.has("213") and items.has("208") and items.has("207")):
+				continue
 		var new_choice = choice_item.instance()
 		new_choice.name = "choice" + str(idx)
 		if idx == 0:
@@ -120,4 +138,5 @@ func _show_choices(title, choices):
 func _show_description():
 	get_node("Description").show()
 	get_node("Description")._start_show()
+
 	
