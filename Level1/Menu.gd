@@ -38,7 +38,8 @@ func _handle_interaction():
 		hide()
 		for child in labels:
 			child.get_node("arrow").hide()
-
+	elif currentLabel == 4:
+		get_tree().change_scene("res://title.tscn")
 	else:
 		open = false
 		_close_menu()
