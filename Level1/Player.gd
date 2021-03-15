@@ -56,28 +56,32 @@ func _physics_process(delta):
 		
 		
 		if Input.is_action_pressed("ui_up"):
-			sprite.set_frame(8)
+			if !animationPlayer.is_playing():
+				sprite.set_frame(8)
 			if resultUp.empty():
 				moving = true
 				direction = Vector2(0, -1)
 				startPos = position
 				animationPlayer.play("RunUp")
 		elif Input.is_action_pressed("ui_down"):
-			sprite.set_frame(0)
+			if !animationPlayer.is_playing():
+				sprite.set_frame(0)
 			if resultDown.empty():
 				moving = true
 				direction = Vector2(0, 1)
 				startPos = position
 				animationPlayer.play("RunDown")
 		elif Input.is_action_pressed("ui_left"):
-			sprite.set_frame(4)
+			if !animationPlayer.is_playing():
+				sprite.set_frame(4)
 			if resultLeft.empty():
 				moving = true
 				direction = Vector2(-1, 0)
 				startPos = position
 				animationPlayer.play("RunLeft")
 		elif Input.is_action_pressed("ui_right"):
-			sprite.set_frame(12)
+			if !animationPlayer.is_playing():
+				sprite.set_frame(12)
 			if resultRight.empty():
 				moving = true
 				direction = Vector2(1, 0)
@@ -131,21 +135,22 @@ func interact(result):
 					else:
 						new_choice.get_node("selector").text = ""
 					idx += 1
-					new_choice.get_node("choice").text = choice
+					new_choice.get_node("choice").text = choice.to_upper()
 					if choice == "game":
-						new_choice.get_node("choice").text = "view"
+						new_choice.get_node("choice").text = "VIEW"
 						var game_name = json[str(id)]["game"]["name"]
 						node.get_node("Choices").choice_results.append(game_name)
 					elif choice == "combine":
 						var target = json[str(id)]["combine"]["with"]
 
 						if equipment == target:
-							new_choice.get_node("choice").text = "combine with " + json[target]["item_name"]
+							new_choice.get_node("choice").text = ("combine with " + json[target]["item_name"]).to_upper()
 							node.get_node("Choices").choice_results.append("combine")
 						else:
+							idx -= 1
 							continue
 					elif choice == "open":
-						new_choice.get_node("choice").text = "view"
+						new_choice.get_node("choice").text = "VIEW"
 						var status = dictionary.collider.get_node("Interact").status
 						if status == 0:
 							node.get_node("Choices").choice_results.append("password")
@@ -153,16 +158,26 @@ func interact(result):
 							node.get_node("Choices").choice_results.append("key")
 					elif choice == "unlock":
 						if equipment == "215":
-							new_choice.get_node("choice").text = "unlock with key"
+							new_choice.get_node("choice").text = "UNLOCK WITH KEY"
 							node.get_node("Choices").choice_results.append("unlock")
 						else:
+							idx -= 1
 							continue
 					elif choice == "report":
-						new_choice.get_node("choice").text = "view"
+						new_choice.get_node("choice").text = "VIEW"
 						node.get_node("Choices").choice_results.append("report")
 					else:
 						node.get_node("Choices").choice_results.append(choice)
 					node.get_node("Choices/GridContainer").add_child(new_choice)
+				var new_choice = choice_item.instance()
+				new_choice.name = "choice" + str(idx)
+				if idx == 0:
+					new_choice.get_node("selector").text = ">"
+				else:
+					new_choice.get_node("selector").text = ""
+				new_choice.get_node("choice").text = "CLOSE"
+				node.get_node("Choices").choice_results.append("close")
+				node.get_node("Choices/GridContainer").add_child(new_choice)
 				node.get_node("Choices").counter = 0
 				node.get_node("Choices").current_selection = 0
 				node.get_node("Choices").showing = true
@@ -175,6 +190,16 @@ func interact(result):
 				var item_name = dictionary.collider.get_node("Interact").item_name
 				node.get_node("Choices/Description").text = "This is just " + item_name + ". No more information here."
 				node.get_node("Choices/Name").text = item_name
+				var new_choice = choice_item.instance()
+				new_choice.name = "choice0"
+				new_choice.get_node("selector").text = ">"
+				new_choice.get_node("choice").text = "CLOSE"
+				node.get_node("Choices").choice_results.append("close")
+				node.get_node("Choices/GridContainer").add_child(new_choice)
+				node.get_node("Choices").counter = 0
+				node.get_node("Choices").current_selection = 0
+				node.get_node("Choices").showing = true
+				node.get_node("Choices").show()
 			if name == "DialogBox":
 				node._start("01")
 			else:

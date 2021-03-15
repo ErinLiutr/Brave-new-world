@@ -45,14 +45,11 @@ func handle_selection(_current_selection):
 	var destination = choice_results[_current_selection]
 	close()
 	get_node("GridContainer").handle_selection(destination, item_id)
-	#if destination != "key" and destination != "report":
 	
 func close():
 	hide()
 	showing = false
-	print("close")
 	var choices = get_node("GridContainer")
-	#item_id = 0
 	choice_results = []
 	for i in choices.get_children():
 		choices.remove_child(i)

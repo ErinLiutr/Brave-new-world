@@ -148,7 +148,7 @@
     "item_name": "Drawer",
     "description": "Drawer is locked. A key is needed.",
     "options": ["unlock"],
-    "picture": "",
+    "picture": "Close",
     "path": "/root/Room/YSort/table/bottle"
   },
   "217-2": {

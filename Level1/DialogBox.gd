@@ -30,7 +30,6 @@ func _ready():
 	
 func _unhandled_key_input(event):
 	if event.is_action_pressed("ui_interact"):
-		print("hi")
 		pressed = true
 	elif event.is_action_released("ui_interact"):
 		pressed = false
@@ -62,8 +61,6 @@ func _physics_process(delta):
 				get_node("RichTextLabel").set_bbcode("")
 				textToPrint = []
 				printing = false
-				hide()
-				showing = false
 				if combat:
 					var TheRoot = get_node("/root")
 					var this_scene = TheRoot.get_node("Room")
@@ -72,7 +69,7 @@ func _physics_process(delta):
 					TheRoot.remove_child(this_scene)
 					TheRoot.add_child(next_scene)
 				else:
-					get_node("/root/Room/YSort/Player").canMove = true
+					_start("01")
 		elif pressed:
 			if currentText < textToPrint.size():
 				donePrinting = false
@@ -92,7 +89,11 @@ func load_data(url):
 	return data
 	
 func _start(id):
-	if json[id]["type"] == "choice":
+	if id == "00":
+		hide()
+		showing = false
+		get_node("/root/Room/YSort/Player").canMove = true
+	elif json[id]["type"] == "choice":
 		_show_choices(json[id]["title"], json[id]["choices"])
 	elif json[id]["type"] == "dialog":
 		combat = false
@@ -130,6 +131,12 @@ func _show_choices(title, choices):
 		new_choice.get_node("choice").text = choice["text"]
 		get_node("Choices").choice_results.append(choice["go_to"])
 		get_node("Choices/GridContainer").add_child(new_choice)
+	var new_choice = choice_item.instance()
+	new_choice.name = "choice" + str(idx)
+	new_choice.get_node("selector").text = ""
+	new_choice.get_node("choice").text = "CLOSE"
+	get_node("Choices").choice_results.append("00")
+	get_node("Choices/GridContainer").add_child(new_choice)
 	get_node("Choices").counter = 0
 	get_node("Choices").current_selection = 0
 	get_node("Choices").showing = true

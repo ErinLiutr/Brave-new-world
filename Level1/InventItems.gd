@@ -57,14 +57,26 @@ func handle_selection(_current_selection):
 	desc.get_node("Choices/Description").text = invent_node.get_info(id, "description")
 	desc.get_node("Choices/Name").text = invent_node.get_info(id, "item_name")
 	
-	var new_choice = choice_item.instance()
-	new_choice.name = "equip"
 	desc.get_node("Choices").choice_results = []
+	
+	var new_choice = choice_item.instance()
+	new_choice.name = "choice0"
 	new_choice.get_node("selector").text = ">"
-	new_choice.get_node("choice").text = "equip"
-	desc.get_node("Choices").choice_results.append("equip")
-
+	if id == get_node("/root/Room/YSort/Player").equipment:
+		new_choice.get_node("choice").text = "UNEQUIP"
+		desc.get_node("Choices").choice_results.append("unequip")
+	else:
+		new_choice.get_node("choice").text = "EQUIP"
+		desc.get_node("Choices").choice_results.append("equip")
 	desc.get_node("Choices/GridContainer").add_child(new_choice)
+	
+	var new_choice1 = choice_item.instance()
+	new_choice1.name = "choice1"
+	new_choice1.get_node("selector").text = ""
+	new_choice1.get_node("choice").text = "CLOSE"
+	desc.get_node("Choices").choice_results.append("close")
+
+	desc.get_node("Choices/GridContainer").add_child(new_choice1)
 	desc.get_node("Choices").counter = 0
 	desc.get_node("Choices").current_selection = 0
 	desc.get_node("Choices").showing = true

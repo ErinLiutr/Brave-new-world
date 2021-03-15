@@ -40,6 +40,12 @@ func handle_selection(destination, id):
 				child.hide()
 		var picture = invent_node.get_info(id, "picture")
 		get_node("/root/Room/YSort/Player/Camera2D/Equipment/" + picture).show()
+	elif destination == "unequip":
+		get_node("/root/Room/YSort/Player").equipment = "0"
+
+		var equip_node = get_node("/root/Room/YSort/Player/Camera2D/Equipment/")
+		var picture = invent_node.get_info(id, "picture")
+		equip_node.get_node(picture).hide()
 	elif destination == "combine":
 		invent_node.combine(id)
 	elif destination == "password":
@@ -100,3 +106,5 @@ func handle_selection(destination, id):
 		node.get_node("Choices").showing = true
 		node.get_node("Choices").item_id = "207"
 		node.get_node("Choices").show()
+	elif destination == "close":
+		get_parent().get_parent()._stop_show()

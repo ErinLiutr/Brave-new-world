@@ -21,9 +21,8 @@ func _physics_process(delta):
 		if pressed and counter > 10:
 			counter = 0
 			hide()
-			get_parent().hide()
 			showing = false
-			get_node("/root/Room/YSort/Player").canMove = true
+			get_parent()._start("01")
 	pressed = false
 
 func _start_show():
