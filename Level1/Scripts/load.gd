@@ -21,7 +21,6 @@ func load_game():
 		if (node_data["filename"] in ["shirt", "bandage", "dye", "bleach", "hair", "gift", "magazine"]):
 			var node = get_tree().get_nodes_in_group("Persist")
 			for n in node:
-				print(n.name)
 				if n.name == node_data["filename"]:
 					n.visible = node_data["visible"]
 		if (node_data["filename"] == "Inventory"):

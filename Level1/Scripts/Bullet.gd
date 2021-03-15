@@ -7,7 +7,7 @@ one life point.
 
 extends KinematicBody2D
 
-const SPEED = 400
+const SPEED = 80
 var velocity = Vector2()
 
 func _physics_process(delta):
@@ -16,7 +16,8 @@ func _physics_process(delta):
 	if collision:
 		if collision.collider.name == "Player":
 			collision.collider.lose_life()
-		call_deferred("free")
+		if collision.collider.name != "Ball":
+			call_deferred("free")
 		
 func set_bullet_direction(direction):
 	velocity = direction * SPEED

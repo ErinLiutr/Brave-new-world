@@ -16,7 +16,9 @@ func _ready():
 #	pass
 
 
-func _on_TextureButton_pressed():
-	get_node("PopupMenu").hide()
-	get_node("/root/Room/YSort/Player/Camera2D/Password")._stop_show()
-	get_node("/root/Room/YSort/table/bottle/Interact").status = 1
+#func _on_TextureButton_pressed():
+func _input(event):
+	if event is InputEventKey and event.scancode == KEY_C:
+		get_node("PopupMenu").hide()
+		get_node("/root/Room/YSort/Player/Camera2D/Password")._stop_show()
+		get_node("/root/Room/YSort/table/bottle/Interact").status = 1

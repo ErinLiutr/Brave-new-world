@@ -11,10 +11,10 @@ var lives = [get_node("../../PlayerLives/Life1"),
 			get_node("../../PlayerLives/Life4"),
 			get_node("../../PlayerLives/Life5"),
 			get_node("../../PlayerLives/Life6")]
-export var maxSpeed = 400
-export var acceleration = 2000
-export var friction = 10000
-
+export var maxSpeed = 200
+export var acceleration = 300
+export var friction = 300
+var disable = false
 var axis = Vector2.ZERO
 var velocity = Vector2.ZERO
 var life_points = 6
@@ -33,16 +33,17 @@ func _physics_process(delta):
 		apply_motion(acceleration*delta)
 		
 	velocity = move_and_slide(velocity)
+	
 	if life_points <= 0:
 		stop_player()
-		pop_up.rect_global_position = Vector2(50, 250)
+		pop_up.rect_global_position = Vector2(52.431503, 33.203491)
 		pop_up.show()
 		
 func stop_player():
-	print("player stop")
 	$"../Enemy/BulletSpawner".stop()
 	for c in $"../../Bag/Grid".get_children():
 		c.stop()
+	disable = true
 	set_physics_process(false)
 	set_process(false)
 	
@@ -71,7 +72,7 @@ func change_bullet(type):
 	
 func _input(event):
 	if event is InputEventKey and event.pressed:
-		if event.scancode == KEY_SPACE:
+		if event.scancode == KEY_SPACE and disable == false:
 				var direction = Vector2(0, -1)
 				var ball
 				if bullet_type == "bullet":
