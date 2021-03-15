@@ -1,33 +1,33 @@
 extends Node2D
-const WIDTH = 48
-const HEIGHT = 96
+const WIDTH = 440
+const HEIGHT = 750
 const MAX = 5
-const SCALE = 40
+const SCALE = 100
 const BULLET = preload("res://Scene/Bullet.tscn")
 
 # spawn time management
-var delta = 2#0.2
-var offset = 2#0.2
+var delta = 0.1
+var offset = 0.1
 var spawnArea = Rect2()
 
 func _ready():
 	randomize()
-	spawnArea = Rect2(-180, 50, WIDTH, HEIGHT)
+	spawnArea = Rect2(global_position.x-150, global_position.y-50, WIDTH, HEIGHT)
 	next_spawn()
 	
 func spawn_bullet():
-	var new_position = Vector2(-100+randi()%WIDTH, 300+randi()%HEIGHT) #-180+randi()%WIDTH,50+randi()%HEIGHT
-#	var start = Vector2(100, 100)
-	var direction = (new_position - get_parent().position).normalized()
-	var num_bullets = randi()%MAX + 1
-	var prev_position = [200, 150]
+	var parent = Vector2(global_position.x-100, global_position.y-50)
+	var new_position = Vector2(global_position.x-400+randi()%WIDTH, global_position.y+100+randi()%HEIGHT)#Vector2(global_position.x-200+randi()%WIDTH, global_position.y+randi()%HEIGHT)
+	var direction = (new_position-parent).normalized()
+	var num_bullets = 1#randi()%MAX + 1
+	var prev_position = [global_position.x-100, global_position.y-50]
 	for i in range(num_bullets):
 		var bullet = BULLET.instance()
-		get_parent().add_child(bullet)
 		bullet.global_position = Vector2(prev_position[0]+direction.x*SCALE, prev_position[1] +direction.y*SCALE)
+		get_parent().add_child(bullet)
 		prev_position = bullet.global_position
 		bullet.set_bullet_direction(direction)
-
+	
 func next_spawn():
 	var next_time = delta +(randf()-0.5)*2*offset
 	$Timer.wait_time = next_time

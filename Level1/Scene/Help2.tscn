@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://OpenSans-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://new_dynamicfontsmall.tres" type="DynamicFont" id=2]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scene/Help2.gd" type="Script" id=4]
 
-[sub_resource type="Theme" id=5]
+[sub_resource type="Theme" id=1]
 default_font = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -24,6 +26,7 @@ anchor_bottom = 1.0
 margin_right = -148.0
 margin_bottom = -86.0
 rect_scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -35,7 +38,7 @@ margin_top = 9.0
 margin_right = 524.0
 margin_bottom = 293.0
 rect_scale = Vector2( 0.3, 0.3 )
-theme = SubResource( 5 )
+theme = SubResource( 1 )
 window_title = ""
 dialog_text = "Welcom to Project: Brave New World!
 
@@ -82,6 +85,30 @@ custom_fonts/italics_font = SubResource( 3 )
 custom_fonts/normal_font = SubResource( 4 )
 text = "Welcom to Project: Brave New World!
 Look around the room to view and pick up items, some of them will help you understand the story and idenify the criminal. You need to find all the necessary items in a room in order to start \"combat\" with the NPC. Winning the \"combat\" game will automatically send you to the next room. Have no clue where to start? Try to talk to the NPC standing in every room first!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Help"]
+visible = false
+margin_left = 234.0
+margin_top = 242.0
+margin_right = 311.0
+margin_bottom = 277.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ok" type="Label" parent="Help"]
+visible = false
+margin_left = 244.788
+margin_top = 244.418
+margin_right = 320.788
+margin_bottom = 279.418
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = ExtResource( 3 )
+text = "[O] OK"
 __meta__ = {
 "_edit_use_anchors_": false
 }

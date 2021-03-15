@@ -19,6 +19,7 @@ onready var pop_up = get_tree().get_root().get_node("Room/YSort/Player/Camera2D/
 var showing = false
 
 var counter = 0
+var cheating = false
 
 func _ready():
 	button.connect("pressed", self, "reset")
@@ -78,12 +79,7 @@ func reset():
 func _physics_process(_delta):
 	if showing:
 		if (check_ready()):
-			#print(get_parent().position)
-			#print(get_node("Popup").z_index)
-			#pop_up.rect_global_position = Vector2(get_parent().global_position.x - 68, get_parent().global_position.y - 44)
-			#self.z_index = 0
-			#pop_up.show()
-			confirm.show()
+			$"solve".visible = true
 		step(KEY_DOWN, Vector2(-1, 0))
 		step(KEY_RIGHT, Vector2(0, -1))
 		step(KEY_LEFT, Vector2(0, 1))
@@ -99,10 +95,23 @@ func _start_show():
 	show()
 	self.z_index = 5
 	showing = true
+
+func _input(event):
+	if event is InputEventKey and event.scancode == KEY_Q:
+		_stop_show()
+	if event is InputEventKey and event.scancode == KEY_R:
+		if ($".".visible):
+			reset()
+	if event is InputEventKey and event.scancode == KEY_S:
+		if (check_ready()):
+			confirm()
+		if (cheating):
+			confirm()
+	# cheat
+	if event is InputEventKey and event.scancode == KEY_C:
+		$"solve".visible = true
+		cheating = true
 		
-func _on_Quit_pressed():
-	_stop_show()
-	
 func _stop_show():
 	counter = 0
 	hide()

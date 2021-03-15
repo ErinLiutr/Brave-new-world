@@ -49,7 +49,12 @@ func _input(event):
 		if event.pressed and event.scancode == 16777220:
 			if len(numbers) != 0:
 				numbers.pop_back()
-
+	if event is InputEventKey and event.scancode == KEY_Q:
+		numbers = []
+		_stop_show()
+	if event is InputEventKey and event.scancode == KEY_O:
+		_open()
+		
 func check_correctness():
 	if len(numbers) != 4:
 		return false
@@ -59,21 +64,21 @@ func check_correctness():
 			
 	return true
 
-
-func _on_open_pressed():
+func _open():
 	if showing:
 		if (check_correctness()):
-			popup_win.rect_global_position = Vector2(get_parent().global_position.x - 68, get_parent().global_position.y - 44)
+			popup_win.rect_global_position = Vector2(get_parent().global_position.x - 48, get_parent().global_position.y - 44)
 			self.z_index = 0
 			popup_win.show()
 			showing = false
 		else:
 			lost = true
-			popup_lose.rect_global_position = Vector2(get_parent().global_position.x - 68, get_parent().global_position.y - 44)
+			popup_lose.rect_global_position = Vector2(get_parent().global_position.x - 48, get_parent().global_position.y - 44)
 			self.z_index = 0
 			popup_lose.show()
 			showing = false
-		
+
+
 func _reset():
 	var root = get_tree().get_root()
 	var pos = get_node(".").position

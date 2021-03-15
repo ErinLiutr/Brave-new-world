@@ -64,15 +64,16 @@ func _physics_process(delta):
 				printing = false
 				hide()
 				showing = false
-				if combat:
-					var TheRoot = get_node("/root")
-					var this_scene = TheRoot.get_node("Room")
-					var next_scene = combat_scene.instance()
-					next_scene.previous_scene = this_scene
-					TheRoot.remove_child(this_scene)
-					TheRoot.add_child(next_scene)
-				else:
-					get_node("/root/Room/YSort/Player").canMove = true
+#				if combat:
+				get_tree().get_root().get_node("Room").save_game()
+				var TheRoot = get_node("/root")
+				var this_scene = TheRoot.get_node("Room")
+				var next_scene = combat_scene.instance()
+				next_scene.previous_scene = this_scene
+				TheRoot.remove_child(this_scene)
+				TheRoot.add_child(next_scene)
+#				else:
+#					get_node("/root/Room/YSort/Player").canMove = true
 		elif pressed:
 			if currentText < textToPrint.size():
 				donePrinting = false

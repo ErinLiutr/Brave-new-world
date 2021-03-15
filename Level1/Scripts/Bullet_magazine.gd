@@ -7,7 +7,7 @@ one life point.
 
 extends KinematicBody2D
 
-const SPEED = 500
+const SPEED = 80
 const KILL = 40
 var velocity = Vector2()
 

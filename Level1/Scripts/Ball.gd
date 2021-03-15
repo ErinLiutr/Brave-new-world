@@ -5,7 +5,7 @@ the boundaries of the scene
 """
 extends KinematicBody2D
 
-const SPEED = 300
+const SPEED = 80
 var velocity = Vector2()
 #var destroyed = false
 
