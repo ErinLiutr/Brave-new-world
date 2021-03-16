@@ -54,17 +54,17 @@ func _physics_process(delta):
 				get_node("RichTextLabel").set_bbcode("")
 				textToPrint = []
 				printing = false
-				#if combat:
-				var TheRoot = get_node("/root")
-				var this_scene = TheRoot.get_node("Room")
-				var next_scene = combat_scene.instance()
-				next_scene.previous_scene = this_scene
-				TheRoot.remove_child(this_scene)
-				TheRoot.add_child(next_scene)
-				hide()
-				#else:
-				#	_start("01")
-					#get_node("/root/Room/YSort/Player").canMove = true
+				if combat:
+					var TheRoot = get_node("/root")
+					var this_scene = TheRoot.get_node("Room")
+					var next_scene = combat_scene.instance()
+					next_scene.previous_scene = this_scene
+					TheRoot.remove_child(this_scene)
+					TheRoot.add_child(next_scene)
+					hide()
+				else:
+					_start("01")
+					get_node("/root/Room/YSort/Player").canMove = true
 		elif pressed:
 			if currentText < textToPrint.size():
 				donePrinting = false
