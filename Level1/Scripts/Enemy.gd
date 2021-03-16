@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2(300, 0)
-var life_points = 1#100
+var life_points = 100
 var pop_up
 onready var animationPlayer = null
 
