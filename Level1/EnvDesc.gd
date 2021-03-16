@@ -17,4 +17,5 @@ func _stop_show():
 	get_node("Choices/Description").text = ""
 	hide()
 	showing = false
+	print("4")
 	get_node("/root/Room/YSort/Player").canMove = true

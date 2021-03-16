@@ -132,7 +132,7 @@
     "item_name": "Glass bottle",
     "description": "This is a bottle with a cipher lock on it.",
     "options": ["open"],
-    "picture": "Bottle",
+    "picture": "Bottle_key",
     "path": "/root/Room/YSort/table/bottle"
   },
   "216-1": {

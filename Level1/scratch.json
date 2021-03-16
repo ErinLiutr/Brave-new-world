@@ -49,7 +49,8 @@
     "Unlike me, he was popular and had a lot of friends and was nice to everyone. He was perfect. I wanted to be just like him.",
     "He said I would be popular too if I dye my hair and people would stop bullying me and be friends with me. I told him I’m color-blind and couldn’t dye it myself, so he helped me.",
     "Then I went to school the other day everyone was staring at me laughing so hard, even the teachers laughed a little bit. I couldn’t figure out why so I asked him and he said it was just that people were jealous of my hair.",
-    "I still can't believe he told such a ridiculous lie, as if he didn’t bother to convince me...I mean, even I wasn’t fooled by that. I was furious and was about to scream at him and even hit him-I was always a quiet kid, so you get how mad I was at that moment.",
+    "I still can't believe he told such a ridiculous lie, as if he didn’t bother to convince me...",
+      "I mean, even I wasn’t fooled by that. I was furious and was about to scream at him and even hit him-I was always a quiet kid, so you get how mad I was at that moment.",
     "That’s when he gave that smile.",
     "It was the sweetest and the most sincere smile I’ve ever seen.",
     "For a moment, I almost thought I was standing right in front of an angel.",
@@ -63,5 +64,9 @@
     "DISGUST",
     "ME",
     "I need some sleep. Now get out of my sight."]
+  },
+  "09": {
+    "type": "description",
+    "text": ""
   }
 }

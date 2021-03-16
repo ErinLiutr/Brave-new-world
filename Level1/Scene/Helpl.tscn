@@ -30,10 +30,9 @@ dialog_text = "Welcom to Project: Brave New World!
 
 Look around the room to view and pick up items, some of them will help you understand the story and idenify the criminal. You need to find all the necessary items in a room in order to start \"combat\" with the NPC. Winning the \"combat\" game will automatically send you to the next room. Have no clue where to start? Try to talk to the NPC standing in every room first!
 
-[z]		 		   		               Interact with objects and NPC.
-[tab] 			              Open menu to view your inventory, save and load game progress.
-[esc] 		   	           Quit dialog box or inventory.
-[arrow keys]	 Move around the room and select items in the inventory.
+[Enter]		 		   		          Interact with objects and NPC.
+[Tab] 			               Open menu to view your inventory, save and load game progress.
+[arrow keys]	   Move around the room and select items in the inventory.
 "
 dialog_autowrap = true
 __meta__ = {

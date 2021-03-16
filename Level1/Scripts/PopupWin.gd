@@ -5,4 +5,4 @@ func _ready():
 	
 func _input(event):
 	if event is InputEventKey and event.scancode == KEY_C:
-		print("switch back")
+		get_parent().get_parent()._return(true)

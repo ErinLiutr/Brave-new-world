@@ -41,10 +41,10 @@ func init():
 	for id in item_ids:
 		var new_item = inventory_item.instance()
 		new_item.name = str(id)
+		new_item.get_node("equip").hide()
 		if idx == 0:
 			new_item.get_node("selected").show()
 		else:
-			new_item.get_node("selected").hide()
 			new_item.get_node("unselected").show()
 		idx += 1
 		get_node("NinePatchRect/GridContainer").item_ids.append(str(id))
@@ -99,5 +99,6 @@ func _stop_show():
 		i.queue_free()
 	items._close()
 	hide()
+	print("3")
 	get_node("/root/Room/YSort/Player").canMove = true
 	showing = false

@@ -208,3 +208,4 @@ func interact(result):
 func update_equip(previous, next):
 	get_node("Camera2D/Equipment/" + previous).hide()
 	get_node("Camera2D/Equipment/" + next).show()
+

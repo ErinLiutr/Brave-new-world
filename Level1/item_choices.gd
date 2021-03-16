@@ -36,7 +36,7 @@ func handle_selection(destination, id):
 
 		var equip_node = get_node("/root/Room/YSort/Player/Camera2D/Equipment/")
 		for child in equip_node.get_children():
-			if child.name != "selected":
+			if child.name != "equip":
 				child.hide()
 		var picture = invent_node.get_info(id, "picture")
 		get_node("/root/Room/YSort/Player/Camera2D/Equipment/" + picture).show()
@@ -66,10 +66,19 @@ func handle_selection(destination, id):
 			else:
 				new_choice.get_node("selector").text = ""
 			idx += 1
-			new_choice.get_node("choice").text = choice
+			new_choice.get_node("choice").text = choice.to_upper()
 
 			node.get_node("Choices").choice_results.append(choice)
 			node.get_node("Choices/GridContainer").add_child(new_choice)
+		var new_choice = choice_item.instance()
+		new_choice.name = "choice" + str(idx)
+		if idx == 0:
+			new_choice.get_node("selector").text = ">"
+		else:
+			new_choice.get_node("selector").text = ""
+		new_choice.get_node("choice").text = "CLOSE"
+		node.get_node("Choices").choice_results.append("close")
+		node.get_node("Choices/GridContainer").add_child(new_choice)
 		node.get_node(invent_node.get_info("215", "picture")).show()
 		node.show()
 		node._start_show()
@@ -98,6 +107,15 @@ func handle_selection(destination, id):
 
 			node.get_node("Choices").choice_results.append(choice)
 			node.get_node("Choices/GridContainer").add_child(new_choice)
+		var new_choice = choice_item.instance()
+		new_choice.name = "choice" + str(idx)
+		if idx == 0:
+			new_choice.get_node("selector").text = ">"
+		else:
+			new_choice.get_node("selector").text = ""
+		new_choice.get_node("choice").text = "CLOSE"
+		node.get_node("Choices").choice_results.append("close")
+		node.get_node("Choices/GridContainer").add_child(new_choice)
 		node.get_node(invent_node.get_info("207", "picture")).show()
 		node.show()
 		node._start_show()

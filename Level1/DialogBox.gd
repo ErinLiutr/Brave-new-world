@@ -1,7 +1,7 @@
 extends Sprite
 
 var choice_item = preload("res://Choice.tscn")
-var combat_scene = preload("res://Scene/world.tscn")
+var combat_scene = preload("res://Combat.tscn")
 
 var printing = false
 var donePrinting = false
@@ -49,47 +49,26 @@ func _physics_process(delta):
 				donePrinting = true
 				currentText += 1
 		elif currentText >= textToPrint.size():
-			if Input.is_action_just_pressed("ui_no"):
-				currentText = 0
-				textToPrint = []
-				printing = false
-				hide()
-				showing = false
-				get_node("/root/Room/YSort/Player").canMove = true
-			elif pressed:
+			if pressed:
 				currentText = 0
 				get_node("RichTextLabel").set_bbcode("")
 				textToPrint = []
 				printing = false
-<<<<<<< HEAD
-				if combat:
-					var TheRoot = get_node("/root")
-					var this_scene = TheRoot.get_node("Room")
-					var next_scene = combat_scene.instance()
-					next_scene.previous_scene = this_scene
-					TheRoot.remove_child(this_scene)
-					TheRoot.add_child(next_scene)
-				else:
-					_start("01")
-=======
-				hide()
-				showing = false
-#				if combat:
-				get_tree().get_root().get_node("Room").save_game()
+				#if combat:
 				var TheRoot = get_node("/root")
 				var this_scene = TheRoot.get_node("Room")
 				var next_scene = combat_scene.instance()
 				next_scene.previous_scene = this_scene
 				TheRoot.remove_child(this_scene)
 				TheRoot.add_child(next_scene)
-#				else:
-#					get_node("/root/Room/YSort/Player").canMove = true
->>>>>>> 282746cda2b13195f45cd0731b18d3b9c2256310
+				hide()
+				#else:
+				#	_start("01")
+					#get_node("/root/Room/YSort/Player").canMove = true
 		elif pressed:
 			if currentText < textToPrint.size():
 				donePrinting = false
 				get_node("RichTextLabel").set_bbcode("")
-			
 			
 	pressed = false			
 
@@ -106,7 +85,6 @@ func load_data(url):
 func _start(id):
 	if id == "00":
 		hide()
-		showing = false
 		get_node("/root/Room/YSort/Player").canMove = true
 	elif json[id]["type"] == "choice":
 		_show_choices(json[id]["title"], json[id]["choices"])
@@ -114,7 +92,7 @@ func _start(id):
 		combat = false
 		_print_dialogue(json[id]["text"])
 	elif json[id]["type"] == "description":
-		_show_description()
+		_show_description(json[id]["text"])
 	elif json[id]["type"] == "game":
 		combat = true
 		_print_dialogue(json[id]["text"])
@@ -123,6 +101,7 @@ func _start(id):
 func _print_dialogue(text):
 	get_node("RichTextLabel").show()
 	textToPrint = text
+	donePrinting = false
 	printing = true
 	
 func _show_choices(title, choices):
@@ -134,8 +113,15 @@ func _show_choices(title, choices):
 	for choice in choices:
 		if choice["text"] == "CONFRONT":
 			var items = get_node("/root/Room/YSort/Player/Camera2D/Inventory").item_ids
-			if !(items.has("203") and items.has("213") and items.has("208") and items.has("207")):
-				continue
+			var counter = 0
+			for id in ["203", "213", "208", "207"]:
+				if items.has(id):
+					counter += 1
+			if counter != 4:
+				choice["go_to"] = "09"
+				json["09"]["text"] = str(counter) + "/4 key items collected to unlock."
+			else:
+				choice["go_to"] = "07"
 		var new_choice = choice_item.instance()
 		new_choice.name = "choice" + str(idx)
 		if idx == 0:
@@ -157,7 +143,8 @@ func _show_choices(title, choices):
 	get_node("Choices").showing = true
 	get_node("Choices").show()
 	
-func _show_description():
+func _show_description(text):
+	get_node("Description").text = text
 	get_node("Description").show()
 	get_node("Description")._start_show()
 

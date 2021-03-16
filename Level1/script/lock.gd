@@ -69,6 +69,7 @@ func _open():
 		if (check_correctness()):
 			popup_win.rect_global_position = Vector2(get_parent().global_position.x - 48, get_parent().global_position.y - 44)
 			self.z_index = 0
+			popup_win.is_hidden = false
 			popup_win.show()
 			showing = false
 		else:
@@ -84,7 +85,7 @@ func _reset():
 	var pos = get_node(".").position
 	root.get_node("Room/YSort/Player/Camera2D").remove_child(get_node("."))
 	
-	var new_scene = load("res://scene/lock.tscn")
+	var new_scene = load("res://Scene/lock.tscn")
 	var new = new_scene.instance()
 	new.position = pos
 	new.scale = Vector2(0.3, 0.3)

@@ -30,6 +30,7 @@ func _handle_interaction():
 		open = false
 		_close_menu()
 	elif currentLabel == 3:	
+		open = false
 		get_node("/root/Room/YSort/Player").canMove = false
 		$"../Help/Help".set_global_position(
 			Vector2(get_node("/root/Room/YSort/Player").position.x-80, 
@@ -39,7 +40,20 @@ func _handle_interaction():
 		for child in labels:
 			child.get_node("arrow").hide()
 	elif currentLabel == 4:
-		get_tree().change_scene("res://title.tscn")
+		open = false
+		get_node("/root/Room")._return()
+	elif currentLabel == 5:
+		open = false
+		get_node("/root/Room/YSort/Player").canMove = false
+		$"../Sound/Sound".set_global_position(
+			Vector2(get_node("/root/Room/YSort/Player").position.x-50, 
+			get_node("/root/Room/YSort/Player").position.y-50))
+		$"../Sound/Sound".show()
+		hide()
+		for child in labels:
+			child.get_node("arrow").hide()
+	elif currentLabel == 6:
+		get_tree().quit()
 	else:
 		open = false
 		_close_menu()
@@ -97,4 +111,5 @@ func _close_menu():
 	for child in labels:
 		child.get_node("arrow").hide()
 	get_node("/root/Room/YSort/Player").canMove = true
+	print("1")
 	open = false

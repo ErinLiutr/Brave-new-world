@@ -1,5 +1,7 @@
 extends Node2D
 
+var title_scene
+
 func save_game():
 	var save_game = File.new()
 	save_game.open("user://savegame.save", File.WRITE)
@@ -37,3 +39,9 @@ func load_game():
 func help():
 	get_node("/root/Room/YSort/Player").canMove = false
 	get_node("/root/Room/YSort/Player/Help").show()
+	
+func _return():
+	var TheRoot = get_node("/root")
+	var this_scene = get_node("/root/Room")
+	TheRoot.remove_child(this_scene)
+	TheRoot.add_child(title_scene)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=2]
+[gd_scene load_steps=107 format=2]
 
 [ext_resource path="res://desk1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://cabinet1.png" type="Texture" id=9]
 [ext_resource path="res://chair2.png" type="Texture" id=10]
 [ext_resource path="res://desk2.png" type="Texture" id=11]
-[ext_resource path="res://npc1.png" type="Texture" id=12]
+[ext_resource path="res://npc1 (1).png" type="Texture" id=12]
 [ext_resource path="res://npc_dialog.png" type="Texture" id=13]
 [ext_resource path="res://Interact.gd" type="Script" id=14]
 [ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=15]
@@ -22,6 +22,7 @@
 [ext_resource path="res://glass-bottle1.png" type="Texture" id=20]
 [ext_resource path="res://magazine.png" type="Texture" id=21]
 [ext_resource path="res://sliding_poster.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Sound.gd" type="Script" id=23]
 [ext_resource path="res://item_box.png" type="Texture" id=24]
 [ext_resource path="res://InventItems.gd" type="Script" id=25]
 [ext_resource path="res://hair-bleach1.png" type="Texture" id=26]
@@ -88,16 +89,16 @@
 [ext_resource path="res://Choices.tscn" type="PackedScene" id=87]
 [ext_resource path="res://Interact_env.gd" type="Script" id=88]
 
-[sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 8, 8 )
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 16 )
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=4]
 code = "shader_type canvas_item;
 
 uniform float blur : hint_range(0, 6) = 0.5;
@@ -107,21 +108,18 @@ void fragment() {
 	COLOR = color;
 }"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
 shader_param/blur = 1.259
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 16, 24 )
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 8, 8 )
-
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 8, 16 )
+extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 8, 8 )
+extents = Vector2( 8, 16 )
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 8, 8 )
@@ -130,21 +128,27 @@ extents = Vector2( 8, 8 )
 extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 16, 8 )
+extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 16, 16 )
+extents = Vector2( 16, 8 )
 
 [sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 24, 8 )
+extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 8, 8 )
+extents = Vector2( 24, 8 )
 
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 8, 8 )
 
 [node name="Room" type="Node2D"]
@@ -179,7 +183,7 @@ texture = ExtResource( 66 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="paper2"]
 position = Vector2( 328, 264 )
-shape = SubResource( 17 )
+shape = SubResource( 1 )
 
 [node name="Interact" type="Sprite" parent="paper2"]
 script = ExtResource( 88 )
@@ -212,7 +216,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hair-dye"]
 position = Vector2( 7.99999, -8 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Interact" type="Sprite" parent="hair-dye"]
 visible = false
@@ -238,7 +242,7 @@ texture = ExtResource( 71 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="gift"]
 position = Vector2( 1.90734e-06, -9.53689e-07 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Interact" type="Sprite" parent="gift"]
 visible = false
@@ -267,7 +271,7 @@ script = ExtResource( 36 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cabinet3/magazine"]
 position = Vector2( 8, 8 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -289,7 +293,7 @@ margin_bottom = -75.0041
 
 [node name="blur" type="TextureRect" parent="YSort/Player/Camera2D"]
 visible = false
-material = SubResource( 4 )
+material = SubResource( 5 )
 margin_left = -199.571
 margin_top = -113.744
 margin_right = 160.429
@@ -335,17 +339,17 @@ margin_bottom = 57.8089
 visible = false
 
 [node name="Help" parent="YSort/Player/Camera2D" instance=ExtResource( 79 )]
-margin_left = -34.8905
-margin_top = -47.3934
-margin_right = -8.8905
-margin_bottom = -37.3934
+margin_left = -34.8906
+margin_top = -47.3933
+margin_right = -8.89056
+margin_bottom = -37.3933
 
 [node name="Menu" type="NinePatchRect" parent="YSort/Player/Camera2D"]
 visible = false
-margin_left = 66.0
-margin_top = -67.0
-margin_right = 137.0
-margin_bottom = 42.0
+margin_left = 52.0
+margin_top = -66.0
+margin_right = 123.0
+margin_bottom = 62.0
 texture = ExtResource( 38 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -463,15 +467,36 @@ __meta__ = {
 }
 
 [node name="Label6" type="Node2D" parent="YSort/Player/Camera2D/Menu/Labels"]
-position = Vector2( 0, 48 )
+position = Vector2( 0, 64 )
 
 [node name="arrow" type="Sprite" parent="YSort/Player/Camera2D/Menu/Labels/Label6"]
+visible = false
+position = Vector2( 10.3368, 32.5468 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 37 )
+
+[node name="Label" type="Label" parent="YSort/Player/Camera2D/Menu/Labels/Label6"]
+margin_left = 15.2235
+margin_top = 23.2552
+margin_right = 50.2235
+margin_bottom = 40.2552
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "OPTIONS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Node2D" parent="YSort/Player/Camera2D/Menu/Labels"]
+position = Vector2( 0, 64 )
+
+[node name="arrow" type="Sprite" parent="YSort/Player/Camera2D/Menu/Labels/Label7"]
 visible = false
 position = Vector2( 10.3368, 47.9497 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 37 )
 
-[node name="Label" type="Label" parent="YSort/Player/Camera2D/Menu/Labels/Label6"]
+[node name="Label" type="Label" parent="YSort/Player/Camera2D/Menu/Labels/Label7"]
 margin_left = 15.2235
 margin_top = 38.658
 margin_right = 50.2235
@@ -598,15 +623,45 @@ col = 3
 self_modulate = Color( 0.654902, 0, 0, 1 )
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Sound" type="WindowDialog" parent="YSort/Player/Camera2D/Sound"]
+self_modulate = Color( 0.27451, 0.0666667, 0.0666667, 1 )
+light_mask = 0
+margin_left = -52.2253
+margin_top = -47.3934
+margin_right = 207.775
+margin_bottom = 142.607
+rect_scale = Vector2( 0.4, 0.4 )
+window_title = "Options"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WindowDialog" type="WindowDialog" parent="YSort/Player/Camera2D/Sound"]
-visible = true
-self_modulate = Color( 0.729412, 0.152941, 0.152941, 1 )
-margin_right = 52.0
-margin_bottom = 40.0
+[node name="HSlider" type="HSlider" parent="YSort/Player/Camera2D/Sound/Sound"]
+margin_left = 86.6739
+margin_top = 1.52588e-05
+margin_right = 230.674
+margin_bottom = 63.0
+min_value = -60.0
+max_value = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="YSort/Player/Camera2D/Sound/Sound"]
+margin_left = 28.891
+margin_top = 25.0
+margin_right = 68.891
+margin_bottom = 39.0
+text = "Sound"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="desk1" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 384, 352 )
@@ -626,7 +681,7 @@ texture = ExtResource( 26 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/desk1/hair-bleach"]
 position = Vector2( -5.72205e-06, 1.43051e-05 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Interact" type="Sprite" parent="YSort/desk1/hair-bleach"]
 visible = false
@@ -647,7 +702,7 @@ texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/bed"]
 position = Vector2( 0, 8 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="cabinet1" type="StaticBody2D" parent="YSort"]
 position = Vector2( 88, 240 )
@@ -660,7 +715,7 @@ texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/cabinet1"]
 position = Vector2( 0, 8 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Interact" type="Sprite" parent="YSort/cabinet1"]
 script = ExtResource( 70 )
@@ -678,7 +733,7 @@ texture = ExtResource( 11 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/table"]
 position = Vector2( 0, 8 )
 rotation = -1.5708
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="bottle" type="StaticBody2D" parent="YSort/table"]
 position = Vector2( 8, 0 )
@@ -696,7 +751,7 @@ texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/table/bottle"]
 position = Vector2( 0, 8 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Interact" type="Sprite" parent="YSort/table/bottle"]
 visible = false
@@ -720,7 +775,7 @@ script = ExtResource( 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/table/pad"]
 position = Vector2( 0, 16.095 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="NPC" type="StaticBody2D" parent="YSort"]
 position = Vector2( -16, 16 )
@@ -734,7 +789,7 @@ texture = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NPC"]
 position = Vector2( 168, 56 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Interact" type="Sprite" parent="YSort/NPC"]
 position = Vector2( 105.07, 16 )
@@ -758,7 +813,7 @@ texture = ExtResource( 55 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/cabinet3"]
 position = Vector2( -184, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Interact" type="Sprite" parent="YSort/cabinet3"]
 script = ExtResource( 88 )
@@ -785,7 +840,7 @@ texture = ExtResource( 52 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/cabinet4"]
 position = Vector2( -184, 32 )
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="shelf" type="StaticBody2D" parent="YSort"]
 position = Vector2( 520, 40 )
@@ -799,7 +854,7 @@ texture = ExtResource( 56 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/shelf"]
 position = Vector2( -184, 32 )
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="Interact" type="Sprite" parent="YSort/shelf"]
 position = Vector2( -200, 0 )
@@ -817,7 +872,7 @@ position = Vector2( 0, -8 )
 texture = ExtResource( 64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/washer"]
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="Interact" type="Sprite" parent="YSort/washer"]
 position = Vector2( -64, -240 )
@@ -832,7 +887,7 @@ position = Vector2( 0, -8 )
 texture = ExtResource( 61 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/trash4"]
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="Interact" type="Sprite" parent="YSort/trash4"]
 position = Vector2( 288, -240 )
@@ -851,7 +906,7 @@ texture = ExtResource( 67 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/trash3"]
 position = Vector2( 0, 8 )
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="Interact" type="Sprite" parent="YSort/trash3"]
 position = Vector2( 240, -232 )
@@ -869,7 +924,7 @@ position = Vector2( 0, -4 )
 texture = ExtResource( 59 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/trash5"]
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="Interact" type="Sprite" parent="YSort/trash5"]
 position = Vector2( 304, -224 )
@@ -887,7 +942,7 @@ position = Vector2( 0, -16 )
 texture = ExtResource( 60 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/trash1"]
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="Interact" type="Sprite" parent="YSort/trash1"]
 position = Vector2( 304, -208 )
@@ -895,7 +950,7 @@ script = ExtResource( 88 )
 item_name = "trash"
 
 [node name="plant" type="StaticBody2D" parent="YSort"]
-position = Vector2( 320, 40 )
+position = Vector2( 320, 39.8425 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -906,7 +961,7 @@ texture = ExtResource( 49 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/plant"]
 position = Vector2( -184, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Interact" type="Sprite" parent="YSort/plant"]
 script = ExtResource( 88 )
@@ -924,7 +979,7 @@ texture = ExtResource( 58 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/plant3"]
 position = Vector2( -184, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Interact" type="Sprite" parent="YSort/plant3"]
 position = Vector2( -176, 0 )
@@ -942,7 +997,7 @@ position = Vector2( 0, -9.18921 )
 texture = ExtResource( 57 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/lamp"]
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Interact" type="Sprite" parent="YSort/lamp"]
 position = Vector2( 40, -128 )
@@ -960,7 +1015,7 @@ position = Vector2( 0, -12 )
 texture = ExtResource( 63 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/toilet"]
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Interact" type="Sprite" parent="YSort/toilet"]
 position = Vector2( 8, -240 )
@@ -978,7 +1033,7 @@ position = Vector2( -1.87289, -3.52608 )
 texture = ExtResource( 65 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/bath"]
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 
 [node name="Interact" type="Sprite" parent="YSort/bath"]
 position = Vector2( 0, -328 )
@@ -993,7 +1048,7 @@ position = Vector2( 4, 0 )
 texture = ExtResource( 62 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/trash2"]
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Interact" type="Sprite" parent="YSort/trash2"]
 position = Vector2( 312, -256 )
@@ -1012,7 +1067,7 @@ texture = ExtResource( 49 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/plant2"]
 position = Vector2( -184, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Interact" type="Sprite" parent="YSort/plant2"]
 position = Vector2( -223.206, 0 )
@@ -1031,7 +1086,7 @@ texture = ExtResource( 53 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Wardrobe"]
 position = Vector2( 0, 9.53674e-06 )
-shape = SubResource( 13 )
+shape = SubResource( 14 )
 
 [node name="Interact" type="Sprite" parent="YSort/Wardrobe"]
 script = ExtResource( 88 )
@@ -1051,7 +1106,7 @@ position = Vector2( 0, -4 )
 texture = ExtResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/shirt"]
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 
 [node name="Interact" type="Sprite" parent="YSort/shirt"]
 script = ExtResource( 42 )
@@ -1070,7 +1125,7 @@ position = Vector2( -3, -3 )
 texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/bandage"]
-shape = SubResource( 15 )
+shape = SubResource( 16 )
 
 [node name="Interact" type="Node2D" parent="YSort/bandage"]
 script = ExtResource( 41 )
@@ -1089,11 +1144,20 @@ texture = ExtResource( 44 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/hair"]
-shape = SubResource( 16 )
+shape = SubResource( 17 )
 
 [node name="Interact" type="Sprite" parent="YSort/hair"]
 script = ExtResource( 43 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 69 )
-volume_db = -80.0
+autoplay = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 408, 88 )
+shape = SubResource( 18 )
+[connection signal="modal_closed" from="YSort/Player/Camera2D/Sound/Sound" to="YSort/Player" method="_on_Sound_modal_closed"]
+[connection signal="popup_hide" from="YSort/Player/Camera2D/Sound/Sound" to="YSort/Player" method="_on_Sound_popup_hide"]
+[connection signal="value_changed" from="YSort/Player/Camera2D/Sound/Sound/HSlider" to="YSort/Player/Camera2D/Sound" method="_on_HSlider_value_changed"]

@@ -97,24 +97,26 @@ func _start_show():
 	showing = true
 
 func _input(event):
-	if event is InputEventKey and event.scancode == KEY_Q:
-		_stop_show()
-	if event is InputEventKey and event.scancode == KEY_R:
-		if ($".".visible):
-			reset()
-	if event is InputEventKey and event.scancode == KEY_S:
-		if (check_ready()):
-			confirm()
-		if (cheating):
-			confirm()
-	# cheat
-	if event is InputEventKey and event.scancode == KEY_C:
-		$"solve".visible = true
-		cheating = true
+	if showing:
+		if event is InputEventKey and event.scancode == KEY_Q:
+			_stop_show()
+		if event is InputEventKey and event.scancode == KEY_R:
+			if ($".".visible):
+				reset()
+		if event is InputEventKey and event.scancode == KEY_S:
+			if (check_ready()):
+				confirm()
+			if (cheating):
+				confirm()
+		# cheat
+		if event is InputEventKey and event.scancode == KEY_C:
+			$"solve".visible = true
+			cheating = true
 		
 func _stop_show():
 	counter = 0
 	hide()
 	showing = false
 	get_node("../blur").hide()
+	print("0")
 	get_node("/root/Room/YSort/Player").canMove = true
