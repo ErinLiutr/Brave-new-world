@@ -167,6 +167,14 @@
     "picture": "Drawer",
     "path": "/root/Room/YSort/table/bottle"
   },
+  "218": {
+    "name": "FakeCoupon",
+    "item_name": "Crumpled fake coupon",
+    "description": "“20% off discount for Project Brave New World” writes the coupon. Probably made as a joke by someone cynical.",
+    "options": [],
+    "picture": "Coupon",
+    "path": ""
+  },
   "219": {
     "name": "ShreddedMagazineCover",
     "item_name": "Shredded magazine cover",

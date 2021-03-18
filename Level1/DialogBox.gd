@@ -11,8 +11,11 @@ var showing = false
 
 var pressed = false
 
+var next_dialog = "-1"
+
 var timer = 0
 var textToPrint = []
+var counter = 0
 
 var currentChar = 0
 var currentText = 0
@@ -36,24 +39,35 @@ func _unhandled_key_input(event):
 
 func _physics_process(delta):
 	if printing:
+		counter += 1
 		if !donePrinting:
-			timer += delta
-			if timer > SPEED:
-				timer = 0
-				get_node("RichTextLabel").set_bbcode(get_node("RichTextLabel").get_bbcode() + textToPrint[currentText][currentChar])
-				currentChar += 1
-				
-			if currentChar >= textToPrint[currentText].length():
+			if pressed and counter > 10:
+				get_node("RichTextLabel").set_bbcode(textToPrint[currentText])
 				currentChar = 0
 				timer = 0
 				donePrinting = true
 				currentText += 1
+				counter = 0
+			else:
+				timer += delta
+				if timer > SPEED:
+					timer = 0
+					get_node("RichTextLabel").set_bbcode(get_node("RichTextLabel").get_bbcode() + textToPrint[currentText][currentChar])
+					currentChar += 1
+					
+				if currentChar >= textToPrint[currentText].length():
+					counter = 0
+					currentChar = 0
+					timer = 0
+					donePrinting = true
+					currentText += 1
 		elif currentText >= textToPrint.size():
 			if pressed:
 				currentText = 0
 				get_node("RichTextLabel").set_bbcode("")
 				textToPrint = []
 				printing = false
+				counter = 0
 				if combat:
 					var TheRoot = get_node("/root")
 					var this_scene = TheRoot.get_node("Room")
@@ -62,9 +76,12 @@ func _physics_process(delta):
 					TheRoot.remove_child(this_scene)
 					TheRoot.add_child(next_scene)
 					hide()
-				else:
-					_start("01")
+				elif next_dialog == "-1":
+					hide()
 					get_node("/root/Room/YSort/Player").canMove = true
+				else:
+					_start(next_dialog)
+					#get_node("/root/Room/YSort/Player").canMove = true
 		elif pressed:
 			if currentText < textToPrint.size():
 				donePrinting = false
@@ -83,20 +100,35 @@ func load_data(url):
 	return data
 	
 func _start(id):
+	counter = 0
+	for node in ["NPC", "MC", "Pearl"]:
+			get_node(node).hide()
 	if id == "00":
 		hide()
 		get_node("/root/Room/YSort/Player").canMove = true
 	elif json[id]["type"] == "choice":
+		get_node("NPC").show()
 		_show_choices(json[id]["title"], json[id]["choices"])
 	elif json[id]["type"] == "dialog":
+		get_node(json[id]["role"]).show()
 		combat = false
+		if json[id]["next"] == "":
+			next_dialog = "-1"
+		else:
+			next_dialog = json[id]["next"]
 		_print_dialogue(json[id]["text"])
 	elif json[id]["type"] == "description":
+		get_node("NPC").show()
 		_show_description(json[id]["text"])
 	elif json[id]["type"] == "game":
+		get_node(json[id]["role"]).show()
 		combat = true
 		_print_dialogue(json[id]["text"])
-	
+	if id == "19":
+		get_node("/root/Room/YSort/Player/Camera2D/Inventory").item_ids.erase("103")
+		get_node("/root/Room/YSort/Player/Camera2D/Inventory").item_ids.append("218")
+		get_node("/root/Room/YSort/Player").equipment = ""
+		get_node("/root/Room/YSort/Player/Camera2D/Equipment/Receipt").hide()
 
 func _print_dialogue(text):
 	get_node("RichTextLabel").show()
@@ -122,6 +154,9 @@ func _show_choices(title, choices):
 				json["09"]["text"] = str(counter) + "/4 key items collected to unlock."
 			else:
 				choice["go_to"] = "07"
+		elif choice["text"] == "HAND OUT BANK CHECK":
+			if get_node("/root/Room/YSort/Player").equipment != "103":
+				continue
 		var new_choice = choice_item.instance()
 		new_choice.name = "choice" + str(idx)
 		if idx == 0:
@@ -132,6 +167,13 @@ func _show_choices(title, choices):
 		new_choice.get_node("choice").text = choice["text"]
 		get_node("Choices").choice_results.append(choice["go_to"])
 		get_node("Choices/GridContainer").add_child(new_choice)
+	var new_choice1 = choice_item.instance()
+	new_choice1.name = "choice" + str(idx)
+	new_choice1.get_node("selector").text = ""
+	new_choice1.get_node("choice").text = "COMBAT WITHOUT COLLECTING"
+	get_node("Choices").choice_results.append("07")
+	get_node("Choices/GridContainer").add_child(new_choice1)
+	idx += 1
 	var new_choice = choice_item.instance()
 	new_choice.name = "choice" + str(idx)
 	new_choice.get_node("selector").text = ""

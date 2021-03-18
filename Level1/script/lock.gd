@@ -7,6 +7,7 @@ onready var popup_win = get_node("/root/Room/YSort/Player/Camera2D/blur/PopupWin
 onready var popup_lose = get_node("/root/Room/YSort/Player/Camera2D/blur/PopupLose/PopupMenu")
 
 var showing = false
+var popup = false
 
 var counter = 0
 
@@ -49,10 +50,10 @@ func _input(event):
 		if event.pressed and event.scancode == 16777220:
 			if len(numbers) != 0:
 				numbers.pop_back()
-	if event is InputEventKey and event.scancode == KEY_Q:
+	if event is InputEventKey and event.scancode == KEY_Q and showing:
 		numbers = []
 		_stop_show()
-	if event is InputEventKey and event.scancode == KEY_O:
+	if event is InputEventKey and event.scancode == KEY_O and showing:
 		_open()
 		
 func check_correctness():
@@ -69,18 +70,20 @@ func _open():
 		if (check_correctness()):
 			popup_win.rect_global_position = Vector2(get_parent().global_position.x - 48, get_parent().global_position.y - 44)
 			self.z_index = 0
-			popup_win.is_hidden = false
 			popup_win.show()
 			showing = false
+			popup = true
 		else:
 			lost = true
 			popup_lose.rect_global_position = Vector2(get_parent().global_position.x - 48, get_parent().global_position.y - 44)
 			self.z_index = 0
 			popup_lose.show()
 			showing = false
+			popup = true
 
 
 func _reset():
+	popup = false
 	var root = get_tree().get_root()
 	var pos = get_node(".").position
 	root.get_node("Room/YSort/Player/Camera2D").remove_child(get_node("."))
@@ -96,10 +99,12 @@ func _reset():
 		
 func _start_show():
 	show()
+	popup = false
 	self.z_index = 5
 	showing = true
 	
 func _stop_show():
+	popup = false
 	counter = 0
 	hide()
 	showing = false

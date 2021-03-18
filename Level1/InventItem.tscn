@@ -120,3 +120,8 @@ texture = ExtResource( 15 )
 visible = false
 position = Vector2( 8, 8 )
 texture = ExtResource( 16 )
+
+[node name="Coupon" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+texture = ExtResource( 16 )

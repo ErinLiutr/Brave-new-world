@@ -201,7 +201,7 @@ func interact(result):
 				node.get_node("Choices").showing = true
 				node.get_node("Choices").show()
 			if name == "DialogBox":
-				node._start("01")
+				node._start(dictionary.collider.get_node("Interact").id)
 			else:
 				node._start_show()
 
