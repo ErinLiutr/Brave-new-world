@@ -151,11 +151,10 @@ func interact(result):
 							continue
 					elif choice == "open":
 						new_choice.get_node("choice").text = "VIEW"
-						var status = dictionary.collider.get_node("Interact").status
-						if status == 0:
-							node.get_node("Choices").choice_results.append("password")
-						elif status == 1:
-							node.get_node("Choices").choice_results.append("key")
+						node.get_node("Choices").choice_results.append("password")
+					elif choice == "key":
+						new_choice.get_node("choice").text = "VIEW"
+						node.get_node("Choices").choice_results.append("key")
 					elif choice == "unlock":
 						if equipment == "215":
 							new_choice.get_node("choice").text = "UNLOCK WITH KEY"

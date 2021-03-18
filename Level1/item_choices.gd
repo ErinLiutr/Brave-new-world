@@ -27,7 +27,7 @@ func handle_selection(destination, id):
 			node.hide()
 		invent_node.item_ids.append(str(id))
 		if str(id) == "215":
-			get_node("/root/Room/YSort/table/bottle/Interact").id = "216-1"
+			get_node("/root/Room/YSort/table/bottle/Interact").id = "216-2"
 		if str(id) == "207":
 			get_node("/root/Room/YSort/cabinet1/Interact").id = "217-3"
 	

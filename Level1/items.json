@@ -135,12 +135,20 @@
     "picture": "Bottle_key",
     "path": "/root/Room/YSort/table/bottle"
   },
-  "216-1": {
+  "216-2": {
     "name": "Bottle",
     "item_name": "Glass bottle",
     "description": "This is an empty bottle",
     "options": [],
     "picture": "Bottle",
+    "path": "/root/Room/YSort/table/bottle"
+  },
+  "216-1": {
+    "name": "Bottle",
+    "item_name": "Glass bottle",
+    "description": "This is a bottle, the cipher lock on it is unlocked.",
+    "options": ["key"],
+    "picture": "Bottle_key",
     "path": "/root/Room/YSort/table/bottle"
   },
   "217-1": {
