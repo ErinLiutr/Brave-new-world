@@ -1,18 +1,52 @@
 extends Control
 
+var pressed = false
+var showing = false
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-onready var button = get_node("Sound").get_close_button()
+var left = false
+var right = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	button.connect("pressed", self, "close")
+	set_physics_process(true)
+	set_process_unhandled_key_input(true)
+	
+func _physics_process(delta):
+	if showing:
+		if pressed:
+			_close()
+		if left:
+			get_node("NinePatchRect/HSlider").value -= 5
+		if right:
+			get_node("NinePatchRect/HSlider").value += 5
+			
+		pressed = false
+		left = false
+		right = false
 
-
-func close():
-	get_node("/root/Room/YSort/Player").canMove = true
+func _unhandled_key_input(key_event):
+	if showing:
+		if key_event.is_action_pressed("ui_cancel"):
+			pressed = true
+		elif key_event.is_action_released("ui_cancel"):
+			pressed = false
+		if key_event.is_action_pressed("ui_left"):
+			left = true
+		elif key_event.is_action_released("ui_left"):
+			left = false
+		if key_event.is_action_pressed("ui_right"):
+			right = true
+		elif key_event.is_action_released("ui_right"):
+			right = false
+			
+func _open():
+	showing = true
+	show()
+	
+func _close():
+	showing = false
+	hide()
+	if get_parent().name == "Camera2D":
+		get_node("/root/Room/YSort/Player").canMove = true
 
 
 func _on_HSlider_value_changed(value):

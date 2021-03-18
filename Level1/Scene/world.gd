@@ -14,6 +14,7 @@ func _return(win):
 	var this_scene = get_node("/root/Combat")
 	TheRoot.remove_child(this_scene)
 	TheRoot.add_child(previous_scene)
+	previous_scene.get_node("YSort/Player").canMove = true
 	if win:
 		previous_scene.get_node("YSort/Player/Camera2D/DialogBox").show()
 		previous_scene.get_node("YSort/Player/Camera2D/DialogBox")._start("08")

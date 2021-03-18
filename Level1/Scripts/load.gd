@@ -44,4 +44,5 @@ func _return():
 	var TheRoot = get_node("/root")
 	var this_scene = get_node("/root/Room")
 	TheRoot.remove_child(this_scene)
+	title_scene.get_node("Sound2/NinePatchRect/HSlider").value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	TheRoot.add_child(title_scene)

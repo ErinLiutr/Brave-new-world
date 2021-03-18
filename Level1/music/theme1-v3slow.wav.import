@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/theme1-v3slow.wav-1b65620403759590de7e4ad43155ee33.sample"
+
+[deps]
+
+source_file="res://music/theme1-v3slow.wav"
+dest_files=[ "res://.import/theme1-v3slow.wav-1b65620403759590de7e4ad43155ee33.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

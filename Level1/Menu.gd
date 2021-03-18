@@ -45,10 +45,10 @@ func _handle_interaction():
 	elif currentLabel == 5:
 		open = false
 		get_node("/root/Room/YSort/Player").canMove = false
-		$"../Sound/Sound".set_global_position(
-			Vector2(get_node("/root/Room/YSort/Player").position.x-50, 
-			get_node("/root/Room/YSort/Player").position.y-50))
-		$"../Sound/Sound".show()
+		#$"../Sound/Sound".set_global_position(
+		#	Vector2(get_node("/root/Room/YSort/Player").position.x-50, 
+		#	get_node("/root/Room/YSort/Player").position.y-50))
+		$"../Sound"._open()
 		hide()
 		for child in labels:
 			child.get_node("arrow").hide()
