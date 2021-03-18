@@ -77,8 +77,7 @@ func _physics_process(delta):
 					TheRoot.add_child(next_scene)
 					hide()
 				elif next_dialog == "-1":
-					hide()
-					get_node("/root/Room/YSort/Player").canMove = true
+					_start("00")
 				else:
 					_start(next_dialog)
 					#get_node("/root/Room/YSort/Player").canMove = true
@@ -101,6 +100,7 @@ func load_data(url):
 	
 func _start(id):
 	counter = 0
+	next_dialog = "-1"
 	for node in ["NPC", "MC", "Pearl"]:
 			get_node(node).hide()
 	if id == "00":

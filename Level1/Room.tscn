@@ -100,9 +100,6 @@ extents = Vector2( 8, 8 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 8, 8 )
-
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 16 )
 
@@ -119,6 +116,9 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id=5]
 shader = SubResource( 4 )
 shader_param/blur = 1.259
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 16, 24 )
@@ -255,25 +255,6 @@ position = Vector2( 91.0676, -118.896 )
 scale = Vector2( 0.25, 0.25 )
 z_index = 1
 script = ExtResource( 81 )
-
-[node name="bandage" type="StaticBody2D" parent="." groups=[
-"Persist",
-]]
-position = Vector2( 120, 104 )
-script = ExtResource( 74 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="bandage"]
-position = Vector2( -3, -3 )
-texture = ExtResource( 40 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bandage"]
-shape = SubResource( 16 )
-
-[node name="Interact" type="Node2D" parent="bandage"]
-script = ExtResource( 41 )
 
 [node name="cabinet3" type="Sprite" parent="."]
 position = Vector2( 284.5, 31.5 )
@@ -664,6 +645,25 @@ col = 3
 
 [node name="Sound" parent="YSort/Player/Camera2D" instance=ExtResource( 23 )]
 visible = false
+
+[node name="bandage" type="StaticBody2D" parent="YSort" groups=[
+"Persist",
+]]
+position = Vector2( 120, 104 )
+script = ExtResource( 74 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/bandage"]
+position = Vector2( -3, -3 )
+texture = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/bandage"]
+shape = SubResource( 16 )
+
+[node name="Interact" type="Node2D" parent="YSort/bandage"]
+script = ExtResource( 41 )
 
 [node name="desk1" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 384, 352 )

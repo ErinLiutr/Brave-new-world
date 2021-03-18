@@ -138,5 +138,35 @@
     "role": "NPC",
     "text": ["You wanna give me 1000 dollars? Nah I can’t take your money but thanks! Btw here’s a coupon I found on the street. Apparently I’m too young for the project but you seem rich so maybe you can use it on people you hate."],
     "next": "01"
+  },
+  "20": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["After he helped me dye my hair, I went to school the other day everyone was staring at me laughing so hard, even the teachers laughed a little bit. I couldn’t figure out why so I asked him and he said it was just that people were jealous of my hair..."],
+    "next": ""
+  },
+  "21": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["I only told him about this...but later everyone knew...", "I guess they just figured it out themselves somehow...I mean since he promised he wouldn’t tell anyone."],
+    "next": ""
+  },
+  "22": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["He said I would be popular too if I dye my hair brown, as popular as K.K., and people would stop bullying me and be friends with me..."],
+    "next": ""
+  },
+  "23": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["He was always there when I was depressed and scared and he was the only person that listened when I talked. He even told me I was his best friend...", "Unlike me, he was popular and had a lot of friends and he was nice to everyone. He was perfect. I wanted to be just like him."],
+    "next": ""
+  },
+  "24": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["Wow congrats you’ve digged out all my little secrets! You’re satisfied, Mr.detective? Now GET OUT!"],
+    "next": ""
   }
 }

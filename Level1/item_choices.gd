@@ -28,8 +28,21 @@ func handle_selection(destination, id):
 		invent_node.item_ids.append(str(id))
 		if str(id) == "215":
 			get_node("/root/Room/YSort/table/bottle/Interact").id = "216-2"
-		if str(id) == "207":
+		elif str(id) == "207":
 			get_node("/root/Room/YSort/cabinet1/Interact").id = "217-3"
+		if ["203", "207", "213", "208"].has(str(id)):
+			get_node("/root/Room/YSort/Player").canMove = false
+			get_node("/root/Room/YSort/Player/Camera2D/DialogBox").show()
+			if str(id) == "203":
+				get_node("/root/Room/YSort/Player/Camera2D/DialogBox")._start("20")
+			elif str(id) == "207":
+				get_node("/root/Room/YSort/Player/Camera2D/DialogBox")._start("21")
+			elif str(id) == "208":
+				get_node("/root/Room/YSort/Player/Camera2D/DialogBox")._start("22")
+			elif str(id) == "213":
+				get_node("/root/Room/YSort/Player/Camera2D/DialogBox")._start("23")
+			if invent_node.item_ids.has("203") and invent_node.item_ids.has("207") and invent_node.item_ids.has("208") and invent_node.item_ids.has("213"):
+				get_node("/root/Room/YSort/Player/Camera2D/DialogBox").next_dialog = "24"
 	
 	elif destination == "equip":
 		get_node("/root/Room/YSort/Player").equipment = str(id)
