@@ -78,7 +78,7 @@
 [ext_resource path="res://Scripts/SaveObjects/SaveHair-bleach.gd" type="Script" id=76]
 [ext_resource path="res://Scripts/SaveObjects/SaveHair.gd" type="Script" id=77]
 [ext_resource path="res://Scripts/SaveObjects/SaveGift.gd" type="Script" id=78]
-[ext_resource path="res://Scene/Helpl.tscn" type="PackedScene" id=79]
+[ext_resource path="res://Guide.tscn" type="PackedScene" id=79]
 [ext_resource path="res://Scripts/SaveObjects/SaveMag.gd" type="Script" id=80]
 [ext_resource path="res://Interact9.gd" type="Script" id=81]
 [ext_resource path="res://Scene/lock.tscn" type="PackedScene" id=82]
@@ -343,12 +343,6 @@ margin_bottom = 57.8089
 [node name="Description" parent="YSort/Player/Camera2D" instance=ExtResource( 28 )]
 visible = false
 
-[node name="Help" parent="YSort/Player/Camera2D" instance=ExtResource( 79 )]
-margin_left = -34.8906
-margin_top = -47.3933
-margin_right = -8.89056
-margin_bottom = -37.3933
-
 [node name="Menu" type="NinePatchRect" parent="YSort/Player/Camera2D"]
 visible = false
 margin_left = 52.0
@@ -487,7 +481,7 @@ margin_right = 50.2235
 margin_bottom = 40.2552
 custom_fonts/font = ExtResource( 93 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "SOUND"
+text = "VOLUME"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -607,9 +601,9 @@ position = Vector2( -42.3013, -53.1401 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="YSort/Player/Camera2D/Inventory"]
-margin_left = 29.0
+margin_left = 29.0853
 margin_top = -76.0
-margin_right = 128.0
+margin_right = 128.085
 margin_bottom = 76.0
 texture = ExtResource( 45 )
 patch_margin_left = 35
@@ -619,10 +613,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="YSort/Player/Camera2D/Inventory/NinePatchRect"]
-margin_left = 29.0387
-margin_top = -1.97695
-margin_right = 99.0387
-margin_bottom = 15.023
+margin_left = 34.7779
+margin_top = -1.34931
+margin_right = 104.778
+margin_bottom = 15.6506
 custom_fonts/font = ExtResource( 17 )
 text = "Inventory"
 __meta__ = {
@@ -646,24 +640,7 @@ col = 3
 [node name="Sound" parent="YSort/Player/Camera2D" instance=ExtResource( 23 )]
 visible = false
 
-[node name="bandage" type="StaticBody2D" parent="YSort" groups=[
-"Persist",
-]]
-position = Vector2( 120, 104 )
-script = ExtResource( 74 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="YSort/bandage"]
-position = Vector2( -3, -3 )
-texture = ExtResource( 40 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/bandage"]
-shape = SubResource( 16 )
-
-[node name="Interact" type="Node2D" parent="YSort/bandage"]
-script = ExtResource( 41 )
+[node name="Guide" parent="YSort/Player/Camera2D" instance=ExtResource( 79 )]
 
 [node name="desk1" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 384, 352 )
@@ -691,6 +668,26 @@ position = Vector2( 91.0676, -118.896 )
 scale = Vector2( 0.25, 0.25 )
 z_index = 1
 script = ExtResource( 35 )
+
+[node name="bandage" type="StaticBody2D" parent="YSort" groups=[
+"Persist",
+]]
+position = Vector2( 120, 104 )
+z_as_relative = false
+script = ExtResource( 74 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/bandage"]
+position = Vector2( -3, -3 )
+texture = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/bandage"]
+shape = SubResource( 16 )
+
+[node name="Interact" type="Node2D" parent="YSort/bandage"]
+script = ExtResource( 41 )
 
 [node name="bed" type="StaticBody2D" parent="YSort"]
 position = Vector2( 80, 80 )
@@ -780,7 +777,7 @@ position = Vector2( 0, 16.095 )
 shape = SubResource( 9 )
 
 [node name="NPC" type="StaticBody2D" parent="YSort"]
-position = Vector2( -16, 16 )
+position = Vector2( -16, 15.7773 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -971,7 +968,7 @@ script = ExtResource( 88 )
 item_name = "trash"
 
 [node name="plant" type="StaticBody2D" parent="YSort"]
-position = Vector2( 320, 39.8425 )
+position = Vector2( 320, 39.8949 )
 __meta__ = {
 "_edit_group_": true
 }

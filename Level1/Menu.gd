@@ -31,16 +31,12 @@ func _handle_interaction():
 		_close_menu()
 	elif currentLabel == 3:	
 		open = false
-		get_node("/root/Room/YSort/Player").canMove = false
-		$"../Help/Help".set_global_position(
-			Vector2(get_node("/root/Room/YSort/Player").position.x-80, 
-			get_node("/root/Room/YSort/Player").position.y-70))
-		$"../Help/Help".show()
 		hide()
 		for child in labels:
 			child.get_node("arrow").hide()
+		get_node("../Guide")._start_show()
 	elif currentLabel == 4:
-		open = false
+		_close_menu()
 		get_node("/root/Room")._return()
 	elif currentLabel == 5:
 		open = false
@@ -111,5 +107,4 @@ func _close_menu():
 	for child in labels:
 		child.get_node("arrow").hide()
 	get_node("/root/Room/YSort/Player").canMove = true
-	print("1")
 	open = false

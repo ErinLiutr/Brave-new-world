@@ -4,7 +4,7 @@
 [ext_resource path="res://Button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/BeginButton.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Help.gd" type="Script" id=4]
-[ext_resource path="res://Scene/Help2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Guide.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/title.gd" type="Script" id=6]
 [ext_resource path="res://Sound.tscn" type="PackedScene" id=7]
 [ext_resource path="res://music/theme1-v3slow.wav" type="AudioStream" id=8]
@@ -29,9 +29,9 @@ enabled_focus_mode = 0
 script = ExtResource( 3 )
 
 [node name="Quit" parent="." instance=ExtResource( 2 )]
-margin_left = 176.0
+margin_left = 184.0
 margin_top = 112.0
-margin_right = 214.0
+margin_right = 222.0
 margin_bottom = 124.0
 focus_mode = 0
 enabled_focus_mode = 0
@@ -47,19 +47,20 @@ focus_mode = 0
 custom_styles/pressed = ExtResource( 10 )
 custom_styles/focus = ExtResource( 10 )
 enabled_focus_mode = 0
-text = "SOUND"
+text = "VOLUME"
 
 [node name="Help" parent="." instance=ExtResource( 2 )]
-margin_left = 72.0
+margin_left = 73.1225
 margin_top = 112.0
-margin_right = 110.0
+margin_right = 111.122
 margin_bottom = 124.0
 focus_mode = 0
 enabled_focus_mode = 0
 text = "HELP"
 script = ExtResource( 4 )
 
-[node name="Popup" parent="." instance=ExtResource( 5 )]
+[node name="Guide" parent="." instance=ExtResource( 5 )]
+position = Vector2( 115.052, 58.525 )
 
 [node name="Sound2" parent="." instance=ExtResource( 7 )]
 visible = false
