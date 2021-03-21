@@ -23,7 +23,7 @@ func _on_Timer_timeout():
 	
 func _on_Button_pressed():
 	if $Timer.time_left == 0.0:
-		$"../../../YSort/Player".change_bullet("report")
+		$"../../../YSort/Player".fire_special("report")
 		_set_disabled()	
 		$Timer.start(0)
 		

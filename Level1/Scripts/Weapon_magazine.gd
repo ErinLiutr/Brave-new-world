@@ -23,10 +23,7 @@ func _on_Timer_timeout():
 	
 func _on_Button_pressed():
 	if $Timer.time_left == 0.0:
-#		for i in range(kill_point):
-#			$"../../../YSort/Enemy".lose_life()
-		print("inside", $"../../../YSort/Player".life_points)
-		$"../../../YSort/Player".change_bullet("magazine")
+		$"../../../YSort/Player".fire_special("magazine")
 		_set_disabled()	
 		$Timer.start(0)
 func stop():

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Guide.gd" type="Script" id=1]
 [ext_resource path="res://menu.png" type="Texture" id=2]
 [ext_resource path="res://new_dynamicfontmini.tres" type="DynamicFont" id=3]
 [ext_resource path="res://combat/CombatGuide.png" type="Texture" id=4]
+[ext_resource path="res://new_dynamicfontsmall.tres" type="DynamicFont" id=5]
 
 [node name="Guide" type="Sprite"]
 position = Vector2( -53.9268, -2.69363 )
@@ -71,6 +72,40 @@ send you to the next room. Have no
 clue where to start? Try to talk to the 
 NPC  standing in every room first!
 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 80.0
+margin_top = 46.0
+margin_right = 120.0
+margin_bottom = 52.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="continue" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 39.0
+margin_right = 166.0
+margin_bottom = 70.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = ExtResource( 5 )
+text = "[Enter] Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 45.0
+margin_right = 166.0
+margin_bottom = 76.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = ExtResource( 5 )
+text = "[Esc] Quit"
 __meta__ = {
 "_edit_use_anchors_": false
 }

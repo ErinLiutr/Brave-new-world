@@ -6,6 +6,7 @@
 
 [node name="Sound" type="Sprite"]
 self_modulate = Color( 0.654902, 0, 0, 1 )
+scale = Vector2( 0.4, 0.4 )
 script = ExtResource( 3 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]

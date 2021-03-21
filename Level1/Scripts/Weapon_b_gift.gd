@@ -25,7 +25,7 @@ func _on_Timer_timeout():
 	
 func _on_Button_pressed():
 	if $Timer.time_left == 0.0:
-		$"../../../YSort/Player".change_bullet("gift")
+		$"../../../YSort/Player".fire_special("gift")
 		_set_disabled()	
 		$Timer.start(0)
 		

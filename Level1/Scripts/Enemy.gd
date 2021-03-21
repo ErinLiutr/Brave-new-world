@@ -33,12 +33,15 @@ func lose_40():
 	
 func lose_life(flag):
 	life_points -= 1
+	if (life_points >= 0):
+		$"../../Label".set_text("HP: "+str(life_points))
 	$"Bleeding".visible = true
 	animationPlayer.play("Bleeding")
 	if flag:
 		$"-1/Sprite".visible = true
 		$"-1/AnimationPlayer".play("-1")	
-	
+		
+		
 func _physics_process(delta):
 	if life_points <= 0:
 		$"../Player".stop_player()
@@ -46,6 +49,3 @@ func _physics_process(delta):
 		set_process(false)
 		$"../../Win".visible = true
 		$"../../Win".start()
-#		pop_up.rect_global_position = Vector2(52.431503, 33.203491)
-#		pop_up.show()
-

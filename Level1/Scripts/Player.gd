@@ -11,19 +11,14 @@ var lives = [get_node("../../PlayerLives/Life1"),
 			get_node("../../PlayerLives/Life4"),
 			get_node("../../PlayerLives/Life5"),
 			get_node("../../PlayerLives/Life6")]
-export var maxSpeed = 200
-export var acceleration = 300
-export var friction = 300
+export var maxSpeed = 60
+export var acceleration = 200
+export var friction = 200
 var disable = false
 var axis = Vector2.ZERO
 var velocity = Vector2.ZERO
 var life_points = 6
-#onready var pop_up_lose = preload("res://Scene/Popup_lose.tscn")
-var bullet_type
 
-func _ready():
-	bullet_type = "bullet"
-	
 func _physics_process(delta):
 	get_input_axis()
 	if(axis) == Vector2.ZERO:
@@ -37,10 +32,6 @@ func _physics_process(delta):
 		stop_player()
 		$"../../Lose".visible = true
 		$"../../Lose".start()
-#		var popup = pop_up_lose.instance()
-#		get_parent().add_child(popup)
-#		popup.rect_global_position = Vector2(52.431503, 33.203491)
-#		popup.show()
 		
 func stop_player():
 	$"../Enemy/BulletSpawner".stop()
@@ -62,37 +53,56 @@ func apply_friction(friction_factor):
 		velocity = Vector2.ZERO
 		
 func apply_motion(acc_factor):
-	velocity += axis.normalized()*acc_factor
-	velocity = velocity.clamped(maxSpeed)
+	velocity = axis.normalized()*maxSpeed
+#	velocity += axis.normalized()*acc_factor
+#	velocity = velocity.clamped(maxSpeed)
 
 func lose_life():
 	life_points = max(0, life_points - 1)
 	var life = get_node("../../PlayerLives/Life%d"%(life_points+1))
 	get_node("../../PlayerLives/Life%d/Vanish"%(life_points+1)).play("Vanish")
-	
-func change_bullet(type):
-	bullet_type = type
-	
+
+func _bullet_sound(type):
+	if type=="bullet":
+		$"BulletAudio".play()
+	else:
+		$"SpecialAudio".play()
+		
 func _input(event):
 	if event is InputEventKey and event.pressed:
+		var ball
+		var direction = Vector2(0, -1)
 		if event.scancode == KEY_SPACE and disable == false:
-				var direction = Vector2(0, -1)
-				var ball
-				if bullet_type == "bullet":
-					ball = BALL.instance()
-				if bullet_type == "dye":
-					ball = DYE.instance()
-					bullet_type = "bullet"
-				if bullet_type == "magazine":
-					ball = MAG.instance()
-					bullet_type = "bullet"
-				if bullet_type == "report":
-					ball = REPORT.instance()
-					bullet_type = "bullet"
-				if bullet_type == "gift":
-					ball = GIFT.instance()
-					bullet_type = "bullet"
-					
+				ball = BALL.instance()
 				get_parent().add_child(ball)
 				ball.global_position = global_position + (30*direction)
 				ball.set_bullet_direction( direction)
+				_bullet_sound("bullet")
+func fire_special(type):
+	var ball
+	var direction = Vector2(0, -1)
+	if (type=="gift"):
+		# gift
+		ball = GIFT.instance()
+		get_parent().add_child(ball)
+		ball.global_position = global_position + (30*direction)
+		ball.set_bullet_direction( direction)
+	elif (type=="dye"): 
+		# dye
+		ball = DYE.instance()
+		get_parent().add_child(ball)
+		ball.global_position = global_position + (30*direction)
+		ball.set_bullet_direction( direction)
+	elif (type=="report"):
+		# report
+		ball = REPORT.instance()
+		get_parent().add_child(ball)
+		ball.global_position = global_position + (30*direction)
+		ball.set_bullet_direction( direction)
+	elif (type=="magazine"):
+		# maga
+		ball = MAG.instance()
+		get_parent().add_child(ball)
+		ball.global_position = global_position + (30*direction)
+		ball.set_bullet_direction( direction)
+	_bullet_sound("special")

@@ -2,21 +2,18 @@ extends Node2D
 
 var previous_scene
 var combat_scene = preload("res://Scene/world.tscn")
-
-# Called when the node enters the scene tree for the first time.
-var showing = false
-
-var pressed = false
 var counter = 0
+var enter_count = 0
 
-func _ready():
-	$"World".pause_mode = 1
-#	$"World".freeze()
-	
 func _input(event):
 	if event is InputEventKey and event.scancode == KEY_ESCAPE:
 		$"Guide".visible = false
-#		$"World".start()
+		_return(false)
+	elif event is InputEventKey and event.scancode == KEY_ENTER:
+		if enter_count < 2:
+			enter_count += 1
+		else:
+			$"Guide".visible = false
 		
 func _return(win):
 	var TheRoot = get_node("/root")

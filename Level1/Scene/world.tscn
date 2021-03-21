@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scene/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scene/Enemy.tscn" type="PackedScene" id=2]
@@ -19,6 +19,9 @@
 [ext_resource path="res://Scene/-30.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scene/-40.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scripts/CombatWorld.gd" type="Script" id=19]
+[ext_resource path="res://combat/sound/specialattack.wav" type="AudioStream" id=20]
+[ext_resource path="res://combat/sound/bullet.wav" type="AudioStream" id=21]
+[ext_resource path="res://newpixel.tres" type="DynamicFont" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 598.828, 10 )
@@ -33,15 +36,35 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -531.0
+margin_top = -54.0
+margin_right = 1061.0
+margin_bottom = 840.0
+color = Color( 0.705882, 0.698039, 0.698039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_layer = 4
 collision_mask = 0
 
 [node name="Ground" type="Sprite" parent="Walls"]
-position = Vector2( 243.364, 425.073 )
-scale = Vector2( 0.249856, 0.808279 )
+position = Vector2( 244.042, 431.857 )
+scale = Vector2( 0.277398, 0.826368 )
 z_index = -1
 texture = ExtResource( 3 )
+
+[node name="ColorRect2" type="ColorRect" parent="Walls"]
+margin_left = 62.0
+margin_top = 127.0
+margin_right = 426.0
+margin_bottom = 737.0
+color = Color( 0.854902, 0.788235, 0.85098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Bottom" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 356.915, 733.746 )
@@ -78,8 +101,14 @@ scale = Vector2( 0.8, 0.8 )
 
 [node name="PlayerLife" parent="YSort/Player" instance=ExtResource( 8 )]
 
+[node name="BulletAudio" type="AudioStreamPlayer2D" parent="YSort/Player"]
+stream = ExtResource( 21 )
+
+[node name="SpecialAudio" type="AudioStreamPlayer2D" parent="YSort/Player"]
+stream = ExtResource( 20 )
+
 [node name="Enemy" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 253.495, 137.345 )
+position = Vector2( 253.495, 150.678 )
 scale = Vector2( 1.5, 1.5 )
 collision_layer = 10
 collision_mask = 6
@@ -111,11 +140,24 @@ position = Vector2( -127.465, -54.6183 )
 [node name="-40" parent="YSort/Enemy" instance=ExtResource( 18 )]
 position = Vector2( -129.015, -54.8932 )
 
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.47451, 0.145098, 0.407843, 1 )
+margin_left = 617.333
+margin_top = 53.6667
+margin_right = 677.333
+margin_bottom = 73.6667
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 22 )
+text = "HP: 100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="EnemyLifeBar" parent="." instance=ExtResource( 7 )]
 margin_left = 364.0
-margin_top = 67.0
+margin_top = 63.0
 margin_right = 878.0
-margin_bottom = 115.0
+margin_bottom = 119.0
 rect_min_size = Vector2( 300, 40 )
 rect_scale = Vector2( 0.45, 0.45 )
 max_value = 100.0
@@ -123,9 +165,9 @@ value = 100.0
 
 [node name="Bag" type="CenterContainer" parent="."]
 margin_left = 410.0
-margin_top = 60.0
+margin_top = 133.333
 margin_right = 530.0
-margin_bottom = 604.0
+margin_bottom = 677.333
 theme = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -159,30 +201,30 @@ margin_right = 0.0
 margin_bottom = 360.0
 
 [node name="PlayerLives" type="Node2D" parent="."]
-position = Vector2( 7.62939e-06, 2.47955e-05 )
+position = Vector2( -573.335, -220 )
 
 [node name="Life2" parent="PlayerLives" instance=ExtResource( 4 )]
-position = Vector2( 529.058, 668.009 )
+position = Vector2( 575.724, 634.674 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Life5" parent="PlayerLives" instance=ExtResource( 4 )]
-position = Vector2( 528.414, 708.061 )
+position = Vector2( 575.08, 754.727 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Life6" parent="PlayerLives" instance=ExtResource( 4 )]
-position = Vector2( 574.707, 707.605 )
+position = Vector2( 574.707, 794.271 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Life1" parent="PlayerLives" instance=ExtResource( 4 )]
-position = Vector2( 483.103, 668.481 )
+position = Vector2( 576.436, 595.147 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Life3" parent="PlayerLives" instance=ExtResource( 4 )]
-position = Vector2( 575.042, 667.667 )
+position = Vector2( 575.042, 674.333 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Life4" parent="PlayerLives" instance=ExtResource( 4 )]
-position = Vector2( 482.624, 708.003 )
+position = Vector2( 575.957, 714.669 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Lose" parent="." instance=ExtResource( 12 )]
@@ -192,6 +234,6 @@ position = Vector2( -20, 160 )
 [node name="Win" parent="." instance=ExtResource( 13 )]
 visible = false
 position = Vector2( 186.667, 293.334 )
-[connection signal="changed" from="YSort/Enemy/EnemyLife" to="YSort/Enemy/EnemyLife" method="_on_EnemyLife_changed"]
 [connection signal="changed" from="YSort/Enemy/EnemyLife" to="EnemyLifeBar" method="set_value"]
+[connection signal="changed" from="YSort/Enemy/EnemyLife" to="YSort/Enemy/EnemyLife" method="_on_EnemyLife_changed"]
 [connection signal="timeout" from="YSort/Enemy/BulletSpawner/Timer" to="YSort/Enemy/BulletSpawner" method="_on_Timer_timeout"]

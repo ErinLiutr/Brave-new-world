@@ -24,7 +24,7 @@ func _on_Timer_timeout():
 	
 func _on_Button_pressed():
 	if $Timer.time_left == 0.0:
-		$"../../../YSort/Player".change_bullet("dye")
+		$"../../../YSort/Player".fire_special("dye")
 		_set_disabled()	
 		$Timer.start(0)
 		
@@ -32,5 +32,5 @@ func stop():
 	$Timer.stop()
 
 func _input(event):
-	if event is InputEventKey and (event.scancode==72or event.scancode==51):
+	if event is InputEventKey and (event.scancode==72 or event.scancode==51):
 		_on_Button_pressed()

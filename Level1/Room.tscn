@@ -480,7 +480,7 @@ visible = false
 
 [node name="Sound" parent="YSort/Player/Camera2D" instance=ExtResource( 23 )]
 visible = false
-position = Vector2( -0.221008, 18.9574 )
+position = Vector2( 1.94586, 11.8484 )
 z_index = 1
 
 [node name="Menu" type="Sprite" parent="YSort/Player/Camera2D"]
