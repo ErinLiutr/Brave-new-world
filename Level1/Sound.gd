@@ -1,4 +1,4 @@
-extends Control
+extends Sprite
 
 var pressed = false
 var showing = false

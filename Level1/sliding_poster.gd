@@ -20,6 +20,10 @@ var showing = false
 
 var counter = 0
 var cheating = false
+var pressed = false
+var cheat = false
+var reset = false
+var cancel = false
 
 func _ready():
 	button.connect("pressed", self, "reset")
@@ -33,6 +37,7 @@ func _ready():
 				img[n].position = Vector2(map[y].find(n)*120, y*120)
 	img[11].visible = false
 	set_physics_process(true)
+	set_process_unhandled_key_input(true)
 
 func move(dir):
 	for y in range(4):
@@ -85,6 +90,45 @@ func _physics_process(_delta):
 		step(KEY_LEFT, Vector2(0, 1))
 		step(KEY_UP, Vector2(1, 0))
 		counter += 1
+		if cancel:
+			_stop_show()
+		if reset:
+			if ($".".visible):
+				reset()
+		if pressed:
+			if (check_ready()):
+				confirm()
+			if (cheating):
+				confirm()
+		# cheat
+		if cheat:
+			$"solve".visible = true
+			cheating = true
+#			confirm()
+	pressed = false
+	cheat = false
+	cancel = false
+	reset = false
+
+
+func _unhandled_key_input(event):
+	if event.is_action_pressed("ui_interact"):
+		pressed = true
+	elif event.is_action_released("ui_interact"):
+		pressed = false
+	if event.is_action_pressed("ui_cancel"):
+		cancel = true
+	elif event.is_action_released("ui_cancel"):
+		cancel = false
+	if event.is_action_pressed("ui_reset"):
+		reset = true
+	elif event.is_action_released("ui_reset"):
+		reset = false
+	if event.is_action_pressed("ui_cheat"):
+		cheat = true
+	elif event.is_action_released("ui_cheat"):
+		cheat = false
+
 	
 func confirm():
 	get_node("/root/Room/YSort/Player/Camera2D/Puzzle")._stop_show()
@@ -95,23 +139,6 @@ func _start_show():
 	show()
 	self.z_index = 5
 	showing = true
-
-func _input(event):
-	if showing:
-		if event is InputEventKey and event.scancode == KEY_Q:
-			_stop_show()
-		if event is InputEventKey and event.scancode == KEY_R:
-			if ($".".visible):
-				reset()
-		if event is InputEventKey and event.scancode == KEY_S:
-			if (check_ready()):
-				confirm()
-			if (cheating):
-				confirm()
-		# cheat
-		if event is InputEventKey and event.scancode == KEY_C:
-			$"solve".visible = true
-			cheating = true
 		
 func _stop_show():
 	counter = 0

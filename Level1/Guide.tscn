@@ -6,7 +6,7 @@
 [ext_resource path="res://detailed_image/guide2.png" type="Texture" id=4]
 
 [node name="Guide" type="Sprite"]
-visible = false
+position = Vector2( -0.314384, -1.10033 )
 z_index = 1
 script = ExtResource( 1 )
 __meta__ = {

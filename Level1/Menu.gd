@@ -1,4 +1,4 @@
-extends NinePatchRect
+extends Sprite
 
 var menu = false
 var open = false
@@ -14,7 +14,7 @@ var pointer
 func _ready():
 	set_physics_process(true)
 	set_process_unhandled_key_input(true)
-	labels = get_node("Labels").get_children()
+	labels = get_node("Menu/Labels").get_children()
 
 func _handle_interaction():
 	if currentLabel == 0:
@@ -81,9 +81,9 @@ func _physics_process(delta):
 
 func _unhandled_key_input(key_event):
 	if open:
-		if key_event.is_action_pressed("ui_menu"):
+		if key_event.is_action_pressed("ui_cancel"):
 			menu = true
-		elif key_event.is_action_released("ui_menu"):
+		elif key_event.is_action_released("ui_cancel"):
 			menu = false
 		if key_event.is_action_pressed("ui_down"):
 			down = true

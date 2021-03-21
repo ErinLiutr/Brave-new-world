@@ -1,8 +1,12 @@
-extends Control
+extends Node2D
 
-func _ready():
-	pass # Replace with function body.
+onready var enabled = false
+
+func start():
+	enabled = true
 	
 func _input(event):
-	if event is InputEventKey and event.scancode == KEY_C:
+	if event is InputEventKey and event.scancode == KEY_ENTER and enabled:
 		get_parent().get_parent()._return(true)
+		self.visible = false
+		enabled = false

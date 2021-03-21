@@ -18,11 +18,10 @@ var disable = false
 var axis = Vector2.ZERO
 var velocity = Vector2.ZERO
 var life_points = 6
-var pop_up
+#onready var pop_up_lose = preload("res://Scene/Popup_lose.tscn")
 var bullet_type
 
 func _ready():
-	pop_up = get_node("../../PopupLose/PopupMenu")
 	bullet_type = "bullet"
 	
 func _physics_process(delta):
@@ -36,8 +35,12 @@ func _physics_process(delta):
 	
 	if life_points <= 0:
 		stop_player()
-		pop_up.rect_global_position = Vector2(52.431503, 33.203491)
-		pop_up.show()
+		$"../../Lose".visible = true
+		$"../../Lose".start()
+#		var popup = pop_up_lose.instance()
+#		get_parent().add_child(popup)
+#		popup.rect_global_position = Vector2(52.431503, 33.203491)
+#		popup.show()
 		
 func stop_player():
 	$"../Enemy/BulletSpawner".stop()

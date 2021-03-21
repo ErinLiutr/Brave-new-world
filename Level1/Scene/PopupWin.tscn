@@ -44,13 +44,13 @@ __meta__ = {
 }
 
 [node name="Continue" type="Label" parent="PopupMenu"]
-margin_left = 53.9963
-margin_top = 156.721
-margin_right = 218.996
-margin_bottom = 191.721
+margin_left = 124.881
+margin_top = 181.958
+margin_right = 289.88
+margin_bottom = 216.958
 rect_scale = Vector2( 0.7, 0.7 )
 custom_fonts/font = ExtResource( 5 )
-text = "[C] CONTINUE"
+text = "[Enter] Continue"
 __meta__ = {
 "_edit_use_anchors_": false
 }

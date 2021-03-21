@@ -7,9 +7,18 @@ onready var popup_win = get_node("/root/Room/YSort/Player/Camera2D/blur/PopupWin
 onready var popup_lose = get_node("/root/Room/YSort/Player/Camera2D/blur/PopupLose/PopupMenu")
 
 var showing = false
-var popup = false
+var win = false
+var lose = false
+
+var pressed = false
+var cheat = false
+var cancel = false
 
 var counter = 0
+
+func _ready():
+	set_physics_process(true)
+	set_process_unhandled_key_input(true)
 
 func _physics_process(delta):
 	if showing:
@@ -40,7 +49,20 @@ func _physics_process(delta):
 					$num3.texture = null
 				if i == 3 :
 					$num4.texture = null
-	
+		if (len(numbers)==4):
+			$"Open".visible = true
+		if cancel:
+			numbers = []
+			_stop_show()
+		if pressed and len(numbers)==4:
+			_open()
+		# cheat
+		if cheat:
+			numbers = [0, 6, 0, 6]
+	pressed = false
+	cheat = false
+	cancel = false
+				
 func _input(event):
 	if event is InputEventKey and showing:
 		if event.pressed and (event.scancode >= 48 and event.scancode <= 57):
@@ -50,11 +72,20 @@ func _input(event):
 		if event.pressed and event.scancode == 16777220:
 			if len(numbers) != 0:
 				numbers.pop_back()
-	if event is InputEventKey and event.scancode == KEY_Q and showing:
-		numbers = []
-		_stop_show()
-	if event is InputEventKey and event.scancode == KEY_O and showing:
-		_open()
+		
+func _unhandled_key_input(event):
+	if event.is_action_pressed("ui_interact"):
+		pressed = true
+	elif event.is_action_released("ui_interact"):
+		pressed = false
+	if event.is_action_pressed("ui_cancel"):
+		cancel = true
+	elif event.is_action_released("ui_cancel"):
+		cancel = false
+	if event.is_action_pressed("ui_cheat"):
+		cheat = true
+	elif event.is_action_released("ui_cheat"):
+		cheat = false
 		
 func check_correctness():
 	if len(numbers) != 4:
@@ -72,18 +103,19 @@ func _open():
 			self.z_index = 0
 			popup_win.show()
 			showing = false
-			popup = true
+			win = true
 		else:
 			lost = true
 			popup_lose.rect_global_position = Vector2(get_parent().global_position.x - 48, get_parent().global_position.y - 44)
 			self.z_index = 0
 			popup_lose.show()
 			showing = false
-			popup = true
+			lose = true
 
 
 func _reset():
-	popup = false
+	win = false
+	lose = false
 	var root = get_tree().get_root()
 	var pos = get_node(".").position
 	root.get_node("Room/YSort/Player/Camera2D").remove_child(get_node("."))
@@ -99,12 +131,14 @@ func _reset():
 		
 func _start_show():
 	show()
-	popup = false
+	win = false
+	lose = false
 	self.z_index = 5
 	showing = true
 	
 func _stop_show():
-	popup = false
+	win = false
+	lose = false
 	counter = 0
 	hide()
 	showing = false

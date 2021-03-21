@@ -4,17 +4,9 @@
 [ext_resource path="res://new_dynamicfontsmall.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Sound.gd" type="Script" id=3]
 
-[node name="Sound" type="Control"]
+[node name="Sound" type="Sprite"]
 self_modulate = Color( 0.654902, 0, 0, 1 )
-margin_left = -0.221008
-margin_top = 9.47868
-margin_right = 39.779
-margin_bottom = 49.4787
-rect_scale = Vector2( 0.7, 0.7 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 margin_left = -78.0065

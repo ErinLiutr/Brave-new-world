@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scene/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scene/Enemy.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Scene/Weapon_b_gift.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scene/-30.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scene/-40.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scripts/CombatWorld.gd" type="Script" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 598.828, 10 )
@@ -27,6 +28,7 @@ extents = Vector2( 598.828, 10 )
 [node name="World" type="Node2D"]
 position = Vector2( 80.2883, 8.55224 )
 scale = Vector2( 0.15, 0.15 )
+script = ExtResource( 19 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -156,19 +158,6 @@ margin_top = 360.0
 margin_right = 0.0
 margin_bottom = 360.0
 
-[node name="PopupLose" parent="." instance=ExtResource( 12 )]
-margin_left = 103.268
-margin_top = 243.077
-margin_right = 103.268
-margin_bottom = 243.077
-rect_scale = Vector2( 0.5, 0.5 )
-
-[node name="PopupWin" parent="." instance=ExtResource( 13 )]
-margin_left = 101.259
-margin_top = 243.565
-margin_right = 101.259
-margin_bottom = 243.565
-
 [node name="PlayerLives" type="Node2D" parent="."]
 position = Vector2( 7.62939e-06, 2.47955e-05 )
 
@@ -195,6 +184,14 @@ scale = Vector2( 0.7, 0.7 )
 [node name="Life4" parent="PlayerLives" instance=ExtResource( 4 )]
 position = Vector2( 482.624, 708.003 )
 scale = Vector2( 0.7, 0.7 )
+
+[node name="Lose" parent="." instance=ExtResource( 12 )]
+visible = false
+position = Vector2( -20, 160 )
+
+[node name="Win" parent="." instance=ExtResource( 13 )]
+visible = false
+position = Vector2( 186.667, 293.334 )
 [connection signal="changed" from="YSort/Enemy/EnemyLife" to="YSort/Enemy/EnemyLife" method="_on_EnemyLife_changed"]
 [connection signal="changed" from="YSort/Enemy/EnemyLife" to="EnemyLifeBar" method="set_value"]
 [connection signal="timeout" from="YSort/Enemy/BulletSpawner/Timer" to="YSort/Enemy/BulletSpawner" method="_on_Timer_timeout"]

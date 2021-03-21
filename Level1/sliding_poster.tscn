@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://reset1.png" type="Texture" id=1]
 [ext_resource path="res://sliding_poster.gd" type="Script" id=2]
@@ -10,17 +10,32 @@
 [ext_resource path="res://newpixel.tres" type="DynamicFont" id=8]
 [ext_resource path="res://Cheat.gd" type="Script" id=9]
 [ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=10]
+[ext_resource path="res://menu.png" type="Texture" id=11]
 
 [node name="sliding_poster" type="Node2D"]
 script = ExtResource( 2 )
 button_path = NodePath("Reset")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = -3.0
+margin_top = -4.0
+margin_right = 534.0
+margin_bottom = 504.0
+texture = ExtResource( 11 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2( -370.207, -0.827038 )
 scale = Vector2( 1.00055, 1.00249 )
 color = Color( 0, 0, 0, 1 )
 antialiased = true
-polygon = PoolVector2Array( 370.355, -0.277627, 899.201, 0.0407559, 898.575, 268.213, 899.196, 363.353, 899.316, 498.659, 501.941, 498.792, 370.157, 499.784, 370.157, 253.175 )
+polygon = PoolVector2Array( 370.355, -0.277627, 595.894, -0.0173136, 899.707, 0.0581097, 899.53, 267.856, 899.53, 363.091, 899.388, 499.415, 634.865, 499.627, 502.887, 499.875, 370.099, 499.727, 369.955, 462.719, 370.046, 390.15, 370.138, 253.363 )
 
 [node name="Reset" type="TextureButton" parent="."]
 visible = false
@@ -77,47 +92,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="quit" type="Label" parent="."]
-margin_left = 414.0
-margin_top = 172.0
-margin_right = 514.0
-margin_bottom = 207.0
+[node name="solve" type="Label" parent="."]
+visible = false
+margin_left = 408.306
+margin_top = 402.958
+margin_right = 524.306
+margin_bottom = 437.958
 custom_fonts/font = ExtResource( 10 )
-text = "[Q] QUIT"
+text = "[Enter] Confirm"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="reset" type="Label" parent="."]
-margin_left = 406.0
-margin_top = 231.0
-margin_right = 515.0
-margin_bottom = 266.0
+margin_left = 407.762
+margin_top = 432.717
+margin_right = 521.762
+margin_bottom = 462.717
 custom_fonts/font = ExtResource( 10 )
-text = "[R] RESET"
+text = "[R] Reset"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="cheat" type="Label" parent="."]
-margin_left = 398.42
-margin_top = 117.215
-margin_right = 515.42
-margin_bottom = 152.215
+[node name="quit" type="Label" parent="."]
+margin_left = 406.696
+margin_top = 464.132
+margin_right = 510.696
+margin_bottom = 495.132
 custom_fonts/font = ExtResource( 10 )
-text = "[C] CHEAT"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="solve" type="Label" parent="."]
-visible = false
-margin_left = 405.0
-margin_top = 291.0
-margin_right = 527.0
-margin_bottom = 326.0
-custom_fonts/font = ExtResource( 10 )
-text = "[S] SOLVE"
+text = "[Esc] Close"
 __meta__ = {
 "_edit_use_anchors_": false
 }

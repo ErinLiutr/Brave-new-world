@@ -74,9 +74,9 @@ func combine(id):
 		
 func _unhandled_key_input(event):
 	if showing:
-		if event.is_action_pressed("ui_menu"):
+		if event.is_action_pressed("ui_cancel"):
 			pressed = true
-		elif event.is_action_released("ui_menu"):
+		elif event.is_action_released("ui_cancel"):
 			pressed = false
 		
 func _physics_process(delta):

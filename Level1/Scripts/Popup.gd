@@ -1,9 +1,18 @@
-extends Control
+extends Node2D
 
-var choice_item = preload("res://Choice.tscn")
+onready var enabled = false
 
+func start():
+	enabled = true
+	
 func _input(event):
-	if event is InputEventKey and event.scancode == KEY_Q:
+	if event is InputEventKey and event.scancode == KEY_ESCAPE and enabled:
 		get_parent().get_parent()._return(false)
-	if event is InputEventKey and event.scancode == KEY_R:
+		self.visible = false
+		enabled = false
+		
+	if event is InputEventKey and event.scancode == KEY_ENTER:
 		get_parent().get_parent()._restart()
+		self.visible = false
+		enabled = false
+	

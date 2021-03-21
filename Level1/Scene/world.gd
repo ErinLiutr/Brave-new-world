@@ -9,6 +9,15 @@ var showing = false
 var pressed = false
 var counter = 0
 
+func _ready():
+	$"World".pause_mode = 1
+#	$"World".freeze()
+	
+func _input(event):
+	if event is InputEventKey and event.scancode == KEY_ESCAPE:
+		$"Guide".visible = false
+#		$"World".start()
+		
 func _return(win):
 	var TheRoot = get_node("/root")
 	var this_scene = get_node("/root/Combat")

@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2(300, 0)
-var life_points = 10
+var life_points = 100
 var pop_up
 onready var animationPlayer = null
 
@@ -44,6 +44,8 @@ func _physics_process(delta):
 		$"../Player".stop_player()
 		set_physics_process(false)
 		set_process(false)
-		pop_up.rect_global_position = Vector2(52.431503, 33.203491)
-		pop_up.show()
+		$"../../Win".visible = true
+		$"../../Win".start()
+#		pop_up.rect_global_position = Vector2(52.431503, 33.203491)
+#		pop_up.show()
 

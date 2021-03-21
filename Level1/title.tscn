@@ -59,18 +59,16 @@ enabled_focus_mode = 0
 text = "HELP"
 script = ExtResource( 4 )
 
-[node name="Guide" parent="." instance=ExtResource( 5 )]
-position = Vector2( 115.052, 58.525 )
-
 [node name="Sound2" parent="." instance=ExtResource( 7 )]
 visible = false
-margin_left = 120.0
-margin_top = 72.0
-margin_right = 160.0
-margin_bottom = 112.0
+position = Vector2( 121.622, 76.3674 )
+
+[node name="Guide" parent="." instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 115.052, 58.525 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -10.0
+volume_db = -20.0
 autoplay = true
 [connection signal="pressed" from="Help" to="Help" method="_on_Help_pressed"]

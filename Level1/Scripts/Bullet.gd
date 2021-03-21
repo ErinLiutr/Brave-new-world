@@ -7,7 +7,7 @@ one life point.
 
 extends KinematicBody2D
 
-const SPEED = 80
+const SPEED = 60
 var velocity = Vector2()
 
 func _physics_process(delta):

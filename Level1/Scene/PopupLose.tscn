@@ -15,6 +15,7 @@ __meta__ = {
 }
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
+visible = true
 margin_left = 75.0
 margin_top = 104.0
 margin_right = 298.0
@@ -44,11 +45,14 @@ __meta__ = {
 }
 
 [node name="retry" type="Label" parent="PopupMenu"]
-margin_left = 55.6599
-margin_top = 159.829
-margin_right = 218.66
-margin_bottom = 194.829
+margin_left = 124.193
+margin_top = 180.89
+margin_right = 287.193
+margin_bottom = 215.89
 rect_scale = Vector2( 0.7, 0.7 )
 custom_fonts/font = ExtResource( 5 )
-text = "[T] TRY AGAIN"
+text = "[Enter] Try again"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="PopupMenu/TextureButton" to="." method="_on_TextureButton_pressed"]

@@ -6,8 +6,8 @@ const SCALE = 100
 const BULLET = preload("res://Scene/Bullet.tscn")
 
 # spawn time management
-var delta = 0.2
-var offset = 0.1
+var delta = 0.16
+var offset = 0.2
 var spawnArea = Rect2()
 
 func _ready():

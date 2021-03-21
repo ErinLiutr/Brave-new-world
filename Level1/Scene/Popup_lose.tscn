@@ -8,33 +8,25 @@
 [ext_resource path="res://combat/art/Replay1.png" type="Texture" id=6]
 [ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=7]
 
-[node name="Control" type="Control"]
-margin_left = -0.618134
-margin_top = -0.618408
-margin_right = 629.382
-margin_bottom = 399.382
-rect_scale = Vector2( 0.1, 0.1 )
+[node name="PopupMenu" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 2.06195
+margin_top = 2.04129
+margin_right = 631.062
+margin_bottom = 397.041
+color = Color( 0.227451, 0.219608, 0.219608, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PopupMenu" type="PopupMenu" parent="."]
-margin_left = -6.10352e-05
-margin_top = -9.91821e-05
-margin_right = 630.0
-margin_bottom = 400.0
-rect_scale = Vector2( 0.2, 0.2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="Sprite" parent="PopupMenu"]
+[node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 315.362, 199.533 )
 scale = Vector2( 1.50166, 1.23403 )
 texture = ExtResource( 3 )
 
-[node name="Replay" type="TextureButton" parent="PopupMenu"]
+[node name="Replay" type="TextureButton" parent="."]
 visible = false
 anchor_left = -0.642
 anchor_top = -0.573
@@ -51,7 +43,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit" type="TextureButton" parent="PopupMenu"]
+[node name="Quit" type="TextureButton" parent="."]
 visible = false
 anchor_left = -0.642
 anchor_top = -0.573
@@ -68,23 +60,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Qui" type="Label" parent="PopupMenu"]
-margin_left = 381.074
-margin_top = 303.785
-margin_right = 481.074
-margin_bottom = 338.785
+[node name="Qui" type="Label" parent="."]
+margin_left = 472.418
+margin_top = 347.981
+margin_right = 572.418
+margin_bottom = 382.981
+rect_scale = Vector2( 1.3, 1.3 )
 custom_fonts/font = ExtResource( 7 )
-text = "[Q] QUIT"
+text = "[Esc] Close"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Rep" type="Label" parent="PopupMenu"]
-margin_left = 124.893
-margin_top = 307.054
-margin_right = 249.893
-margin_bottom = 343.054
+[node name="Rep" type="Label" parent="."]
+margin_left = 471.996
+margin_top = 312.63
+margin_right = 596.996
+margin_bottom = 348.63
+rect_scale = Vector2( 1.3, 1.3 )
 custom_fonts/font = ExtResource( 7 )
-text = "[R] REPLAY"
-[connection signal="pressed" from="PopupMenu/Replay" to="." method="_on_Replay_pressed"]
-[connection signal="pressed" from="PopupMenu/Quit" to="." method="_on_Quit_pressed"]
+text = "[Enter] Replay"
+__meta__ = {
+"_edit_use_anchors_": false
+}
