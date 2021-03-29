@@ -6,6 +6,7 @@ var combat_scene = preload("res://Combat.tscn")
 var printing = false
 var donePrinting = false
 var combat = false
+var animate = false
 
 var showing = false
 
@@ -76,6 +77,10 @@ func _physics_process(delta):
 					TheRoot.remove_child(this_scene)
 					TheRoot.add_child(next_scene)
 					hide()
+				elif animate:
+					animate = false
+					hide()
+					get_node("/root/Room/YSort/Player").turn_right()
 				elif next_dialog == "-1":
 					_start("00")
 				else:
@@ -101,6 +106,7 @@ func load_data(url):
 func _start(id):
 	counter = 0
 	next_dialog = "-1"
+	animate = false
 	for node in ["NPC", "MC", "Pearl"]:
 			get_node(node).hide()
 	if id == "00":
@@ -114,6 +120,8 @@ func _start(id):
 		combat = false
 		if json[id]["next"] == "":
 			next_dialog = "-1"
+		elif json[id]["next"] == "animation":
+			animate = true
 		else:
 			next_dialog = json[id]["next"]
 		_print_dialogue(json[id]["text"])
@@ -128,7 +136,7 @@ func _start(id):
 		get_node("/root/Room/YSort/Player/Camera2D/Inventory").item_ids.erase("103")
 		get_node("/root/Room/YSort/Player/Camera2D/Inventory").item_ids.append("218")
 		get_node("/root/Room/YSort/Player").equipment = ""
-		get_node("/root/Room/YSort/Player/Camera2D/Equipment/Check").hide()
+		get_node("/root/Room/YSort/Player/Camera2D/Equip/Equipment/Check").hide()
 
 func _print_dialogue(text):
 	get_node("RichTextLabel").show()

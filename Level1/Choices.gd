@@ -20,21 +20,29 @@ func _physics_process(delta):
 	
 func _unhandled_key_input(event):
 	if showing:
-		if event.is_action_pressed("ui_down") and current_selection + col < choice_results.size():
+		if event.is_action_pressed("ui_down"):
 			get_node("GridContainer/choice" + str(current_selection) + "/selector").text = ""
 			current_selection += col
+			if current_selection >= choice_results.size():
+				current_selection = 0
 			get_node("GridContainer/choice" + str(current_selection) + "/selector").text = ">"
-		elif event.is_action_pressed("ui_up") and current_selection >= col:
+		elif event.is_action_pressed("ui_up"):
 			get_node("GridContainer/choice" + str(current_selection) + "/selector").text = ""
 			current_selection -= col
+			if current_selection < 0:
+				current_selection = choice_results.size() - 1
 			get_node("GridContainer/choice" + str(current_selection) + "/selector").text = ">"
-		elif event.is_action_pressed("ui_right") and current_selection + 1 < choice_results.size():
+		elif event.is_action_pressed("ui_right"):
 			get_node("GridContainer/choice" + str(current_selection) + "/selector").text = ""
 			current_selection += 1
+			if current_selection >= choice_results.size():
+				current_selection = 0
 			get_node("GridContainer/choice" + str(current_selection) + "/selector").text = ">"
-		elif event.is_action_pressed("ui_left") and current_selection >= 1:
+		elif event.is_action_pressed("ui_left"):
 			get_node("GridContainer/choice" + str(current_selection) + "/selector").text = ""
 			current_selection -= 1
+			if current_selection < 0:
+				current_selection = choice_results.size() - 1
 			get_node("GridContainer/choice" + str(current_selection) + "/selector").text = ">"
 		elif event.is_action_pressed("ui_interact") and choice_results.size() > current_selection:
 			if counter > 10:

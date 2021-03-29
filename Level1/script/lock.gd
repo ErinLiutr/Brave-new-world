@@ -143,4 +143,4 @@ func _stop_show():
 	hide()
 	showing = false
 	get_node("../blur").hide()
-	get_node("/root/Room/YSort/Player").canMove = true
+

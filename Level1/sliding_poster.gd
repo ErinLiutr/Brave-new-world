@@ -5,6 +5,9 @@ export (NodePath) var button_path
 onready var button = get_node("Reset")
 onready var confirm = get_node("Confirm")
 
+var invent_node
+var choice_item = preload("res://Choice.tscn")
+
 var img_node = load("poster.tscn")
 var img = []
 var move = Vector2.ZERO
@@ -28,6 +31,7 @@ var cancel = false
 func _ready():
 	button.connect("pressed", self, "reset")
 	confirm.connect("pressed", self, "confirm")
+	invent_node = get_node("/root/Room/YSort/Player/Camera2D/Inventory")
 	for n in range(12):
 		img.append(img_node.instance())
 		img[n].set_frame(conversion_map[n])
@@ -133,6 +137,39 @@ func _unhandled_key_input(event):
 func confirm():
 	get_node("/root/Room/YSort/Player/Camera2D/Puzzle")._stop_show()
 	get_node("/root/Room/cabinet3/magazine/Interact").id = "208"
+
+	var node = get_node("/root/Room/YSort/Player/Camera2D/Description")
+	node.get_node("Choices/Description").text = invent_node.get_info("208", "description")
+	node.get_node("Choices/Name").text = invent_node.get_info("208", "name")
+	var idx = 0
+	for choice in invent_node.get_info("208", "options"):
+		var new_choice = choice_item.instance()
+		new_choice.name = "choice" + str(idx)
+		if idx == 0:
+			new_choice.get_node("selector").text = ">"
+		else:
+			new_choice.get_node("selector").text = ""
+		idx += 1
+		new_choice.get_node("choice").text = choice.to_upper()
+		node.get_node("Choices").choice_results.append(choice)
+		node.get_node("Choices/GridContainer").add_child(new_choice)
+	var new_choice = choice_item.instance()
+	new_choice.name = "choice" + str(idx)
+	if idx == 0:
+		new_choice.get_node("selector").text = ">"
+	else:
+		new_choice.get_node("selector").text = ""
+	new_choice.get_node("choice").text = "CLOSE"
+	node.get_node("Choices").choice_results.append("close")
+	node.get_node("Choices/GridContainer").add_child(new_choice)
+	node.get_node(invent_node.get_info("208", "picture")).show()
+	node.show()
+	node._start_show()
+	node.get_node("Choices").counter = 0
+	node.get_node("Choices").current_selection = 0
+	node.get_node("Choices").showing = true
+	node.get_node("Choices").item_id = "208"
+	node.get_node("Choices").show()
 	
 	
 func _start_show():
@@ -145,5 +182,4 @@ func _stop_show():
 	hide()
 	showing = false
 	get_node("../blur").hide()
-	print("0")
-	get_node("/root/Room/YSort/Player").canMove = true
+

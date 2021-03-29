@@ -113,7 +113,7 @@
     "type": "dialog",
     "role": "NPC",
     "text": ["I need some sleep. Now get out of my sight."],
-    "next": "16"
+    "next": "animation"
   },
   "16": {
     "type": "dialog",

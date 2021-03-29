@@ -47,16 +47,16 @@ func handle_selection(destination, id):
 	elif destination == "equip":
 		get_node("/root/Room/YSort/Player").equipment = str(id)
 
-		var equip_node = get_node("/root/Room/YSort/Player/Camera2D/Equipment/")
+		var equip_node = get_node("/root/Room/YSort/Player/Camera2D/Equip/Equipment/")
 		for child in equip_node.get_children():
 			if child.name != "equip":
 				child.hide()
 		var picture = invent_node.get_info(id, "picture")
-		get_node("/root/Room/YSort/Player/Camera2D/Equipment/" + picture).show()
+		get_node("/root/Room/YSort/Player/Camera2D/Equip/Equipment/" + picture).show()
 	elif destination == "unequip":
 		get_node("/root/Room/YSort/Player").equipment = "0"
 
-		var equip_node = get_node("/root/Room/YSort/Player/Camera2D/Equipment/")
+		var equip_node = get_node("/root/Room/YSort/Player/Camera2D/Equip/Equipment/")
 		var picture = invent_node.get_info(id, "picture")
 		equip_node.get_node(picture).hide()
 	elif destination == "combine":
@@ -102,6 +102,40 @@ func handle_selection(destination, id):
 		node.get_node("Choices").show()
 	elif destination == "unlock":
 		get_node("/root/Room/YSort/cabinet1/Interact").id = "217-2"
+		get_node("/root/Room/YSort/Player").canMove = false
+		var node = get_node("/root/Room/YSort/Player/Camera2D/Description")
+		node.get_node("Choices/Description").text = invent_node.get_info("217-2", "description")
+		node.get_node("Choices/Name").text = invent_node.get_info("217-2", "name")
+		var idx = 0
+		for choice in invent_node.get_info("217-2", "options"):
+			var new_choice = choice_item.instance()
+			new_choice.name = "choice" + str(idx)
+			if idx == 0:
+				new_choice.get_node("selector").text = ">"
+			else:
+				new_choice.get_node("selector").text = ""
+			idx += 1
+			new_choice.get_node("choice").text = "VIEW"
+
+			node.get_node("Choices").choice_results.append(choice)
+			node.get_node("Choices/GridContainer").add_child(new_choice)
+		var new_choice = choice_item.instance()
+		new_choice.name = "choice" + str(idx)
+		if idx == 0:
+			new_choice.get_node("selector").text = ">"
+		else:
+			new_choice.get_node("selector").text = ""
+		new_choice.get_node("choice").text = "CLOSE"
+		node.get_node("Choices").choice_results.append("close")
+		node.get_node("Choices/GridContainer").add_child(new_choice)
+		node.get_node(invent_node.get_info("217-2", "picture")).show()
+		node.show()
+		node._start_show()
+		node.get_node("Choices").counter = 0
+		node.get_node("Choices").current_selection = 0
+		node.get_node("Choices").showing = true
+		node.get_node("Choices").item_id = "217-2"
+		node.get_node("Choices").show()
 	elif destination == "report":
 		get_node("/root/Room/YSort/Player").canMove = false
 		var node = get_node("/root/Room/YSort/Player/Camera2D/Description")

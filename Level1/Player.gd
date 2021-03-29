@@ -7,6 +7,7 @@ var moving = false
 var canMove = true
 var interact = false
 var menu = false
+var animate = false
 
 const SPEED = 1
 const GRID = 16
@@ -100,13 +101,25 @@ func _physics_process(delta):
 		
 		if menu:
 			get_node("Camera2D/Menu")._open_menu()
-	elif canMove:
+	elif canMove or animate:
 		move_and_collide(direction * SPEED)
 		var diff = position - (startPos + Vector2(GRID * direction.x, GRID * direction.y))
 
 		if abs(diff.x) < 0.1 && abs(diff.y) < 0.1:
 			moving = false
+			if animate:
+				animate = false
+				get_parent().get_node("NPC").start_animate()
+				
 	interact = false
+	
+func turn_right():
+	animate = true
+	sprite.set_frame(4)
+	moving = true
+	direction = Vector2(-1, 0)
+	startPos = position
+	animationPlayer.play("RunLeft")
 			
 func interact(result):
 	for dictionary in result:
@@ -205,6 +218,6 @@ func interact(result):
 				node._start_show()
 
 func update_equip(previous, next):
-	get_node("Camera2D/Equipment/" + previous).hide()
-	get_node("Camera2D/Equipment/" + next).show()
+	get_node("Camera2D/Equip/Equipment/" + previous).hide()
+	get_node("Camera2D/Equip/Equipment/" + next).show()
 
