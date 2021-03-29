@@ -750,7 +750,7 @@ position = Vector2( -0.25, -11.125 )
 texture = ExtResource( 12 )
 vframes = 10
 hframes = 5
-frame = 44
+frame = 36
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NPC"]
 position = Vector2( -0.25, -3.125 )
