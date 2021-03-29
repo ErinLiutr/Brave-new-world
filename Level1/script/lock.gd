@@ -54,6 +54,7 @@ func _physics_process(delta):
 		if cancel:
 			numbers = []
 			_stop_show()
+			get_node("/root/Room/YSort/Player").canMove = true
 		if pressed and len(numbers)==4:
 			_open()
 		# cheat

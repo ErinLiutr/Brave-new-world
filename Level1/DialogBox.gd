@@ -136,7 +136,7 @@ func _start(id):
 		get_node("/root/Room/YSort/Player/Camera2D/Inventory").item_ids.erase("103")
 		get_node("/root/Room/YSort/Player/Camera2D/Inventory").item_ids.append("218")
 		get_node("/root/Room/YSort/Player").equipment = ""
-		get_node("/root/Room/YSort/Player/Camera2D/Equip/Equipment/Check").hide()
+		get_node("/root/Room/YSort/Player/Camera2D/ToolBar/Equipment/Check").hide()
 
 func _print_dialogue(text):
 	get_node("RichTextLabel").show()

@@ -47,16 +47,18 @@ func handle_selection(destination, id):
 	elif destination == "equip":
 		get_node("/root/Room/YSort/Player").equipment = str(id)
 
-		var equip_node = get_node("/root/Room/YSort/Player/Camera2D/Equip/Equipment/")
+		var equip_node = get_node("/root/Room/YSort/Player/Camera2D/ToolBar/Equipment")
 		for child in equip_node.get_children():
-			if child.name != "equip":
-				child.hide()
+			child.hide()
+		equip_node.get_node("equip").show()
 		var picture = invent_node.get_info(id, "picture")
-		get_node("/root/Room/YSort/Player/Camera2D/Equip/Equipment/" + picture).show()
+		get_node("/root/Room/YSort/Player/Camera2D/ToolBar/Equipment/" + picture).show()
 	elif destination == "unequip":
 		get_node("/root/Room/YSort/Player").equipment = "0"
 
-		var equip_node = get_node("/root/Room/YSort/Player/Camera2D/Equip/Equipment/")
+		var equip_node = get_node("/root/Room/YSort/Player/Camera2D/ToolBar/Equipment")
+		equip_node.get_node("equip").hide()
+		equip_node.get_node("unequip").show()
 		var picture = invent_node.get_info(id, "picture")
 		equip_node.get_node(picture).hide()
 	elif destination == "combine":

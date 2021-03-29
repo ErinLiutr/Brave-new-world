@@ -41,7 +41,7 @@ func init():
 	for id in item_ids:
 		var new_item = inventory_item.instance()
 		new_item.name = str(id)
-		new_item.get_node("equip").hide()
+		new_item.get_node("unequip").hide()
 		if idx == 0:
 			new_item.get_node("selected").show()
 		else:

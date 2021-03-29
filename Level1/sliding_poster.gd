@@ -96,6 +96,7 @@ func _physics_process(_delta):
 		counter += 1
 		if cancel:
 			_stop_show()
+			get_node("/root/Room/YSort/Player").canMove = true
 		if reset:
 			if ($".".visible):
 				reset()

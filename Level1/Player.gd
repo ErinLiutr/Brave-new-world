@@ -8,6 +8,9 @@ var canMove = true
 var interact = false
 var menu = false
 var animate = false
+var volume = false
+var help = false
+var invent = false
 
 const SPEED = 1
 const GRID = 16
@@ -47,6 +50,18 @@ func _unhandled_input(event):
 		menu = true
 	elif event.is_action_released("ui_menu"):
 		menu = false
+	elif event.is_action_pressed("ui_help") and canMove:
+		help = true
+	elif event.is_action_released("ui_help"):
+		help = false
+	elif event.is_action_pressed("ui_volume") and canMove:
+		volume = true
+	elif event.is_action_released("ui_volume"):
+		volume = false
+	elif event.is_action_pressed("ui_inventory") and canMove:
+		invent = true
+	elif event.is_action_released("ui_inventory"):
+		invent = false
 		
 func _physics_process(delta):
 	if !moving and canMove:
@@ -101,6 +116,15 @@ func _physics_process(delta):
 		
 		if menu:
 			get_node("Camera2D/Menu")._open_menu()
+		if volume:
+			canMove = false
+			get_node("Camera2D/Sound")._open()
+		if invent:
+			canMove = false
+			get_node("Camera2D/Inventory")._start_show()
+		if help:
+			canMove = false
+			get_node("Camera2D/Guide")._start_show()
 	elif canMove or animate:
 		move_and_collide(direction * SPEED)
 		var diff = position - (startPos + Vector2(GRID * direction.x, GRID * direction.y))
@@ -218,6 +242,6 @@ func interact(result):
 				node._start_show()
 
 func update_equip(previous, next):
-	get_node("Camera2D/Equip/Equipment/" + previous).hide()
-	get_node("Camera2D/Equip/Equipment/" + next).show()
+	get_node("Camera2D/ToolBar/Equipment/" + previous).hide()
+	get_node("Camera2D/ToolBar/Equipment/" + next).show()
 

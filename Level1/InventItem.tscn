@@ -1,10 +1,10 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://birthdaygift.png" type="Texture" id=1]
 [ext_resource path="res://bandage-box.png" type="Texture" id=2]
 [ext_resource path="res://hair1.png" type="Texture" id=3]
 [ext_resource path="res://black.jpg" type="Texture" id=4]
-[ext_resource path="res://item_slot_default_background (1).png" type="Texture" id=5]
+[ext_resource path="res://unequip.png" type="Texture" id=5]
 [ext_resource path="res://key.png" type="Texture" id=6]
 [ext_resource path="res://dirty-shirt.png" type="Texture" id=7]
 [ext_resource path="res://magazine.png" type="Texture" id=8]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Receipt.png" type="Texture" id=16]
 [ext_resource path="res://report.png" type="Texture" id=17]
 [ext_resource path="res://white.jpg" type="Texture" id=18]
+[ext_resource path="res://equip.png" type="Texture" id=19]
 
 [node name="InventItem" type="Control"]
 anchor_right = 1.0
@@ -40,7 +41,14 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 4 )
 
 [node name="equip" type="Sprite" parent="."]
+visible = false
 position = Vector2( 8, 8 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 19 )
+
+[node name="unequip" type="Sprite" parent="."]
+position = Vector2( 8, 8 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 
 [node name="Key" type="Sprite" parent="."]
@@ -115,14 +123,17 @@ texture = ExtResource( 14 )
 [node name="Check" type="Sprite" parent="."]
 visible = false
 position = Vector2( 8, 8 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 15 )
 
 [node name="Receipt" type="Sprite" parent="."]
 visible = false
 position = Vector2( 8, 8 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 16 )
 
 [node name="Coupon" type="Sprite" parent="."]
 visible = false
 position = Vector2( 8, 8 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 16 )
