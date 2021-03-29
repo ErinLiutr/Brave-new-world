@@ -6,10 +6,14 @@ const SCALE = 100
 const BULLET = preload("res://Scene/Bullet.tscn")
 
 # spawn time management
-var delta = 0.16
+var delta = 0.2
 var offset = 0.2
 var spawnArea = Rect2()
 
+func _physics_process(d):
+	delta -= 0.00005
+	offset -= 0.00002
+	
 func _ready():
 	randomize()
 	spawnArea = Rect2(global_position.x-150, global_position.y-50, WIDTH, HEIGHT)

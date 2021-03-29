@@ -71,6 +71,12 @@ func check_ready():
 			return false
 	return true
 
+func complete():
+	for n in range(12):
+		var ans_row = ans[n][0]
+		var ans_col = ans[n][1]
+		img[n].position = Vector2(ans[n][0], ans[n][1])
+		
 # reset the puzzle game
 func reset():
 	var root = get_tree().get_root()
@@ -107,9 +113,9 @@ func _physics_process(_delta):
 				confirm()
 		# cheat
 		if cheat:
+			complete()
 			$"solve".visible = true
-			cheating = true
-#			confirm()
+
 	pressed = false
 	cheat = false
 	cancel = false

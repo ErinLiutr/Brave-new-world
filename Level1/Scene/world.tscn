@@ -148,7 +148,7 @@ margin_right = 677.333
 margin_bottom = 73.6667
 rect_scale = Vector2( 3, 3 )
 custom_fonts/font = ExtResource( 22 )
-text = "HP: 100"
+text = "HP: 200"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -160,8 +160,6 @@ margin_right = 878.0
 margin_bottom = 119.0
 rect_min_size = Vector2( 300, 40 )
 rect_scale = Vector2( 0.45, 0.45 )
-max_value = 100.0
-value = 100.0
 
 [node name="Bag" type="CenterContainer" parent="."]
 margin_left = 410.0

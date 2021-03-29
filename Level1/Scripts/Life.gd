@@ -4,7 +4,7 @@ extends Node
 signal changed(new_amount)
 signal depleted
 
-const MAX = 100
+const MAX = 200
 onready var current = MAX setget set_current
 
 func _physics_process(delta):
