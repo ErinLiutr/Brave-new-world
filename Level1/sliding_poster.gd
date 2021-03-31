@@ -13,10 +13,18 @@ var img = []
 var move = Vector2.ZERO
 var speed = 6
 var map = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10, 11]]
-var conversion_map = [10, 8, 4, 0, 7, 1, 9, 3, 6, 2, 5, 11]
-var ans = [[120, 360], [240, 240],[120, 120],[0, 0],
-		   [120, 240], [120, 0],[0, 360],[0, 120],
-		   [0, 240], [240, 0],[240, 120],[240, 360]]
+#var conversion_map = [10, 8, 4, 0, 7, 1, 9, 3, 6, 2, 5, 11]
+var conversion_map = [0, 1, 2, 
+					  4, 10, 7, 
+					  3, 6, 5, 
+					  9, 8, 11]
+#var ans = [[120, 360], [240, 240],[120, 120],[0, 0],
+#		   [120, 240], [120, 0],[0, 360],[0, 120],
+#		   [0, 240], [240, 0],[240, 120],[240, 360]]
+var ls = [[0, 0], [120, 0], [240, 0],[0, 120], [120, 120], [240, 120], [0, 240], [120, 240], [240, 240],[0, 360], [120, 360], [240, 360]]
+		
+var ans = []
+				
 onready var pop_up = get_tree().get_root().get_node("Room/YSort/Player/Camera2D/blur/Puzzle_pop/PopupPanel")
 
 var showing = false
@@ -29,6 +37,8 @@ var reset = false
 var cancel = false
 
 func _ready():
+	for i in conversion_map:
+		ans.append(ls[i])
 	button.connect("pressed", self, "reset")
 	confirm.connect("pressed", self, "confirm")
 	invent_node = get_node("/root/Room/YSort/Player/Camera2D/Inventory")

@@ -3,6 +3,7 @@
 [ext_resource path="res://puzzle2.png" type="Texture" id=1]
 
 [node name="puzzled_poster" type="Sprite"]
+position = Vector2( -5.53575, -6.7501 )
 texture = ExtResource( 1 )
 offset = Vector2( 70, 70 )
 vframes = 4
