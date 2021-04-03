@@ -1,0 +1,173 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://new_dynamicfontmenu.tres" type="DynamicFont" id=1]
+[ext_resource path="res://menu.png" type="Texture" id=2]
+[ext_resource path="res://arrow.png" type="Texture" id=3]
+[ext_resource path="res://Menu.gd" type="Script" id=4]
+
+[node name="Menu" type="Sprite"]
+visible = false
+z_index = 1
+script = ExtResource( 4 )
+
+[node name="Menu" type="NinePatchRect" parent="."]
+margin_left = 52.0
+margin_top = -66.0
+margin_right = 123.0
+margin_bottom = 62.0
+texture = ExtResource( 2 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels" type="Node2D" parent="Menu"]
+
+[node name="Label1" type="Node2D" parent="Menu/Labels"]
+
+[node name="arrow" type="Sprite" parent="Menu/Labels/Label1"]
+visible = false
+position = Vector2( 10.3368, 15.9592 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Menu/Labels/Label1"]
+margin_left = 15.2235
+margin_top = 6.66752
+margin_right = 50.2235
+margin_bottom = 23.6675
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "ITEMS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Node2D" parent="Menu/Labels"]
+position = Vector2( 0, 16 )
+
+[node name="arrow" type="Sprite" parent="Menu/Labels/Label2"]
+visible = false
+position = Vector2( 10.3368, 15.9592 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Menu/Labels/Label2"]
+margin_left = 15.2235
+margin_top = 6.66752
+margin_right = 50.2235
+margin_bottom = 23.6675
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "LOAD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Node2D" parent="Menu/Labels"]
+position = Vector2( 0, 32 )
+
+[node name="arrow" type="Sprite" parent="Menu/Labels/Label3"]
+visible = false
+position = Vector2( 10.3368, 15.9592 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Menu/Labels/Label3"]
+margin_left = 15.2235
+margin_top = 6.66752
+margin_right = 50.2235
+margin_bottom = 23.6675
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "SAVE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Node2D" parent="Menu/Labels"]
+position = Vector2( 0, 48 )
+
+[node name="arrow" type="Sprite" parent="Menu/Labels/Label4"]
+visible = false
+position = Vector2( 10.3368, 15.9592 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Menu/Labels/Label4"]
+margin_left = 15.2235
+margin_top = 6.66752
+margin_right = 50.2235
+margin_bottom = 23.6675
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "HELP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Node2D" parent="Menu/Labels"]
+position = Vector2( 0, 48 )
+
+[node name="arrow" type="Sprite" parent="Menu/Labels/Label5"]
+visible = false
+position = Vector2( 10.3368, 32.5468 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Menu/Labels/Label5"]
+margin_left = 15.2235
+margin_top = 23.2552
+margin_right = 50.2235
+margin_bottom = 40.2552
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "RESTART"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Node2D" parent="Menu/Labels"]
+position = Vector2( 0, 64 )
+
+[node name="arrow" type="Sprite" parent="Menu/Labels/Label6"]
+visible = false
+position = Vector2( 10.3368, 32.5468 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Menu/Labels/Label6"]
+margin_left = 15.2235
+margin_top = 23.2552
+margin_right = 50.2235
+margin_bottom = 40.2552
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "VOLUME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Node2D" parent="Menu/Labels"]
+position = Vector2( 0, 64 )
+
+[node name="arrow" type="Sprite" parent="Menu/Labels/Label7"]
+visible = false
+position = Vector2( 10.3368, 47.9497 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Menu/Labels/Label7"]
+margin_left = 15.2235
+margin_top = 38.658
+margin_right = 50.2235
+margin_bottom = 55.658
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "EXIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}

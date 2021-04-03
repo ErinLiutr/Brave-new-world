@@ -1,5 +1,7 @@
 extends Sprite
 
+export var player_path = ""
+
 var menu = false
 var open = false
 
@@ -40,7 +42,7 @@ func _handle_interaction():
 		get_node("/root/Room")._return()
 	elif currentLabel == 5:
 		open = false
-		get_node("/root/Room/YSort/Player").canMove = false
+		get_node(player_path).canMove = false
 		#$"../Sound/Sound".set_global_position(
 		#	Vector2(get_node("/root/Room/YSort/Player").position.x-50, 
 		#	get_node("/root/Room/YSort/Player").position.y-50))
@@ -98,7 +100,7 @@ func _open_menu():
 	show()
 	currentLabel = 0
 	labels[0].get_node("arrow").show()
-	get_node("/root/Room/YSort/Player").canMove = false
+	get_node(player_path).canMove = false
 	menu = false
 	open = true
 	
@@ -106,5 +108,5 @@ func _close_menu():
 	hide()
 	for child in labels:
 		child.get_node("arrow").hide()
-	get_node("/root/Room/YSort/Player").canMove = true
+	get_node(player_path).canMove = true
 	open = false

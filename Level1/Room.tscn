@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=2]
+[gd_scene load_steps=110 format=2]
 
 [ext_resource path="res://desk1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -12,9 +12,9 @@
 [ext_resource path="res://chair2.png" type="Texture" id=10]
 [ext_resource path="res://desk2.png" type="Texture" id=11]
 [ext_resource path="res://npcanimate.png" type="Texture" id=12]
-[ext_resource path="res://detailed_image/npc1.png" type="Texture" id=13]
+[ext_resource path="res://Menu.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Interact.gd" type="Script" id=14]
-[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=15]
+[ext_resource path="res://DialogBox.tscn" type="PackedScene" id=15]
 [ext_resource path="res://dirty-shirt.png" type="Texture" id=16]
 [ext_resource path="res://help.png" type="Texture" id=17]
 [ext_resource path="res://Interact1.gd" type="Script" id=18]
@@ -24,20 +24,16 @@
 [ext_resource path="res://sliding_poster.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Sound.tscn" type="PackedScene" id=23]
 [ext_resource path="res://item_box.png" type="Texture" id=24]
-[ext_resource path="res://InventItems.gd" type="Script" id=25]
+[ext_resource path="res://Inventory.tscn" type="PackedScene" id=25]
 [ext_resource path="res://hair-bleach1.png" type="Texture" id=26]
 [ext_resource path="res://InventItem.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Description.tscn" type="PackedScene" id=28]
 [ext_resource path="res://hair-dye1.png" type="Texture" id=29]
 [ext_resource path="res://key.png" type="Texture" id=30]
-[ext_resource path="res://DialogBox.gd" type="Script" id=31]
 [ext_resource path="res://Interact4.gd" type="Script" id=32]
 [ext_resource path="res://Interact2.gd" type="Script" id=33]
-[ext_resource path="res://Menu.gd" type="Script" id=34]
 [ext_resource path="res://Interact3.gd" type="Script" id=35]
 [ext_resource path="res://Interact5.gd" type="Script" id=36]
-[ext_resource path="res://arrow.png" type="Texture" id=37]
-[ext_resource path="res://menu.png" type="Texture" id=38]
 [ext_resource path="res://decoration/carpet1.png" type="Texture" id=39]
 [ext_resource path="res://bandage-box.png" type="Texture" id=40]
 [ext_resource path="res://Interact7.gd" type="Script" id=41]
@@ -45,12 +41,8 @@
 [ext_resource path="res://Interact8.gd" type="Script" id=43]
 [ext_resource path="res://hair1.png" type="Texture" id=44]
 [ext_resource path="res://volume.png" type="Texture" id=45]
-[ext_resource path="res://Choices.gd" type="Script" id=46]
-[ext_resource path="res://Description.gd" type="Script" id=47]
-[ext_resource path="res://Inventory.gd" type="Script" id=48]
 [ext_resource path="res://decoration/plant2 1.png" type="Texture" id=49]
 [ext_resource path="res://decoration/cabinet3.png" type="Texture" id=50]
-[ext_resource path="res://dialog_choices.gd" type="Script" id=51]
 [ext_resource path="res://decoration/decoration1.png" type="Texture" id=52]
 [ext_resource path="res://wardrobe.png" type="Texture" id=53]
 [ext_resource path="res://decoration/cabinet2.png" type="Texture" id=54]
@@ -88,11 +80,8 @@
 [ext_resource path="res://item_box1.png" type="Texture" id=86]
 [ext_resource path="res://Choices.tscn" type="PackedScene" id=87]
 [ext_resource path="res://Interact_env.gd" type="Script" id=88]
-[ext_resource path="res://detailed_image/player.png" type="Texture" id=89]
-[ext_resource path="res://detailed_image/pearl.png" type="Texture" id=90]
 [ext_resource path="res://Interact11.gd" type="Script" id=91]
 [ext_resource path="res://Left.png" type="Texture" id=92]
-[ext_resource path="res://new_dynamicfontmenu.tres" type="DynamicFont" id=93]
 [ext_resource path="res://anima.png" type="Texture" id=94]
 [ext_resource path="res://NPC.gd" type="Script" id=95]
 [ext_resource path="res://NPC1.gd" type="Script" id=96]
@@ -441,127 +430,9 @@ margin_bottom = 57.8089
 [node name="Description" parent="YSort/Player/Camera2D" instance=ExtResource( 28 )]
 visible = false
 
-[node name="DialogBox" type="Sprite" parent="YSort/Player/Camera2D"]
-visible = false
-position = Vector2( 1.82211, -41.9504 )
-scale = Vector2( 0.35, 0.35 )
-z_index = 1
-texture = ExtResource( 24 )
-script = ExtResource( 31 )
+[node name="DialogBox" parent="YSort/Player/Camera2D" instance=ExtResource( 15 )]
 
-[node name="NPC" type="Sprite" parent="YSort/Player/Camera2D/DialogBox"]
-visible = false
-position = Vector2( -238.773, 0.528503 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 13 )
-
-[node name="MC" type="Sprite" parent="YSort/Player/Camera2D/DialogBox"]
-visible = false
-position = Vector2( -238.773, 0.528503 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 89 )
-
-[node name="Pearl" type="Sprite" parent="YSort/Player/Camera2D/DialogBox"]
-visible = false
-position = Vector2( -238.773, 0.528503 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 90 )
-
-[node name="RichTextLabel" type="RichTextLabel" parent="YSort/Player/Camera2D/DialogBox"]
-visible = false
-margin_left = -140.0
-margin_top = -62.0
-margin_right = 250.0
-margin_bottom = 60.0
-custom_fonts/mono_font = ExtResource( 15 )
-custom_fonts/bold_italics_font = ExtResource( 15 )
-custom_fonts/italics_font = ExtResource( 15 )
-custom_fonts/normal_font = ExtResource( 15 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Choices" type="VBoxContainer" parent="YSort/Player/Camera2D/DialogBox"]
-visible = false
-margin_left = -141.0
-margin_top = -62.0
-margin_right = 298.0
-margin_bottom = 61.0
-script = ExtResource( 46 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-col = 2
-
-[node name="Title" type="Label" parent="YSort/Player/Camera2D/DialogBox/Choices"]
-margin_right = 439.0
-margin_bottom = 30.0
-custom_fonts/font = ExtResource( 15 )
-
-[node name="GridContainer" type="GridContainer" parent="YSort/Player/Camera2D/DialogBox/Choices"]
-margin_top = 34.0
-margin_right = 439.0
-margin_bottom = 34.0
-custom_constants/hseparation = 40
-columns = 2
-script = ExtResource( 51 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Description" type="Label" parent="YSort/Player/Camera2D/DialogBox"]
-visible = false
-margin_left = -141.952
-margin_top = -63.0184
-margin_right = 287.048
-margin_bottom = 60.9816
-custom_fonts/font = ExtResource( 15 )
-text = "Boy with neon pink hair.
-"
-script = ExtResource( 47 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Inventory" type="Node2D" parent="YSort/Player/Camera2D" groups=[
-"Persist",
-]]
-visible = false
-z_index = 1
-script = ExtResource( 48 )
-
-[node name="Description" parent="YSort/Player/Camera2D/Inventory" instance=ExtResource( 28 )]
-visible = false
-position = Vector2( -42.3013, -53.1401 )
-scale = Vector2( 0.25, 0.25 )
-
-[node name="NinePatchRect" type="NinePatchRect" parent="YSort/Player/Camera2D/Inventory"]
-margin_left = 38.7608
-margin_top = -70.091
-margin_right = 125.761
-margin_bottom = 71.909
-texture = ExtResource( 38 )
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GridContainer" type="GridContainer" parent="YSort/Player/Camera2D/Inventory/NinePatchRect"]
-margin_left = 8.39513
-margin_top = 10.3525
-margin_right = 77.3951
-margin_bottom = 129.352
-custom_constants/vseparation = 22
-custom_constants/hseparation = 25
-columns = 3
-script = ExtResource( 25 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-col = 3
+[node name="Inventory" parent="YSort/Player/Camera2D" instance=ExtResource( 25 )]
 
 [node name="Guide" parent="YSort/Player/Camera2D" instance=ExtResource( 79 )]
 visible = false
@@ -571,172 +442,8 @@ visible = false
 position = Vector2( 1.94586, 11.8484 )
 z_index = 1
 
-[node name="Menu" type="Sprite" parent="YSort/Player/Camera2D"]
-visible = false
-z_index = 1
-script = ExtResource( 34 )
-
-[node name="Menu" type="NinePatchRect" parent="YSort/Player/Camera2D/Menu"]
-margin_left = 52.0
-margin_top = -66.0
-margin_right = 123.0
-margin_bottom = 62.0
-texture = ExtResource( 38 )
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Labels" type="Node2D" parent="YSort/Player/Camera2D/Menu/Menu"]
-
-[node name="Label1" type="Node2D" parent="YSort/Player/Camera2D/Menu/Menu/Labels"]
-
-[node name="arrow" type="Sprite" parent="YSort/Player/Camera2D/Menu/Menu/Labels/Label1"]
-visible = false
-position = Vector2( 10.3368, 15.9592 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 37 )
-
-[node name="Label" type="Label" parent="YSort/Player/Camera2D/Menu/Menu/Labels/Label1"]
-margin_left = 15.2235
-margin_top = 6.66752
-margin_right = 50.2235
-margin_bottom = 23.6675
-custom_fonts/font = ExtResource( 93 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "ITEMS"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Node2D" parent="YSort/Player/Camera2D/Menu/Menu/Labels"]
-position = Vector2( 0, 16 )
-
-[node name="arrow" type="Sprite" parent="YSort/Player/Camera2D/Menu/Menu/Labels/Label2"]
-visible = false
-position = Vector2( 10.3368, 15.9592 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 37 )
-
-[node name="Label" type="Label" parent="YSort/Player/Camera2D/Menu/Menu/Labels/Label2"]
-margin_left = 15.2235
-margin_top = 6.66752
-margin_right = 50.2235
-margin_bottom = 23.6675
-custom_fonts/font = ExtResource( 93 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "LOAD"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label3" type="Node2D" parent="YSort/Player/Camera2D/Menu/Menu/Labels"]
-position = Vector2( 0, 32 )
-
-[node name="arrow" type="Sprite" parent="YSort/Player/Camera2D/Menu/Menu/Labels/Label3"]
-visible = false
-position = Vector2( 10.3368, 15.9592 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 37 )
-
-[node name="Label" type="Label" parent="YSort/Player/Camera2D/Menu/Menu/Labels/Label3"]
-margin_left = 15.2235
-margin_top = 6.66752
-margin_right = 50.2235
-margin_bottom = 23.6675
-custom_fonts/font = ExtResource( 93 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "SAVE"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label4" type="Node2D" parent="YSort/Player/Camera2D/Menu/Menu/Labels"]
-position = Vector2( 0, 48 )
-
-[node name="arrow" type="Sprite" parent="YSort/Player/Camera2D/Menu/Menu/Labels/Label4"]
-visible = false
-position = Vector2( 10.3368, 15.9592 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 37 )
-
-[node name="Label" type="Label" parent="YSort/Player/Camera2D/Menu/Menu/Labels/Label4"]
-margin_left = 15.2235
-margin_top = 6.66752
-margin_right = 50.2235
-margin_bottom = 23.6675
-custom_fonts/font = ExtResource( 93 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "HELP"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label5" type="Node2D" parent="YSort/Player/Camera2D/Menu/Menu/Labels"]
-position = Vector2( 0, 48 )
-
-[node name="arrow" type="Sprite" parent="YSort/Player/Camera2D/Menu/Menu/Labels/Label5"]
-visible = false
-position = Vector2( 10.3368, 32.5468 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 37 )
-
-[node name="Label" type="Label" parent="YSort/Player/Camera2D/Menu/Menu/Labels/Label5"]
-margin_left = 15.2235
-margin_top = 23.2552
-margin_right = 50.2235
-margin_bottom = 40.2552
-custom_fonts/font = ExtResource( 93 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "RESTART"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label6" type="Node2D" parent="YSort/Player/Camera2D/Menu/Menu/Labels"]
-position = Vector2( 0, 64 )
-
-[node name="arrow" type="Sprite" parent="YSort/Player/Camera2D/Menu/Menu/Labels/Label6"]
-visible = false
-position = Vector2( 10.3368, 32.5468 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 37 )
-
-[node name="Label" type="Label" parent="YSort/Player/Camera2D/Menu/Menu/Labels/Label6"]
-margin_left = 15.2235
-margin_top = 23.2552
-margin_right = 50.2235
-margin_bottom = 40.2552
-custom_fonts/font = ExtResource( 93 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "VOLUME"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label7" type="Node2D" parent="YSort/Player/Camera2D/Menu/Menu/Labels"]
-position = Vector2( 0, 64 )
-
-[node name="arrow" type="Sprite" parent="YSort/Player/Camera2D/Menu/Menu/Labels/Label7"]
-visible = false
-position = Vector2( 10.3368, 47.9497 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 37 )
-
-[node name="Label" type="Label" parent="YSort/Player/Camera2D/Menu/Menu/Labels/Label7"]
-margin_left = 15.2235
-margin_top = 38.658
-margin_right = 50.2235
-margin_bottom = 55.658
-custom_fonts/font = ExtResource( 93 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "EXIT"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Menu" parent="YSort/Player/Camera2D" instance=ExtResource( 13 )]
+player_path = "/root/Room/YSort/Player"
 
 [node name="NPC" type="KinematicBody2D" parent="YSort"]
 position = Vector2( 152.25, 75.125 )
