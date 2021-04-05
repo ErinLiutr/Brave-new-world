@@ -1,11 +1,13 @@
 extends Sprite
 
+export var player_path = ""
 var showing = false
 
 var pressed = false
 var counter = 0
 
 func _ready():
+	get_node("Choices/GridContainer").init()
 	set_physics_process(true)
 	set_process_unhandled_key_input(true)
 
@@ -30,4 +32,4 @@ func _stop_show():
 	hide()
 	showing = false
 	print("4")
-	get_node("/root/Room/YSort/Player").canMove = true
+	get_node(player_path).canMove = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://birthdaygift.png" type="Texture" id=1]
 [ext_resource path="res://bandage-box.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://report.png" type="Texture" id=17]
 [ext_resource path="res://white.jpg" type="Texture" id=18]
 [ext_resource path="res://equip.png" type="Texture" id=19]
+[ext_resource path="res://prologue art/tweezers.png" type="Texture" id=20]
 
 [node name="InventItem" type="Control"]
 anchor_right = 1.0
@@ -137,3 +138,9 @@ visible = false
 position = Vector2( 8, 8 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 16 )
+
+[node name="Tweezers" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 20 )

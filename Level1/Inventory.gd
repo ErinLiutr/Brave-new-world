@@ -1,10 +1,13 @@
 extends Node2D
 
-var item_ids = ["101", "102", "103"]
+var item_ids = []
+
+export var player_path = ""
 
 var showing = false
 var pressed = false
 var counter = 0
+var show_guide = false
 
 var json
 var script_url = "res://items.json"
@@ -52,7 +55,7 @@ func init():
 
 		get_node("NinePatchRect/GridContainer").add_child(new_item)
 	get_node("NinePatchRect/GridContainer").current_selection = 0
-	get_node("/root/Room/YSort/Player").canMove = false
+	get_node(player_path).canMove = false
 	get_node("NinePatchRect/GridContainer").showing = true
 	
 func get_info(id, key):
@@ -69,8 +72,15 @@ func combine(id):
 	var idx = item_ids.find(with)
 	item_ids.remove(idx)
 	item_ids.insert(idx, with_to)
-	get_node("/root/Room/YSort/Player").equipment = with_to
-	get_node("/root/Room/YSort/Player").update_equip(json[with]["picture"], json[with_to]["picture"])
+	get_node(player_path).equipment = with_to
+	get_node(player_path).update_equip(json[with]["picture"], json[with_to]["picture"])
+
+	if with_to == "206":
+		get_node("/root/Room/YSort/Player/Camera2D/DialogBox")._start("20")
+		get_node("/root/Room/YSort/Player").canMove = false
+		get_node("/root/Room/YSort/Player/Camera2D/DialogBox").show()
+		if item_ids.has("206") and item_ids.has("207") and item_ids.has("208") and item_ids.has("213"):
+			get_node("/root/Room/YSort/Player/Camera2D/DialogBox").next_dialog = "24"
 		
 func _unhandled_key_input(event):
 	if showing:
@@ -88,8 +98,14 @@ func _physics_process(delta):
 
 func _start_show():
 	init()
-	showing = true
 	show()
+	if show_guide:
+		get_node("../Guide3")._start_show()
+		show_guide = false
+		showing = false
+		get_node("NinePatchRect/GridContainer").showing = false
+	else:
+		showing = true
 	
 func _stop_show():
 	counter = 0
@@ -100,5 +116,5 @@ func _stop_show():
 	items._close()
 	hide()
 	print("3")
-	get_node("/root/Room/YSort/Player").canMove = true
+	get_node(player_path).canMove = true
 	showing = false

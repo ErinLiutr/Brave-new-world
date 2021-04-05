@@ -3,10 +3,17 @@ extends Sprite
 var choice_item = preload("res://Choice.tscn")
 var combat_scene = preload("res://Combat.tscn")
 
+export var player_path = ""
+export var default_dialog = ""
+
 var printing = false
 var donePrinting = false
 var combat = false
 var animate = false
+var refuse = false
+var accept = false
+var guide1 = false
+var guide2 = false
 
 var showing = false
 
@@ -80,7 +87,20 @@ func _physics_process(delta):
 				elif animate:
 					animate = false
 					hide()
-					get_node("/root/Room/YSort/Player").turn_right()
+					get_node(player_path).turn_right()
+				elif refuse:
+					get_node("/root/Prologue/YSort/Pearl/Interact").id = "44"
+					_start("00")
+				elif accept:
+					get_node("/root/Prologue")._progress()
+					hide()
+				elif guide1:
+					get_node("../Guide1")._start_show()
+					hide()
+				elif guide2:
+					get_node("../Guide2")._start_show()
+					get_node("../Inventory").show_guide = true
+					hide()
 				elif next_dialog == "-1":
 					_start("00")
 				else:
@@ -107,14 +127,18 @@ func _start(id):
 	counter = 0
 	next_dialog = "-1"
 	animate = false
+	refuse = false
+	accept = false
+	guide1 = false
+	guide2 = false
 	for node in ["NPC", "MC", "Pearl"]:
 			get_node(node).hide()
 	if id == "00":
 		hide()
-		get_node("/root/Room/YSort/Player").canMove = true
+		get_node(player_path).canMove = true
 	elif json[id]["type"] == "choice":
-		get_node("NPC").show()
-		_show_choices(json[id]["title"], json[id]["choices"])
+		get_node(json[id]["role"]).show()
+		_show_choices(json[id]["title"], json[id]["choices"], json[id]["close"])
 	elif json[id]["type"] == "dialog":
 		get_node(json[id]["role"]).show()
 		combat = false
@@ -122,11 +146,19 @@ func _start(id):
 			next_dialog = "-1"
 		elif json[id]["next"] == "animation":
 			animate = true
+		elif json[id]["next"] == "refuse":
+			refuse = true
+		elif json[id]["next"] == "accept":
+			accept = true
+		elif json[id]["next"] == "guide1":
+			guide1 = true
+		elif json[id]["next"] == "guide2":
+			guide2 = true
 		else:
 			next_dialog = json[id]["next"]
 		_print_dialogue(json[id]["text"])
 	elif json[id]["type"] == "description":
-		get_node("NPC").show()
+		get_node(json[id]["role"]).show()
 		_show_description(json[id]["text"])
 	elif json[id]["type"] == "game":
 		get_node(json[id]["role"]).show()
@@ -144,9 +176,9 @@ func _print_dialogue(text):
 	donePrinting = false
 	printing = true
 	
-func _show_choices(title, choices):
+func _show_choices(title, choices, close):
 	get_node("Choices").choice_results = []
-
+	get_node("Choices").close = close
 	get_node("Choices/Title").text = title
 	var idx = 0
 	
@@ -154,7 +186,7 @@ func _show_choices(title, choices):
 		if choice["text"] == "CONFRONT":
 			var items = get_node("/root/Room/YSort/Player/Camera2D/Inventory").item_ids
 			var counter = 0
-			for id in ["203", "213", "208", "207"]:
+			for id in ["206", "213", "208", "207"]:
 				if items.has(id):
 					counter += 1
 			if counter != 4:
@@ -175,6 +207,7 @@ func _show_choices(title, choices):
 		new_choice.get_node("choice").text = choice["text"]
 		get_node("Choices").choice_results.append(choice["go_to"])
 		get_node("Choices/GridContainer").add_child(new_choice)
+	"""
 	var new_choice1 = choice_item.instance()
 	new_choice1.name = "choice" + str(idx)
 	new_choice1.get_node("selector").text = ""
@@ -188,10 +221,12 @@ func _show_choices(title, choices):
 	new_choice.get_node("choice").text = "CLOSE"
 	get_node("Choices").choice_results.append("00")
 	get_node("Choices/GridContainer").add_child(new_choice)
+	"""
 	get_node("Choices").counter = 0
 	get_node("Choices").current_selection = 0
 	get_node("Choices").showing = true
 	get_node("Choices").show()
+	
 	
 func _show_description(text):
 	get_node("Description").text = text

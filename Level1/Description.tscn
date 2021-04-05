@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://crumpled_magazine.png" type="Texture" id=1]
 [ext_resource path="res://bandage_box.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://detailed_image/Crumpled_Receipt.png" type="Texture" id=21]
 [ext_resource path="res://detailed_image/close.png" type="Texture" id=22]
 [ext_resource path="res://with_key.png" type="Texture" id=23]
+[ext_resource path="res://prologue art/tweezers-.png" type="Texture" id=24]
 
 [node name="Description" type="Sprite"]
 position = Vector2( 0, -48 )
@@ -157,3 +158,9 @@ visible = false
 position = Vector2( -240, 3.05176e-05 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 21 )
+
+[node name="Tweezers" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 24 )

@@ -62,7 +62,7 @@ func handle_selection(_current_selection):
 	var new_choice = choice_item.instance()
 	new_choice.name = "choice0"
 	new_choice.get_node("selector").text = ">"
-	if id == get_node("/root/Room/YSort/Player").equipment:
+	if id == get_node(get_parent().get_parent().player_path).equipment:
 		new_choice.get_node("choice").text = "UNEQUIP"
 		desc.get_node("Choices").choice_results.append("unequip")
 	else:

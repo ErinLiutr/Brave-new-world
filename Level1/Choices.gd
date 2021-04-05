@@ -10,13 +10,20 @@ var counter = 0
 export var col = 0
 
 var showing = false
+var close = false
+var pressed = false
 
 func _ready():
 	set_physics_process(true)
 	set_process_unhandled_key_input(true)
 	
 func _physics_process(delta):
-	counter += 1
+	if showing:
+		counter += 1
+		if pressed and counter > 10 and close:
+			close()
+			get_node("GridContainer").handle_selection("00", item_id)
+	pressed = false
 	
 func _unhandled_key_input(event):
 	if showing:
@@ -47,6 +54,10 @@ func _unhandled_key_input(event):
 		elif event.is_action_pressed("ui_interact") and choice_results.size() > current_selection:
 			if counter > 10:
 				handle_selection(current_selection)
+		elif event.is_action_pressed("ui_cancel"):
+			pressed = true
+		elif event.is_action_released("ui_cancel"):
+			pressed = false
 
 
 func handle_selection(_current_selection):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=2]
+[gd_scene load_steps=105 format=2]
 
 [ext_resource path="res://desk1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -16,7 +16,7 @@
 [ext_resource path="res://Interact.gd" type="Script" id=14]
 [ext_resource path="res://DialogBox.tscn" type="PackedScene" id=15]
 [ext_resource path="res://dirty-shirt.png" type="Texture" id=16]
-[ext_resource path="res://help.png" type="Texture" id=17]
+[ext_resource path="res://ToolBar.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Interact1.gd" type="Script" id=18]
 [ext_resource path="res://sketchpad.png" type="Texture" id=19]
 [ext_resource path="res://glass-bottle1.png" type="Texture" id=20]
@@ -26,10 +26,10 @@
 [ext_resource path="res://item_box.png" type="Texture" id=24]
 [ext_resource path="res://Inventory.tscn" type="PackedScene" id=25]
 [ext_resource path="res://hair-bleach1.png" type="Texture" id=26]
-[ext_resource path="res://InventItem.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Description.tscn" type="PackedScene" id=28]
 [ext_resource path="res://hair-dye1.png" type="Texture" id=29]
 [ext_resource path="res://key.png" type="Texture" id=30]
+[ext_resource path="res://EnvDesc.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Interact4.gd" type="Script" id=32]
 [ext_resource path="res://Interact2.gd" type="Script" id=33]
 [ext_resource path="res://Interact3.gd" type="Script" id=35]
@@ -40,7 +40,6 @@
 [ext_resource path="res://Interact6.gd" type="Script" id=42]
 [ext_resource path="res://Interact8.gd" type="Script" id=43]
 [ext_resource path="res://hair1.png" type="Texture" id=44]
-[ext_resource path="res://volume.png" type="Texture" id=45]
 [ext_resource path="res://decoration/plant2 1.png" type="Texture" id=49]
 [ext_resource path="res://decoration/cabinet3.png" type="Texture" id=50]
 [ext_resource path="res://decoration/decoration1.png" type="Texture" id=52]
@@ -76,16 +75,12 @@
 [ext_resource path="res://Scene/lock.tscn" type="PackedScene" id=82]
 [ext_resource path="res://Scene/PopupWin.tscn" type="PackedScene" id=83]
 [ext_resource path="res://Scene/PopupLose.tscn" type="PackedScene" id=84]
-[ext_resource path="res://EnvDesc.gd" type="Script" id=85]
-[ext_resource path="res://item_box1.png" type="Texture" id=86]
-[ext_resource path="res://Choices.tscn" type="PackedScene" id=87]
 [ext_resource path="res://Interact_env.gd" type="Script" id=88]
 [ext_resource path="res://Interact11.gd" type="Script" id=91]
 [ext_resource path="res://Left.png" type="Texture" id=92]
 [ext_resource path="res://anima.png" type="Texture" id=94]
 [ext_resource path="res://NPC.gd" type="Script" id=95]
 [ext_resource path="res://NPC1.gd" type="Script" id=96]
-[ext_resource path="res://setting.png" type="Texture" id=97]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -224,6 +219,8 @@ script = ExtResource( 72 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
+player_path = "/root/Room/YSort/Player"
+scene_path = "/root/Room"
 
 [node name="Background" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )
@@ -351,36 +348,7 @@ position = Vector2( 0, -22.982 )
 scale = Vector2( 0.923, 0.844 )
 current = true
 
-[node name="ToolBar" type="Sprite" parent="YSort/Player/Camera2D"]
-position = Vector2( 1.32295, 71.5826 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Equipment" parent="YSort/Player/Camera2D/ToolBar" groups=[
-"Persist",
-] instance=ExtResource( 27 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -123.339
-margin_top = -142.123
-margin_right = -123.339
-margin_bottom = -142.123
-
-[node name="Help" type="Sprite" parent="YSort/Player/Camera2D/ToolBar"]
-position = Vector2( 117.335, -134.6 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 17 )
-
-[node name="Volume" type="Sprite" parent="YSort/Player/Camera2D/ToolBar"]
-position = Vector2( 102.167, -134.78 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 45 )
-
-[node name="Menu" type="Sprite" parent="YSort/Player/Camera2D/ToolBar"]
-position = Vector2( 83.7487, -134.738 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 97 )
+[node name="ToolBar" parent="YSort/Player/Camera2D" instance=ExtResource( 17 )]
 
 [node name="blur" type="TextureRect" parent="YSort/Player/Camera2D"]
 visible = false
@@ -413,37 +381,32 @@ z_index = 5
 z_as_relative = false
 button_path = NodePath("../Interact/Button")
 
-[node name="EnvDesc" type="Sprite" parent="YSort/Player/Camera2D"]
-visible = false
-position = Vector2( -0.221008, -47.3934 )
-scale = Vector2( 0.3, 0.3 )
-z_index = 1
-texture = ExtResource( 86 )
-script = ExtResource( 85 )
-
-[node name="Choices" parent="YSort/Player/Camera2D/EnvDesc" instance=ExtResource( 87 )]
-margin_left = -202.239
-margin_top = -63.1911
-margin_right = 201.761
-margin_bottom = 57.8089
+[node name="EnvDesc" parent="YSort/Player/Camera2D" instance=ExtResource( 31 )]
 
 [node name="Description" parent="YSort/Player/Camera2D" instance=ExtResource( 28 )]
 visible = false
+player_path = "/root/Room/YSort/Player"
 
 [node name="DialogBox" parent="YSort/Player/Camera2D" instance=ExtResource( 15 )]
+player_path = "/root/Room/YSort/Player"
+default_dialog = "01"
 
 [node name="Inventory" parent="YSort/Player/Camera2D" instance=ExtResource( 25 )]
+player_path = "/root/Room/YSort/Player"
 
 [node name="Guide" parent="YSort/Player/Camera2D" instance=ExtResource( 79 )]
 visible = false
+player_path = "/root/Room/YSort/Player"
 
 [node name="Sound" parent="YSort/Player/Camera2D" instance=ExtResource( 23 )]
 visible = false
 position = Vector2( 1.94586, 11.8484 )
 z_index = 1
+player_path = "/root/Room/YSort/Player"
 
 [node name="Menu" parent="YSort/Player/Camera2D" instance=ExtResource( 13 )]
 player_path = "/root/Room/YSort/Player"
+scene_path = "/root/Room"
 
 [node name="NPC" type="KinematicBody2D" parent="YSort"]
 position = Vector2( 152.25, 75.125 )
@@ -614,7 +577,7 @@ shape = SubResource( 14 )
 position = Vector2( 392, 64 )
 
 [node name="Sprite" type="Sprite" parent="YSort/Pearl"]
-position = Vector2( 0, 15 )
+position = Vector2( 0, 14.5 )
 texture = ExtResource( 92 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Pearl"]

@@ -1,5 +1,7 @@
 extends Sprite
 
+export var player_path = ""
+
 var pressed = false
 var showing = false
 
@@ -46,7 +48,7 @@ func _close():
 	showing = false
 	hide()
 	if get_parent().name == "Camera2D":
-		get_node("/root/Room/YSort/Player").canMove = true
+		get_node(player_path).canMove = true
 
 
 func _on_HSlider_value_changed(value):

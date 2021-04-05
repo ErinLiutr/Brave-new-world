@@ -11,6 +11,7 @@ var animate = false
 var volume = false
 var help = false
 var invent = false
+var standing = false
 
 const SPEED = 1
 const GRID = 16
@@ -64,6 +65,10 @@ func _unhandled_input(event):
 		invent = false
 		
 func _physics_process(delta):
+	if standing and !animationPlayer.is_playing():
+		standing = false
+		get_node("/root/Prologue/YSort/Player/Camera2D/DialogBox").show()
+		get_node("/root/Prologue/YSort/Player/Camera2D/DialogBox")._start("25")
 	if !moving and canMove:
 		var resultUp = world.intersect_point(position + Vector2(0, -GRID))
 		var resultDown = world.intersect_point(position + Vector2(0, GRID))
@@ -149,7 +154,7 @@ func interact(result):
 	for dictionary in result:
 		if typeof(dictionary.collider) == TYPE_OBJECT and (dictionary.collider.has_node("Interact")):
 			var name = dictionary.collider.get_node("Interact").type
-			var node = get_node("/root/Room/YSort/Player/Camera2D/" + name)
+			var node = get_node("Camera2D/" + name)
 			canMove = false
 			node.show()
 			if node.has_node("Game"):
@@ -159,7 +164,7 @@ func interact(result):
 				var id = dictionary.collider.get_node("Interact").id
 				if json[str(id)]["picture"] == "":
 					node.hide()
-					node = get_node("/root/Room/YSort/Player/Camera2D/EnvDesc")
+					node = get_node("Camera2D/EnvDesc")
 					node.show()
 				node.get_node("Choices/Description").text = json[str(id)]["description"]
 				node.get_node("Choices/Name").text = json[str(id)]["item_name"]
@@ -202,6 +207,13 @@ func interact(result):
 					elif choice == "report":
 						new_choice.get_node("choice").text = "VIEW"
 						node.get_node("Choices").choice_results.append("report")
+					elif choice == "tweezers":
+						if equipment == "104" and dictionary.collider.get_node("Interact").active:
+							new_choice.get_node("choice").text = "USE TWEEZERS"
+							node.get_node("Choices").choice_results.append("id")
+						else:
+							idx -= 1
+							continue
 					else:
 						node.get_node("Choices").choice_results.append(choice)
 					node.get_node("Choices/GridContainer").add_child(new_choice)

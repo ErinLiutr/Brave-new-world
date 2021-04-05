@@ -22,7 +22,7 @@ func _physics_process(delta):
 			counter = 0
 			hide()
 			showing = false
-			get_parent()._start("01")
+			get_parent()._start(get_parent().default_dialog)
 	pressed = false
 
 func _start_show():

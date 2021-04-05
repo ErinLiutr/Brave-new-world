@@ -2,6 +2,9 @@ extends Node2D
 
 var title_scene
 
+export var player_path = ""
+export var scene_path = ""
+
 func save_game():
 	var save_game = File.new()
 	save_game.open("user://savegame.save", File.WRITE)
@@ -37,12 +40,13 @@ func load_game():
 	save_game.close()
 
 func help():
-	get_node("/root/Room/YSort/Player").canMove = false
-	get_node("/root/Room/YSort/Player/Help").show()
+	get_node(player_path).canMove = false
+	get_node(player_path + "/Help").show()
 	
 func _return():
 	var TheRoot = get_node("/root")
-	var this_scene = get_node("/root/Room")
+	var this_scene = get_node(scene_path)
 	TheRoot.remove_child(this_scene)
 	title_scene.get_node("Sound2/NinePatchRect/HSlider").value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	TheRoot.add_child(title_scene)
+

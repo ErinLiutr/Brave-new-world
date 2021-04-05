@@ -198,8 +198,8 @@
   "101": {
     "name": "StainedID",
     "item_name": "Stained ID",
-    "description": "Name is covered by stain.",
-    "options": [],
+    "description": "Photo is covered by scratches. \nName: A\nBirthday: June, 06, 19xx\n",
+    "options": ["pick"],
     "picture": "ID",
     "path": ""
   },
@@ -207,16 +207,40 @@
     "name": "Receipt",
     "item_name": "Crumpled receipt",
     "description": "Hair bleach - 1 item\nHair dye - 1 item",
-    "options": [],
+    "options": ["pick"],
     "picture": "Receipt",
-    "path": ""
+    "path": "/root/Prologue/YSort/Receipt"
   },
   "103": {
     "name": "Check",
     "item_name": "Torn check",
-    "description": "1000 USD",
-    "options": [],
+    "description": "A check of 1000 USD written to Issac. Wonder who wrote it.",
+    "options": ["pick"],
     "picture": "Check",
+    "path": "/root/Prologue/YSort/Check"
+  },
+  "104": {
+    "name": "Tweezers",
+    "item_name": "A pair of tweezers",
+    "description": "A pair of tweezers.",
+    "options": ["pick"],
+    "picture": "Tweezers",
+    "path": "/root/Prologue/YSort/Tweezers"
+  },
+  "105": {
+    "name": "Drain",
+    "item_name": "A muddy drain",
+    "description": "The drain is clogged. Something seems stuck in the drain. Looks like a card.",
+    "options": ["tweezers"],
+    "picture": "",
+    "path": ""
+  },
+  "105-1": {
+    "name": "Drain",
+    "item_name": "A muddy drain",
+    "description": "The drain is clogged.",
+    "options": [],
+    "picture": "",
     "path": ""
   }
 }

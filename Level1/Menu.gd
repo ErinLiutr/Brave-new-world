@@ -1,6 +1,7 @@
 extends Sprite
 
 export var player_path = ""
+export var scene_path = ""
 
 var menu = false
 var open = false
@@ -39,7 +40,7 @@ func _handle_interaction():
 		get_node("../Guide")._start_show()
 	elif currentLabel == 4:
 		_close_menu()
-		get_node("/root/Room")._return()
+		get_node(scene_path)._return()
 	elif currentLabel == 5:
 		open = false
 		get_node(player_path).canMove = false
