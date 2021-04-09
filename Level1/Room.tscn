@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=2]
+[gd_scene load_steps=109 format=2]
 
 [ext_resource path="res://desk1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -26,14 +26,18 @@
 [ext_resource path="res://item_box.png" type="Texture" id=24]
 [ext_resource path="res://Inventory.tscn" type="PackedScene" id=25]
 [ext_resource path="res://hair-bleach1.png" type="Texture" id=26]
+[ext_resource path="res://Interact13.gd" type="Script" id=27]
 [ext_resource path="res://Description.tscn" type="PackedScene" id=28]
 [ext_resource path="res://hair-dye1.png" type="Texture" id=29]
 [ext_resource path="res://key.png" type="Texture" id=30]
 [ext_resource path="res://EnvDesc.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Interact4.gd" type="Script" id=32]
 [ext_resource path="res://Interact2.gd" type="Script" id=33]
+[ext_resource path="res://skeleton.png" type="Texture" id=34]
 [ext_resource path="res://Interact3.gd" type="Script" id=35]
 [ext_resource path="res://Interact5.gd" type="Script" id=36]
+[ext_resource path="res://Receipt.png" type="Texture" id=37]
+[ext_resource path="res://Chapter1.tscn" type="PackedScene" id=38]
 [ext_resource path="res://decoration/carpet1.png" type="Texture" id=39]
 [ext_resource path="res://bandage-box.png" type="Texture" id=40]
 [ext_resource path="res://Interact7.gd" type="Script" id=41]
@@ -206,7 +210,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=21]
-extents = Vector2( 8, 8 )
+extents = Vector2( 11.4286, 11.4286 )
 
 [sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 8, 8 )
@@ -403,6 +407,10 @@ visible = false
 position = Vector2( 1.94586, 11.8484 )
 z_index = 1
 player_path = "/root/Room/YSort/Player"
+
+[node name="Chapter1" parent="YSort/Player/Camera2D" instance=ExtResource( 38 )]
+visible = false
+z_index = 1
 
 [node name="Menu" parent="YSort/Player/Camera2D" instance=ExtResource( 13 )]
 player_path = "/root/Room/YSort/Player"
@@ -882,7 +890,6 @@ script = ExtResource( 88 )
 item_name = "wardrobe"
 
 [node name="NPC" type="StaticBody2D" parent="YSort/Wardrobe"]
-visible = false
 script = ExtResource( 96 )
 
 [node name="Sprite" type="Sprite" parent="YSort/Wardrobe/NPC"]
@@ -898,6 +905,11 @@ shape = SubResource( 19 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Wardrobe/NPC"]
 anims/animation = SubResource( 20 )
+
+[node name="Skeleton" type="Sprite" parent="YSort/Wardrobe/NPC"]
+visible = false
+position = Vector2( 9.5, -7.75 )
+texture = ExtResource( 34 )
 
 [node name="shirt" type="StaticBody2D" parent="YSort" groups=[
 "Persist",
@@ -916,6 +928,25 @@ texture = ExtResource( 16 )
 shape = SubResource( 21 )
 
 [node name="Interact" type="Sprite" parent="YSort/shirt"]
+script = ExtResource( 27 )
+
+[node name="receipt" type="StaticBody2D" parent="YSort"]
+visible = false
+position = Vector2( 152, 72 )
+scale = Vector2( 0.7, 0.7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/receipt"]
+position = Vector2( 0, 7.62939e-06 )
+texture = ExtResource( 37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/receipt"]
+shape = SubResource( 21 )
+disabled = true
+
+[node name="Interact" type="Sprite" parent="YSort/receipt"]
 script = ExtResource( 42 )
 
 [node name="hair" type="StaticBody2D" parent="YSort" groups=[

@@ -2,6 +2,7 @@ extends Sprite
 
 var prologue_scene = preload("res://Prologue.tscn")
 var room_scene = preload("res://Room.tscn")
+var epilogue_scene = preload("res://Epilogue.tscn")
 
 
 var menu = false
@@ -40,12 +41,32 @@ func _handle_interaction():
 		var this_scene = TheRoot.get_node("Title")
 		var next_scene = room_scene.instance()
 		next_scene.title_scene = this_scene
-		next_scene.get_node("YSort/Player/Camera2D/Guide")._start_show()
 		next_scene.get_node("YSort/Player").canMove = false
 		next_scene.get_node("YSort/Player/Camera2D/Sound/NinePatchRect/HSlider").value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 		next_scene.get_node("YSort/Player/Camera2D/Inventory").item_ids = ["101", "102", "103", "104"]
 		TheRoot.remove_child(this_scene)
 		TheRoot.add_child(next_scene)
+		next_scene.get_node("YSort/Player/Camera2D/Chapter1")._play_fadeout()
+	elif currentLabel == 2:
+		open = false
+		_close_menu()
+		var TheRoot = get_node("/root")
+		var this_scene = TheRoot.get_node("Title")
+		var next_scene = epilogue_scene.instance()
+		next_scene.title_scene = this_scene
+		TheRoot.remove_child(this_scene)
+		TheRoot.add_child(next_scene)
+		next_scene._start("49")
+	elif currentLabel == 3:
+		open = false
+		_close_menu()
+		var TheRoot = get_node("/root")
+		var this_scene = TheRoot.get_node("Title")
+		var next_scene = epilogue_scene.instance()
+		next_scene.title_scene = this_scene
+		TheRoot.remove_child(this_scene)
+		TheRoot.add_child(next_scene)
+		next_scene._start("69")
 	else:
 		open = false
 		_close_menu()

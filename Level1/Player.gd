@@ -12,6 +12,8 @@ var volume = false
 var help = false
 var invent = false
 var standing = false
+var guide1 = false
+var guide3 = false
 
 const SPEED = 1
 const GRID = 16
@@ -67,6 +69,7 @@ func _unhandled_input(event):
 func _physics_process(delta):
 	if standing and !animationPlayer.is_playing():
 		standing = false
+		sprite.set_frame(12)
 		get_node("/root/Prologue/YSort/Player/Camera2D/DialogBox").show()
 		get_node("/root/Prologue/YSort/Player/Camera2D/DialogBox")._start("25")
 	if !moving and canMove:
@@ -153,6 +156,8 @@ func turn_right():
 func interact(result):
 	for dictionary in result:
 		if typeof(dictionary.collider) == TYPE_OBJECT and (dictionary.collider.has_node("Interact")):
+			if guide1:
+				get_node("Camera2D/Guide1")._stop_show()
 			var name = dictionary.collider.get_node("Interact").type
 			var node = get_node("Camera2D/" + name)
 			canMove = false

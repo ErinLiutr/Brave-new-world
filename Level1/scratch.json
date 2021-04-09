@@ -323,5 +323,243 @@
     "role": "Pearl",
     "text": ["Don’t worry, there is time for you to think this over. I’ll wait until you’re ready."],
     "next": "refuse"
+  },
+  "49": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...", "Where am I? Is this reality or a dream?"],
+    "next": "50"
+  },
+  "50": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["You are back from the simulation, A. How are you feeling?"],
+    "next": "51"
+  },
+  "51": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["Ah...awful..."],
+    "next": "52"
+  },
+  "52": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Those past memories you saw in the simulation are hard to process for sure. But congratulations, you’ve made through the first phase of Project Brave New World!"],
+    "next": "53"
+  },
+  "53": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["The first phase?"],
+    "next": "54"
+  },
+  "54": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Project Brave New World aims to purify people’s souls under their own wills. The purpose of the first phase is to have you recognize and confess your sins."],
+    "next": "55"
+  },
+  "55": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["I don’t remember confessing anything, you must’ve got it wrong."],
+    "next": "56"
+  },
+  "56": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["I understand that you just got out of the simulation and are still confused. In fact, we’ve received your signature that indicates your confession.", "We are glad that you are determined to proceed to the next phase."],
+    "next": "57"
+  },
+  "57": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["What is the next phase?"],
+    "next": "58"
+  },
+  "58": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["The next phase will be the actual transformation. After your treatment, you will be born again and all the evilness inside of you are cleansed."],
+    "next": "59"
+  },
+  "59": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...", "You mean there’s a brain surgery or something?"],
+    "next": "60"
+  },
+  "60": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Don’t worry, A. We have the most advanced biomedical technology from all around the world.", "There will be a team of physicians, psychiatrists, philosophers, and lawyers who are the top of their fields that provide you customized services throughout your participation in the program.", "Are you ready for your transformation?"],
+    "next": "61"
+  },
+  "61": {
+    "title": "Are you ready for your transformation?",
+    "type": "choice",
+    "choices": [
+      {"text": "YES", "go_to": "68"},
+      {"text": "NO", "go_to": "62"}
+    ],
+    "role": "Pearl",
+    "close": false
+  },
+  "62": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["This doesn't seem right.", "I didn't confess anything, at least under my own will. I didn't know the criminal I was after was myself."],
+    "next": "63"
+  },
+  "63": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Don’t you think that we are in a better position to reflect on what we’ve done when we regard ourselves as “others”?", "You may find it hard to accept at first, but you’ve made the right choice, A. You are more brave than you thought you are. Our team are all very proud of you."],
+    "next": "64"
+  },
+  "64": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...that’s not true...I..."],
+    "next": "65"
+  },
+  "65": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["You look exhausted. Better get some sleep. Don’t worry, A, we will take care of the rest."],
+    "next": "66"
+  },
+  "66": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...no...I..."],
+    "next": "67"
+  },
+  "67": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Good night, A. See you in the brave new world."],
+    "next": "title"
+  },
+  "68": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["A, you’ve made the right choice. You are more brave than you thought you are. Our team are all very proud of you.", "Now get some sleep. We will take care of the rest.", "See you in the brave new world, A."],
+    "next": "title"
+  },
+  "69": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...", "Where am I? Is this reality or a dream?"],
+    "next": "70"
+  },
+  "70": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["You are back from the simulation, A. How are you feeling?"],
+    "next": "71"
+  },
+  "71": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["Ah...awful..."],
+    "next": "72"
+  },
+  "72": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Those past memories you saw in the simulation are hard to process for sure. Unfortunately, I have some sad news for you.", "You didn't make it through the first phase of Project Brave New World. You will have to go into the simulation again."],
+    "next": "73"
+  },
+  "73": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["What first phase?"],
+    "next": "74"
+  },
+  "74": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Project Brave New World aims to purify people’s souls under their own wills. The purpose of the first phase is to have you recognize and confess your sins."],
+    "next": "75"
+  },
+  "75": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["I don’t have any sins to confess."],
+    "next": "76"
+  },
+  "76": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["That is not what we’ve seen from your past memories. We understand that it takes a lot of courage for people to make up their minds and face their past."],
+    "next": "77"
+  },
+  "77": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["What is the next phase?"],
+    "next": "78"
+  },
+  "78": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["The next phase will be the actual transformation. After your treatment, you will be born again and all the evilness inside of you are cleansed."],
+    "next": "79"
+  },
+  "79": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...", "You mean there’s a brain surgery or something?"],
+    "next": "80"
+  },
+  "80": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["We have the most advanced biomedical technology from all around the world. There will be a team of physicians, psychiatrists, philosophers, and lawyers who are the top of their fields that provide you customized services throughout your participation in the program.", "However, you won’t be able to proceed unless you recognize your vice."],
+    "next": "81"
+  },
+  "81": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["I didn’t break any laws or confess any crimes. You got the wrong person."],
+    "next": "82"
+  },
+  "82": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["It’s fine. We got plenty of time and you have plenty of memories. We will now go through the first phase again. Are you ready?"],
+    "next": "83"
+  },
+  "83": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["No I’m not. Like I said, you’ve had the wrong guy. There must be some mistakes. I didn’t choose to join this program.", "I’ll walk myself out.", "What...what are you doing..."],
+    "next": "84"
+  },
+  "84": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["There are reasons why people are chosen in the program. You just got out of the simulation and are still mentally unstable. A, trust me, you are more brave than you thought you are."],
+    "next": "85"
+  },
+  "85": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...no...I..."],
+    "next": "86"
+  },
+  "86": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["You may experience slight nausea when entering the simulation. But that is totally normal. Now lay back and relax."],
+    "next": "87"
+  },
+  "87": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...no...I..."],
+    "next": "prologue"
   }
 }

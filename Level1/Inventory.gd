@@ -100,12 +100,9 @@ func _start_show():
 	init()
 	show()
 	if show_guide:
+		get_node("../Guide2")._stop_show()
 		get_node("../Guide3")._start_show()
-		show_guide = false
-		showing = false
-		get_node("NinePatchRect/GridContainer").showing = false
-	else:
-		showing = true
+	showing = true
 	
 func _stop_show():
 	counter = 0

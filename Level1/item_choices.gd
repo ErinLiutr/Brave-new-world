@@ -59,6 +59,8 @@ func handle_selection(destination, id):
 			get_node("/root/Prologue/YSort/Drain/Interact").asked = true
 	
 	elif destination == "equip":
+		if get_node(player_path).guide3:
+			get_node(player_path + "/Camera2D/Guide3")._stop_show()
 		get_node(player_path).equipment = str(id)
 
 		var equip_node = get_node(player_path + "/Camera2D/ToolBar/Equipment")

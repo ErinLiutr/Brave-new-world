@@ -25,13 +25,19 @@ func _unhandled_key_input(event):
 func _physics_process(delta):
 	if showing:
 		counter += 1
-		if pressed and counter > 10:
+		if pressed and counter > 10 and id == 0:
 			if get_parent().name == "Camera2D":
 				get_node(player_path).canMove = true
 			_stop_show()
 	pressed = false
 
 func _start_show():
+	if id == 1:
+		get_parent().get_parent().guide1 = true
+	elif id == 3:
+		get_parent().get_parent().guide3 = true
+	elif id == 2:
+		get_node("../Inventory").show_guide = true
 	show()
 	showing = true
 	
@@ -41,10 +47,12 @@ func _stop_show():
 		if !started and scene_path == "/root/Prologue":
 			get_node(scene_path)._start()
 			started = true
+	elif id == 1:
+		get_parent().get_parent().guide1 = false
+	elif id == 2:
+		get_node("../Inventory").show_guide = false
 	elif id == 3:
-		get_node(player_path).canMove = false
-		get_node("../Inventory").showing = true
-		get_node("../Inventory/NinePatchRect/GridContainer").showing = true
+		get_parent().get_parent().guide3 = false
 	counter = 0
 	hide()
 	showing = false

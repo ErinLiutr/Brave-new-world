@@ -119,6 +119,14 @@
     "picture": "Gift",
     "path": "/root/Room/gift"
   },
+  "214": {
+    "name": "Receipt",
+    "item_name": "Receipt",
+    "description": "Hair bleach - 1 item\nHair dye - 1 item\nApple cider - 2 bottles\n",
+    "options": ["pick"],
+    "picture": "Receipt",
+    "path": "/root/Room/YSort/receipt"
+  },
   "215": {
     "name": "Key",
     "item_name": "A key",

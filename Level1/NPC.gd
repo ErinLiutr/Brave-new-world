@@ -58,6 +58,8 @@ func _physics_process(delta):
 			idx += 1
 
 func start_animate():
+	get_parent().get_node("receipt").show()
+	get_parent().get_node("receipt/CollisionShape2D").disabled = false
 	get_node("CollisionShape2D").disabled = true
 	idx = 0
 	animate = true

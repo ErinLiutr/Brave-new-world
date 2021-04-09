@@ -14,6 +14,8 @@ var refuse = false
 var accept = false
 var guide1 = false
 var guide2 = false
+var prologue = false
+var title = false
 
 var showing = false
 
@@ -35,6 +37,7 @@ var json
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("ready")
 	json = load_data(script_url)
 	set_physics_process(true)
 	set_process_unhandled_key_input(true)
@@ -92,14 +95,19 @@ func _physics_process(delta):
 					get_node("/root/Prologue/YSort/Pearl/Interact").id = "44"
 					_start("00")
 				elif accept:
-					get_node("/root/Prologue")._progress()
+					get_parent().get_node("Chapter1")._play_fadein()
 					hide()
 				elif guide1:
 					get_node("../Guide1")._start_show()
-					hide()
+					_start("00")
 				elif guide2:
 					get_node("../Guide2")._start_show()
-					get_node("../Inventory").show_guide = true
+					_start("00")
+				elif prologue:
+					get_node("/root/Epilogue")._progress()
+					hide()
+				elif title:
+					get_node("/root/Epilogue")._return()
 					hide()
 				elif next_dialog == "-1":
 					_start("00")
@@ -131,11 +139,14 @@ func _start(id):
 	accept = false
 	guide1 = false
 	guide2 = false
-	for node in ["NPC", "MC", "Pearl"]:
+	prologue = false
+	title = false
+	for node in ["NPC", "MC", "Pearl", "MC1"]:
 			get_node(node).hide()
 	if id == "00":
 		hide()
-		get_node(player_path).canMove = true
+		if player_path != "":
+			get_node(player_path).canMove = true
 	elif json[id]["type"] == "choice":
 		get_node(json[id]["role"]).show()
 		_show_choices(json[id]["title"], json[id]["choices"], json[id]["close"])
@@ -154,6 +165,10 @@ func _start(id):
 			guide1 = true
 		elif json[id]["next"] == "guide2":
 			guide2 = true
+		elif json[id]["next"] == "prologue":
+			prologue = true
+		elif json[id]["next"] == "title":
+			title = true
 		else:
 			next_dialog = json[id]["next"]
 		_print_dialogue(json[id]["text"])

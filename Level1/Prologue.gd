@@ -56,8 +56,10 @@ func _progress():
 	var this_scene = get_node(scene_path)
 	var next_scene = room_scene.instance()
 	next_scene.title_scene = title_scene
+	next_scene.get_node("YSort/Player").canMove = false
 	TheRoot.remove_child(this_scene)
 	TheRoot.add_child(next_scene)
+	next_scene.get_node("YSort/Player/Camera2D/Chapter1")._play_fadeout()
 	next_scene.get_node("YSort/Player/Camera2D/Sound/NinePatchRect/HSlider").value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	next_scene.get_node("YSort/Player/Camera2D/Inventory").item_ids = get_node("YSort/Player/Camera2D/Inventory").item_ids
 	
