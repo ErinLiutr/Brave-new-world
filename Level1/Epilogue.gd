@@ -23,5 +23,5 @@ func _progress():
 	next_scene.get_node("YSort/Player/Camera2D/Inventory").item_ids = []
 	
 func _start(id):
-	get_node("bed/Player/Camera2D/DialogBox").show()
-	get_node("bed/Player/Camera2D/DialogBox")._start(id)
+	print(id)
+	get_node("bed/Player")._start_play(id)
