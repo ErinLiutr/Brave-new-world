@@ -31,7 +31,6 @@ margin_bottom = 26.0
 min_value = -30.0
 max_value = 10.0
 value = -10.0
-editable = false
 scrollable = false
 __meta__ = {
 "_edit_use_anchors_": false

@@ -136,12 +136,92 @@ func _physics_process(delta):
 	elif canMove or animate:
 		move_and_collide(direction * SPEED)
 		var diff = position - (startPos + Vector2(GRID * direction.x, GRID * direction.y))
-
+		#print(diff)
 		if abs(diff.x) < 0.1 && abs(diff.y) < 0.1:
 			moving = false
 			if animate:
 				animate = false
 				get_parent().get_node("NPC").start_animate()
+			if get_parent().get_parent().name == "Corridor":
+				var lydia_diff = position.y - get_parent().get_node("Lydia").position.y
+				if abs(lydia_diff) < 0.1:
+					canMove = false
+					get_node("Camera2D/DialogBox").show()
+					get_node("Camera2D/DialogBox")._start("96")
+				var cj_diff = position.y - get_parent().get_node("CJ").position.y
+				if abs(cj_diff) < 0.1:
+					canMove = false
+					get_node("Camera2D/DialogBox").show()
+					get_node("Camera2D/DialogBox")._start("101")
+				var door_diff = position.y - get_parent().get_parent().get_node("door").position.y
+				if abs(door_diff) < 0.1:
+					canMove = false
+					get_node("/root/Corridor")._next()
+			if get_parent().get_parent().name == "Room2":
+				var up_diff1 = position - Vector2(40, 8)
+				var up_diff2 = position - Vector2(56, 8)
+				if abs(up_diff1.x) < 0.1 and abs(up_diff1.y) < 0.1:
+					canMove = false
+					animationPlayer.stop()
+					get_node("/root/Room2")._upstairs(0)
+				elif abs(up_diff2.x) < 0.1 and abs(up_diff2.y) < 0.1:
+					canMove = false
+					animationPlayer.stop()
+					get_node("/root/Room2")._upstairs(1)
+				var down_diff1 = position - Vector2(216, 56)
+				var down_diff2 = position - Vector2(216, 72)
+				if abs(down_diff1.x) < 0.1 and abs(down_diff1.y) < 0.1:
+					canMove = false
+					animationPlayer.stop()
+					get_node("/root/Room2")._downstairs()
+				elif abs(down_diff2.x) < 0.1 and abs(down_diff2.y) < 0.1:
+					canMove = false
+					animationPlayer.stop()
+					get_node("/root/Room2")._downstairs()
+			if get_parent().get_parent().name == "Basement":
+				var up_diff1 = position - Vector2(8, 8)
+				var up_diff2 = position - Vector2(24, 8)
+				if abs(up_diff1.x) < 0.1 and abs(up_diff1.y) < 0.1:
+					canMove = false
+					animationPlayer.stop()
+					get_node("/root/Basement")._upstairs()
+				elif abs(up_diff2.x) < 0.1 and abs(up_diff2.y) < 0.1:
+					canMove = false
+					animationPlayer.stop()
+					get_node("/root/Basement")._upstairs()
+			if get_parent().get_parent().name == "2ndfloor":
+				var up_diff1 = position - Vector2(40, 8)
+				var up_diff2 = position - Vector2(56, 8)
+				if abs(up_diff1.x) < 0.1 and abs(up_diff1.y) < 0.1:
+					canMove = false
+					animationPlayer.stop()
+					get_node("/root/2ndfloor")._upstairs(0)
+				elif abs(up_diff2.x) < 0.1 and abs(up_diff2.y) < 0.1:
+					canMove = false
+					animationPlayer.stop()
+					get_node("/root/2ndfloor")._upstairs(1)
+				var down_diff1 = position - Vector2(40, 120)
+				var down_diff2 = position - Vector2(56, 120)
+				if abs(down_diff1.x) < 0.1 and abs(down_diff1.y) < 0.1:
+					canMove = false
+					animationPlayer.stop()
+					get_node("/root/2ndfloor")._downstairs(0)
+				elif abs(down_diff2.x) < 0.1 and abs(down_diff2.y) < 0.1:
+					canMove = false
+					animationPlayer.stop()
+					get_node("/root/2ndfloor")._downstairs(1)
+			if get_parent().get_parent().name == "3rdfloor":
+				var down_diff1 = position - Vector2(40, 104)
+				var down_diff2 = position - Vector2(56, 104)
+				if abs(down_diff1.x) < 0.1 and abs(down_diff1.y) < 0.1:
+					canMove = false
+					animationPlayer.stop()
+					get_node("/root/3rdfloor")._downstairs(0)
+				elif abs(down_diff2.x) < 0.1 and abs(down_diff2.y) < 0.1:
+					canMove = false
+					animationPlayer.stop()
+					get_node("/root/3rdfloor")._downstairs(1)
+				
 				
 	interact = false
 	
@@ -202,6 +282,9 @@ func interact(result):
 					elif choice == "key":
 						new_choice.get_node("choice").text = "VIEW"
 						node.get_node("Choices").choice_results.append("key")
+					elif choice == "lightup":
+						new_choice.get_node("choice").text = "VIEW"
+						node.get_node("Choices").choice_results.append("lightup")
 					elif choice == "unlock":
 						if equipment == "215":
 							new_choice.get_node("choice").text = "UNLOCK WITH KEY"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://crumpled_magazine.png" type="Texture" id=1]
 [ext_resource path="res://bandage_box.png" type="Texture" id=2]
@@ -24,6 +24,13 @@
 [ext_resource path="res://detailed_image/close.png" type="Texture" id=22]
 [ext_resource path="res://with_key.png" type="Texture" id=23]
 [ext_resource path="res://prologue art/tweezers-.png" type="Texture" id=24]
+[ext_resource path="res://level2 art/item/photo.png" type="Texture" id=25]
+[ext_resource path="res://level2 art/item/insurance.png" type="Texture" id=26]
+[ext_resource path="res://level2 art/item/proof.png" type="Texture" id=27]
+[ext_resource path="res://level2 art/item/bill.png" type="Texture" id=28]
+[ext_resource path="res://level2 art/item/carReport.png" type="Texture" id=29]
+[ext_resource path="res://level2 art/item/drawing.png" type="Texture" id=30]
+[ext_resource path="res://level2 art/item/repairReport.png" type="Texture" id=31]
 
 [node name="Description" type="Sprite"]
 position = Vector2( 0, -48 )
@@ -164,3 +171,45 @@ visible = false
 position = Vector2( -240, 3.05176e-05 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 24 )
+
+[node name="Photo" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 25 )
+
+[node name="Maintain" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 31 )
+
+[node name="Bill" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 28 )
+
+[node name="Painting" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 30 )
+
+[node name="Vehicle" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 29 )
+
+[node name="Pawn" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 27 )
+
+[node name="Insurance" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 26 )

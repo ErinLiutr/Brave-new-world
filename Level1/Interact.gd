@@ -1,5 +1,5 @@
 extends Sprite
 
-export var type = "DialogBox"
-var id = "01"
+export var type = "Description"
+export var id = "406"
 

@@ -1,0 +1,261 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://tileset4.tres" type="TileSet" id=1]
+[ext_resource path="res://Room2.gd" type="Script" id=2]
+[ext_resource path="res://Inventory.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sound.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://level2 art/environment/living room/Chair1.png" type="Texture" id=6]
+[ext_resource path="res://level2 art/environment/living room/Curtain_.png" type="Texture" id=7]
+[ext_resource path="res://level2 art/environment/living room/Sofa3.png" type="Texture" id=8]
+[ext_resource path="res://level2 art/environment/living room/Chair2.png" type="Texture" id=9]
+[ext_resource path="res://level2 art/characters/Lydia_Pixel.png" type="Texture" id=10]
+[ext_resource path="res://level2 art/environment/living room/Desk1.png" type="Texture" id=11]
+[ext_resource path="res://level2 art/characters/CJ_Pixel.png" type="Texture" id=12]
+[ext_resource path="res://level2 art/environment/living room/Sofa2.png" type="Texture" id=13]
+[ext_resource path="res://level2 art/characters/police pixel.png" type="Texture" id=14]
+[ext_resource path="res://level2 art/environment/living room/Desk2.png" type="Texture" id=15]
+[ext_resource path="res://level2 art/environment/living room/Sofa1.png" type="Texture" id=16]
+[ext_resource path="res://level2 art/environment/living room/Cabinet_.png" type="Texture" id=17]
+[ext_resource path="res://Menu.tscn" type="PackedScene" id=18]
+[ext_resource path="res://DialogBox.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Guide.tscn" type="PackedScene" id=20]
+[ext_resource path="res://EnvDesc.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Description.tscn" type="PackedScene" id=22]
+[ext_resource path="res://ToolBar.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Interact13.gd" type="Script" id=24]
+[ext_resource path="res://level2 art/item/photo406.png" type="Texture" id=25]
+[ext_resource path="res://Interact.gd" type="Script" id=26]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 24 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 8 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 24, 8 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 16, 16 )
+
+[node name="Room2" type="Node2D"]
+script = ExtResource( 2 )
+player_path = "/root/Room2/YSort/Player"
+scene_path = "/root/Room2"
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -458747, 7, 0, -458746, 7, 0, -458745, 7, 0, -458744, 7, 0, -458743, 7, 0, -458742, 7, 0, -458741, 7, 0, -458740, 7, 0, -458739, 7, 0, -458738, 7, 0, -458737, 7, 0, -393211, 7, 0, -393210, 5, 0, -393209, 5, 0, -393208, 5, 0, -393207, 5, 0, -393206, 5, 0, -393205, 5, 0, -393204, 5, 0, -393203, 5, 0, -393202, 7, 0, -393201, 7, 0, -327676, 7, 0, -327675, 7, 0, -327674, 5, 0, -327673, 5, 0, -327672, 5, 0, -327671, 5, 0, -327670, 5, 0, -327669, 5, 0, -327668, 5, 0, -327667, 5, 0, -327666, 7, 0, -262140, 7, 0, -262139, 7, 0, -262138, 0, 0, -262137, 0, 0, -262136, 0, 0, -262135, 0, 0, -262134, 0, 0, -262133, 0, 0, -262132, 0, 0, -262131, 0, 0, -262130, 7, 0, -196603, 7, 0, -196602, 0, 0, -196601, 0, 0, -196600, 0, 0, -196599, 0, 0, -196598, 0, 0, -196597, 0, 0, -196596, 0, 0, -196595, 0, 0, -196594, 7, 0, -131067, 7, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -131059, 0, 0, -131058, 7, 0, -1, 7, 0, -65536, 7, 0, -65535, 7, 0, -65534, 7, 0, -65533, 7, 0, -65532, 7, 0, -65531, 7, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 7, 0, 65535, 7, 0, 0, 5, 0, 1, 5, 0, 2, 2, 0, 4, 5, 0, 5, 5, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 7, 0, 131070, 7, 0, 131071, 7, 0, 65536, 5, 0, 65537, 5, 0, 65538, 2, 0, 65540, 5, 0, 65541, 5, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 7, 0, 196606, 7, 0, 196607, 7, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 7, 0, 262142, 7, 0, 262143, 7, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, -1073741821, 0, 196622, 7, 0, 327679, 7, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262158, 7, 0, 393215, 7, 0, 327680, 7, 0, 327681, 7, 0, 327682, 0, 0, 327683, 7, 0, 327684, 7, 0, 327685, 7, 0, 327686, 7, 0, 327687, 7, 0, 327688, 7, 0, 327689, 7, 0, 327690, 7, 0, 327691, 7, 0, 327692, 7, 0, 327693, 7, 0, 327694, 7, 0, 393217, 7, 0, 393218, 0, 0, 393219, 7, 0, 458753, 7, 0, 458754, 7, 0, 458755, 7, 0 )
+
+[node name="chair5" type="Sprite" parent="."]
+position = Vector2( 176, -32 )
+texture = ExtResource( 8 )
+
+[node name="chair3" type="Sprite" parent="."]
+position = Vector2( 184, 14 )
+texture = ExtResource( 9 )
+
+[node name="chair4" type="Sprite" parent="."]
+position = Vector2( 184, 30 )
+texture = ExtResource( 9 )
+
+[node name="chair" type="Sprite" parent="."]
+position = Vector2( 136, 28 )
+texture = ExtResource( 6 )
+
+[node name="chair2" type="Sprite" parent="."]
+position = Vector2( 136, 12 )
+texture = ExtResource( 6 )
+
+[node name="curtain" type="Sprite" parent="."]
+position = Vector2( 200, -84 )
+texture = ExtResource( 7 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 40, 104 )
+
+[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
+current = true
+
+[node name="Sound" parent="YSort/Player/Camera2D" instance=ExtResource( 4 )]
+visible = false
+player_path = "/root/Room2/YSort/Player"
+
+[node name="Description" parent="YSort/Player/Camera2D" instance=ExtResource( 22 )]
+visible = false
+position = Vector2( 0, -40 )
+scale = Vector2( 0.25, 0.25 )
+player_path = "/root/Room2/YSort/Player"
+
+[node name="DialogBox" parent="YSort/Player/Camera2D" instance=ExtResource( 19 )]
+scale = Vector2( 0.25, 0.25 )
+player_path = "/root/Room2/YSort/Player"
+
+[node name="EnvDesc" parent="YSort/Player/Camera2D" instance=ExtResource( 21 )]
+position = Vector2( 0, -40 )
+player_path = "/root/Room2/YSort/Player"
+
+[node name="Guide" parent="YSort/Player/Camera2D" instance=ExtResource( 20 )]
+visible = false
+position = Vector2( -6, -4 )
+player_path = "/root/Room2/YSort/Player"
+scene_path = "/root/Room2"
+
+[node name="Menu" parent="YSort/Player/Camera2D" instance=ExtResource( 18 )]
+position = Vector2( -8, 2 )
+player_path = "/root/Room2/YSort/Player"
+scene_path = "/root/Room2"
+
+[node name="ToolBar" parent="YSort/Player/Camera2D" instance=ExtResource( 23 )]
+scale = Vector2( 0.9, 0.9 )
+
+[node name="Inventory" parent="YSort/Player/Camera2D" instance=ExtResource( 3 )]
+scale = Vector2( 0.9, 0.9 )
+player_path = "/root/Room2/YSort/Player"
+
+[node name="desk" type="StaticBody2D" parent="YSort"]
+position = Vector2( 160, 24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/desk"]
+position = Vector2( 2, -2 )
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/desk"]
+shape = SubResource( 1 )
+
+[node name="cabinet" type="StaticBody2D" parent="YSort"]
+position = Vector2( 184, -56 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/cabinet"]
+position = Vector2( 0, -4 )
+texture = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/cabinet"]
+shape = SubResource( 2 )
+
+[node name="Photo" type="StaticBody2D" parent="YSort"]
+position = Vector2( 184, -56 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Photo"]
+position = Vector2( 0, -16 )
+texture = ExtResource( 25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Photo"]
+shape = SubResource( 2 )
+
+[node name="Interact" type="Sprite" parent="YSort/Photo"]
+script = ExtResource( 26 )
+
+[node name="Lydia" type="StaticBody2D" parent="YSort"]
+position = Vector2( 216, -56 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Lydia"]
+position = Vector2( 0, -8 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Lydia"]
+shape = SubResource( 2 )
+
+[node name="Interact" type="Sprite" parent="YSort/Lydia"]
+position = Vector2( -192, 96 )
+script = ExtResource( 24 )
+type = "DialogBox"
+id = "106"
+
+[node name="CJ" type="StaticBody2D" parent="YSort"]
+position = Vector2( 104, 24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/CJ"]
+position = Vector2( 0, -8 )
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/CJ"]
+shape = SubResource( 2 )
+
+[node name="Interact" type="Sprite" parent="YSort/CJ"]
+position = Vector2( -80, 16 )
+script = ExtResource( 24 )
+type = "DialogBox"
+id = "107"
+
+[node name="Police" type="StaticBody2D" parent="YSort"]
+position = Vector2( 24, 40 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Police"]
+position = Vector2( 0, -8 )
+texture = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Police"]
+shape = SubResource( 2 )
+
+[node name="Interact" type="Sprite" parent="YSort/Police"]
+script = ExtResource( 24 )
+type = "DialogBox"
+id = "121"
+
+[node name="desk2" type="StaticBody2D" parent="YSort"]
+position = Vector2( 144, -32 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/desk2"]
+position = Vector2( 0, 4 )
+texture = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/desk2"]
+position = Vector2( 0, 8 )
+shape = SubResource( 3 )
+
+[node name="sofa2" type="StaticBody2D" parent="YSort"]
+position = Vector2( 152, -64 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/sofa2"]
+position = Vector2( -4, 0 )
+texture = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/sofa2"]
+position = Vector2( 0, 8 )
+shape = SubResource( 4 )
+
+[node name="sofa" type="StaticBody2D" parent="YSort"]
+position = Vector2( 112, -40 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/sofa"]
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/sofa"]
+position = Vector2( 0, 8 )
+shape = SubResource( 5 )

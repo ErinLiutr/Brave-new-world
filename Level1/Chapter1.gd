@@ -19,7 +19,7 @@ func _physics_process(delta):
 	elif fadeout and !animationPlayer.is_playing():
 		fadeout = false
 		hide()
-		get_node("/root/Room/YSort/Player/Camera2D/Guide")._start_show()
+		get_node("../Guide")._start_show()
 		
 func _play_fadein():
 	show()

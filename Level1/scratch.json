@@ -609,5 +609,217 @@
     "role": "MC1",
     "text": ["There is a man...a criminal...I’m after him...and...he is in this project...", "I need to find him."],
     "next": "title"
+  },
+  "96": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["I’m sorry, are you with the police? Who are you?"],
+    "next": "97"
+  },
+  "97": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Yes, I’m a detective. What happened here?"],
+    "next": "98"
+  },
+  "98": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["My brother is murdered. Poor Issac! He was killed in a car accident, and it was planned by my husband! Didn’t they tell you about it?"],
+    "next": "99"
+  },
+  "99": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["I’m sorry for your loss, ma’am. Looking for a suspect named A. This name rings a bell?"],
+    "next": "100"
+  },
+  "100": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["Oh, of course! I’m his wife!", "You’ve got anything against that psychopath yet? I’ll do whatever it takes to send that bastard to hell! Let me know if you need any help, officer."],
+    "next": ""
+  },
+  "101": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["You guys think A killed Issac?"],
+    "next": "102"
+  },
+  "102": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["You are?"],
+    "next": "103"
+  },
+  "103": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["I’m CJ, A and I’ve been friends for decades. There’s no way he killed Issac. They were close like real brothers.", "That woman got gambling issues. My guessing is that she killed her step-brother for his insurance money."],
+    "next": "104"
+  },
+  "104": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Do you know where A is?"],
+    "next": "105"
+  },
+  "105": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["He’s staying at his cousin’s place until the investigation’s over.", "If you think A’s innocent and want to prove that, I’m here to help."],
+    "next": "door"
+  },
+  "106": {
+    "title": "CHOOSE TO INTERACT",
+    "type": "choice",
+    "choices": [
+      {"text": "VIEW DESCRIPTION", "go_to": "109"},
+      {"text": "ASK ABOUT A", "go_to": "111"},
+      {"text": "ASK ABOUT ISSAC AND LYDIA", "go_to": "112"},
+      {"text": "ASK ABOUT DEATH OF ISSAC", "go_to": "113"},
+      {"text": "ASK ABOUT ISSAC'S MEMO", "go_to": "114"},
+      {"text": "ASK ABOUT LAPTOP PASSWORD", "go_to": "115"},
+      {"text": "CONFRONT", "go_to": "07"},
+      {"text": "CLOSE", "go_to": "00"}
+    ],
+    "role": "Lydia",
+    "close": true
+  },
+  "107": {
+    "title": "CHOOSE TO INTERACT",
+    "type": "choice",
+    "choices": [
+      {"text": "VIEW DESCRIPTION", "go_to": "110"},
+      {"text": "ASK ABOUT A", "go_to": "116"},
+      {"text": "ASK ABOUT LYDIA", "go_to": "117"},
+      {"text": "ASK ABOUT LYDIA AND A", "go_to": "118"},
+      {"text": "ASK ABOUT ISSAC", "go_to": "119"},
+      {"text": "ASK ABOUT THE ACCIDENT", "go_to": "120"},
+      {"text": "CONFRONT", "go_to": "07"},
+      {"text": "CLOSE", "go_to": "00"}
+    ],
+    "role": "CJ",
+    "close": true
+  },
+  "108": {
+    "title": "CHOOSE TO INTERACT",
+    "type": "choice",
+    "choices": [
+      {"text": "ASK ABOUT THE ACCIDENT", "go_to": "122"},
+      {"text": "ASK ABOUT A", "go_to": "123"},
+      {"text": "ASK ABOUT LYDIA", "go_to": "124"},
+      {"text": "ASK ABOUT CJ", "go_to": "125"},
+      {"text": "ASK ABOUT ISSAC", "go_to": "126"},
+      {"text": "CLOSE", "go_to": "00"}
+    ],
+    "role": "Police",
+    "close": true
+  },
+  "109": {
+    "type": "description",
+    "text": "A’s wife. Pale woman with piercing eyes.",
+    "role": "Lydia"
+  },
+  "110": {
+    "type": "description",
+    "text": "A’s friend. Well-dressed and wearing expensive cologne. \nLooks exhausted.",
+    "role": "CJ"
+  },
+  "111": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["Life with that psychopath is simply unbearable! I wanted a divorce but he threatened to kill me and Issac. I was too scared to do anything. He murdered my brother and it must’ve because of that! This time I will fight to the very end and make him pay for what he did!"],
+    "next": "106"
+  },
+  "112": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["There’s not a single person in the universe that is more innocent and happier than Issac. He’s such an angel! He was always there when I felt desperate and he knew how to save me from every suffering."],
+    "next": "106"
+  },
+  "113": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["Oh poor Issac! What happened to him is ridiculously unfair! I think about him all the time after he dies. Sometimes, he would visit me in my dreams and comfort me."],
+    "next": "106"
+  },
+  "114": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["I can’t believe Isaac wrote such depressing words. This really breaks my heart.", "Thank you for telling me all these.", "There’s something you should see. Check my laptop. The password 7013."],
+    "next": "106"
+  },
+  "115": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["You should check my laptop. The password is 7013."],
+    "next": "106"
+  },
+  "116": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["We’ve been friends since college. He’s just a regular guy, like me and everyone else. Maybe a little smarter and funnier than me. And a little bit stubborn sometimes."],
+    "next": "107"
+  },
+  "117": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["She seems fine. I personally don’t know her that much. I heard she doesn’t like us, I mean, me and some other friends of A’s, but I never know why."],
+    "next": "107"
+  },
+  "118": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["They got married a few years ago. Honestly, I don’t think Lydia loves A as much as A loves her. They’ve been fighting a lot recently and A told me that he wanted to divorce her but Lydia wouldn’t let him."],
+    "next": "107"
+  },
+  "119": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["I've seen that kid once and I liked him quite a lot. He was young, energetic, a little unsure about his future, like everyone from his age, and seemed to be a really honest person. I feel sorry for him. May he rest in peace."],
+    "next": "107"
+  },
+  "120": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["Lydia insists A murdered Isaac, but, man, I don’t believe a word she says. A talks about Issac all the time and I know for sure he likes that kid a lot.", "Plus, I wouldn’t be surprised if Lydia murdered Issac. When her dad married Isaac’s mom, she was over 20 and Isaac was still in kindergarten. Do you really think they have bonds like siblings? "],
+    "next": "107"
+  },
+  "121": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["The victim’s phone was found and we are still trying to unlock it. I’ll let you know when it’s done."],
+    "next": "108"
+  },
+  "122": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["The victim’s car crashed into a lake due to brake failure and he died of drowning."],
+    "next": "108"
+  },
+  "123": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["She is the victim’s step-sister. We learned from her friends that she has a gambling issue."],
+    "next": "108"
+  },
+  "124": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["Issac’s friends told us that he was close to Issac and Issac viewed him as a mentor. He had a record of domestic abuse and alcoholism."],
+    "next": "108"
+  },
+  "125": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["He has known A since they were in college and they seem close."],
+    "next": "108"
+  },
+  "126": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["He was a college student. Got many friends and seemed doing great in schoolwork. He lived here with the couple for a year before college."],
+    "next": "108"
   }
 }

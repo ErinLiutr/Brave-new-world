@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://combat3/Player3.gd" type="Script" id=2]
+[ext_resource path="res://combat/art/icon-player.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 26.0303
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 39.5224, 3.59684 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 27.7693
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 0.336857, -0.70853 )
+collision_mask = 4
+script = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Heart" type="Sprite" parent="Node2D"]
+texture = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="Node2D/Heart"]
+margin_left = -41.0
+margin_top = -4.0
+margin_right = 39.0
+margin_bottom = 3.0
+color = Color( 0.223529, 0.14902, 0.137255, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2( 0.14875, -0.971165 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 0 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -1, 0 )
+shape = SubResource( 2 )

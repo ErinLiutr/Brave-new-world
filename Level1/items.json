@@ -250,5 +250,93 @@
     "options": [],
     "picture": "",
     "path": ""
+  },
+  "401": {
+    "name": "Insurance",
+    "item_name": "A’s accident insurance",
+    "description": "A confirmation mail of A’s accident insurance. Purchased recently.",
+    "options": ["pick"],
+    "picture": "Insurance",
+    "path": ""
+  },
+  "402": {
+    "name": "Vehicle",
+    "item_name": "Vehicle inspection report",
+    "description": "Shows problems in brakes, air filter, and broken side mirror.",
+    "options": ["pick"],
+    "picture": "Vehicle",
+    "path": ""
+  },
+  "403": {
+    "name": "Bill",
+    "item_name": "Credit card bills",
+    "description": "Belong to Lydia. Several cards are frozen due to unpaid debts.",
+    "options": ["pick"],
+    "picture": "Bill",
+    "path": "/root/2ndfloor/YSort/shelf2/bill"
+  },
+  "404": {
+    "name": "Pawn",
+    "item_name": "Pawn agreement",
+    "description": "Pawn contract on an emerald ring.\nAmount: $3,500\nCustomer: Lydia. M\n",
+    "options": ["pick"],
+    "picture": "Pawn",
+    "path": "/root/2ndfloor/YSort/table/pawn"
+  },
+  "405": {
+    "name": "Painting",
+    "item_name": "Unfinished painting",
+    "description": "A poem was written on the canvas, most of which was already covered by paint. The visible part writes: \n“He whose thoughts, like skylarks,\nToward the morning sky take flight\n— Who hovers over life and understands with ease\nThe language of flowers and silent things!”\n",
+    "options": ["pick"],
+    "picture": "Painting",
+    "path": ""
+  },
+  "406": {
+    "name": "Photo",
+    "item_name": "Issac’s photo",
+    "description": "Photo of a young man with a bright smile.",
+    "options": ["pick"],
+    "picture": "Photo",
+    "path": ""
+  },
+  "407": {
+    "name": "Phone",
+    "item_name": "Issac’s phone",
+    "description": "Isaac’s phone.",
+    "options": [],
+    "picture": "Phone",
+    "path": ""
+  },
+  "408": {
+    "name": "Laptop",
+    "item_name": "Lydia’s laptop",
+    "description": "Lydia’s laptop.",
+    "options": [],
+    "picture": "Laptop",
+    "path": ""
+  },
+  "410": {
+    "name": "Maintain",
+    "item_name": "Vehicle maintenance report",
+    "description": "Repaired left side mirror and replaced air filter. ",
+    "options": ["pick"],
+    "picture": "Maintain",
+    "path": "/root/2ndfloor/YSort/desk1/maintain"
+  },
+  "420-1": {
+    "name": "Light",
+    "item_name": "Light",
+    "description": "The lights are off.",
+    "options": ["lightup"],
+    "picture": "",
+    "path": ""
+  },
+  "420-2": {
+    "name": "Light",
+    "item_name": "Light",
+    "description": "The lights are on.",
+    "options": [],
+    "picture": "",
+    "path": ""
   }
 }

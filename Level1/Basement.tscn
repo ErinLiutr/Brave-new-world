@@ -1,0 +1,195 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://tileset4.tres" type="TileSet" id=1]
+[ext_resource path="res://level2 art/environment/basement/Flower1.png" type="Texture" id=2]
+[ext_resource path="res://level2 art/characters/Issac Pixel.png" type="Texture" id=3]
+[ext_resource path="res://level2 art/environment/basement/Flower7.png" type="Texture" id=4]
+[ext_resource path="res://level2 art/environment/basement/Light.png" type="Texture" id=5]
+[ext_resource path="res://level2 art/environment/basement/Flower4.png" type="Texture" id=6]
+[ext_resource path="res://level2 art/environment/basement/Flower5.png" type="Texture" id=7]
+[ext_resource path="res://level2 art/environment/basement/Flower6.png" type="Texture" id=8]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://level2 art/environment/basement/Flower3.png" type="Texture" id=10]
+[ext_resource path="res://level2 art/environment/basement/Flower2.png" type="Texture" id=11]
+[ext_resource path="res://level2 art/environment/basement/Grass.png" type="Texture" id=12]
+[ext_resource path="res://Sound.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Inventory.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Basement.gd" type="Script" id=15]
+[ext_resource path="res://Menu.tscn" type="PackedScene" id=16]
+[ext_resource path="res://DialogBox.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Guide.tscn" type="PackedScene" id=18]
+[ext_resource path="res://EnvDesc.tscn" type="PackedScene" id=19]
+[ext_resource path="res://ToolBar.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Description.tscn" type="PackedScene" id=21]
+[ext_resource path="res://lightUp.tscn" type="PackedScene" id=22]
+[ext_resource path="res://level2 art/environment/basement/dark_layer.png" type="Texture" id=23]
+[ext_resource path="res://Interact.gd" type="Script" id=24]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 8 )
+
+[node name="Basement" type="Node2D"]
+script = ExtResource( 15 )
+player_path = "/root/Basement/YSort/Player"
+scene_path = "/root/Basement"
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -1, 7, 0, -65536, 7, 0, -65535, 7, 0, -65534, 7, 0, -65533, 7, 0, -65532, 7, 0, -65531, 7, 0, -65530, 7, 0, 65535, 7, 0, 0, 3, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 7, 0, 131071, 7, 0, 65536, 3, 0, 65538, 4, 0, 65539, 4, 0, 65540, 4, 0, 65541, 4, 0, 65542, 7, 0, 196607, 7, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 7, 0, 262143, 7, 0, 196608, 8, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 8, 0, 196614, 7, 0, 327679, 7, 0, 262144, 8, 0, 262145, 8, 0, 262146, 8, 0, 262147, 8, 0, 262148, 8, 0, 262149, 8, 0, 262150, 7, 0, 393215, 7, 0, 327680, 8, 0, 327681, 8, 0, 327682, 8, 0, 327683, 8, 0, 327684, 8, 0, 327685, 8, 0, 327686, 7, 0, 458751, 7, 0, 393216, 7, 0, 393217, 7, 0, 393218, 7, 0, 393219, 7, 0, 393220, 7, 0, 393221, 7, 0, 393222, 7, 0 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Flower7" type="Sprite" parent="YSort"]
+position = Vector2( 31, 74 )
+texture = ExtResource( 7 )
+
+[node name="Flower8" type="Sprite" parent="YSort"]
+position = Vector2( 50, 74 )
+texture = ExtResource( 8 )
+
+[node name="Flower9" type="Sprite" parent="YSort"]
+position = Vector2( 69, 74 )
+texture = ExtResource( 4 )
+
+[node name="Grass" type="Sprite" parent="YSort"]
+position = Vector2( 28, 87 )
+texture = ExtResource( 12 )
+
+[node name="Flower3" type="Sprite" parent="YSort"]
+position = Vector2( 42, 87 )
+texture = ExtResource( 10 )
+
+[node name="Grass2" type="Sprite" parent="YSort"]
+position = Vector2( 58, 87 )
+texture = ExtResource( 12 )
+
+[node name="Flower4" type="Sprite" parent="YSort"]
+position = Vector2( 73, 87 )
+texture = ExtResource( 6 )
+
+[node name="Grass3" type="Sprite" parent="YSort"]
+position = Vector2( 89, 87 )
+texture = ExtResource( 12 )
+
+[node name="Grass4" type="Sprite" parent="YSort"]
+position = Vector2( 89, 61 )
+texture = ExtResource( 12 )
+
+[node name="Flower5" type="Sprite" parent="YSort"]
+position = Vector2( 88, 48 )
+texture = ExtResource( 11 )
+
+[node name="Grass5" type="Sprite" parent="YSort"]
+position = Vector2( 73, 48 )
+texture = ExtResource( 12 )
+
+[node name="Flower6" type="Sprite" parent="YSort"]
+position = Vector2( 57, 48 )
+texture = ExtResource( 10 )
+
+[node name="Grass6" type="Sprite" parent="YSort"]
+position = Vector2( 42, 48 )
+texture = ExtResource( 12 )
+
+[node name="Grass7" type="Sprite" parent="YSort"]
+position = Vector2( 12, 48 )
+texture = ExtResource( 12 )
+
+[node name="Grass8" type="Sprite" parent="YSort"]
+position = Vector2( 12, 74 )
+texture = ExtResource( 12 )
+
+[node name="Flower2" type="Sprite" parent="YSort"]
+position = Vector2( 12, 87 )
+texture = ExtResource( 11 )
+
+[node name="Flower1" type="Sprite" parent="YSort"]
+position = Vector2( 87, 74 )
+texture = ExtResource( 2 )
+
+[node name="Flower10" type="Sprite" parent="YSort"]
+position = Vector2( 9.5, 61 )
+texture = ExtResource( 2 )
+
+[node name="Player" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 8, 40 )
+
+[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
+current = true
+
+[node name="Inventory" parent="YSort/Player/Camera2D" instance=ExtResource( 14 )]
+scale = Vector2( 0.9, 0.9 )
+
+[node name="ToolBar" parent="YSort/Player/Camera2D" instance=ExtResource( 20 )]
+scale = Vector2( 0.9, 0.9 )
+
+[node name="Menu" parent="YSort/Player/Camera2D" instance=ExtResource( 16 )]
+position = Vector2( -8, 2 )
+
+[node name="Guide" parent="YSort/Player/Camera2D" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -6, -4 )
+
+[node name="EnvDesc" parent="YSort/Player/Camera2D" instance=ExtResource( 19 )]
+position = Vector2( 0, -40 )
+
+[node name="DialogBox" parent="YSort/Player/Camera2D" instance=ExtResource( 17 )]
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Description" parent="YSort/Player/Camera2D" instance=ExtResource( 21 )]
+visible = false
+position = Vector2( 0, -40 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Lightup" parent="YSort/Player/Camera2D" instance=ExtResource( 22 )]
+visible = false
+position = Vector2( -96, -56 )
+scale = Vector2( 0.8, 0.8 )
+z_index = 1
+
+[node name="Sound" parent="YSort/Player/Camera2D" instance=ExtResource( 13 )]
+visible = false
+
+[node name="Issac" type="StaticBody2D" parent="YSort"]
+visible = false
+position = Vector2( 72, 56 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Issac"]
+position = Vector2( 0, -8 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Issac"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Light2" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light2"]
+position = Vector2( 64, 24 )
+shape = SubResource( 2 )
+
+[node name="Light" type="Sprite" parent="Light2"]
+position = Vector2( 64, 8 )
+texture = ExtResource( 5 )
+
+[node name="Interact" type="Sprite" parent="Light2"]
+script = ExtResource( 24 )
+id = "420-1"
+
+[node name="Layer" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Layer"]
+modulate = Color( 1, 1, 1, 0.862745 )
+position = Vector2( 48, 48 )
+texture = ExtResource( 23 )

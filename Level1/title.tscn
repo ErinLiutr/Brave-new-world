@@ -82,9 +82,9 @@ script = ExtResource( 14 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Chapter"]
 margin_left = 80.0
-margin_top = 16.0
+margin_top = 8.0
 margin_right = 168.0
-margin_bottom = 112.0
+margin_bottom = 120.0
 texture = ExtResource( 13 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -138,8 +138,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EpilogueA" type="Node2D" parent="Chapter/NinePatchRect/Chapters"]
+[node name="Chapter2" type="Node2D" parent="Chapter/NinePatchRect/Chapters"]
 position = Vector2( -1, 16 )
+
+[node name="arrow" type="Sprite" parent="Chapter/NinePatchRect/Chapters/Chapter2"]
+visible = false
+position = Vector2( 12, 32 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="Chapter/NinePatchRect/Chapters/Chapter2"]
+margin_left = 20.0
+margin_top = 24.0
+margin_right = 72.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "CHAPTER 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EpilogueA" type="Node2D" parent="Chapter/NinePatchRect/Chapters"]
+position = Vector2( -1, 32 )
 
 [node name="arrow" type="Sprite" parent="Chapter/NinePatchRect/Chapters/EpilogueA"]
 visible = false
@@ -160,7 +181,7 @@ __meta__ = {
 }
 
 [node name="EpilogueB" type="Node2D" parent="Chapter/NinePatchRect/Chapters"]
-position = Vector2( -1, 32 )
+position = Vector2( -1, 48 )
 
 [node name="arrow" type="Sprite" parent="Chapter/NinePatchRect/Chapters/EpilogueB"]
 visible = false
@@ -181,7 +202,7 @@ __meta__ = {
 }
 
 [node name="Close" type="Node2D" parent="Chapter/NinePatchRect/Chapters"]
-position = Vector2( -1, 64 )
+position = Vector2( -1, 80 )
 
 [node name="arrow" type="Sprite" parent="Chapter/NinePatchRect/Chapters/Close"]
 visible = false

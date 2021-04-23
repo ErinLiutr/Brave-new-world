@@ -16,6 +16,7 @@ var guide1 = false
 var guide2 = false
 var prologue = false
 var title = false
+var door = false
 
 var showing = false
 
@@ -109,6 +110,9 @@ func _physics_process(delta):
 				elif title:
 					get_node("/root/Epilogue")._return()
 					hide()
+				elif door:
+					get_node("/root/Corridor/door")._open()
+					hide()
 				elif next_dialog == "-1":
 					_start("00")
 				else:
@@ -132,6 +136,8 @@ func load_data(url):
 	return data
 	
 func _start(id):
+	if id == "-1":
+		return
 	counter = 0
 	next_dialog = "-1"
 	animate = false
@@ -141,7 +147,8 @@ func _start(id):
 	guide2 = false
 	prologue = false
 	title = false
-	for node in ["NPC", "MC", "Pearl", "MC1"]:
+	door = false
+	for node in ["NPC", "MC", "Pearl", "MC1", "Lydia", "CJ", "Police"]:
 			get_node(node).hide()
 	if id == "00":
 		hide()
@@ -169,11 +176,17 @@ func _start(id):
 			prologue = true
 		elif json[id]["next"] == "title":
 			title = true
+		elif json[id]["next"] == "door":
+			door = true
 		else:
 			next_dialog = json[id]["next"]
 		_print_dialogue(json[id]["text"])
 	elif json[id]["type"] == "description":
 		get_node(json[id]["role"]).show()
+		if json[id]["role"] == "Lydia":
+			default_dialog = "106"
+		elif json[id]["role"] == "CJ":
+			default_dialog = "107"
 		_show_description(json[id]["text"])
 	elif json[id]["type"] == "game":
 		get_node(json[id]["role"]).show()
@@ -184,6 +197,10 @@ func _start(id):
 		get_node("/root/Room/YSort/Player/Camera2D/Inventory").item_ids.append("218")
 		get_node("/root/Room/YSort/Player").equipment = ""
 		get_node("/root/Room/YSort/Player/Camera2D/ToolBar/Equipment/Check").hide()
+	if id == "96":
+		get_node("/root/Corridor/YSort/Lydia/Interact").id = "00"
+	if id == "101":
+		get_node("/root/Corridor/YSort/CJ/Interact").id = "00"
 
 func _print_dialogue(text):
 	get_node("RichTextLabel").show()
@@ -199,7 +216,7 @@ func _show_choices(title, choices, close):
 	
 	for choice in choices:
 		if choice["text"] == "CONFRONT":
-			var items = get_node("/root/Room/YSort/Player/Camera2D/Inventory").item_ids
+			var items = get_node(player_path + "/Camera2D/Inventory").item_ids
 			var counter = 0
 			for id in ["206", "213", "208", "207"]:
 				if items.has(id):
