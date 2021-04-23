@@ -5,6 +5,11 @@ var life_points = 200
 var pop_up
 onready var animationPlayer = null
 var incr = 0.001
+
+func stop():
+	set_physics_process(false)
+	set_process(false)
+	
 func _ready():
 	animationPlayer = $"BleedingAnimator"
 	$"Bleeding".visible = false
@@ -14,6 +19,7 @@ func _ready():
 	$"-20/Sprite".visible = false
 	$"-30/Sprite".visible = false
 	$"-40/Sprite".visible = false
+	
 func lose_10():
 	$"-10/Sprite".visible = true
 	$"-10/AnimationPlayer".play("-1")
@@ -41,12 +47,8 @@ func lose_life(flag):
 		$"-1/Sprite".visible = true
 		$"-1/AnimationPlayer".play("-1")	
 		
-func stop():
-	set_physics_process(false)
-	set_process(false)
-		
 func _physics_process(delta):
-	$"../../EnemyLifeBar".set_value(life_points)
+#	$"../../EnemyLifeBar".set_value(life_points)
 	var collision = move_and_collide(velocity*delta)
 	if (self.position.x > 550 or self.position.x < 0):
 		self.velocity = Vector2(self.velocity.x*-1, self.velocity.y)

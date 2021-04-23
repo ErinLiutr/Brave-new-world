@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Level1"
-run/main_scene="res://combat2/world.tscn"
+run/main_scene="res://combat3/world.tscn"
 config/icon="res://cover_icon.png"
 
 [display]

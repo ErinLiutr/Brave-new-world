@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://combat3/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/art/bleeding.png" type="Texture" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://Scene/PlayerLife.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scene/-1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://combat3/BulletSpawner3.gd" type="Script" id=6]
-[ext_resource path="res://Scene/EnemyLifeBar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://combat3/PlayerLifeBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scene/Life.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scene/-20.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scene/-10.tscn" type="PackedScene" id=10]
@@ -25,6 +25,8 @@
 [ext_resource path="res://Scripts/-1.gd" type="Script" id=23]
 [ext_resource path="res://new_dynamicfontmiddle.tres" type="DynamicFont" id=24]
 [ext_resource path="res://combat3/Enemy.tscn" type="PackedScene" id=25]
+[ext_resource path="res://combat3/Walls.gd" type="Script" id=26]
+[ext_resource path="res://combat3/ExtraLives.gd" type="Script" id=27]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 598.828, 10 )
@@ -52,6 +54,7 @@ __meta__ = {
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_layer = 4
 collision_mask = 0
+script = ExtResource( 26 )
 
 [node name="Ground" type="Sprite" parent="Walls"]
 position = Vector2( 244.042, 431.857 )
@@ -154,6 +157,7 @@ position = Vector2( -127.357, -51.9445 )
 position = Vector2( -128.907, -52.2194 )
 
 [node name="PlayerPoints" type="Label" parent="."]
+visible = false
 modulate = Color( 0.180392, 0.0705882, 0.0705882, 1 )
 margin_left = -186.33
 margin_top = -0.70858
@@ -168,25 +172,22 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="."]
 modulate = Color( 0.419608, 0.235294, 0.12549, 1 )
-margin_left = 477.333
+margin_left = 444.0
 margin_top = -19.6666
-margin_right = 540.333
+margin_right = 527.0
 margin_bottom = 0.33342
 rect_scale = Vector2( 3, 3 )
 custom_fonts/font = ExtResource( 22 )
-text = "HP: 200"
+text = "SCORE: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EnemyLifeBar" parent="." instance=ExtResource( 7 )]
-modulate = Color( 0.396078, 0.235294, 0.0352941, 1 )
-margin_left = 450.666
-margin_top = 42.9999
-margin_right = 964.669
-margin_bottom = 98.9999
-rect_min_size = Vector2( 300, 40 )
-rect_scale = Vector2( 0.45, 0.45 )
+[node name="Scores" parent="." instance=ExtResource( 7 )]
+margin_left = 445.667
+margin_top = 40.0
+margin_right = 678.667
+margin_bottom = 65.0
 
 [node name="Bag" type="CenterContainer" parent="."]
 visible = false
@@ -227,8 +228,7 @@ margin_right = 0.0
 margin_bottom = 360.0
 
 [node name="PlayerLives" type="Node2D" parent="."]
-visible = false
-position = Vector2( -880.001, -173.333 )
+position = Vector2( -880.001, -226.666 )
 
 [node name="Life2" parent="PlayerLives" instance=ExtResource( 4 )]
 position = Vector2( 575.724, 634.674 )
@@ -240,6 +240,30 @@ scale = Vector2( 0.7, 0.7 )
 
 [node name="Life6" parent="PlayerLives" instance=ExtResource( 4 )]
 position = Vector2( 574.707, 794.271 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Life7" parent="PlayerLives" instance=ExtResource( 4 )]
+position = Vector2( 514.707, 594.271 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Life8" parent="PlayerLives" instance=ExtResource( 4 )]
+position = Vector2( 514.707, 634.271 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Life9" parent="PlayerLives" instance=ExtResource( 4 )]
+position = Vector2( 514.707, 674.27 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Life10" parent="PlayerLives" instance=ExtResource( 4 )]
+position = Vector2( 514.707, 714.269 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Life11" parent="PlayerLives" instance=ExtResource( 4 )]
+position = Vector2( 514.707, 754.268 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Life12" parent="PlayerLives" instance=ExtResource( 4 )]
+position = Vector2( 514.707, 794.267 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="Life1" parent="PlayerLives" instance=ExtResource( 4 )]
@@ -261,6 +285,31 @@ position = Vector2( -20, 160 )
 [node name="Win" parent="." instance=ExtResource( 13 )]
 visible = false
 position = Vector2( 186.667, 293.334 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 150.0
+
+[node name="Time" type="Label" parent="."]
+visible = false
+margin_left = -173.333
+margin_top = 6.66667
+margin_right = -79.3333
+margin_bottom = 26.6667
+rect_scale = Vector2( 4, 4 )
+custom_fonts/font = ExtResource( 24 )
+text = "Time Left: 200"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExtraLives" type="Node2D" parent="."]
+position = Vector2( 0, 1.14441e-05 )
+scale = Vector2( 1, 1 )
+script = ExtResource( 27 )
+
+[node name="Timer" type="Timer" parent="ExtraLives"]
+wait_time = 5.0
 [connection signal="changed" from="YSort/Enemy/EnemyLife" to="YSort/Enemy/EnemyLife" method="_on_EnemyLife_changed"]
-[connection signal="changed" from="YSort/Enemy/EnemyLife" to="EnemyLifeBar" method="set_value"]
 [connection signal="timeout" from="YSort/Enemy/BulletSpawner/Timer" to="YSort/Enemy/BulletSpawner" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="ExtraLives/Timer" to="ExtraLives" method="_on_Timer2_timeout"]

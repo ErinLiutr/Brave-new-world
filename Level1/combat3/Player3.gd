@@ -10,17 +10,25 @@ var lives = [get_node("../../PlayerLives/Life1"),
 			get_node("../../PlayerLives/Life3"),
 			get_node("../../PlayerLives/Life4"),
 			get_node("../../PlayerLives/Life5"),
-			get_node("../../PlayerLives/Life6")]
+			get_node("../../PlayerLives/Life6"),
+			get_node("../../PlayerLives/Life7"),
+			get_node("../../PlayerLives/Life8"),
+			get_node("../../PlayerLives/Life9"),
+			get_node("../../PlayerLives/Life10"),
+			get_node("../../PlayerLives/Life11"),
+			get_node("../../PlayerLives/Life12")]
+const WIN = 50
 export var maxSpeed = 60
 export var acceleration = 200
 export var friction = 200
 var disable = false
 var axis = Vector2.ZERO
 var velocity = Vector2.ZERO
-var life_points = 6
+var life_points = 12
 var points = 0
 
 func _physics_process(delta):
+	$"../../Scores".set_value(points)
 	get_input_axis()
 	if(axis) == Vector2.ZERO:
 		apply_friction(friction*delta)
@@ -28,12 +36,24 @@ func _physics_process(delta):
 		apply_motion(acceleration*delta)
 		
 	velocity = move_and_slide(velocity)
-	
-	if life_points <= 0:
+			
+	if (points >= WIN):
 		stop_player()
+		$"../Enemy".stop()
+		$"../Enemy/BulletSpawner".stop()
+		$"../../ExtraLives".stop()
+
+		$"../../Win".visible = true
+		$"../../Win".start()
+	
+	if (life_points <=0):
+		stop_player()
+		$"../Enemy".stop()
+		$"../Enemy/BulletSpawner".stop()
+		$"../../ExtraLives".stop()
 		$"../../Lose".visible = true
 		$"../../Lose".start()
-		
+
 func stop_player():
 	$"../Enemy/BulletSpawner".stop()
 	for c in $"../../Bag/Grid".get_children():
@@ -62,13 +82,18 @@ func lose_life():
 	life_points = max(0, life_points - 1)
 	var life = get_node("../../PlayerLives/Life%d"%(life_points+1))
 	get_node("../../PlayerLives/Life%d/Vanish"%(life_points+1)).play("Vanish")
-
+	get_node("../../PlayerLives/Life%d"%(life_points+1)).visible = false
+	
+func add_life():
+	if (life_points < 12):
+		get_node("../../PlayerLives/Life%d/Vanish"%(life_points+1)).play("Appear")
+		get_node("../../PlayerLives/Life%d"%(life_points+1)).visible = true
+		life_points += 1
+		
 func add_point():
-	points = min(200, points + 1)
-	print("add")
-	if (points < 200):
-		$"../../PlayerPoints".set_text("Player Points: "+str(points))
-		print("Player Points: "+str(points))
+	points = min(50, points + 1)
+	if (points <= 50):
+		$"../../Label".set_text("SCORE: "+str(points))
 		
 func _bullet_sound(type):
 	if type=="bullet":
