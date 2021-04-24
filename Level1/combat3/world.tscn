@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://combat3/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/art/bleeding.png" type="Texture" id=2]
@@ -24,9 +24,10 @@
 [ext_resource path="res://newpixel.tres" type="DynamicFont" id=22]
 [ext_resource path="res://Scripts/-1.gd" type="Script" id=23]
 [ext_resource path="res://new_dynamicfontmiddle.tres" type="DynamicFont" id=24]
-[ext_resource path="res://combat3/Enemy.tscn" type="PackedScene" id=25]
+[ext_resource path="res://combat3/ExtraPoints.gd" type="Script" id=25]
 [ext_resource path="res://combat3/Walls.gd" type="Script" id=26]
 [ext_resource path="res://combat3/ExtraLives.gd" type="Script" id=27]
+[ext_resource path="res://combat2/Enemy.tscn" type="PackedScene" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 598.828, 10 )
@@ -116,23 +117,54 @@ position = Vector2( 487.285, 1425.05 )
 scale = Vector2( 0.8, 0.8 )
 stream = ExtResource( 20 )
 
-[node name="Enemy" parent="YSort" instance=ExtResource( 25 )]
+[node name="AddLife" type="Label" parent="YSort/Player"]
+visible = false
+modulate = Color( 0.34902, 0.180392, 0.180392, 1 )
+margin_left = 46.667
+margin_top = -73.333
+margin_right = 88.667
+margin_bottom = -59.333
+rect_scale = Vector2( 3, 3 )
+text = "+ 1 HP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="YSort/Player/AddLife"]
+wait_time = 0.5
+
+[node name="AddPoints" type="Label" parent="YSort/Player"]
+visible = false
+modulate = Color( 0.72549, 0.14902, 0.14902, 1 )
+margin_left = 46.667
+margin_top = -73.333
+margin_right = 88.667
+margin_bottom = -59.333
+rect_scale = Vector2( 3, 3 )
+text = "+ 1 Point"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="YSort/Player/AddPoints"]
+wait_time = 0.3
+
+[node name="Enemy" parent="YSort" instance=ExtResource( 28 )]
 position = Vector2( 253.333, 233.333 )
 scale = Vector2( 1.5, 1.5 )
-collision_layer = 15
 
 [node name="Bleeding2" type="Sprite" parent="YSort/Enemy"]
 visible = false
-position = Vector2( 1.65826, -29.295 )
-scale = Vector2( 0.697516, 0.802545 )
+position = Vector2( 255.82, 189.39 )
+scale = Vector2( 1.04627, 1.20382 )
 texture = ExtResource( 2 )
 hframes = 4
 
 [node name="EnemyLife" parent="YSort/Enemy" instance=ExtResource( 8 )]
 
 [node name="BulletSpawner" type="Node2D" parent="YSort/Enemy"]
-position = Vector2( 1.45929, 2.67384 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 255.522, 237.344 )
+scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="YSort/Enemy/BulletSpawner"]
@@ -141,20 +173,30 @@ wait_time = 0.1
 [node name="Bleeding3" type="AnimationPlayer" parent="YSort/Enemy"]
 
 [node name="-1" parent="YSort/Enemy" instance=ExtResource( 5 )]
-position = Vector2( -126.63, -50.5361 )
+visible = false
+position = Vector2( 63.388, 157.529 )
+scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 23 )
 
 [node name="-10" parent="YSort/Enemy" instance=ExtResource( 10 )]
-position = Vector2( -127.307, -52.5753 )
+visible = false
+position = Vector2( 62.3726, 154.47 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="-20" parent="YSort/Enemy" instance=ExtResource( 9 )]
-position = Vector2( -127.307, -51.346 )
+visible = false
+position = Vector2( 62.3726, 156.314 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="-30" parent="YSort/Enemy" instance=ExtResource( 17 )]
-position = Vector2( -127.357, -51.9445 )
+visible = false
+position = Vector2( 62.2975, 155.416 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="-40" parent="YSort/Enemy" instance=ExtResource( 18 )]
-position = Vector2( -128.907, -52.2194 )
+visible = false
+position = Vector2( 59.9725, 155.004 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="PlayerPoints" type="Label" parent="."]
 visible = false
@@ -171,7 +213,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-modulate = Color( 0.419608, 0.235294, 0.12549, 1 )
+modulate = Color( 0.745098, 0.168627, 0.168627, 1 )
 margin_left = 444.0
 margin_top = -19.6666
 margin_right = 527.0
@@ -304,12 +346,21 @@ __meta__ = {
 
 [node name="ExtraLives" type="Node2D" parent="."]
 position = Vector2( 0, 1.14441e-05 )
-scale = Vector2( 1, 1 )
 script = ExtResource( 27 )
 
 [node name="Timer" type="Timer" parent="ExtraLives"]
 wait_time = 5.0
+
+[node name="ExtraPoints" type="Node2D" parent="."]
+position = Vector2( 0, 1.14441e-05 )
+script = ExtResource( 25 )
+
+[node name="Timer" type="Timer" parent="ExtraPoints"]
+wait_time = 5.0
+[connection signal="timeout" from="YSort/Player/AddLife/Timer" to="YSort/Player" method="_on_AddLife_Timer_timeout"]
+[connection signal="timeout" from="YSort/Player/AddPoints/Timer" to="YSort/Player" method="_on_Timer_timeout"]
 [connection signal="changed" from="YSort/Enemy/EnemyLife" to="YSort/Enemy/EnemyLife" method="_on_EnemyLife_changed"]
 [connection signal="timeout" from="YSort/Enemy/BulletSpawner/Timer" to="YSort/Enemy/BulletSpawner" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="ExtraLives/Timer" to="ExtraLives" method="_on_Timer2_timeout"]
+[connection signal="timeout" from="ExtraPoints/Timer" to="ExtraPoints" method="_on_Timer_timeout"]

@@ -12,7 +12,7 @@ func _input(event):
 		enabled = false
 		
 	if event is InputEventKey and event.scancode == KEY_ENTER:
-		get_tree().change_scene("res://combat3/world.tscn")
+		get_tree().change_scene("res://combat2/world.tscn")
 		self.visible = false
 		enabled = false
 	

@@ -2,12 +2,13 @@ extends Node2D
 var WIDTH = 125
 var HEIGHT = 40
 var spawnArea
-const LIFE = preload("res://combat2/ExtraLife.tscn")
+const LIFE = preload("res://combat3/SpecialAttack.tscn")
 
 func stop():
 	set_physics_process(false)
 	set_process(false)
 	$Timer.stop()
+	
 func _ready():
 	$Timer.start()
 
@@ -20,9 +21,5 @@ func random_lives():
 	life.global_position = new_position
 
 func _on_Timer_timeout():
-	random_lives()
-	$Timer.start()
-
-func _on_Timer2_timeout():
 	random_lives()
 	$Timer.start()

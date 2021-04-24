@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CJ.png-2350eb0640a567ee17f5002aac630302.stex"
+path="res://.import/bleeding.png-bad886ff1996346fa87f6cbc3c5c66b5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://combat3/CJ.png"
-dest_files=[ "res://.import/CJ.png-2350eb0640a567ee17f5002aac630302.stex" ]
+source_file="res://combat2/bleeding.png"
+dest_files=[ "res://.import/bleeding.png-bad886ff1996346fa87f6cbc3c5c66b5.stex" ]
 
 [params]
 

@@ -42,6 +42,7 @@ func _physics_process(delta):
 		$"../Enemy".stop()
 		$"../Enemy/BulletSpawner".stop()
 		$"../../ExtraLives".stop()
+		$"../../ExtraPoints".stop()
 		$"../../Win".visible = true
 		$"../../Win".start()
 	
@@ -50,6 +51,7 @@ func _physics_process(delta):
 		$"../Enemy".stop()
 		$"../Enemy/BulletSpawner".stop()
 		$"../../ExtraLives".stop()
+		$"../../ExtraPoints".stop()
 		$"../../Lose".visible = true
 		$"../../Lose".start()
 
@@ -106,16 +108,6 @@ func _bullet_sound(type):
 	else:
 		$"SpecialAudio".play()
 		
-func _input(event):
-	if event is InputEventKey and event.pressed:
-		var ball
-		var direction = Vector2(0, -1)
-		if event.scancode == KEY_SPACE and disable == false:
-				ball = BALL.instance()
-				get_parent().add_child(ball)
-				ball.global_position = global_position + (30*direction)
-				ball.set_bullet_direction( direction)
-				_bullet_sound("bullet")
 func fire_special(type):
 	var ball
 	var direction = Vector2(0, -1)
@@ -146,9 +138,9 @@ func fire_special(type):
 	_bullet_sound("special")
 
 
-func _on_AddLife_Timer_timeout():
-	$"AddLife".visible = false
-
-
 func _on_Timer_timeout():
 	$"AddPoints".visible = false
+
+
+func _on_AddLifeTimer_timeout():
+	$"AddLife".visible = false

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CJ.png-2350eb0640a567ee17f5002aac630302.stex"
+path="res://.import/Phone-pixel.png-27eb349d271929af4356a581741a5e14.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://combat3/CJ.png"
-dest_files=[ "res://.import/CJ.png-2350eb0640a567ee17f5002aac630302.stex" ]
+source_file="res://combat2/Phone-pixel.png"
+dest_files=[ "res://.import/Phone-pixel.png-27eb349d271929af4356a581741a5e14.stex" ]
 
 [params]
 
