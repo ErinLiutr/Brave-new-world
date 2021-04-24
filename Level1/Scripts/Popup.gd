@@ -12,7 +12,7 @@ func _input(event):
 		enabled = false
 		
 	if event is InputEventKey and event.scancode == KEY_ENTER:
-		get_parent().get_parent()._restart()
+		get_parent()._restart()
 		self.visible = false
 		enabled = false
 	

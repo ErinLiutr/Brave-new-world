@@ -15,8 +15,9 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity*delta)
 	if collision:
 		if collision.collider.name == "Player":
-			print("hi bullet")
-			collision.collider.add_point()#lose_life()
+			collision.collider.add_point()
+		else:
+			collision.collider.player_deduct()
 		if collision.collider.name != "Ball":
 			call_deferred("free")
 		

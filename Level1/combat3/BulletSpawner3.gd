@@ -4,11 +4,12 @@ const HEIGHT = 750
 const MAX = 5
 const SCALE = 100
 const BULLET = preload("res://combat3/Bullet.tscn")
-
+const LIFE = preload("res://combat3/ExtraLife.tscn")
 # spawn time management
-var delta = 0.4
+var delta = 0.5
 var offset = 0.5
 var spawnArea = Rect2()
+
 
 func _physics_process(d):
 	delta -= 0.00005
@@ -31,7 +32,7 @@ func spawn_bullet():
 		get_parent().add_child(bullet)
 		prev_position = bullet.global_position
 		bullet.set_bullet_direction(direction)
-	
+
 func next_spawn():
 	var next_time = delta +(randf()-0.5)*2*offset
 	$Timer.wait_time = next_time
@@ -48,10 +49,8 @@ func stop():
 	for c in get_children():
 		if (c.name == "Timer"):
 			c.stop()
-
-#func _draw():
-#	draw_rect(spawnArea, Color(0.2, 0.2, 1.0, 0.5))
-
+#
 func _on_Timer_timeout():
 	spawn_bullet()
 	next_spawn()
+	
