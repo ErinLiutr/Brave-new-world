@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://tileset4.tres" type="TileSet" id=1]
 [ext_resource path="res://level2 art/environment/basement/Flower1.png" type="Texture" id=2]
@@ -24,12 +24,31 @@
 [ext_resource path="res://lightUp.tscn" type="PackedScene" id=22]
 [ext_resource path="res://level2 art/environment/basement/dark_layer.png" type="Texture" id=23]
 [ext_resource path="res://Interact.gd" type="Script" id=24]
+[ext_resource path="res://blur1.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Layer.gd" type="Script" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 8 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "lightup"
+length = 3.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.862745 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Basement" type="Node2D"]
 script = ExtResource( 15 )
@@ -124,27 +143,35 @@ current = true
 
 [node name="Inventory" parent="YSort/Player/Camera2D" instance=ExtResource( 14 )]
 scale = Vector2( 0.9, 0.9 )
+player_path = "/root/Basement/YSort/Player"
 
 [node name="ToolBar" parent="YSort/Player/Camera2D" instance=ExtResource( 20 )]
 scale = Vector2( 0.9, 0.9 )
 
 [node name="Menu" parent="YSort/Player/Camera2D" instance=ExtResource( 16 )]
 position = Vector2( -8, 2 )
+player_path = "/root/Basement/YSort/Player"
+scene_path = "/root/Basement"
 
 [node name="Guide" parent="YSort/Player/Camera2D" instance=ExtResource( 18 )]
 visible = false
 position = Vector2( -6, -4 )
+player_path = "/root/Basement/YSort/Player"
+scene_path = "/root/Basement"
 
 [node name="EnvDesc" parent="YSort/Player/Camera2D" instance=ExtResource( 19 )]
 position = Vector2( 0, -40 )
+player_path = "/root/Basement/YSort/Player"
 
 [node name="DialogBox" parent="YSort/Player/Camera2D" instance=ExtResource( 17 )]
 scale = Vector2( 0.25, 0.25 )
+player_path = "/root/Basement/YSort/Player"
 
 [node name="Description" parent="YSort/Player/Camera2D" instance=ExtResource( 21 )]
 visible = false
 position = Vector2( 0, -40 )
 scale = Vector2( 0.25, 0.25 )
+player_path = "/root/Basement/YSort/Player"
 
 [node name="Lightup" parent="YSort/Player/Camera2D" instance=ExtResource( 22 )]
 visible = false
@@ -152,8 +179,12 @@ position = Vector2( -96, -56 )
 scale = Vector2( 0.8, 0.8 )
 z_index = 1
 
+[node name="blur" parent="YSort/Player/Camera2D" instance=ExtResource( 25 )]
+visible = false
+
 [node name="Sound" parent="YSort/Player/Camera2D" instance=ExtResource( 13 )]
 visible = false
+player_path = "/root/Basement/YSort/Player"
 
 [node name="Issac" type="StaticBody2D" parent="YSort"]
 visible = false
@@ -188,8 +219,12 @@ script = ExtResource( 24 )
 id = "420-1"
 
 [node name="Layer" type="Node2D" parent="."]
+script = ExtResource( 26 )
 
 [node name="Sprite" type="Sprite" parent="Layer"]
 modulate = Color( 1, 1, 1, 0.862745 )
 position = Vector2( 48, 48 )
 texture = ExtResource( 23 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Layer"]
+anims/lightup = SubResource( 3 )

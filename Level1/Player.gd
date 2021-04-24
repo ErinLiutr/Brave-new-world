@@ -302,6 +302,13 @@ func interact(result):
 						else:
 							idx -= 1
 							continue
+					elif choice == "inspection":
+						if equipment == "104":
+							new_choice.get_node("choice").text = "USE TWEEZERS"
+							node.get_node("Choices").choice_results.append("inspection")
+						else:
+							idx -= 1
+							continue
 					else:
 						node.get_node("Choices").choice_results.append(choice)
 					node.get_node("Choices/GridContainer").add_child(new_choice)

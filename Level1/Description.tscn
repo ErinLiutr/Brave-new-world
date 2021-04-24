@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://crumpled_magazine.png" type="Texture" id=1]
 [ext_resource path="res://bandage_box.png" type="Texture" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://level2 art/item/carReport.png" type="Texture" id=29]
 [ext_resource path="res://level2 art/item/drawing.png" type="Texture" id=30]
 [ext_resource path="res://level2 art/item/repairReport.png" type="Texture" id=31]
+[ext_resource path="res://level2 art/phone1.png" type="Texture" id=32]
 
 [node name="Description" type="Sprite"]
 position = Vector2( 0, -48 )
@@ -213,3 +214,9 @@ visible = false
 position = Vector2( -240, 3.05176e-05 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 26 )
+
+[node name="Phone" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 6.10352e-05 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 32 )

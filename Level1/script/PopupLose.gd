@@ -4,7 +4,7 @@ var pressed = false
 
 func _ready():
 	set_physics_process(true)
-	set_process_unhandled_key_input(true)
+	set_process_unhandled_key_input(false)
 
 func _unhandled_key_input(event):
 	if event.is_action_pressed("ui_interact"):

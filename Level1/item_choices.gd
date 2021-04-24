@@ -29,6 +29,12 @@ func handle_selection(destination, id):
 				node.get_node("CollisionShape2D").disabled = true
 			node.hide()
 		invent_node.item_ids.append(str(id))
+		if str(id) == "402" or str(id) == "410":
+			if invent_node.item_ids.has("402") and invent_node.item_ids.has("410"):
+				get_node("/root/2ndfloor/YSort/Player").canMove = false
+				get_node("/root/2ndfloor/YSort/Player/Camera2D/DialogBox").show()
+				get_node("/root/2ndfloor/YSort/Player/Camera2D/DialogBox")._start("127")
+				get_node("/root/2ndfloor").room_inst.get_node("YSort/Police/Interact").id = "108"
 		if str(id) == "215":
 			get_node("/root/Room/YSort/table/bottle/Interact").id = "216-2"
 		elif str(id) == "207":
@@ -83,6 +89,25 @@ func handle_selection(destination, id):
 		get_node("/root/Room/YSort/Player/Camera2D/blur").show()
 		get_node("/root/Room/YSort/Player/Camera2D/Password")._start_show()
 		get_node("/root/Room/YSort/Player").canMove = false
+	elif destination == "phonepw":
+		get_node(player_path + "/Camera2D/blur").show()
+		get_node(player_path + "/Camera2D/Password")._start_show()
+		get_parent().get_parent().get_parent()._stop_show()
+		get_node(player_path).canMove = false
+	elif destination == "memo":
+		get_parent().get_parent().get_parent()._stop_show()
+		get_node(player_path).canMove = false
+		get_node(player_path + "/Camera2D/DialogBox").show()
+		get_node(player_path + "/Camera2D/DialogBox")._start("136")
+	elif destination == "recording":
+		get_parent().get_parent().get_parent()._stop_show()
+		get_node(player_path).canMove = false
+		get_node(player_path + "/Camera2D/DialogBox").show()
+		get_node(player_path + "/Camera2D/DialogBox")._start("137")
+	elif destination == "lightup":
+		get_node("/root/Basement/YSort/Player/Camera2D/blur").show()
+		get_node("/root/Basement/YSort/Player/Camera2D/Lightup")._start_show()
+		get_node("/root/Basement/YSort/Player").canMove = false
 	elif destination == "key":
 		get_node("/root/Room/YSort/Player").canMove = false
 		var node = get_node("/root/Room/YSort/Player/Camera2D/Description")
@@ -223,6 +248,42 @@ func handle_selection(destination, id):
 		node.get_node("Choices").current_selection = 0
 		node.get_node("Choices").showing = true
 		node.get_node("Choices").item_id = "101"
+		node.get_node("Choices").show()
+	elif destination == "inspection":
+		get_node("/root/2ndfloor/YSort/Player").canMove = false
+		get_node("/root/2ndfloor/YSort/shelf1/Interact").id = "421-2"
+		var node = get_node("/root/2ndfloor/YSort/Player/Camera2D/Description")
+		node.get_node("Choices/Description").text = invent_node.get_info("402", "description")
+		node.get_node("Choices/Name").text = invent_node.get_info("402", "name")
+		var idx = 0
+		for choice in invent_node.get_info("402", "options"):
+			var new_choice = choice_item.instance()
+			new_choice.name = "choice" + str(idx)
+			if idx == 0:
+				new_choice.get_node("selector").text = ">"
+			else:
+				new_choice.get_node("selector").text = ""
+			idx += 1
+			new_choice.get_node("choice").text = choice.to_upper()
+
+			node.get_node("Choices").choice_results.append(choice)
+			node.get_node("Choices/GridContainer").add_child(new_choice)
+		var new_choice = choice_item.instance()
+		new_choice.name = "choice" + str(idx)
+		if idx == 0:
+			new_choice.get_node("selector").text = ">"
+		else:
+			new_choice.get_node("selector").text = ""
+		new_choice.get_node("choice").text = "CLOSE"
+		node.get_node("Choices").choice_results.append("close")
+		node.get_node("Choices/GridContainer").add_child(new_choice)
+		node.get_node(invent_node.get_info("402", "picture")).show()
+		node.show()
+		node._start_show()
+		node.get_node("Choices").counter = 0
+		node.get_node("Choices").current_selection = 0
+		node.get_node("Choices").showing = true
+		node.get_node("Choices").item_id = "402"
 		node.get_node("Choices").show()
 	elif destination == "close":
 		get_parent().get_parent()._stop_show()

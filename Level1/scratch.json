@@ -680,7 +680,6 @@
       {"text": "ASK ABOUT DEATH OF ISSAC", "go_to": "113"},
       {"text": "ASK ABOUT ISSAC'S MEMO", "go_to": "114"},
       {"text": "ASK ABOUT LAPTOP PASSWORD", "go_to": "115"},
-      {"text": "CONFRONT", "go_to": "07"},
       {"text": "CLOSE", "go_to": "00"}
     ],
     "role": "Lydia",
@@ -696,7 +695,6 @@
       {"text": "ASK ABOUT LYDIA AND A", "go_to": "118"},
       {"text": "ASK ABOUT ISSAC", "go_to": "119"},
       {"text": "ASK ABOUT THE ACCIDENT", "go_to": "120"},
-      {"text": "CONFRONT", "go_to": "07"},
       {"text": "CLOSE", "go_to": "00"}
     ],
     "role": "CJ",
@@ -711,6 +709,7 @@
       {"text": "ASK ABOUT LYDIA", "go_to": "124"},
       {"text": "ASK ABOUT CJ", "go_to": "125"},
       {"text": "ASK ABOUT ISSAC", "go_to": "126"},
+      {"text": "PICK ISSAC'S PHONE", "go_to": "128"},
       {"text": "CLOSE", "go_to": "00"}
     ],
     "role": "Police",
@@ -821,5 +820,130 @@
     "role": "Police",
     "text": ["He was a college student. Got many friends and seemed doing great in schoolwork. He lived here with the couple for a year before college."],
     "next": "108"
+  },
+  "127": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["We couldn’t unlock the phone. Maybe you should help us find the password. There might be some clues in his room."],
+    "next": ""
+  },
+  "128": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["Maybe you should help us find the password. There might be some clues in his room."],
+    "next": ""
+  },
+  "129": {
+    "title": "Please summarize on clues you’ve collected.",
+    "type": "choice",
+    "choices": [
+      {"text": "A is guilty", "go_to": "130"},
+      {"text": "Lydia is guilty", "go_to": "132"},
+      {"text": "CLOSE", "go_to": "00"}
+    ],
+    "role": "Pearl",
+    "close": true
+  },
+  "130": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["I don’t think Lydia murdered Isaac. Otherwise, she wouldn’t tell him about the worn out brake.", "It was A that Lydia wanted to kill, but A found out her plan and murdered Isaac."],
+    "next": "131"
+  },
+  "131": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["Oh, come on! Do you really think that’s what happened?", "I’ve known A for a long time and I know for sure he’s not a murderer!", "Now you are gonna talk all that nonsense to the police? Sorry detective, not gonna let that happen."],
+    "next": "combat2"
+  },
+  "132": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["It seems that Lydia left the brake unrepaired on purpose. She lent Isaac her car and murdered him for insurance money."],
+    "next": "133"
+  },
+  "133": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["Seriously? That’s your conclusion?", "Who are you, really? You must be some guy that psychopath hired! You pretended to be a detective, but you are actually destroying the evidence!"],
+    "next": "134"
+  },
+  "134": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Ma’am, I..."],
+    "next": "135"
+  },
+  "135": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["You are not getting away with this!"],
+    "next": "combat3"
+  },
+  "136": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["Some say that my unusual capacity to empathize with people is a bliss. But it became clearer and clearer that it is rather a curse.", "Everyday I am overwhelmed not just by my own but others’ sentiments as well. When I see people suffer, I suffer with them. I’m not always able to help them, even my loved ones, and that’s depressing.", "I wish I could disappear. I wish I could leave everything behind and go live in a forest. I’ll spend everyday listening to the bablling brook and the twittering birds. There will be no scream or shout or the sound of broken glasses.", "Everything will be peaceful."],
+    "next": ""
+  },
+  "137": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["Honestly, that sounds dangerous. You know I’m not good at driving. I prefer hiking in a forest than in a mountain."],
+    "next": "138"
+  },
+  "138": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Me and CJ go there all the time. Yes, the road can be a little bad when it rains, so just pick a sunny day and you’ll be fine."],
+    "next": "139"
+  },
+  "139": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["Hmmm...I don’t know. I still feel like..."],
+    "next": "140"
+  },
+  "140": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Hey you know what? I think you should drive our car! You are not driving a sedan on that muddy road, are you?"],
+    "next": "141"
+  },
+  "141": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["Thank you, but maybe next time..."],
+    "next": "142"
+  },
+  "142": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["You don’t understand, kid. The best season is now. When the weather gets cold, you won’t see the animals and the place becomes foggy.", " What’s wrong? I thought you always wanna go there. You brought it up several times."],
+    "next": "143"
+  },
+  "143": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["Yeah...you’re right. I do wanna go."],
+    "next": "144"
+  },
+  "144": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Sounds good. You can come pick up the car this Saturday."],
+    "next": "145"
+  },
+  "145": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["Sure...Oh, I’ve found the books Lydia’s looking for. I’ll bring them to her on Saturday."],
+    "next": "146"
+  },
+  "146": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["It’s fine, Lydia’s out of town this weekend. You can give it to her when you come back from the trip."],
+    "next": ""
   }
 }

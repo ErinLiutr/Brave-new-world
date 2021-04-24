@@ -10,22 +10,64 @@ var s_on = "res://switch_on.png"
 var s_off = "res://switch_off.png"
 var showing = false
 
+var counter = 0
+var cheating = false
+var pressed = false
+var cheat = false
+var reset = false
+var cancel = false
+
 func _ready():
 	for i in range (1, 11):
 			get_node("NinePatchRect/off%d"%i).texture = load(off)
 	for i in range (1, 7):
 			get_node("switches/s%d"%i).texture = load(s_off)
+	set_physics_process(true)
+	set_process_unhandled_key_input(true)
+	
+func _unhandled_key_input(event):
+	if event.is_action_pressed("ui_interact"):
+		pressed = true
+	elif event.is_action_released("ui_interact"):
+		pressed = false
+	if event.is_action_pressed("ui_cancel"):
+		cancel = true
+	elif event.is_action_released("ui_cancel"):
+		cancel = false
+	if event.is_action_pressed("ui_reset"):
+		reset = true
+	elif event.is_action_released("ui_reset"):
+		reset = false
+	if event.is_action_pressed("ui_cheat"):
+		cheat = true
+	elif event.is_action_released("ui_cheat"):
+		cheat = false
+		
+func check_ready():
+	return state == [-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
-func _input(event):
-	if true:
-		if Input.is_key_pressed(KEY_R):
-			state = [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-			for i in range (1, 11):
-				get_node("NinePatchRect/off%d"%i).texture = load(off)
-			for i in range (1, 7):
-				get_node("switches/s%d"%i).texture = load(s_off)
-
-		if Input.is_key_pressed(KEY_C):
+func _physics_process(_delta):
+	if showing:
+		if (check_ready()):
+			$"ColorRect3".visible = true
+		counter += 1
+		if cancel:
+			_stop_show()
+			get_node("/root/Basement/YSort/Player").canMove = true
+		if reset:
+			if ($".".visible):
+				state = [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+				for i in range (1, 11):
+					get_node("NinePatchRect/off%d"%i).texture = load(off)
+				for i in range (1, 7):
+					get_node("switches/s%d"%i).texture = load(s_off)
+		if pressed:
+			if (check_ready()):
+				confirm()
+			if (cheating):
+				confirm()
+		# cheat
+		if cheat:
 			state = [-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 			for i in range (1, 11):
 				get_node("NinePatchRect/off%d"%i).texture = load(on)
@@ -33,6 +75,15 @@ func _input(event):
 				get_node("switches/s%d"%i).texture = load(s_on)
 			for i in [4, 6]:
 				get_node("switches/s%d"%i).texture = load(s_off)
+			$"ColorRect3".visible = true
+
+	pressed = false
+	cheat = false
+	cancel = false
+	reset = false
+
+func _input(event):
+	if showing:
 		if Input.is_key_pressed(KEY_1):
 			for i in map[0]:
 				if (state[i] == 0):
@@ -117,11 +168,19 @@ func _input(event):
 			else:
 				get_node("switches/s6").texture = load(s_off)
 				switch_state[6] = 0
+				
+func confirm():
+	_stop_show()
+	get_node("/root/Basement/Light2/Interact").id = "420-2"
+	get_node("/root/Basement/Layer")._play()
+	get_node("/root/Basement/YSort/Issac").show()
+	get_node("/root/Basement/YSort/Issac/CollisionShape2D").disabled = false
 
-func start_show():
+func _start_show():
 	showing = true
 	show()
 	
-func stop_show():
+func _stop_show():
 	showing = false
 	hide()
+	get_node("../blur").hide()

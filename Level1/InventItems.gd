@@ -53,15 +53,43 @@ func handle_selection(_current_selection):
 	showing = false
 	invent_node.showing = false
 	var id = item_ids[_current_selection]
+	var idx = 0
 	var desc = invent_node.get_node("Description")
 	desc.get_node("Choices/Description").text = invent_node.get_info(id, "description")
 	desc.get_node("Choices/Name").text = invent_node.get_info(id, "item_name")
 	
 	desc.get_node("Choices").choice_results = []
 	
+	for choice in invent_node.get_info(id, "options"):
+		var new_choice = choice_item.instance()
+		new_choice.name = "choice" + str(idx)
+		if idx == 0:
+			new_choice.get_node("selector").text = ">"
+		else:
+			new_choice.get_node("selector").text = ""
+		idx += 1
+		new_choice.get_node("choice").text = choice.to_upper()
+		if choice == "phonepw":
+			new_choice.get_node("choice").text = "UNLOCK"
+			desc.get_node("Choices").choice_results.append("phonepw")
+			desc.get_node("Choices/GridContainer").add_child(new_choice)
+		elif choice == "memo":
+			new_choice.get_node("choice").text = "VIEW MEMO"
+			desc.get_node("Choices").choice_results.append("memo")
+			desc.get_node("Choices/GridContainer").add_child(new_choice)
+		elif choice == "recording":
+			new_choice.get_node("choice").text = "PLAY RECORDING"
+			desc.get_node("Choices").choice_results.append("recording")
+			desc.get_node("Choices/GridContainer").add_child(new_choice)
+		else:
+			idx -= 1
+	
 	var new_choice = choice_item.instance()
-	new_choice.name = "choice0"
-	new_choice.get_node("selector").text = ">"
+	new_choice.name = "choice" + str(idx)
+	if idx == 0:
+		new_choice.get_node("selector").text = ">"
+	else:
+		new_choice.get_node("selector").text = ""
 	if id == get_node(get_parent().get_parent().player_path).equipment:
 		new_choice.get_node("choice").text = "UNEQUIP"
 		desc.get_node("Choices").choice_results.append("unequip")
@@ -69,9 +97,9 @@ func handle_selection(_current_selection):
 		new_choice.get_node("choice").text = "EQUIP"
 		desc.get_node("Choices").choice_results.append("equip")
 	desc.get_node("Choices/GridContainer").add_child(new_choice)
-	
+	idx += 1
 	var new_choice1 = choice_item.instance()
-	new_choice1.name = "choice1"
+	new_choice1.name = "choice" + str(idx)
 	new_choice1.get_node("selector").text = ""
 	new_choice1.get_node("choice").text = "CLOSE"
 	desc.get_node("Choices").choice_results.append("close")

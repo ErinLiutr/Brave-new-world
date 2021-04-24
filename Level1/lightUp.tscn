@@ -139,6 +139,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect3" type="ColorRect" parent="."]
+visible = false
+margin_left = 196.0
+margin_top = 97.0
+margin_right = 236.0
+margin_bottom = 104.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="ColorRect3"]
+margin_left = 1.0
+margin_right = 113.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.3, 0.3 )
+custom_fonts/font = ExtResource( 5 )
+text = "[ENTER] Confirm"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label" type="Label" parent="."]
 margin_left = 197.559
 margin_top = 80.5181

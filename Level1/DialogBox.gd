@@ -2,6 +2,8 @@ extends Sprite
 
 var choice_item = preload("res://Choice.tscn")
 var combat_scene = preload("res://Combat.tscn")
+var combat2_scene = preload("res://Combat2.tscn")
+var combat3_scene = preload("res://Combat3.tscn")
 
 export var player_path = ""
 export var default_dialog = ""
@@ -9,6 +11,8 @@ export var default_dialog = ""
 var printing = false
 var donePrinting = false
 var combat = false
+var combat2 = false
+var combat3 = false
 var animate = false
 var refuse = false
 var accept = false
@@ -88,6 +92,24 @@ func _physics_process(delta):
 					TheRoot.remove_child(this_scene)
 					TheRoot.add_child(next_scene)
 					hide()
+				elif combat2:
+					var TheRoot = get_node("/root")
+					var this_scene = TheRoot.get_node("Room2")
+					var next_scene = combat2_scene.instance()
+					next_scene.previous_scene = this_scene
+					#next_scene.next_scene = this_scene.base_scene.instance()
+					TheRoot.remove_child(this_scene)
+					TheRoot.add_child(next_scene)
+					hide()
+				elif combat3:
+					var TheRoot = get_node("/root")
+					var this_scene = TheRoot.get_node("Room2")
+					var next_scene = combat3_scene.instance()
+					next_scene.previous_scene = this_scene
+					#next_scene.next_scene = this_scene.base_scene.instance()
+					TheRoot.remove_child(this_scene)
+					TheRoot.add_child(next_scene)
+					hide()
 				elif animate:
 					animate = false
 					hide()
@@ -148,7 +170,9 @@ func _start(id):
 	prologue = false
 	title = false
 	door = false
-	for node in ["NPC", "MC", "Pearl", "MC1", "Lydia", "CJ", "Police"]:
+	combat2 = false
+	combat3 = false
+	for node in ["NPC", "MC", "Pearl", "MC1", "Lydia", "CJ", "Police", "Issac"]:
 			get_node(node).hide()
 	if id == "00":
 		hide()
@@ -178,6 +202,10 @@ func _start(id):
 			title = true
 		elif json[id]["next"] == "door":
 			door = true
+		elif json[id]["next"] == "combat2":
+			combat2 = true
+		elif json[id]["next"] == "combat3":
+			combat3 = true
 		else:
 			next_dialog = json[id]["next"]
 		_print_dialogue(json[id]["text"])
@@ -201,6 +229,8 @@ func _start(id):
 		get_node("/root/Corridor/YSort/Lydia/Interact").id = "00"
 	if id == "101":
 		get_node("/root/Corridor/YSort/CJ/Interact").id = "00"
+	if id == "128":
+		get_node("/root/Room2/YSort/Player/Camera2D/Inventory").item_ids.append("407-1")
 
 func _print_dialogue(text):
 	get_node("RichTextLabel").show()
@@ -228,6 +258,10 @@ func _show_choices(title, choices, close):
 				choice["go_to"] = "07"
 		elif choice["text"] == "HAND OUT BANK CHECK":
 			if get_node("/root/Room/YSort/Player").equipment != "103":
+				continue
+		elif choice["text"] == "PICK ISSAC'S PHONE":
+			var items = get_node(player_path + "/Camera2D/Inventory").item_ids
+			if !items.has("402") or !items.has("410") or items.has("407-1") or items.has("407-2"):
 				continue
 		var new_choice = choice_item.instance()
 		new_choice.name = "choice" + str(idx)

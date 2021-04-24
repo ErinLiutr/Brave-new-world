@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://tileset4.tres" type="TileSet" id=1]
 [ext_resource path="res://Room2.gd" type="Script" id=2]
@@ -26,6 +26,10 @@
 [ext_resource path="res://Interact13.gd" type="Script" id=24]
 [ext_resource path="res://level2 art/item/photo406.png" type="Texture" id=25]
 [ext_resource path="res://Interact.gd" type="Script" id=26]
+[ext_resource path="res://ending art/Left.png" type="Texture" id=27]
+[ext_resource path="res://Interact_env.gd" type="Script" id=28]
+[ext_resource path="res://image_password/image_password.tscn" type="PackedScene" id=29]
+[ext_resource path="res://blur1.tscn" type="PackedScene" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 24 )
@@ -41,6 +45,12 @@ extents = Vector2( 24, 8 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 8, 16 )
 
 [node name="Room2" type="Node2D"]
 script = ExtResource( 2 )
@@ -117,6 +127,16 @@ scene_path = "/root/Room2"
 [node name="ToolBar" parent="YSort/Player/Camera2D" instance=ExtResource( 23 )]
 scale = Vector2( 0.9, 0.9 )
 
+[node name="blur" parent="YSort/Player/Camera2D" instance=ExtResource( 30 )]
+visible = false
+
+[node name="Password" parent="YSort/Player/Camera2D" instance=ExtResource( 29 )]
+visible = false
+position = Vector2( -96, -56 )
+scale = Vector2( 0.8, 0.8 )
+z_index = 1
+player_path = "/root/Room2/YSort/Player"
+
 [node name="Inventory" parent="YSort/Player/Camera2D" instance=ExtResource( 3 )]
 scale = Vector2( 0.9, 0.9 )
 player_path = "/root/Room2/YSort/Player"
@@ -130,6 +150,11 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="YSort/desk"]
 position = Vector2( 2, -2 )
 texture = ExtResource( 11 )
+
+[node name="Interact" type="Sprite" parent="YSort/desk"]
+position = Vector2( -48, -64 )
+script = ExtResource( 28 )
+item_name = "table"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/desk"]
 shape = SubResource( 1 )
@@ -229,6 +254,11 @@ __meta__ = {
 position = Vector2( 0, 4 )
 texture = ExtResource( 15 )
 
+[node name="Interact" type="Sprite" parent="YSort/desk2"]
+position = Vector2( -32, -8 )
+script = ExtResource( 28 )
+item_name = "table"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/desk2"]
 position = Vector2( 0, 8 )
 shape = SubResource( 3 )
@@ -242,6 +272,11 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="YSort/sofa2"]
 position = Vector2( -4, 0 )
 texture = ExtResource( 16 )
+
+[node name="Interact" type="Sprite" parent="YSort/sofa2"]
+position = Vector2( -40, 24 )
+script = ExtResource( 28 )
+item_name = "sofa"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/sofa2"]
 position = Vector2( 0, 8 )
@@ -259,3 +294,31 @@ texture = ExtResource( 13 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/sofa"]
 position = Vector2( 0, 8 )
 shape = SubResource( 5 )
+
+[node name="Interact" type="Sprite" parent="YSort/sofa"]
+script = ExtResource( 28 )
+item_name = "sofa"
+
+[node name="Pearl" type="StaticBody2D" parent="YSort"]
+position = Vector2( 200, 64 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Pearl"]
+texture = ExtResource( 27 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Pearl"]
+position = Vector2( 0, 8 )
+shape = SubResource( 6 )
+
+[node name="Interact" type="Sprite" parent="YSort/Pearl"]
+script = ExtResource( 26 )
+type = "DialogBox"
+id = "129"
+
+[node name="Block" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Block"]
+position = Vector2( 216, 64 )
+shape = SubResource( 7 )

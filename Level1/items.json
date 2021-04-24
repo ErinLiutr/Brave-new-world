@@ -265,7 +265,7 @@
     "description": "Shows problems in brakes, air filter, and broken side mirror.",
     "options": ["pick"],
     "picture": "Vehicle",
-    "path": ""
+    "path": "/root/2ndfloor/YSort/shelf1/paper"
   },
   "403": {
     "name": "Bill",
@@ -297,13 +297,21 @@
     "description": "Photo of a young man with a bright smile.",
     "options": ["pick"],
     "picture": "Photo",
-    "path": ""
+    "path": "/root/Room2/YSort/Photo"
   },
-  "407": {
+  "407-1": {
     "name": "Phone",
     "item_name": "Issac’s phone",
-    "description": "Isaac’s phone.",
-    "options": [],
+    "description": "Isaac’s phone, locked.",
+    "options": ["phonepw"],
+    "picture": "Phone",
+    "path": ""
+  },
+  "407-2": {
+    "name": "Phone",
+    "item_name": "Issac’s phone",
+    "description": "Isaac’s phone, unlocked.",
+    "options": ["memo", "recording"],
     "picture": "Phone",
     "path": ""
   },
@@ -338,5 +346,22 @@
     "options": [],
     "picture": "",
     "path": ""
+  },
+  "421-1": {
+    "name": "Wardrobe",
+    "item_name": "Wardrobe",
+    "description": "A wardrobe, something is under it.",
+    "options": ["inspection"],
+    "picture": "",
+    "path": ""
+  },
+  "421-2": {
+    "name": "Wardrobe",
+    "item_name": "Wardrobe",
+    "description": "A wardrobe.",
+    "options": [],
+    "picture": "",
+    "path": ""
   }
+
 }
