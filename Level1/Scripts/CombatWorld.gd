@@ -13,6 +13,7 @@ func _on_Timer_timeout():
 		$"YSort/Player".stop_player()
 		$"YSort/Enemy".stop()
 		$"YSort/Enemy/BulletSpawner".stop()
+		$"ExtraPoints".stop()
 		$"ExtraLives".stop()
 		$"Lose".visible = true
 		$"Lose".start()

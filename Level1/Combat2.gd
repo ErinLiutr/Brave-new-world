@@ -7,6 +7,7 @@ var combat_scene = preload("res://combat2/world.tscn")
 var counter = 0
 var enter_count = 0
 
+
 func _input(event):
 	if event is InputEventKey and event.scancode == KEY_ESCAPE:
 		$"Guide".visible = false

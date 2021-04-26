@@ -21,7 +21,7 @@ const GRID = 16
 var world
 var sprite
 var animationPlayer
-var equipment = ""
+var equipment = "0"
 
 var script_url = "res://items.json"
 var json
@@ -144,12 +144,12 @@ func _physics_process(delta):
 				get_parent().get_node("NPC").start_animate()
 			if get_parent().get_parent().name == "Corridor":
 				var lydia_diff = position.y - get_parent().get_node("Lydia").position.y
-				if abs(lydia_diff) < 0.1:
+				if abs(lydia_diff) < 0.1 and !get_node("/root/Corridor/YSort/Lydia/Interact").done:
 					canMove = false
 					get_node("Camera2D/DialogBox").show()
 					get_node("Camera2D/DialogBox")._start("96")
 				var cj_diff = position.y - get_parent().get_node("CJ").position.y
-				if abs(cj_diff) < 0.1:
+				if abs(cj_diff) < 0.1 and !get_node("/root/Corridor/YSort/CJ/Interact").done:
 					canMove = false
 					get_node("Camera2D/DialogBox").show()
 					get_node("Camera2D/DialogBox")._start("101")
@@ -352,3 +352,12 @@ func update_equip(previous, next):
 	get_node("Camera2D/ToolBar/Equipment/" + previous).hide()
 	get_node("Camera2D/ToolBar/Equipment/" + next).show()
 
+func set_equip(next):
+	for node in get_node("Camera2D/ToolBar/Equipment/").get_children():
+		node.hide()
+	if next == '0':
+		get_node("Camera2D/ToolBar/Equipment/unequip").show()
+	else:
+		print(next)
+		get_node("Camera2D/ToolBar/Equipment/equip").show()
+		get_node("Camera2D/ToolBar/Equipment/" + next).show()

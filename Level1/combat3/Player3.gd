@@ -17,7 +17,7 @@ var lives = [get_node("../../PlayerLives/Life1"),
 			get_node("../../PlayerLives/Life10"),
 			get_node("../../PlayerLives/Life11"),
 			get_node("../../PlayerLives/Life12")]
-const WIN = 50
+const WIN = 100
 export var maxSpeed = 60
 export var acceleration = 200
 export var friction = 200
@@ -42,7 +42,6 @@ func _physics_process(delta):
 		$"../Enemy".stop()
 		$"../Enemy/BulletSpawner".stop()
 		$"../../ExtraLives".stop()
-
 		$"../../Win".visible = true
 		$"../../Win".start()
 	
@@ -83,17 +82,23 @@ func lose_life():
 	var life = get_node("../../PlayerLives/Life%d"%(life_points+1))
 	get_node("../../PlayerLives/Life%d/Vanish"%(life_points+1)).play("Vanish")
 	get_node("../../PlayerLives/Life%d"%(life_points+1)).visible = false
-	
+	$AnimationPlayer.play("Bleeding")
+
 func add_life():
 	if (life_points < 12):
 		get_node("../../PlayerLives/Life%d/Vanish"%(life_points+1)).play("Appear")
 		get_node("../../PlayerLives/Life%d"%(life_points+1)).visible = true
 		life_points += 1
-		
-func add_point():
-	points = min(50, points + 1)
-	if (points <= 50):
+		$AddLife.visible = true
+		$AddLife/Timer.start()
+
+func add_points(pts):
+	points = min(WIN, points + pts)
+	if (points <= WIN):
 		$"../../Label".set_text("SCORE: "+str(points))
+		$"AddPoints".set_text("+ "+str(pts) + " points")
+		$"AddPoints".visible = true
+		$AddPoints/Timer.start()
 		
 func _bullet_sound(type):
 	if type=="bullet":
@@ -139,3 +144,11 @@ func fire_special(type):
 		ball.global_position = global_position + (30*direction)
 		ball.set_bullet_direction( direction)
 	_bullet_sound("special")
+
+
+func _on_AddLife_Timer_timeout():
+	$"AddLife".visible = false
+
+
+func _on_Timer_timeout():
+	$"AddPoints".visible = false

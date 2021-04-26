@@ -6,7 +6,7 @@ const SCALE = 100
 const BULLET = preload("res://combat3/Bullet.tscn")
 const LIFE = preload("res://combat3/ExtraLife.tscn")
 # spawn time management
-var delta = 0.5
+var delta = 0.4
 var offset = 0.5
 var spawnArea = Rect2()
 

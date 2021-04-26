@@ -227,8 +227,12 @@ func _start(id):
 		get_node("/root/Room/YSort/Player/Camera2D/ToolBar/Equipment/Check").hide()
 	if id == "96":
 		get_node("/root/Corridor/YSort/Lydia/Interact").id = "00"
+		get_node("/root/Corridor/YSort/Lydia/Interact").done = true
 	if id == "101":
 		get_node("/root/Corridor/YSort/CJ/Interact").id = "00"
+		get_node("/root/Corridor/YSort/CJ/Interact").done = true
+	if id == "121":
+		get_node("/root/Room2/YSort/Police/Interact").id = "108"
 	if id == "128":
 		get_node("/root/Room2/YSort/Player/Camera2D/Inventory").item_ids.append("407-1")
 

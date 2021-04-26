@@ -257,7 +257,7 @@
     "description": "A confirmation mail of A’s accident insurance. Purchased recently.",
     "options": ["pick"],
     "picture": "Insurance",
-    "path": ""
+    "path": "/root/3rdfloor/YSort/paper"
   },
   "402": {
     "name": "Vehicle",
@@ -286,9 +286,9 @@
   "405": {
     "name": "Painting",
     "item_name": "Unfinished painting",
-    "description": "A poem was written on the canvas, most of which was already covered by paint. The visible part writes: \n“He whose thoughts, like skylarks,\nToward the morning sky take flight\n— Who hovers over life and understands with ease\nThe language of flowers and silent things!”\n",
-    "options": ["pick"],
-    "picture": "Painting",
+    "description": "A poem was written on the canvas, most of which was already covered by paint. \nThe visible part writes: \n“He whose thoughts, like skylarks, Toward the morning sky take flight\n— Who hovers over life and understands with ease. \nThe language of flowers and silent things!”",
+    "options": [],
+    "picture": "",
     "path": ""
   },
   "406": {
@@ -331,6 +331,14 @@
     "picture": "Maintain",
     "path": "/root/2ndfloor/YSort/desk1/maintain"
   },
+  "412": {
+    "name": "Portrait",
+    "item_name": "Portrait",
+    "description": "The man’s face in the portrait looks similar to Isaac’s. There is a sharp contrast between the grotesque dark wound on his chest and the white wings on his back. Red tears streamed down the character’s face. Painting is signed by A.",
+    "options": [],
+    "picture": "Painting",
+    "path": ""
+  },
   "420-1": {
     "name": "Light",
     "item_name": "Light",
@@ -347,15 +355,15 @@
     "picture": "",
     "path": ""
   },
-  "421-1": {
+  "416-1": {
     "name": "Wardrobe",
     "item_name": "Wardrobe",
-    "description": "A wardrobe, something is under it.",
+    "description": "A wardrobe. Seems there is something under.",
     "options": ["inspection"],
     "picture": "",
     "path": ""
   },
-  "421-2": {
+  "416-2": {
     "name": "Wardrobe",
     "item_name": "Wardrobe",
     "description": "A wardrobe.",

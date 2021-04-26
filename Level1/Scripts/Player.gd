@@ -61,7 +61,7 @@ func lose_life():
 	life_points = max(0, life_points - 1)
 	var life = get_node("../../PlayerLives/Life%d"%(life_points+1))
 	get_node("../../PlayerLives/Life%d/Vanish"%(life_points+1)).play("Vanish")
-
+	$AnimationPlayer.play("Bleeding")
 func _bullet_sound(type):
 	if type=="bullet":
 		$"BulletAudio".play()

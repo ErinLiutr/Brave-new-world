@@ -2,7 +2,7 @@ extends Node2D
 var WIDTH = 125
 var HEIGHT = 40
 var spawnArea
-const LIFE = preload("res://combat3/ExtraLife.tscn")
+const LIFE = preload("res://combat2/ExtraLife.tscn")
 
 func stop():
 	set_physics_process(false)

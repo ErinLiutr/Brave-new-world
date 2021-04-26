@@ -54,6 +54,12 @@ func _upstairs(pos):
 	next_scene.title_scene = title_scene
 	next_scene.second_inst = this_scene
 	#next_scene.get_node("YSort/Player").canMove = false
+	var item_name
+	if this_scene.get_node("YSort/Player").equipment == "0":
+		item_name = "0"
+	else:
+		item_name = this_scene.get_node("YSort/Player/Camera2D/Inventory").get_info(this_scene.get_node("YSort/Player").equipment, "picture")
+
 	next_scene.get_node("YSort/Player").position = Vector2(40 + pos * 16, 88)
 	next_scene.get_node("YSort/Player").canMove = true
 	next_scene.get_node("YSort/Player/Sprite").set_frame(8)
@@ -71,6 +77,12 @@ func _downstairs(pos):
 	next_scene.title_scene = title_scene
 	next_scene.second_inst = this_scene
 	#next_scene.get_node("YSort/Player").canMove = false
+	var item_name
+	if this_scene.get_node("YSort/Player").equipment == "0":
+		item_name = "0"
+	else:
+		item_name = this_scene.get_node("YSort/Player/Camera2D/Inventory").get_info(this_scene.get_node("YSort/Player").equipment, "picture")
+
 	next_scene.get_node("YSort/Player").position = Vector2(40 + pos * 16, 24)
 	next_scene.get_node("YSort/Player").canMove = true
 	next_scene.get_node("YSort/Player/Sprite").set_frame(0)

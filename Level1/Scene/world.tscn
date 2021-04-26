@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scene/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scene/Enemy.tscn" type="PackedScene" id=2]
@@ -18,10 +18,11 @@
 [ext_resource path="res://Scene/Weapon_b_gift.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scene/-30.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scene/-40.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scripts/CombatWorld.gd" type="Script" id=19]
+[ext_resource path="res://Scripts/world_main.gd" type="Script" id=19]
 [ext_resource path="res://combat/sound/specialattack.wav" type="AudioStream" id=20]
 [ext_resource path="res://combat/sound/bullet.wav" type="AudioStream" id=21]
 [ext_resource path="res://newpixel.tres" type="DynamicFont" id=22]
+[ext_resource path="res://script/Popup_lose_main.gd" type="Script" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 598.828, 10 )
@@ -228,10 +229,11 @@ scale = Vector2( 0.7, 0.7 )
 [node name="Lose" parent="." instance=ExtResource( 12 )]
 visible = false
 position = Vector2( -20, 160 )
+script = ExtResource( 23 )
 
 [node name="Win" parent="." instance=ExtResource( 13 )]
 visible = false
 position = Vector2( 186.667, 293.334 )
-[connection signal="changed" from="YSort/Enemy/EnemyLife" to="EnemyLifeBar" method="set_value"]
 [connection signal="changed" from="YSort/Enemy/EnemyLife" to="YSort/Enemy/EnemyLife" method="_on_EnemyLife_changed"]
+[connection signal="changed" from="YSort/Enemy/EnemyLife" to="EnemyLifeBar" method="set_value"]
 [connection signal="timeout" from="YSort/Enemy/BulletSpawner/Timer" to="YSort/Enemy/BulletSpawner" method="_on_Timer_timeout"]

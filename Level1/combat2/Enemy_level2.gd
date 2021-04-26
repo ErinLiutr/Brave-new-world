@@ -46,7 +46,6 @@ func stop():
 	set_process(false)
 		
 func _physics_process(delta):
-	$"../../EnemyLifeBar".set_value(life_points)
 	var collision = move_and_collide(velocity*delta)
 	if (self.position.x > 550 or self.position.x < 0):
 		self.velocity = Vector2(self.velocity.x*-1, self.velocity.y)

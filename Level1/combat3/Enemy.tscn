@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://combat3/Lydia.png" type="Texture" id=1]
+[ext_resource path="res://combat2/CJ.png" type="Texture" id=1]
 [ext_resource path="res://combat/art/bleeding.png" type="Texture" id=2]
 [ext_resource path="res://combat3/Enemy3.gd" type="Script" id=3]
 

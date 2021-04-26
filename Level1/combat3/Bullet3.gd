@@ -15,7 +15,7 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity*delta)
 	if collision:
 		if collision.collider.name == "Player":
-			collision.collider.add_point()
+			collision.collider.add_points(1)
 		else:
 			collision.collider.player_deduct()
 		if collision.collider.name != "Ball":
