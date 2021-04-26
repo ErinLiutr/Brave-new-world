@@ -150,7 +150,8 @@ __meta__ = {
 wait_time = 0.3
 
 [node name="Enemy" parent="YSort" instance=ExtResource( 28 )]
-position = Vector2( 253.333, 233.333 )
+
+position = Vector2( 253.333, 246.666 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="Bleeding2" type="Sprite" parent="YSort/Enemy"]

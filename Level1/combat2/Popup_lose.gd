@@ -7,7 +7,6 @@ func start():
 	
 func _input(event):
 	if event is InputEventKey and event.scancode == KEY_ESCAPE and enabled:
-		print(get_parent().get_parent().name)
 		get_parent().get_parent()._return(false)
 		self.visible = false
 		enabled = false

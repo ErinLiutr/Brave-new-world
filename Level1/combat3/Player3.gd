@@ -99,6 +99,7 @@ func add_points(pts):
 		$"AddPoints".set_text("+ "+str(pts) + " points")
 		$"AddPoints".visible = true
 		$AddPoints/Timer.start()
+		$"SpecialAudio".play()
 		
 func _bullet_sound(type):
 	if type=="bullet":
@@ -106,16 +107,16 @@ func _bullet_sound(type):
 	else:
 		$"SpecialAudio".play()
 		
-func _input(event):
-	if event is InputEventKey and event.pressed:
-		var ball
-		var direction = Vector2(0, -1)
-		if event.scancode == KEY_SPACE and disable == false:
-				ball = BALL.instance()
-				get_parent().add_child(ball)
-				ball.global_position = global_position + (30*direction)
-				ball.set_bullet_direction( direction)
-				_bullet_sound("bullet")
+#func _input(event):
+#	if event is InputEventKey and event.pressed:
+#		var ball
+#		var direction = Vector2(0, -1)
+#		if event.scancode == KEY_SPACE and disable == false:
+#				ball = BALL.instance()
+#				get_parent().add_child(ball)
+#				ball.global_position = global_position + (30*direction)
+#				ball.set_bullet_direction( direction)
+#				_bullet_sound("bullet")
 func fire_special(type):
 	var ball
 	var direction = Vector2(0, -1)

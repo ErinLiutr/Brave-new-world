@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lydia.png-214383cc70f61481323f0b47d095aa64.stex"
+path="res://.import/Lydia.png-e915742a5a0f5fc6a3cec9c820cff3e2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://combat2/Lydia.png"
-dest_files=[ "res://.import/Lydia.png-214383cc70f61481323f0b47d095aa64.stex" ]
+source_file="res://combat3/Lydia.png"
+dest_files=[ "res://.import/Lydia.png-e915742a5a0f5fc6a3cec9c820cff3e2.stex" ]
 
 [params]
 

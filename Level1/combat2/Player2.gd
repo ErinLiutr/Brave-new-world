@@ -101,6 +101,7 @@ func add_points(pts):
 		$"AddPoints".set_text("+ "+str(pts) + " points")
 		$"AddPoints".visible = true
 		$AddPoints/Timer.start()
+		$"SpecialAudio".play()
 		
 func _bullet_sound(type):
 	if type=="bullet":

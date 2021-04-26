@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CJ.png-2350eb0640a567ee17f5002aac630302.stex"
+path="res://.import/bullet-boss.png-23c4a69a4621e2ae5b99e13215c7f1a6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://combat3/CJ.png"
-dest_files=[ "res://.import/CJ.png-2350eb0640a567ee17f5002aac630302.stex" ]
+source_file="res://combat3/bullet-boss.png"
+dest_files=[ "res://.import/bullet-boss.png-23c4a69a4621e2ae5b99e13215c7f1a6.stex" ]
 
 [params]
 
