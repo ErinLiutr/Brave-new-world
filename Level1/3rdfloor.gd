@@ -54,6 +54,7 @@ func _downstairs(pos):
 		item_name = "0"
 	else:
 		item_name = this_scene.get_node("YSort/Player/Camera2D/Inventory").get_info(this_scene.get_node("YSort/Player").equipment, "picture")
+	next_scene.get_node("YSort/Player").equipment = this_scene.get_node("YSort/Player").equipment
 	next_scene.get_node("YSort/Player").set_equip(item_name)
 	next_scene.get_node("YSort/Player").position = Vector2(40 + pos * 16, 24)
 	next_scene.get_node("YSort/Player").canMove = true

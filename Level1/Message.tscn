@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://new_dynamicfontmini.tres" type="DynamicFont" id=1]
+[ext_resource path="res://new_dynamicfontsmall.tres" type="DynamicFont" id=2]
+[ext_resource path="res://menu.png" type="Texture" id=3]
+[ext_resource path="res://Memo.gd" type="Script" id=4]
+
+[node name="Message" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = -104.0
+margin_top = -56.0
+margin_right = 104.0
+margin_bottom = 56.0
+texture = ExtResource( 3 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="NinePatchRect"]
+margin_left = 8.0
+margin_top = 4.0
+margin_right = 72.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Lydia's message"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="NinePatchRect"]
+margin_left = 177.335
+margin_top = 99.3371
+margin_right = 241.335
+margin_bottom = 113.337
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "[Esc] Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+margin_left = 8.0
+margin_top = 20.0
+margin_right = 200.0
+margin_bottom = 132.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "To Issac:
+I would love to lend you my car. But the thing is, the brake is worn out and I haven't had the time to repair it yet. 
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -14,7 +14,7 @@ script = ExtResource( 1 )
 player_path = "/root/Room/YSort/Player"
 
 [node name="Choices" parent="." instance=ExtResource( 3 )]
-margin_left = -202.239
-margin_top = -63.1911
-margin_right = 201.761
-margin_bottom = 57.8089
+margin_left = -213.0
+margin_top = -63.0
+margin_right = 214.0
+margin_bottom = 58.0

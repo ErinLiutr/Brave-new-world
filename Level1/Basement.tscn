@@ -1,13 +1,13 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://tileset4.tres" type="TileSet" id=1]
 [ext_resource path="res://level2 art/environment/basement/Flower1.png" type="Texture" id=2]
 [ext_resource path="res://level2 art/characters/Issac Pixel.png" type="Texture" id=3]
-[ext_resource path="res://level2 art/environment/basement/Flower7.png" type="Texture" id=4]
+[ext_resource path="res://layer.png" type="Texture" id=4]
 [ext_resource path="res://level2 art/environment/basement/Light.png" type="Texture" id=5]
 [ext_resource path="res://level2 art/environment/basement/Flower4.png" type="Texture" id=6]
-[ext_resource path="res://level2 art/environment/basement/Flower5.png" type="Texture" id=7]
-[ext_resource path="res://level2 art/environment/basement/Flower6.png" type="Texture" id=8]
+[ext_resource path="res://on1.png" type="Texture" id=7]
+[ext_resource path="res://basefloor.png" type="Texture" id=8]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://level2 art/environment/basement/Flower3.png" type="Texture" id=10]
 [ext_resource path="res://level2 art/environment/basement/Flower2.png" type="Texture" id=11]
@@ -22,19 +22,23 @@
 [ext_resource path="res://ToolBar.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Description.tscn" type="PackedScene" id=21]
 [ext_resource path="res://lightUp.tscn" type="PackedScene" id=22]
-[ext_resource path="res://level2 art/environment/basement/dark_layer.png" type="Texture" id=23]
+[ext_resource path="res://off1.png" type="Texture" id=23]
 [ext_resource path="res://Interact.gd" type="Script" id=24]
 [ext_resource path="res://blur1.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Layer.gd" type="Script" id=26]
+[ext_resource path="res://Guide1.tscn" type="PackedScene" id=27]
+[ext_resource path="res://music/ch2_main_scene.wav" type="AudioStream" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 24, 8 )
+extents = Vector2( 8, 8 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "lightup"
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="Animation" id=4]
 length = 3.0
 step = 1.0
 tracks/0/type = "value"
@@ -50,6 +54,15 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.862745 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 24, 112 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 40, 112 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 32, 88 )
+
 [node name="Basement" type="Node2D"]
 script = ExtResource( 15 )
 player_path = "/root/Basement/YSort/Player"
@@ -59,81 +72,759 @@ scene_path = "/root/Basement"
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( -1, 7, 0, -65536, 7, 0, -65535, 7, 0, -65534, 7, 0, -65533, 7, 0, -65532, 7, 0, -65531, 7, 0, -65530, 7, 0, 65535, 7, 0, 0, 3, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 7, 0, 131071, 7, 0, 65536, 3, 0, 65538, 4, 0, 65539, 4, 0, 65540, 4, 0, 65541, 4, 0, 65542, 7, 0, 196607, 7, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 7, 0, 262143, 7, 0, 196608, 8, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 8, 0, 196614, 7, 0, 327679, 7, 0, 262144, 8, 0, 262145, 8, 0, 262146, 8, 0, 262147, 8, 0, 262148, 8, 0, 262149, 8, 0, 262150, 7, 0, 393215, 7, 0, 327680, 8, 0, 327681, 8, 0, 327682, 8, 0, 327683, 8, 0, 327684, 8, 0, 327685, 8, 0, 327686, 7, 0, 458751, 7, 0, 393216, 7, 0, 393217, 7, 0, 393218, 7, 0, 393219, 7, 0, 393220, 7, 0, 393221, 7, 0, 393222, 7, 0 )
+tile_data = PoolIntArray( -4, 7, 0, -3, 7, 0, -2, 7, 0, -1, 7, 0, -65536, 7, 0, -65535, 7, 0, -65534, 7, 0, -65533, 7, 0, -65532, 7, 0, -65531, 7, 0, -65530, 7, 0, -65529, 7, 0, -65528, 7, 0, -65527, 7, 0, 65532, 7, 0, 65533, 6, 0, 65534, 6, 0, 65535, 6, 0, 0, 3, 0, 2, 6, 0, 3, 6, 0, 4, 6, 0, 5, 6, 0, 6, 6, 0, 7, 6, 0, 8, 6, 0, 9, 7, 0, 131068, 7, 0, 131069, 6, 0, 131070, 6, 0, 131071, 6, 0, 65536, 3, 0, 65538, 6, 0, 65539, 6, 0, 65540, 6, 0, 65541, 6, 0, 65542, 6, 0, 65543, 6, 0, 65544, 6, 0, 65545, 7, 0, 196604, 7, 0, 131081, 7, 0, 262140, 7, 0, 196617, 7, 0, 327676, 7, 0, 262153, 7, 0, 393212, 7, 0, 327689, 7, 0, 458748, 7, 0, 393225, 7, 0, 524284, 7, 0, 458761, 7, 0, 589820, 7, 0, 524297, 7, 0, 655356, 7, 0, 589833, 7, 0, 720892, 7, 0, 655369, 7, 0, 786428, 7, 0, 720905, 7, 0, 851964, 7, 0, 786441, 7, 0, 917500, 7, 0, 851977, 7, 0, 983036, 7, 0, 983037, 7, 0, 983038, 7, 0, 983039, 7, 0, 917504, 7, 0, 917505, 7, 0, 917506, 7, 0, 917507, 7, 0, 917508, 7, 0, 917509, 7, 0, 917510, 7, 0, 917511, 7, 0, 917512, 7, 0, 917513, 7, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 48, 112 )
+texture = ExtResource( 8 )
+
+[node name="Light2" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light2"]
+position = Vector2( 48, 24 )
+shape = SubResource( 1 )
+
+[node name="Light" type="Sprite" parent="Light2"]
+position = Vector2( 64, 8 )
+texture = ExtResource( 5 )
+
+[node name="Interact" type="Sprite" parent="Light2"]
+script = ExtResource( 24 )
+id = "420-1"
+
+[node name="off" type="Sprite" parent="Light2"]
+position = Vector2( 44, 20 )
+texture = ExtResource( 7 )
+
+[node name="on" type="Sprite" parent="Light2"]
+visible = false
+position = Vector2( 44, 20 )
+texture = ExtResource( 23 )
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="Flower7" type="Sprite" parent="YSort"]
-position = Vector2( 31, 74 )
-texture = ExtResource( 7 )
+[node name="grass" type="StaticBody2D" parent="YSort"]
+position = Vector2( 72, 152 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Flower8" type="Sprite" parent="YSort"]
-position = Vector2( 50, 74 )
-texture = ExtResource( 8 )
-
-[node name="Flower9" type="Sprite" parent="YSort"]
-position = Vector2( 69, 74 )
-texture = ExtResource( 4 )
-
-[node name="Grass" type="Sprite" parent="YSort"]
-position = Vector2( 28, 87 )
+[node name="Grass" type="Sprite" parent="YSort/grass"]
 texture = ExtResource( 12 )
 
-[node name="Flower3" type="Sprite" parent="YSort"]
-position = Vector2( 42, 87 )
-texture = ExtResource( 10 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass"]
+shape = SubResource( 2 )
 
-[node name="Grass2" type="Sprite" parent="YSort"]
-position = Vector2( 58, 87 )
+[node name="grass2" type="StaticBody2D" parent="YSort"]
+position = Vector2( 40, 200 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass2"]
 texture = ExtResource( 12 )
 
-[node name="Flower4" type="Sprite" parent="YSort"]
-position = Vector2( 73, 87 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass2"]
+shape = SubResource( 2 )
+
+[node name="grass3" type="StaticBody2D" parent="YSort"]
+position = Vector2( 24, 200 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass3"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass3"]
+shape = SubResource( 2 )
+
+[node name="grass4" type="StaticBody2D" parent="YSort"]
+position = Vector2( 8, 184 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass4"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass4"]
+shape = SubResource( 2 )
+
+[node name="grass5" type="StaticBody2D" parent="YSort"]
+position = Vector2( -8, 168 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass5"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass5"]
+shape = SubResource( 2 )
+
+[node name="grass6" type="StaticBody2D" parent="YSort"]
+position = Vector2( 40, 168 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass6"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass6"]
+shape = SubResource( 2 )
+
+[node name="grass7" type="StaticBody2D" parent="YSort"]
+position = Vector2( 24, 152 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass7"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass7"]
+shape = SubResource( 2 )
+
+[node name="grass8" type="StaticBody2D" parent="YSort"]
+position = Vector2( 8, 136 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass8"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass8"]
+shape = SubResource( 2 )
+
+[node name="grass9" type="StaticBody2D" parent="YSort"]
+position = Vector2( 8, 120 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass9"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass9"]
+shape = SubResource( 2 )
+
+[node name="grass10" type="StaticBody2D" parent="YSort"]
+position = Vector2( -24, 152 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass10"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass10"]
+shape = SubResource( 2 )
+
+[node name="grass11" type="StaticBody2D" parent="YSort"]
+position = Vector2( -24, 136 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass11"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass11"]
+shape = SubResource( 2 )
+
+[node name="grass12" type="StaticBody2D" parent="YSort"]
+position = Vector2( -24, 120 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass12"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass12"]
+shape = SubResource( 2 )
+
+[node name="grass13" type="StaticBody2D" parent="YSort"]
+position = Vector2( -24, 104 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass13"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass13"]
+shape = SubResource( 2 )
+
+[node name="grass14" type="StaticBody2D" parent="YSort"]
+position = Vector2( 24, 104 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass14"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass14"]
+shape = SubResource( 2 )
+
+[node name="grass15" type="StaticBody2D" parent="YSort"]
+position = Vector2( 88, 120 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass15"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass15"]
+shape = SubResource( 2 )
+
+[node name="grass16" type="StaticBody2D" parent="YSort"]
+position = Vector2( 88, 136 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass16"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass16"]
+shape = SubResource( 2 )
+
+[node name="grass17" type="StaticBody2D" parent="YSort"]
+position = Vector2( 72, 200 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass17"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass17"]
+shape = SubResource( 2 )
+
+[node name="grass18" type="StaticBody2D" parent="YSort"]
+position = Vector2( 88, 184 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass18"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass18"]
+shape = SubResource( 2 )
+
+[node name="grass19" type="StaticBody2D" parent="YSort"]
+position = Vector2( 104, 168 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass19"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass19"]
+shape = SubResource( 2 )
+
+[node name="grass20" type="StaticBody2D" parent="YSort"]
+position = Vector2( 120, 152 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass20"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass20"]
+shape = SubResource( 2 )
+
+[node name="grass21" type="StaticBody2D" parent="YSort"]
+position = Vector2( 120, 136 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass21"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass21"]
+shape = SubResource( 2 )
+
+[node name="grass22" type="StaticBody2D" parent="YSort"]
+position = Vector2( 120, 120 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass22"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass22"]
+shape = SubResource( 2 )
+
+[node name="grass23" type="StaticBody2D" parent="YSort"]
+position = Vector2( 120, 104 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass23"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass23"]
+shape = SubResource( 2 )
+
+[node name="grass24" type="StaticBody2D" parent="YSort"]
+position = Vector2( 104, 88 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass24"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass24"]
+shape = SubResource( 2 )
+
+[node name="grass25" type="StaticBody2D" parent="YSort"]
+position = Vector2( 56, 88 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass25"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass25"]
+shape = SubResource( 2 )
+
+[node name="grass26" type="StaticBody2D" parent="YSort"]
+position = Vector2( 40, 88 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass26"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass26"]
+shape = SubResource( 2 )
+
+[node name="grass27" type="StaticBody2D" parent="YSort"]
+position = Vector2( -8, 88 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass27"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass27"]
+shape = SubResource( 2 )
+
+[node name="grass28" type="StaticBody2D" parent="YSort"]
+position = Vector2( 88, 72 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass28"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass28"]
+shape = SubResource( 2 )
+
+[node name="grass29" type="StaticBody2D" parent="YSort"]
+position = Vector2( 8, 72 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass29"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass29"]
+shape = SubResource( 2 )
+
+[node name="grass30" type="StaticBody2D" parent="YSort"]
+position = Vector2( 72, 56 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass30"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass30"]
+shape = SubResource( 2 )
+
+[node name="grass31" type="StaticBody2D" parent="YSort"]
+position = Vector2( 56, 56 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass31"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass31"]
+shape = SubResource( 2 )
+
+[node name="grass32" type="StaticBody2D" parent="YSort"]
+position = Vector2( 40, 56 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass32"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass32"]
+shape = SubResource( 2 )
+
+[node name="grass33" type="StaticBody2D" parent="YSort"]
+position = Vector2( 24, 56 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Grass" type="Sprite" parent="YSort/grass33"]
+texture = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/grass33"]
+shape = SubResource( 2 )
+
+[node name="flower" type="StaticBody2D" parent="YSort"]
+position = Vector2( 104, 136 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower1" type="Sprite" parent="YSort/flower"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower"]
+shape = SubResource( 2 )
+
+[node name="flower5" type="StaticBody2D" parent="YSort"]
+position = Vector2( 104, 120 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower1" type="Sprite" parent="YSort/flower5"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower5"]
+shape = SubResource( 2 )
+
+[node name="flower6" type="StaticBody2D" parent="YSort"]
+position = Vector2( -8, 136 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower1" type="Sprite" parent="YSort/flower6"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower6"]
+shape = SubResource( 2 )
+
+[node name="flower7" type="StaticBody2D" parent="YSort"]
+position = Vector2( -8, 120 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower1" type="Sprite" parent="YSort/flower7"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower7"]
+shape = SubResource( 2 )
+
+[node name="flower2" type="StaticBody2D" parent="YSort"]
+position = Vector2( 88, 104 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower2" type="Sprite" parent="YSort/flower2"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower2"]
+shape = SubResource( 2 )
+
+[node name="flower8" type="StaticBody2D" parent="YSort"]
+position = Vector2( 72, 88 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower2" type="Sprite" parent="YSort/flower8"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower8"]
+shape = SubResource( 2 )
+
+[node name="flower9" type="StaticBody2D" parent="YSort"]
+position = Vector2( 72, 168 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower2" type="Sprite" parent="YSort/flower9"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower9"]
+shape = SubResource( 2 )
+
+[node name="flower10" type="StaticBody2D" parent="YSort"]
+position = Vector2( 88, 152 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower2" type="Sprite" parent="YSort/flower10"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower10"]
+shape = SubResource( 2 )
+
+[node name="flower11" type="StaticBody2D" parent="YSort"]
+position = Vector2( 24, 168 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower2" type="Sprite" parent="YSort/flower11"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower11"]
+shape = SubResource( 2 )
+
+[node name="flower12" type="StaticBody2D" parent="YSort"]
+position = Vector2( 8, 152 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower2" type="Sprite" parent="YSort/flower12"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower12"]
+shape = SubResource( 2 )
+
+[node name="flower13" type="StaticBody2D" parent="YSort"]
+position = Vector2( 8, 104 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower2" type="Sprite" parent="YSort/flower13"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower13"]
+shape = SubResource( 2 )
+
+[node name="flower14" type="StaticBody2D" parent="YSort"]
+position = Vector2( 24, 88 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower2" type="Sprite" parent="YSort/flower14"]
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower14"]
+shape = SubResource( 2 )
+
+[node name="flower3" type="StaticBody2D" parent="YSort"]
+position = Vector2( 104, 104 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower4" type="Sprite" parent="YSort/flower3"]
 texture = ExtResource( 6 )
 
-[node name="Grass3" type="Sprite" parent="YSort"]
-position = Vector2( 89, 87 )
-texture = ExtResource( 12 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower3"]
+shape = SubResource( 2 )
 
-[node name="Grass4" type="Sprite" parent="YSort"]
-position = Vector2( 89, 61 )
-texture = ExtResource( 12 )
+[node name="flower23" type="StaticBody2D" parent="YSort"]
+position = Vector2( 72, 184 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Flower5" type="Sprite" parent="YSort"]
-position = Vector2( 88, 48 )
-texture = ExtResource( 11 )
+[node name="Flower4" type="Sprite" parent="YSort/flower23"]
+texture = ExtResource( 6 )
 
-[node name="Grass5" type="Sprite" parent="YSort"]
-position = Vector2( 73, 48 )
-texture = ExtResource( 12 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower23"]
+shape = SubResource( 2 )
 
-[node name="Flower6" type="Sprite" parent="YSort"]
-position = Vector2( 57, 48 )
+[node name="flower24" type="StaticBody2D" parent="YSort"]
+position = Vector2( 88, 168 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower4" type="Sprite" parent="YSort/flower24"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower24"]
+shape = SubResource( 2 )
+
+[node name="flower25" type="StaticBody2D" parent="YSort"]
+position = Vector2( 104, 152 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower4" type="Sprite" parent="YSort/flower25"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower25"]
+shape = SubResource( 2 )
+
+[node name="flower15" type="StaticBody2D" parent="YSort"]
+position = Vector2( 88, 88 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower4" type="Sprite" parent="YSort/flower15"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower15"]
+shape = SubResource( 2 )
+
+[node name="flower16" type="StaticBody2D" parent="YSort"]
+position = Vector2( 72, 72 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower4" type="Sprite" parent="YSort/flower16"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower16"]
+shape = SubResource( 2 )
+
+[node name="flower17" type="StaticBody2D" parent="YSort"]
+position = Vector2( 24, 184 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower4" type="Sprite" parent="YSort/flower17"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower17"]
+shape = SubResource( 2 )
+
+[node name="flower18" type="StaticBody2D" parent="YSort"]
+position = Vector2( 8, 168 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower4" type="Sprite" parent="YSort/flower18"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower18"]
+shape = SubResource( 2 )
+
+[node name="flower19" type="StaticBody2D" parent="YSort"]
+position = Vector2( -8, 152 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower4" type="Sprite" parent="YSort/flower19"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower19"]
+shape = SubResource( 2 )
+
+[node name="flower20" type="StaticBody2D" parent="YSort"]
+position = Vector2( -8, 104 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower4" type="Sprite" parent="YSort/flower20"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower20"]
+shape = SubResource( 2 )
+
+[node name="flower21" type="StaticBody2D" parent="YSort"]
+position = Vector2( 8, 88 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower4" type="Sprite" parent="YSort/flower21"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower21"]
+shape = SubResource( 2 )
+
+[node name="flower22" type="StaticBody2D" parent="YSort"]
+position = Vector2( 24, 72 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower4" type="Sprite" parent="YSort/flower22"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower22"]
+shape = SubResource( 2 )
+
+[node name="flower4" type="StaticBody2D" parent="YSort"]
+position = Vector2( 56, 72 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Flower3" type="Sprite" parent="YSort/flower4"]
 texture = ExtResource( 10 )
 
-[node name="Grass6" type="Sprite" parent="YSort"]
-position = Vector2( 42, 48 )
-texture = ExtResource( 12 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower4"]
+shape = SubResource( 2 )
 
-[node name="Grass7" type="Sprite" parent="YSort"]
-position = Vector2( 12, 48 )
-texture = ExtResource( 12 )
+[node name="flower26" type="StaticBody2D" parent="YSort"]
+position = Vector2( 40, 72 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Grass8" type="Sprite" parent="YSort"]
-position = Vector2( 12, 74 )
-texture = ExtResource( 12 )
+[node name="Flower3" type="Sprite" parent="YSort/flower26"]
+texture = ExtResource( 10 )
 
-[node name="Flower2" type="Sprite" parent="YSort"]
-position = Vector2( 12, 87 )
-texture = ExtResource( 11 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower26"]
+shape = SubResource( 2 )
 
-[node name="Flower1" type="Sprite" parent="YSort"]
-position = Vector2( 87, 74 )
-texture = ExtResource( 2 )
+[node name="flower27" type="StaticBody2D" parent="YSort"]
+position = Vector2( 40, 184 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Flower10" type="Sprite" parent="YSort"]
-position = Vector2( 9.5, 61 )
-texture = ExtResource( 2 )
+[node name="Flower3" type="Sprite" parent="YSort/flower27"]
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/flower27"]
+shape = SubResource( 2 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 8, 40 )
@@ -179,6 +870,10 @@ position = Vector2( -96, -56 )
 scale = Vector2( 0.8, 0.8 )
 z_index = 1
 
+[node name="Guide2" parent="YSort/Player/Camera2D/Lightup" instance=ExtResource( 27 )]
+position = Vector2( 60, 64 )
+scale = Vector2( 1.25, 1.25 )
+
 [node name="blur" parent="YSort/Player/Camera2D" instance=ExtResource( 25 )]
 visible = false
 
@@ -188,7 +883,7 @@ player_path = "/root/Basement/YSort/Player"
 
 [node name="Issac" type="StaticBody2D" parent="YSort"]
 visible = false
-position = Vector2( 72, 56 )
+position = Vector2( 72, 104 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -198,33 +893,36 @@ position = Vector2( 0, -8 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Issac"]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 disabled = true
-
-[node name="Light2" type="StaticBody2D" parent="."]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Light2"]
-position = Vector2( 64, 24 )
-shape = SubResource( 2 )
-
-[node name="Light" type="Sprite" parent="Light2"]
-position = Vector2( 64, 8 )
-texture = ExtResource( 5 )
-
-[node name="Interact" type="Sprite" parent="Light2"]
-script = ExtResource( 24 )
-id = "420-1"
 
 [node name="Layer" type="Node2D" parent="."]
 script = ExtResource( 26 )
 
 [node name="Sprite" type="Sprite" parent="Layer"]
 modulate = Color( 1, 1, 1, 0.862745 )
-position = Vector2( 48, 48 )
-texture = ExtResource( 23 )
+position = Vector2( 50, 107 )
+texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Layer"]
-anims/lightup = SubResource( 3 )
+anims/lightup = SubResource( 4 )
+
+[node name="Block" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+position = Vector2( -24, 112 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Block"]
+position = Vector2( 104, 112 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Block"]
+position = Vector2( 32, 136 )
+shape = SubResource( 7 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 28 )

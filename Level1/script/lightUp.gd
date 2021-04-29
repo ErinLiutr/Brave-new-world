@@ -173,12 +173,19 @@ func confirm():
 	_stop_show()
 	get_node("/root/Basement/Light2/Interact").id = "420-2"
 	get_node("/root/Basement/Layer")._play()
+	get_node("/root/Basement/Light2/off").hide()
+	get_node("/root/Basement/Light2/on").show()
 	get_node("/root/Basement/YSort/Issac").show()
 	get_node("/root/Basement/YSort/Issac/CollisionShape2D").disabled = false
+	for node in get_node("/root/Basement/Block").get_children():
+		node.disabled = true
 
 func _start_show():
-	showing = true
+	get_node("Guide2")._start_show()
 	show()
+	
+func _start_show2():
+	showing = true
 	
 func _stop_show():
 	showing = false

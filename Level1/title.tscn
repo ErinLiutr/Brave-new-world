@@ -81,7 +81,7 @@ visible = false
 script = ExtResource( 14 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Chapter"]
-margin_left = 80.0
+margin_left = 72.0
 margin_top = 8.0
 margin_right = 168.0
 margin_bottom = 120.0

@@ -156,7 +156,7 @@ func _physics_process(delta):
 				var door_diff = position.y - get_parent().get_parent().get_node("door").position.y
 				if abs(door_diff) < 0.1:
 					canMove = false
-					get_node("/root/Corridor")._next()
+					get_node("Camera2D/Chapter2")._play_fadein()
 			if get_parent().get_parent().name == "Room2":
 				var up_diff1 = position - Vector2(40, 8)
 				var up_diff2 = position - Vector2(56, 8)
@@ -279,9 +279,15 @@ func interact(result):
 					elif choice == "open":
 						new_choice.get_node("choice").text = "VIEW"
 						node.get_node("Choices").choice_results.append("password")
+					elif choice == "laptoppw":
+						new_choice.get_node("choice").text = "UNLOCK"
+						node.get_node("Choices").choice_results.append("laptop")
 					elif choice == "key":
 						new_choice.get_node("choice").text = "VIEW"
 						node.get_node("Choices").choice_results.append("key")
+					elif choice == "message":
+						new_choice.get_node("choice").text = "VIEW"
+						node.get_node("Choices").choice_results.append("message")
 					elif choice == "lightup":
 						new_choice.get_node("choice").text = "VIEW"
 						node.get_node("Choices").choice_results.append("lightup")

@@ -81,6 +81,10 @@ func handle_selection(_current_selection):
 			new_choice.get_node("choice").text = "PLAY RECORDING"
 			desc.get_node("Choices").choice_results.append("recording")
 			desc.get_node("Choices/GridContainer").add_child(new_choice)
+		elif choice == "recording1":
+			new_choice.get_node("choice").text = "PLAY RECORDING"
+			desc.get_node("Choices").choice_results.append("recording1")
+			desc.get_node("Choices/GridContainer").add_child(new_choice)
 		else:
 			idx -= 1
 	

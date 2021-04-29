@@ -154,7 +154,6 @@ scale = Vector2( 0.8, 0.8 )
 stream = ExtResource( 20 )
 
 [node name="Enemy" parent="YSort" instance=ExtResource( 25 )]
-
 position = Vector2( 253.333, 246.666 )
 scale = Vector2( 1.5, 1.5 )
 collision_layer = 15

@@ -30,15 +30,41 @@ func handle_selection(destination, id):
 			node.hide()
 		invent_node.item_ids.append(str(id))
 		if str(id) == "402" or str(id) == "410":
-			if invent_node.item_ids.has("402") and invent_node.item_ids.has("410"):
+			if invent_node.item_ids.has("402") and invent_node.item_ids.has("410") and invent_node.item_ids.has("401"):
+				get_node("/root/2ndfloor/YSort/Player").canMove = false
+				get_node("/root/2ndfloor/YSort/Player/Camera2D/DialogBox").show()
+				get_node("/root/2ndfloor/YSort/Player/Camera2D/DialogBox")._start("148")
+				get_node("/root/2ndfloor/YSort/Player/Camera2D/DialogBox").next_dialog = "127"
+				#get_node("/root/2ndfloor").room_inst.get_node("YSort/Police/Interact").id = "108"
+			elif invent_node.item_ids.has("402") and invent_node.item_ids.has("410"):
 				get_node("/root/2ndfloor/YSort/Player").canMove = false
 				get_node("/root/2ndfloor/YSort/Player/Camera2D/DialogBox").show()
 				get_node("/root/2ndfloor/YSort/Player/Camera2D/DialogBox")._start("127")
-				get_node("/root/2ndfloor").room_inst.get_node("YSort/Police/Interact").id = "108"
+				#get_node("/root/2ndfloor").room_inst.get_node("YSort/Police/Interact").id = "108"
+		if str(id) == "401":
+			if invent_node.item_ids.has("402") and invent_node.item_ids.has("410") and invent_node.item_ids.has("401"):
+				get_node("/root/3rdfloor/YSort/Player").canMove = false
+				get_node("/root/3rdfloor/YSort/Player/Camera2D/DialogBox").show()
+				get_node("/root/3rdfloor/YSort/Player/Camera2D/DialogBox")._start("148")
+		if str(id) == "404":
+			get_node(player_path).canMove = false
+			get_node(player_path + "/Camera2D/DialogBox").show()
+			get_node(player_path + "/Camera2D/DialogBox")._start("147")
+			var ids = invent_node.item_ids
+			if ids.has("402") and ids.has("410") and ids.has("404") and ids.has("401") and ids.has("411"):
+				get_node(player_path + "/Camera2D/DialogBox").next_dialog = "151"
+		if ["401", "402", "410", "411"].has(str(id)):
+			var ids = invent_node.item_ids
+			if ids.has("402") and ids.has("410") and ids.has("404") and ids.has("401") and ids.has("411"):
+				get_node(player_path).canMove = false
+				get_node(player_path + "/Camera2D/DialogBox").show()
+				get_node(player_path + "/Camera2D/DialogBox")._start("151")
 		if str(id) == "215":
 			get_node("/root/Room/YSort/table/bottle/Interact").id = "216-2"
 		elif str(id) == "207":
 			get_node("/root/Room/YSort/cabinet1/Interact").id = "217-3"
+		elif str(id) == "402":
+			get_node("/root/2ndfloor/YSort/shelf1/Interact").id = "416-2"
 		elif str(id) == "101":
 			get_node("/root/Prologue/YSort/Drain/Interact").id = "105-1"
 			get_node("/root/Prologue/YSort/Drain/Sprite").show()
@@ -94,16 +120,26 @@ func handle_selection(destination, id):
 		get_node(player_path + "/Camera2D/Password")._start_show()
 		get_parent().get_parent().get_parent()._stop_show()
 		get_node(player_path).canMove = false
+	elif destination == "laptop":
+		get_node(player_path + "/Camera2D/blur").show()
+		get_node(player_path + "/Camera2D/Lines")._start_show()
+		get_node(player_path).canMove = false
+	elif destination == "message":
+		get_node(player_path + "/Camera2D/Message")._start_show()
+		#get_parent().get_parent().get_parent()._stop_show()
+		get_node(player_path).canMove = false
 	elif destination == "memo":
 		get_parent().get_parent().get_parent()._stop_show()
 		get_node(player_path).canMove = false
-		get_node(player_path + "/Camera2D/DialogBox").show()
-		get_node(player_path + "/Camera2D/DialogBox")._start("136")
+		get_node(player_path + "/Camera2D/Memo")._start_show()
 	elif destination == "recording":
 		get_parent().get_parent().get_parent()._stop_show()
 		get_node(player_path).canMove = false
-		get_node(player_path + "/Camera2D/DialogBox").show()
-		get_node(player_path + "/Camera2D/DialogBox")._start("137")
+		get_node(player_path + "/Camera2D/Recording1")._start_show()
+	elif destination == "recording1":
+		get_parent().get_parent().get_parent()._stop_show()
+		get_node(player_path).canMove = false
+		get_node(player_path + "/Camera2D/Recording2")._start_show()
 	elif destination == "lightup":
 		get_node("/root/Basement/YSort/Player/Camera2D/blur").show()
 		get_node("/root/Basement/YSort/Player/Camera2D/Lightup")._start_show()
@@ -251,7 +287,6 @@ func handle_selection(destination, id):
 		node.get_node("Choices").show()
 	elif destination == "inspection":
 		get_node("/root/2ndfloor/YSort/Player").canMove = false
-		get_node("/root/2ndfloor/YSort/shelf1/Interact").id = "421-2"
 		var node = get_node("/root/2ndfloor/YSort/Player/Camera2D/Description")
 		node.get_node("Choices/Description").text = invent_node.get_info("402", "description")
 		node.get_node("Choices/Name").text = invent_node.get_info("402", "name")
@@ -287,7 +322,6 @@ func handle_selection(destination, id):
 		node.get_node("Choices").show()
 	elif destination == "close":
 		get_parent().get_parent()._stop_show()
-		print(str(id))
 		if str(id) == "105" and get_node("/root/Prologue/YSort/Drain/Interact").asked:
 			get_node("/root/Prologue/YSort/Player").canMove = false
 			get_node("/root/Prologue/YSort/Player/Camera2D/DialogBox").show()

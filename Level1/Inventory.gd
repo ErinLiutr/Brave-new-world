@@ -42,6 +42,8 @@ func init():
 #	if (get_node("NinePatchRect/GridContainer").item_ids != ):
 	get_node("NinePatchRect/GridContainer").item_ids = []
 	for id in item_ids:
+		if id == "414":
+			continue
 		var new_item = inventory_item.instance()
 		new_item.name = str(id)
 		new_item.get_node("unequip").hide()

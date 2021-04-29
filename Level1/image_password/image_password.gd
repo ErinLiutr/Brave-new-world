@@ -15,10 +15,10 @@ var pressed = false
 var cancel = false
 export var player_path = ""
 func _ready():
-	get_node("pic1").texture = load(images[0])
-	get_node("pic2").texture = load(images[0])
-	get_node("pic3").texture = load(images[0])
-	get_node("pic4").texture = load(images[0])
+	get_node("Screen/pic1").texture = load(images[0])
+	get_node("Screen/pic2").texture = load(images[0])
+	get_node("Screen/pic3").texture = load(images[0])
+	get_node("Screen/pic4").texture = load(images[0])
 	set_physics_process(true)
 	set_process_unhandled_key_input(true)
 	
@@ -38,51 +38,54 @@ func _physics_process(delta):
 		# set the box color
 		if cancel:
 			_stop_show()
-			get_node(player_path).canMove = true		
+			get_node(player_path).canMove = true
 		if pressed and counter > 10:
 			print(stats)
 			if (stats == answer):
 				print("Correct !")
 				win = true
-				self.z_index = 0
-				$win/PopupMenu.rect_global_position = Vector2(get_parent().global_position.x - 48, get_parent().global_position.y - 44)
-				$win.set_process_unhandled_key_input(true)
-				$win/PopupMenu.popup()
+				#self.z_index = 0
+				$Screen.hide()
+				$win/win/PopupMenu.rect_global_position = Vector2(get_parent().get_parent().global_position.x - 48, get_parent().get_parent().global_position.y - 44)
+				$win/win.set_process_unhandled_key_input(true)
+				$win/win/PopupMenu.show()
 				set_physics_process(false)
 			else:
 				print("Wrong!")
 				lose = true
-				self.z_index = 0
-				$lose/PopupMenu.rect_global_position = Vector2(get_parent().global_position.x - 48, get_parent().global_position.y - 44)
-				$lose.set_process_unhandled_key_input(true)
-				$lose/PopupMenu.popup()
+				#self.z_index = 0
+				$Screen.hide()
+				$lose/lose/PopupMenu.rect_global_position = Vector2(get_parent().get_parent().global_position.x - 48, get_parent().get_parent().global_position.y - 44)
+				$lose/lose.set_process_unhandled_key_input(true)
+				$lose/lose/PopupMenu.show()
+				print($lose/lose/PopupMenu.rect_global_position)
 				set_physics_process(false)
 		if 0 == cur:
-			$select1.visible = true
+			$Screen/select1.visible = true
 	#		$"rec1".color = highlight
 		else:
-			$select1.visible = false
+			$Screen/select1.visible = false
 	#		$"rec1".color = normal
 		if 1 == cur:
-			$select2.visible = true
+			$Screen/select2.visible = true
 	#		$"rec2".color = highlight
 		else:
-			$select2.visible = false
+			$Screen/select2.visible = false
 	#		$"rec2".color = normal
 		if 2 == cur:
-			$select3.visible = true
+			$Screen/select3.visible = true
 	#		$"rec3".color = highlight
 		else:
-			$select3.visible = false
+			$Screen/select3.visible = false
 	#		$"rec3".color = normal
 		if 3 == cur:
-			$select4.visible = true
+			$Screen/select4.visible = true
 	#		$"rec4".color = highlight
 		else:
-			$select4.visible = false
+			$Screen/select4.visible = false
 	#		$"rec4".color = normal			
-		pressed = false
-		cancel = false
+	pressed = false
+	cancel = false
 		
 func _reset():
 	counter = 0
@@ -97,8 +100,8 @@ func _input(event):
 	if showing:
 		if event is InputEventKey:
 			if event.pressed and event.scancode == KEY_UP:
-				$up.visible = true
-				$up/Timer.start()
+				$Screen/up.visible = true
+				$Screen/up/Timer.start()
 				var new_idx = (stats[cur]-1)
 				if (new_idx < 0):
 					new_idx = 3
@@ -106,53 +109,56 @@ func _input(event):
 					new_idx = 0
 				print(new_idx)
 				stats[cur] = new_idx
-				get_node("pic%d"%(cur+1)).texture = load(images[new_idx-1])
+				get_node("Screen/pic%d"%(cur+1)).texture = load(images[new_idx-1])
 
 		if event is InputEventKey:
 			if event.pressed and event.scancode == KEY_DOWN:
-				$down.visible = true
-				$down/Timer.start()
+				$Screen/down.visible = true
+				$Screen/down/Timer.start()
 				var new_idx = (stats[cur]+1) % 4
 				if (new_idx < 0):
 					new_idx = 3
 				if (new_idx > 3):
 					new_idx = 0
 				stats[cur] = new_idx
-				get_node("pic%d"%(cur+1)).texture = load(images[new_idx-1])
+				get_node("Screen/pic%d"%(cur+1)).texture = load(images[new_idx-1])
 
 		if event is InputEventKey:
 			if event.pressed and event.scancode == KEY_LEFT:
-				$left.visible = true
-				$left/Timer.start()
+				$Screen/left.visible = true
+				$Screen/left/Timer.start()
 				cur = (cur-1) % 4
 				if (cur == -1):
 					cur = 3
 		if event is InputEventKey:
 			if event.pressed and event.scancode == KEY_RIGHT:
-				$right.visible = true
-				$right/Timer.start()
+				$Screen/right.visible = true
+				$Screen/right/Timer.start()
 				cur = (cur+1) % 4
 				if (cur == 4):
 					cur = 0
 
 func _on_Timer_timeout():
-	$up.visible = false
+	$Screen/up.visible = false
 
 func _on_Timer_timeout_down():
-	$down.visible = false
+	$Screen/down.visible = false
 
 func _on_Timer_timeout_left():
-	$left.visible = false
+	$Screen/left.visible = false
 
 func _on_Timer_timeout_right():
-	$right.visible = false
+	$Screen/right.visible = false
 
 func _start_show():
-	counter = 0
-	set_physics_process(true)
 	show()
+	get_node("Guide")._start_show()
+	
+func _start_show2():
 	self.z_index = 5
 	showing = true
+	counter = 0
+	set_physics_process(true)
 	
 func _stop_show():
 	showing = false

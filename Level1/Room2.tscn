@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://tileset4.tres" type="TileSet" id=1]
 [ext_resource path="res://Room2.gd" type="Script" id=2]
@@ -30,6 +30,12 @@
 [ext_resource path="res://Interact_env.gd" type="Script" id=28]
 [ext_resource path="res://image_password/image_password.tscn" type="PackedScene" id=29]
 [ext_resource path="res://blur1.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Memo.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Recording.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Recording1.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Lydia.gd" type="Script" id=34]
+[ext_resource path="res://Chapter2.tscn" type="PackedScene" id=35]
+[ext_resource path="res://music/ch2_main_scene.wav" type="AudioStream" id=36]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 24 )
@@ -137,6 +143,17 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 1
 player_path = "/root/Room2/YSort/Player"
 
+[node name="Recording1" parent="YSort/Player/Camera2D" instance=ExtResource( 32 )]
+player_path = "/root/Room2/YSort/Player"
+
+[node name="Memo" parent="YSort/Player/Camera2D" instance=ExtResource( 31 )]
+player_path = "/root/Room2/YSort/Player"
+
+[node name="Chapter2" parent="YSort/Player/Camera2D" instance=ExtResource( 35 )]
+
+[node name="Recording2" parent="YSort/Player/Camera2D" instance=ExtResource( 33 )]
+player_path = "/root/Room2/YSort/Player"
+
 [node name="Inventory" parent="YSort/Player/Camera2D" instance=ExtResource( 3 )]
 scale = Vector2( 0.9, 0.9 )
 player_path = "/root/Room2/YSort/Player"
@@ -190,6 +207,7 @@ script = ExtResource( 26 )
 
 [node name="Lydia" type="StaticBody2D" parent="YSort"]
 position = Vector2( 216, -56 )
+script = ExtResource( 34 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -322,3 +340,7 @@ id = "129"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Block"]
 position = Vector2( 216, 64 )
 shape = SubResource( 7 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 36 )
+autoplay = true

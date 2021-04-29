@@ -130,7 +130,7 @@ func _physics_process(delta):
 					get_node("/root/Epilogue")._progress()
 					hide()
 				elif title:
-					get_node("/root/Epilogue")._return()
+					get_node("/root/Epilogue/Credit")._play()
 					hide()
 				elif door:
 					get_node("/root/Corridor/door")._open()
@@ -174,6 +174,10 @@ func _start(id):
 	combat3 = false
 	for node in ["NPC", "MC", "Pearl", "MC1", "Lydia", "CJ", "Police", "Issac"]:
 			get_node(node).hide()
+	if id == "129":
+		var ids = get_node("/root/Room2/YSort/Player/Camera2D/Inventory").item_ids
+		if !((ids.has("402") and ids.has("410") and ids.has("414")) or (ids.has("402") and ids.has("410") and ids.has("401") and ids.has("404") and ids.has("411"))):
+			id = "17"
 	if id == "00":
 		hide()
 		if player_path != "":
@@ -231,10 +235,18 @@ func _start(id):
 	if id == "101":
 		get_node("/root/Corridor/YSort/CJ/Interact").id = "00"
 		get_node("/root/Corridor/YSort/CJ/Interact").done = true
+	if id == "114":
+		get_node("/root/Room2/YSort/Lydia").pw = true
 	if id == "121":
 		get_node("/root/Room2/YSort/Police/Interact").id = "108"
 	if id == "128":
 		get_node("/root/Room2/YSort/Player/Camera2D/Inventory").item_ids.append("407-1")
+	if id == "149":
+		if !get_node("/root/Room2/YSort/Player/Camera2D/Inventory").item_ids.has("411"):
+			get_node("/root/Room2/YSort/Player/Camera2D/Inventory").item_ids.append("411")
+			var ids = get_node("/root/Room2/YSort/Player/Camera2D/Inventory").item_ids
+			if ids.has("402") and ids.has("410") and ids.has("404") and ids.has("401") and ids.has("411"):
+				next_dialog = "151"
 
 func _print_dialogue(text):
 	get_node("RichTextLabel").show()
@@ -266,6 +278,26 @@ func _show_choices(title, choices, close):
 		elif choice["text"] == "PICK ISSAC'S PHONE":
 			var items = get_node(player_path + "/Camera2D/Inventory").item_ids
 			if !items.has("402") or !items.has("410") or items.has("407-1") or items.has("407-2"):
+				continue
+		elif choice["text"] == "ASK ABOUT RECORDING":
+			var items = get_node(player_path + "/Camera2D/Inventory").item_ids
+			if !items.has("402") or !items.has("410") or !items.has("401"):
+				continue
+		elif choice["text"] == "ASK ABOUT ISSAC'S MEMO":
+			var items = get_node(player_path + "/Camera2D/Inventory").item_ids
+			if !items.has("407-2"):
+				continue
+		elif choice["text"] == "ASK ABOUT LAPTOP PASSWORD":
+			var items = get_node(player_path + "/Camera2D/Inventory").item_ids
+			if !get_node("/root/Room2/YSort/Lydia").pw:
+				continue
+		elif choice["text"] == "A is guilty":
+			var ids = get_node(player_path + "/Camera2D/Inventory").item_ids
+			if !(ids.has("402") and ids.has("410") and ids.has("414")):
+				continue
+		elif choice["text"] == "Lydia is guilty":
+			var ids = get_node(player_path + "/Camera2D/Inventory").item_ids
+			if !(ids.has("402") and ids.has("410") and ids.has("404") and ids.has("401") and ids.has("411")):
 				continue
 		var new_choice = choice_item.instance()
 		new_choice.name = "choice" + str(idx)

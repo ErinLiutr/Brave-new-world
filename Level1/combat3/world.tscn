@@ -150,7 +150,6 @@ __meta__ = {
 wait_time = 0.3
 
 [node name="Enemy" parent="YSort" instance=ExtResource( 28 )]
-
 position = Vector2( 253.333, 246.666 )
 scale = Vector2( 1.5, 1.5 )
 

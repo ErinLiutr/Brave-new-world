@@ -315,12 +315,20 @@
     "picture": "Phone",
     "path": ""
   },
-  "408": {
+  "408-1": {
     "name": "Laptop",
     "item_name": "Lydia’s laptop",
-    "description": "Lydia’s laptop.",
-    "options": [],
-    "picture": "Laptop",
+    "description": "Lydia’s laptop. Locked.",
+    "options": ["laptoppw"],
+    "picture": "",
+    "path": ""
+  },
+  "408-2": {
+    "name": "Laptop",
+    "item_name": "Lydia’s laptop",
+    "description": "Lydia’s laptop. Unlocked.",
+    "options": ["message"],
+    "picture": "",
     "path": ""
   },
   "410": {
@@ -330,6 +338,14 @@
     "options": ["pick"],
     "picture": "Maintain",
     "path": "/root/2ndfloor/YSort/desk1/maintain"
+  },
+  "411": {
+    "name": "Recording",
+    "item_name": "CJ’s recording",
+    "description": "CJ’s recording",
+    "options": ["recording1"],
+    "picture": "Recording",
+    "path": ""
   },
   "412": {
     "name": "Portrait",

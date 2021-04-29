@@ -695,6 +695,7 @@
       {"text": "ASK ABOUT LYDIA AND A", "go_to": "118"},
       {"text": "ASK ABOUT ISSAC", "go_to": "119"},
       {"text": "ASK ABOUT THE ACCIDENT", "go_to": "120"},
+      {"text": "ASK ABOUT RECORDING", "go_to": "149"},
       {"text": "CLOSE", "go_to": "00"}
     ],
     "role": "CJ",
@@ -944,6 +945,42 @@
     "type": "dialog",
     "role": "MC",
     "text": ["It’s fine, Lydia’s out of town this weekend. You can give it to her when you come back from the trip."],
+    "next": ""
+  },
+  "147": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["About that contract, our investigation showed that ring belongs to Isaac's grandmother."],
+    "next": ""
+  },
+  "148": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["Mr. Detective, I just realized there’s a recording I forgot to tell you about. Might be helpful."],
+    "next": ""
+  },
+  "149": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["You know what I’m thinking? I’m guessing that Lydia bought extra insurance for Isaac too. I mean, we all know she got two amounts of insurance money after Isaac’s death."],
+    "next": ""
+  },
+  "150": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["I can tell that you are really close to solving the truth. Come find me when you are ready to summarize on clues you’ve collected."],
+    "next": ""
+  },
+  "151": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["By the way, if you think you’ve collected enough clues, come and find me."],
+    "next": ""
+  },
+  "152": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Perhaps you should show Isaac’s memo to Lydia. She deserves to know about it."],
     "next": ""
   }
 }

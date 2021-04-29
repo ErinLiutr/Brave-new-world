@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://level2 art/environment/2nd floor/Bed2.png" type="Texture" id=1]
 [ext_resource path="res://level2 art/environment/2nd floor/Paper2.png" type="Texture" id=2]
@@ -21,7 +21,7 @@
 [ext_resource path="res://level2 art/environment/2nd floor/Bed1.png" type="Texture" id=19]
 [ext_resource path="res://level2 art/environment/2nd floor/Drawing1.png" type="Texture" id=20]
 [ext_resource path="res://level2 art/environment/2nd floor/Chair1.png" type="Texture" id=21]
-[ext_resource path="res://level2 art/environment/2nd floor/Cabinet2.png" type="Texture" id=22]
+[ext_resource path="res://Memo.tscn" type="PackedScene" id=22]
 [ext_resource path="res://tileset4.tres" type="TileSet" id=23]
 [ext_resource path="res://EnvDesc.tscn" type="PackedScene" id=24]
 [ext_resource path="res://DialogBox.tscn" type="PackedScene" id=25]
@@ -40,6 +40,14 @@
 [ext_resource path="res://level2 art/item/carReport402.png" type="Texture" id=38]
 [ext_resource path="res://Interact_env.gd" type="Script" id=39]
 [ext_resource path="res://image_password/image_password.tscn" type="PackedScene" id=40]
+[ext_resource path="res://Recording.tscn" type="PackedScene" id=41]
+[ext_resource path="res://Recording1.tscn" type="PackedScene" id=42]
+[ext_resource path="res://shelf.png" type="Texture" id=43]
+[ext_resource path="res://blur1.tscn" type="PackedScene" id=44]
+[ext_resource path="res://Message.tscn" type="PackedScene" id=45]
+[ext_resource path="res://Message.gd" type="Script" id=46]
+[ext_resource path="res://Scene/PC_Password.tscn" type="PackedScene" id=47]
+[ext_resource path="res://music/ch2_main_scene.wav" type="AudioStream" id=48]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -273,14 +281,14 @@ texture = ExtResource( 38 )
 
 [node name="Sprite" type="Sprite" parent="YSort/shelf1"]
 position = Vector2( -6, -14 )
-texture = ExtResource( 22 )
+texture = ExtResource( 43 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/shelf1"]
 shape = SubResource( 3 )
 
 [node name="Interact" type="Sprite" parent="YSort/shelf1"]
 script = ExtResource( 37 )
-id = "421-1"
+id = "416-1"
 
 [node name="desk1" type="StaticBody2D" parent="YSort"]
 position = Vector2( -128, 88 )
@@ -359,6 +367,10 @@ texture = ExtResource( 12 )
 position = Vector2( -16, 0 )
 shape = SubResource( 6 )
 
+[node name="Interact" type="Sprite" parent="YSort/table/computer"]
+script = ExtResource( 37 )
+id = "408-1"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/table"]
 visible = false
 shape = SubResource( 7 )
@@ -431,6 +443,30 @@ position = Vector2( -96, -56 )
 scale = Vector2( 0.8, 0.8 )
 player_path = "/root/2ndfloor/YSort/Player"
 
+[node name="Memo" parent="YSort/Player/Camera2D" instance=ExtResource( 22 )]
+player_path = "/root/2ndfloor/YSort/Player"
+
+[node name="Message" parent="YSort/Player/Camera2D" instance=ExtResource( 45 )]
+visible = false
+z_index = 1
+script = ExtResource( 46 )
+player_path = "/root/2ndfloor/YSort/Player"
+
+[node name="Recording2" parent="YSort/Player/Camera2D" instance=ExtResource( 42 )]
+player_path = "/root/2ndfloor/YSort/Player"
+
+[node name="blur" parent="YSort/Player/Camera2D" instance=ExtResource( 44 )]
+visible = false
+
+[node name="Recording1" parent="YSort/Player/Camera2D" instance=ExtResource( 41 )]
+player_path = "/root/2ndfloor/YSort/Player"
+
+[node name="Lines" parent="YSort/Player/Camera2D" instance=ExtResource( 47 )]
+visible = false
+position = Vector2( -112, -72 )
+z_index = 1
+player_path = "/root/2ndfloor/YSort/Player"
+
 [node name="desk" type="StaticBody2D" parent="YSort"]
 position = Vector2( 248, 56 )
 __meta__ = {
@@ -481,3 +517,7 @@ shape = SubResource( 11 )
 [node name="Sprite2" type="Sprite" parent="YSort/cabinet"]
 position = Vector2( -20, -19 )
 texture = ExtResource( 6 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 48 )
+autoplay = true

@@ -14,9 +14,9 @@ func _unhandled_key_input(event):
 		pressed = false
 
 func _physics_process(delta):
-	if get_parent().win:
+	if get_parent().get_parent().win:
 		if pressed:
 			get_node("PopupMenu").hide()
-			get_parent()._unlock()
+			get_parent().get_parent()._unlock()
 			set_process_unhandled_key_input(false)
 	pressed = false

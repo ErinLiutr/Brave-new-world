@@ -24,6 +24,9 @@ func _return(win):
 	TheRoot.add_child(previous_scene)
 	previous_scene.get_node("YSort/Player").canMove = true
 	if win:
+		previous_scene.get_node("YSort/Pearl").hide()
+		previous_scene.get_node("YSort/Pearl/CollisionShape2D").disabled = true
+		previous_scene.get_node("Block/CollisionShape2D2").disabled = true
 		previous_scene._downstairs()
 
 func _restart():

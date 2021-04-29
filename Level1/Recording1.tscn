@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://new_dynamicfontmini.tres" type="DynamicFont" id=2]
+[ext_resource path="res://new_dynamicfontsmall.tres" type="DynamicFont" id=3]
+[ext_resource path="res://menu.png" type="Texture" id=4]
+[ext_resource path="res://Memo.gd" type="Script" id=5]
+
+[node name="Recording" type="Node2D"]
+visible = false
+z_index = 1
+script = ExtResource( 5 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = -104.0
+margin_top = -56.0
+margin_right = 104.0
+margin_bottom = 56.0
+texture = ExtResource( 4 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="NinePatchRect"]
+margin_left = 8.0
+margin_top = 4.0
+margin_right = 72.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Recording"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="NinePatchRect"]
+margin_left = 177.335
+margin_top = 99.3371
+margin_right = 241.335
+margin_bottom = 113.337
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "[Esc] Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+margin_left = 8.0
+margin_top = 20.0
+margin_right = 200.0
+margin_bottom = 132.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "A: Lydia convinced me to buy some extra accident insurance the other day.
+CJ: Why? Did you buy it?
+A: I did. But I’m sure she's onto something.
+CJ: Like she’s planning to murder you? No way.
+A: She got parts of our car repaired but didn’t change the brake pads. It doesn’t seem right.
+CJ: You’re being paranoid, man. Just ask her about this.
+A: I don’t know, CJ. She always got tons of excuses anyways.
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

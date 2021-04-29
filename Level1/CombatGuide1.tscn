@@ -1,0 +1,111 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Guide.gd" type="Script" id=1]
+[ext_resource path="res://menu.png" type="Texture" id=2]
+[ext_resource path="res://new_dynamicfontmini.tres" type="DynamicFont" id=3]
+[ext_resource path="res://combat3/guide1.png" type="Texture" id=4]
+[ext_resource path="res://new_dynamicfontsmall.tres" type="DynamicFont" id=5]
+
+[node name="Guide" type="Sprite"]
+position = Vector2( -53.9268, -2.69363 )
+z_index = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = -20.0
+margin_top = -54.0
+margin_right = 124.0
+margin_bottom = 57.0
+texture = ExtResource( 2 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 51.7991, 1.0079 )
+scale = Vector2( 0.229266, 0.231344 )
+texture = ExtResource( 4 )
+
+[node name="Control" type="Panel" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_left = -1.90735e-07
+anchor_top = 9.53674e-08
+anchor_right = -1.90735e-07
+anchor_bottom = 9.53674e-08
+margin_left = -101.0
+margin_top = -45.0
+margin_right = -16.0
+margin_bottom = 53.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchor_top = -0.0176923
+anchor_bottom = -0.0176922
+margin_left = -96.2413
+margin_top = -41.1407
+margin_right = -5.2413
+margin_bottom = 62.8593
+custom_fonts/font = ExtResource( 3 )
+custom_constants/line_spacing = 0
+text = "Welcom to Project: Brave New World!
+
+Look around the room to view and 
+pick up items, some of them will help 
+you understand the story and idenify 
+the criminal. You need to find all the 
+necessary items in a room in order to 
+start \"combat\" with the NPC. Winning 
+the \"combat\" game will automatically 
+send you to the next room. Have no 
+clue where to start? Try to talk to the 
+NPC  standing in every room first!
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 80.0
+margin_top = 46.0
+margin_right = 120.0
+margin_bottom = 52.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="continue" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 39.0
+margin_right = 166.0
+margin_bottom = 70.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = ExtResource( 5 )
+text = "[Enter] Continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 45.0
+margin_right = 166.0
+margin_bottom = 76.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = ExtResource( 5 )
+text = "[Esc] Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
