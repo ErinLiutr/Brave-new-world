@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/PopupWin.gd" type="Script" id=1]
-[ext_resource path="res://combat/art/Succed_Option_BG.png" type="Texture" id=4]
+[ext_resource path="res://lose.jpeg" type="Texture" id=2]
 [ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=5]
 
 [node name="PopupWin" type="Node2D"]
@@ -20,7 +20,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 107.215, 68.0919 )
 scale = Vector2( 1.502, 1.234 )
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 
 [node name="win" type="Label" parent="."]
 margin_left = 239.982

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://combat/art/Replay2.png" type="Texture" id=1]
 [ext_resource path="res://combat/art/Quit1.png" type="Texture" id=2]
-[ext_resource path="res://combat/art/Failed_Option_BG.png" type="Texture" id=3]
+[ext_resource path="res://lose.jpeg" type="Texture" id=3]
 [ext_resource path="res://Scripts/Popup.gd" type="Script" id=4]
 [ext_resource path="res://combat/art/Quit2.png" type="Texture" id=5]
 [ext_resource path="res://combat/art/Replay1.png" type="Texture" id=6]

@@ -6,6 +6,7 @@ var showing = false
 
 var pressed = false
 var counter = 0
+var lose = false
 
 func _ready():
 	set_physics_process(true)
@@ -16,21 +17,34 @@ func _unhandled_key_input(event):
 		pressed = true
 	elif event.is_action_released("ui_cancel"):
 		pressed = false
-
-func _on_LineEdit_text_entered(new_text):
-	txtLabel = get_node("LineEdit").text
+#
+#func _on_LineEdit_text_entered(new_text):
+#	txtLabel = get_node("LineEdit").text
 
 func _physics_process(delta):
 	if showing:
 		counter += 1
 		if pressed and counter > 10:
 			_stop_show()
-		if (txtLabel == "7031"):
-			_stop_show()
-			get_node("/root/2ndfloor/YSort/table/computer/Interact").id = "408-2"
+#		if (txtLabel == "7013"):
+#			_stop_show()
+#			get_node("/root/2ndfloor/YSort/table/computer/Interact").id = "408-2"
+#		if (txtLabel != "7013"):
+#			get_node("lose/PopupMenu").popup()
+#			lose = true
 	pressed = false
 	
-	
+func _input(event):
+	if event is InputEventKey:
+			if event.pressed and event.scancode == KEY_ENTER:
+				if (txtLabel == "7013"):
+					_stop_show()
+					get_node("win/PopupMenu").popup()
+					get_node("/root/2ndfloor/YSort/table/computer/Interact").id = "408-2"
+				else:
+					get_node("lose/PopupMenu").popup()
+					lose = true
+
 func _stop_show():
 	showing = false
 	hide()
@@ -43,3 +57,4 @@ func _start_show():
 	show()
 	get_node("LineEdit").text = ""
 	
+

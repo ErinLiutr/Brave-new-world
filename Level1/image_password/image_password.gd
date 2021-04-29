@@ -40,9 +40,7 @@ func _physics_process(delta):
 			_stop_show()
 			get_node(player_path).canMove = true
 		if pressed and counter > 10:
-			print(stats)
 			if (stats == answer):
-				print("Correct !")
 				win = true
 				#self.z_index = 0
 				$Screen.hide()
