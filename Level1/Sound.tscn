@@ -49,10 +49,10 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="NinePatchRect"]
-margin_left = 98.6444
+margin_left = 93.6444
 margin_top = 38.3647
-margin_right = 166.644
-margin_bottom = 52.3647
+margin_right = 161.644
+margin_bottom = 54.3647
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "[Esc] Close"

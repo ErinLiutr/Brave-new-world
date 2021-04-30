@@ -270,7 +270,7 @@ margin_right = 0.0
 margin_bottom = 360.0
 
 [node name="PlayerLives" type="Node2D" parent="."]
-position = Vector2( -880.001, -226.666 )
+position = Vector2( -806.669, -226.666 )
 
 [node name="Life2" parent="PlayerLives" instance=ExtResource( 4 )]
 position = Vector2( 575.724, 634.674 )

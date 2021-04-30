@@ -87,9 +87,9 @@ __meta__ = {
 }
 
 [node name="continue" type="Label" parent="."]
-margin_left = 88.0
+margin_left = 85.0
 margin_top = 39.0
-margin_right = 166.0
+margin_right = 171.0
 margin_bottom = 70.0
 rect_scale = Vector2( 0.4, 0.4 )
 custom_fonts/font = ExtResource( 5 )
@@ -99,9 +99,9 @@ __meta__ = {
 }
 
 [node name="quit" type="Label" parent="."]
-margin_left = 88.0
+margin_left = 85.0
 margin_top = 45.0
-margin_right = 166.0
+margin_right = 163.0
 margin_bottom = 76.0
 rect_scale = Vector2( 0.4, 0.4 )
 custom_fonts/font = ExtResource( 5 )

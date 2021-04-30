@@ -15,7 +15,6 @@ __meta__ = {
 }
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
-visible = true
 margin_right = 223.0
 margin_bottom = 207.0
 rect_scale = Vector2( 0.5, 0.5 )
