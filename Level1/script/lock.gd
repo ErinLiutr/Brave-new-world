@@ -117,6 +117,7 @@ func _open():
 func _reset():
 	win = false
 	lose = false
+	print("reset")
 	var root = get_tree().get_root()
 	var pos = get_node(".").position
 	root.get_node("Room/YSort/Player/Camera2D").remove_child(get_node("."))

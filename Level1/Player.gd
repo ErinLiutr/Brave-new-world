@@ -139,7 +139,6 @@ func _physics_process(delta):
 		#print(diff)
 		if abs(diff.x) < 0.1 && abs(diff.y) < 0.1:
 			moving = false
-			print(position)
 			if animate:
 				animate = false
 				get_parent().get_node("NPC").start_animate()
