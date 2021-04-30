@@ -72,7 +72,8 @@ func _handle_interaction():
 		next_scene.title_scene = this_scene
 		TheRoot.remove_child(this_scene)
 		TheRoot.add_child(next_scene)
-		next_scene._start("49")
+		next_scene.id = "49"
+		next_scene._start_play()
 	elif currentLabel == 4:
 		open = false
 		_close_menu()
@@ -82,7 +83,8 @@ func _handle_interaction():
 		next_scene.title_scene = this_scene
 		TheRoot.remove_child(this_scene)
 		TheRoot.add_child(next_scene)
-		next_scene._start("69")
+		next_scene.id = "69"
+		next_scene._start_play()
 	else:
 		open = false
 		_close_menu()
