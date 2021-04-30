@@ -123,7 +123,7 @@
     "type": "dialog",
     "role": "Pearl",
     "text": ["Poor kid. Seems like he commited suicide years ago. What A did was truly unforgivable. We need to find him."],
-    "next": ""
+    "next": "door1"
   },
   "17": {
     "type": "dialog",
@@ -517,7 +517,7 @@
   "80": {
     "type": "dialog",
     "role": "Pearl",
-    "text": ["We have the most advanced biomedical technology from all around the world. There will be a team of physicians, psychiatrists, philosophers, and lawyers who are the top of their fields that provide you customized services throughout your participation in the program.", "However, you won’t be able to proceed unless you recognize your vice."],
+    "text": ["We have the most advanced biomedical technology from all around the world.", "There will be a team of physicians, psychiatrists, philosophers, and lawyers who are the top of their fields that provide you customized services throughout your participation in the program.", "However, you won’t be able to proceed unless you recognize your vice."],
     "next": "81"
   },
   "81": {
@@ -706,8 +706,8 @@
     "type": "choice",
     "choices": [
       {"text": "ASK ABOUT THE ACCIDENT", "go_to": "122"},
-      {"text": "ASK ABOUT A", "go_to": "123"},
-      {"text": "ASK ABOUT LYDIA", "go_to": "124"},
+      {"text": "ASK ABOUT A", "go_to": "124"},
+      {"text": "ASK ABOUT LYDIA", "go_to": "123"},
       {"text": "ASK ABOUT CJ", "go_to": "125"},
       {"text": "ASK ABOUT ISSAC", "go_to": "126"},
       {"text": "PICK ISSAC'S PHONE", "go_to": "128"},
@@ -832,7 +832,7 @@
     "type": "dialog",
     "role": "Police",
     "text": ["Maybe you should help us find the password. There might be some clues in his room."],
-    "next": ""
+    "next": "phone"
   },
   "129": {
     "title": "Please summarize on clues you’ve collected.",
@@ -963,7 +963,7 @@
     "type": "dialog",
     "role": "CJ",
     "text": ["You know what I’m thinking? I’m guessing that Lydia bought extra insurance for Isaac too. I mean, we all know she got two amounts of insurance money after Isaac’s death."],
-    "next": ""
+    "next": "recording"
   },
   "150": {
     "type": "dialog",
@@ -982,5 +982,11 @@
     "role": "Pearl",
     "text": ["Perhaps you should show Isaac’s memo to Lydia. She deserves to know about it."],
     "next": ""
+  },
+  "153": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["..."],
+    "next": "ending"
   }
 }

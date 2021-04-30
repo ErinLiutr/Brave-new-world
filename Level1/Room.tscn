@@ -1,11 +1,11 @@
-[gd_scene load_steps=105 format=2]
+[gd_scene load_steps=104 format=2]
 
 [ext_resource path="res://desk1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://cabinet2.png" type="Texture" id=3]
 [ext_resource path="res://tileset.tres" type="TileSet" id=4]
 [ext_resource path="res://blur.tscn" type="PackedScene" id=5]
-[ext_resource path="res://level2 art/environment/door.png" type="Texture" id=6]
+[ext_resource path="res://door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://chair1.png" type="Texture" id=7]
 [ext_resource path="res://bed.png" type="Texture" id=8]
 [ext_resource path="res://cabinet1.png" type="Texture" id=9]
@@ -33,7 +33,6 @@
 [ext_resource path="res://EnvDesc.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Interact4.gd" type="Script" id=32]
 [ext_resource path="res://Interact2.gd" type="Script" id=33]
-[ext_resource path="res://skeleton.png" type="Texture" id=34]
 [ext_resource path="res://Interact3.gd" type="Script" id=35]
 [ext_resource path="res://Interact5.gd" type="Script" id=36]
 [ext_resource path="res://Receipt.png" type="Texture" id=37]
@@ -179,7 +178,7 @@ extents = Vector2( 8, 8 )
 
 [sub_resource type="Animation" id=18]
 resource_name = "animation"
-length = 10.7
+length = 12.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -187,10 +186,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 7, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 9, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7, 9.8, 9.9, 10, 10.1, 10.2, 10.3, 10.4, 10.5, 10.6, 10.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 7, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 9, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7, 9.8, 9.9, 10, 10.1, 10.2, 10.3, 10.4, 10.5, 10.7, 10.8, 10.9, 11, 11.1, 11.2, 11.3, 11.4, 11.5, 11.6, 11.7, 11.8, 11.9, 12, 12.1, 12.2, 12.3, 12.4, 12.5, 12.6, 12.7, 12.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 109 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128 ]
 }
 
 [sub_resource type="RectangleShape2D" id=19]
@@ -228,6 +227,9 @@ texture = ExtResource( 68 )
 position = Vector2( 376, 368 )
 texture = ExtResource( 68 )
 
+[node name="door" parent="." instance=ExtResource( 6 )]
+position = Vector2( 152, 56 )
+
 [node name="paper2" type="StaticBody2D" parent="."]
 
 [node name="paper" type="Sprite" parent="paper2"]
@@ -245,15 +247,6 @@ item_name = "Paper"
 [node name="chair1" type="Sprite" parent="."]
 position = Vector2( 371.776, 368 )
 texture = ExtResource( 7 )
-
-[node name="Door" type="Node2D" parent="."]
-position = Vector2( 152, 48 )
-
-[node name="door" type="Sprite" parent="Door"]
-position = Vector2( 0, -7 )
-texture = ExtResource( 6 )
-hframes = 5
-frame = 4
 
 [node name="chair2" type="Sprite" parent="."]
 position = Vector2( 304, 136 )
@@ -334,7 +327,7 @@ shape = SubResource( 3 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 168.204, 102.982 )
+position = Vector2( 168, 104 )
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 position = Vector2( 0, -22.982 )
@@ -412,6 +405,8 @@ position = Vector2( 105.07, 16 )
 scale = Vector2( 0.146178, 0.149533 )
 z_index = 1
 script = ExtResource( 14 )
+type = "DialogBox"
+id = "01"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/NPC"]
 anims/RunDown = SubResource( 5 )
@@ -868,9 +863,9 @@ script = ExtResource( 96 )
 [node name="Sprite" type="Sprite" parent="YSort/Wardrobe/NPC"]
 position = Vector2( 0, -24 )
 texture = ExtResource( 94 )
-vframes = 22
+vframes = 26
 hframes = 5
-frame = 109
+frame = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Wardrobe/NPC"]
 position = Vector2( 8, 0 )
@@ -878,11 +873,6 @@ shape = SubResource( 17 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Wardrobe/NPC"]
 anims/animation = SubResource( 18 )
-
-[node name="Skeleton" type="Sprite" parent="YSort/Wardrobe/NPC"]
-visible = false
-position = Vector2( 9.5, -7.75 )
-texture = ExtResource( 34 )
 
 [node name="shirt" type="StaticBody2D" parent="YSort" groups=[
 "Persist",

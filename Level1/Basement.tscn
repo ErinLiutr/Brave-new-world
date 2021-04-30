@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://tileset4.tres" type="TileSet" id=1]
 [ext_resource path="res://level2 art/environment/basement/Flower1.png" type="Texture" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://Layer.gd" type="Script" id=26]
 [ext_resource path="res://Guide1.tscn" type="PackedScene" id=27]
 [ext_resource path="res://music/ch2_main_scene.wav" type="AudioStream" id=28]
+[ext_resource path="res://Ending.tscn" type="PackedScene" id=29]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -877,6 +878,8 @@ scale = Vector2( 1.25, 1.25 )
 [node name="blur" parent="YSort/Player/Camera2D" instance=ExtResource( 25 )]
 visible = false
 
+[node name="Ending" parent="YSort/Player/Camera2D" instance=ExtResource( 29 )]
+
 [node name="Sound" parent="YSort/Player/Camera2D" instance=ExtResource( 13 )]
 visible = false
 player_path = "/root/Basement/YSort/Player"
@@ -895,6 +898,11 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Issac"]
 shape = SubResource( 3 )
 disabled = true
+
+[node name="Interact" type="Sprite" parent="YSort/Issac"]
+script = ExtResource( 24 )
+type = "DialogBox"
+id = "153"
 
 [node name="Layer" type="Node2D" parent="."]
 script = ExtResource( 26 )

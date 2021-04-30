@@ -129,15 +129,18 @@ func handle_selection(destination, id):
 		#get_parent().get_parent().get_parent()._stop_show()
 		get_node(player_path).canMove = false
 	elif destination == "memo":
-		get_parent().get_parent().get_parent()._stop_show()
+		if (get_parent().get_parent().get_parent().name == "Inventory"):
+			get_parent().get_parent().get_parent()._stop_show()
 		get_node(player_path).canMove = false
 		get_node(player_path + "/Camera2D/Memo")._start_show()
 	elif destination == "recording":
-		get_parent().get_parent().get_parent()._stop_show()
+		if (get_parent().get_parent().get_parent().name == "Inventory"):
+			get_parent().get_parent().get_parent()._stop_show()
 		get_node(player_path).canMove = false
 		get_node(player_path + "/Camera2D/Recording1")._start_show()
 	elif destination == "recording1":
-		get_parent().get_parent().get_parent()._stop_show()
+		if (get_parent().get_parent().get_parent().name == "Inventory"):
+			get_parent().get_parent().get_parent()._stop_show()
 		get_node(player_path).canMove = false
 		get_node(player_path + "/Camera2D/Recording2")._start_show()
 	elif destination == "lightup":

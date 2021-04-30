@@ -36,7 +36,7 @@
 [ext_resource path="res://tile set-20210308T081956Z-001/tile set/roof3.png" type="Texture" id=34]
 [ext_resource path="res://tile set-20210308T081956Z-001/tile set/roof4.png" type="Texture" id=35]
 [ext_resource path="res://wall.png" type="Texture" id=36]
-[ext_resource path="res://wall1.png" type="Texture" id=37]
+[ext_resource path="res://wall2.png" type="Texture" id=37]
 [ext_resource path="res://black.png" type="Texture" id=38]
 
 [sub_resource type="RectangleShape2D" id=1]

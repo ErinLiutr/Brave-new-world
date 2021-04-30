@@ -2,6 +2,8 @@ extends Node2D
 
 var title_scene
 
+var corridor_scene = preload("res://Corridor.tscn")
+
 export var player_path = ""
 export var scene_path = ""
 
@@ -42,6 +44,26 @@ func load_game():
 func help():
 	get_node(player_path).canMove = false
 	get_node(player_path + "/Help").show()
+	
+func _progress():
+	var TheRoot = get_node("/root")
+	var this_scene = get_node(scene_path)
+	var next_scene = corridor_scene.instance()
+	next_scene.title_scene = title_scene
+	#next_scene.get_node("YSort/Player").canMove = false
+	var item_name
+	if this_scene.get_node("YSort/Player").equipment == "0" or this_scene.get_node("YSort/Player").equipment == "":
+		item_name = "0"
+	else:
+		item_name = this_scene.get_node("YSort/Player/Camera2D/Inventory").get_info(this_scene.get_node("YSort/Player").equipment, "picture")
+	next_scene.get_node("YSort/Player").equipment = this_scene.get_node("YSort/Player").equipment
+	next_scene.get_node("YSort/Player").set_equip(item_name)
+	next_scene.get_node("YSort/Player/Sprite").set_frame(8)
+	next_scene.get_node("YSort/Player/Camera2D/Sound/NinePatchRect/HSlider").value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
+	next_scene.get_node("YSort/Player/Camera2D/Inventory").item_ids = get_node("YSort/Player/Camera2D/Inventory").item_ids
+	TheRoot.remove_child(this_scene)
+	TheRoot.add_child(next_scene)
+	#next_scene.get_node("YSort/Player/Camera2D/Chapter2")._play_fadeout()
 	
 func _return():
 	var TheRoot = get_node("/root")

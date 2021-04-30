@@ -74,7 +74,7 @@ func _upstairs(pos):
 	TheRoot.remove_child(this_scene)
 	TheRoot.add_child(next_scene)
 	
-func _downstairs():
+func _downstairs(ending = null):
 	var TheRoot = get_node("/root")
 	var this_scene = get_node(scene_path)
 	var next_scene
@@ -89,6 +89,8 @@ func _downstairs():
 		item_name = "0"
 	else:
 		item_name = this_scene.get_node("YSort/Player/Camera2D/Inventory").get_info(this_scene.get_node("YSort/Player").equipment, "picture")
+	if ending != null:
+		next_scene.ending = ending
 	next_scene.get_node("YSort/Player").equipment = this_scene.get_node("YSort/Player").equipment
 	next_scene.get_node("YSort/Player").set_equip(item_name)
 	next_scene.get_node("YSort/Player").position = Vector2(8, 24)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/PopupWin.gd" type="Script" id=1]
-[ext_resource path="res://lose.jpeg" type="Texture" id=2]
+[ext_resource path="res://win.jpeg" type="Texture" id=2]
 [ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=5]
 
 [node name="PopupWin" type="Node2D"]

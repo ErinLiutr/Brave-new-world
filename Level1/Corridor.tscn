@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://tileset4.tres" type="TileSet" id=1]
-[ext_resource path="res://level2 art/environment/door.png" type="Texture" id=2]
+[ext_resource path="res://door.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://DialogBox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Inventory.tscn" type="PackedScene" id=5]
@@ -15,25 +15,7 @@
 [ext_resource path="res://Chapter2.tscn" type="PackedScene" id=13]
 [ext_resource path="res://music/ambience_prologue.wav" type="AudioStream" id=14]
 [ext_resource path="res://Corridor.gd" type="Script" id=15]
-[ext_resource path="res://door.gd" type="Script" id=16]
 [ext_resource path="res://Interact15.gd" type="Script" id=17]
-
-[sub_resource type="Animation" id=1]
-resource_name = "open"
-length = 2.0
-step = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4 ]
-}
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 5.90475, 6.22381 )
@@ -52,20 +34,7 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, 9, 0, 3, 5, 0, 4, 5, 0, 65536, 5, 0, 65537, 5, 0, 65538, 10, 0, 65539, 5, 0, 65540, 5, 0, 196607, 7, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 7, 0, 262143, 7, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 7, 0, 327679, 7, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 7, 0, 393215, 7, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 7, 0, 458751, 7, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 7, 0, 524287, 7, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 7, 0, 589823, 7, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 7, 0, 655359, 7, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 7, 0, 720895, 7, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 7, 0, 786431, 7, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 7, 0, 851967, 7, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 7, 0, 917503, 7, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 7, 0, 983039, 7, 0, 917504, 0, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 7, 0, 1048575, 7, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 7, 0, 1114111, 7, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 7, 0, 1179647, 7, 0, 1114112, 0, 0, 1114113, 0, 0, 1114114, 0, 0, 1114115, 0, 0, 1114116, 0, 0, 1114117, 7, 0, 1245183, 7, 0, 1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0, 1179651, 0, 0, 1179652, 0, 0, 1179653, 7, 0, 1310719, 7, 0, 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 0, 0, 1245188, 0, 0, 1245189, 7, 0, 1376255, 7, 0, 1310720, 0, 0, 1310721, 0, 0, 1310722, 0, 0, 1310723, 0, 0, 1310724, 0, 0, 1310725, 7, 0, 1441791, 7, 0, 1376256, 0, 0, 1376257, 0, 0, 1376258, 0, 0, 1376259, 0, 0, 1376260, 0, 0, 1376261, 7, 0, 1507327, 7, 0, 1441792, 7, 0, 1441793, 7, 0, 1441794, 7, 0, 1441795, 7, 0, 1441796, 7, 0, 1441797, 7, 0 )
 
-[node name="door" type="Node2D" parent="."]
-position = Vector2( 40, 24 )
-script = ExtResource( 16 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="door"]
-position = Vector2( 0, -15 )
-texture = ExtResource( 2 )
-hframes = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="door"]
-anims/open = SubResource( 1 )
+[node name="door" parent="." instance=ExtResource( 2 )]
 
 [node name="YSort" type="YSort" parent="."]
 

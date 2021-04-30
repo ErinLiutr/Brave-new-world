@@ -139,9 +139,16 @@ func _physics_process(delta):
 		#print(diff)
 		if abs(diff.x) < 0.1 && abs(diff.y) < 0.1:
 			moving = false
+			print(position)
 			if animate:
 				animate = false
 				get_parent().get_node("NPC").start_animate()
+			if get_parent().get_parent().name == "Room":
+				var up_diff = position - Vector2(152, 56)
+				if abs(up_diff.x) < 0.1 and abs(up_diff.y) < 0.1:
+					canMove = false
+					animationPlayer.stop()
+					get_node("/root/Room")._progress()
 			if get_parent().get_parent().name == "Corridor":
 				var lydia_diff = position.y - get_parent().get_node("Lydia").position.y
 				if abs(lydia_diff) < 0.1 and !get_node("/root/Corridor/YSort/Lydia/Interact").done:
@@ -286,7 +293,7 @@ func interact(result):
 						new_choice.get_node("choice").text = "VIEW"
 						node.get_node("Choices").choice_results.append("key")
 					elif choice == "message":
-						new_choice.get_node("choice").text = "VIEW"
+						new_choice.get_node("choice").text = "VIEW MESSAGE"
 						node.get_node("Choices").choice_results.append("message")
 					elif choice == "lightup":
 						new_choice.get_node("choice").text = "VIEW"

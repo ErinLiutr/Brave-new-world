@@ -27,7 +27,7 @@ func _return(win):
 		previous_scene.get_node("YSort/Pearl").hide()
 		previous_scene.get_node("YSort/Pearl/CollisionShape2D").disabled = true
 		previous_scene.get_node("Block/CollisionShape2D2").disabled = true
-		previous_scene._downstairs()
+		previous_scene._downstairs(1)
 
 func _restart():
 	var this_scene = self.get_node("World")

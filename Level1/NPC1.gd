@@ -11,10 +11,8 @@ func _ready():
 func _physics_process(delta):
 	
 	if animate and !animationPlayer.is_playing():
-		print("stop")
 		animate = false
-		get_node("Sprite").hide()
-		get_node("Skeleton").show()
+		#get_node("Sprite").hide()
 		get_parent().get_parent().get_node("Player/Camera2D/DialogBox").show()
 		get_parent().get_parent().get_node("Player/Camera2D/DialogBox")._start("16")
 

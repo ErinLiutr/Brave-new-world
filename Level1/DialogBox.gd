@@ -5,6 +5,7 @@ var combat_scene = preload("res://Combat.tscn")
 var combat2_scene = preload("res://Combat2.tscn")
 var combat3_scene = preload("res://Combat3.tscn")
 
+
 export var player_path = ""
 export var default_dialog = ""
 
@@ -21,6 +22,10 @@ var guide2 = false
 var prologue = false
 var title = false
 var door = false
+var door1 = false
+var phone = false
+var recording = false
+var ending = false
 
 var showing = false
 
@@ -127,13 +132,91 @@ func _physics_process(delta):
 					get_node("../Guide2")._start_show()
 					_start("00")
 				elif prologue:
-					get_node("/root/Epilogue")._progress()
 					hide()
 				elif title:
 					get_node("/root/Epilogue/Credit")._play()
 					hide()
+				elif ending:
+					get_node("/root/Basement/YSort/Player/Camera2D/Ending")._play_fadein()
+				elif phone:
+					hide()
+					var invent_node = get_node(player_path + "/Camera2D/Inventory")
+					var node = get_node(player_path + "/Camera2D/Description")
+					node.get_node("Choices/Description").text = invent_node.get_info("407-1", "description")
+					node.get_node("Choices/Name").text = invent_node.get_info("407-1", "name")
+					var idx = 0
+					var new_choice1 = choice_item.instance()
+					new_choice1.name = "choice" + str(idx)
+					if idx == 0:
+						new_choice1.get_node("selector").text = ">"
+					else:
+						new_choice1.get_node("selector").text = ""
+					new_choice1.get_node("choice").text = "PICK"
+					node.get_node("Choices").choice_results.append("pick")
+					node.get_node("Choices/GridContainer").add_child(new_choice1)
+					idx += 1
+					var new_choice = choice_item.instance()
+					new_choice.name = "choice" + str(idx)
+					if idx == 0:
+						new_choice.get_node("selector").text = ">"
+					else:
+						new_choice.get_node("selector").text = ""
+					new_choice.get_node("choice").text = "CLOSE"
+					node.get_node("Choices").choice_results.append("close")
+					node.get_node("Choices/GridContainer").add_child(new_choice)
+					node.get_node(invent_node.get_info("407-1", "picture")).show()
+					node.show()
+					node._start_show()
+					node.get_node("Choices").counter = 0
+					node.get_node("Choices").current_selection = 0
+					node.get_node("Choices").showing = true
+					node.get_node("Choices").item_id = "407-1"
+					node.get_node("Choices").show()
+				elif recording:
+					var invent_node = get_node(player_path + "/Camera2D/Inventory")
+					if invent_node.item_ids.has("411"):
+						_start("00")
+					else:
+						hide()
+						var node = get_node(player_path + "/Camera2D/Description")
+						node.get_node("Choices/Description").text = invent_node.get_info("411", "description")
+						node.get_node("Choices/Name").text = invent_node.get_info("411", "name")
+						var idx = 0
+						var new_choice1 = choice_item.instance()
+						new_choice1.name = "choice" + str(idx)
+						if idx == 0:
+							new_choice1.get_node("selector").text = ">"
+						else:
+							new_choice1.get_node("selector").text = ""
+						new_choice1.get_node("choice").text = "PICK"
+						node.get_node("Choices").choice_results.append("pick")
+						node.get_node("Choices/GridContainer").add_child(new_choice1)
+						idx += 1
+						var new_choice = choice_item.instance()
+						new_choice.name = "choice" + str(idx)
+						if idx == 0:
+							new_choice.get_node("selector").text = ">"
+						else:
+							new_choice.get_node("selector").text = ""
+						new_choice.get_node("choice").text = "CLOSE"
+						node.get_node("Choices").choice_results.append("close")
+						node.get_node("Choices/GridContainer").add_child(new_choice)
+						node.get_node(invent_node.get_info("411", "picture")).show()
+						node.show()
+						node._start_show()
+						node.get_node("Choices").counter = 0
+						node.get_node("Choices").current_selection = 0
+						node.get_node("Choices").showing = true
+						node.get_node("Choices").item_id = "411"
+						node.get_node("Choices").show()
 				elif door:
-					get_node("/root/Corridor/door")._open()
+					if get_node("/root/Corridor/door/Sprite").get_frame() != 0:
+						_start("00")
+					else:
+						get_node("/root/Corridor/door")._open()
+						hide()
+				elif door1:
+					get_node("/root/Room/door")._open()
 					hide()
 				elif next_dialog == "-1":
 					_start("00")
@@ -170,8 +253,12 @@ func _start(id):
 	prologue = false
 	title = false
 	door = false
+	door1 = false
 	combat2 = false
 	combat3 = false
+	phone = false
+	recording = false
+	ending = false
 	for node in ["NPC", "MC", "Pearl", "MC1", "Lydia", "CJ", "Police", "Issac"]:
 			get_node(node).hide()
 	if id == "129":
@@ -202,14 +289,22 @@ func _start(id):
 			guide2 = true
 		elif json[id]["next"] == "prologue":
 			prologue = true
+		elif json[id]["next"] == "recording":
+			recording = true
 		elif json[id]["next"] == "title":
 			title = true
+		elif json[id]["next"] == "phone":
+			phone = true
 		elif json[id]["next"] == "door":
 			door = true
+		elif json[id]["next"] == "door1":
+			door1 = true
 		elif json[id]["next"] == "combat2":
 			combat2 = true
 		elif json[id]["next"] == "combat3":
 			combat3 = true
+		elif json[id]["next"] == "ending":
+			ending = true
 		else:
 			next_dialog = json[id]["next"]
 		_print_dialogue(json[id]["text"])
@@ -230,23 +325,15 @@ func _start(id):
 		get_node("/root/Room/YSort/Player").equipment = ""
 		get_node("/root/Room/YSort/Player/Camera2D/ToolBar/Equipment/Check").hide()
 	if id == "96":
-		get_node("/root/Corridor/YSort/Lydia/Interact").id = "00"
+		#get_node("/root/Corridor/YSort/Lydia/Interact").id = "00"
 		get_node("/root/Corridor/YSort/Lydia/Interact").done = true
 	if id == "101":
-		get_node("/root/Corridor/YSort/CJ/Interact").id = "00"
+		#get_node("/root/Corridor/YSort/CJ/Interact").id = "00"
 		get_node("/root/Corridor/YSort/CJ/Interact").done = true
 	if id == "114":
 		get_node("/root/Room2/YSort/Lydia").pw = true
 	if id == "121":
 		get_node("/root/Room2/YSort/Police/Interact").id = "108"
-	if id == "128":
-		get_node("/root/Room2/YSort/Player/Camera2D/Inventory").item_ids.append("407-1")
-	if id == "149":
-		if !get_node("/root/Room2/YSort/Player/Camera2D/Inventory").item_ids.has("411"):
-			get_node("/root/Room2/YSort/Player/Camera2D/Inventory").item_ids.append("411")
-			var ids = get_node("/root/Room2/YSort/Player/Camera2D/Inventory").item_ids
-			if ids.has("402") and ids.has("410") and ids.has("404") and ids.has("401") and ids.has("411"):
-				next_dialog = "151"
 
 func _print_dialogue(text):
 	get_node("RichTextLabel").show()

@@ -1,8 +1,9 @@
 extends Node2D
 
 var title_scene
-
+var ending
 var second_inst
+var epilogue_scene = preload("res://Epilogue.tscn")
 
 export var player_path = ""
 export var scene_path = ""
@@ -59,6 +60,19 @@ func _upstairs():
 	TheRoot.add_child(next_scene)
 	next_scene.get_node("YSort/Player/Sprite").set_frame(4)
 	next_scene.get_node("YSort/Player").canMove = true
+
+func _ending():
+	var TheRoot = get_node("/root")
+	var this_scene = get_node(scene_path)
+	var next_scene = epilogue_scene.instance()
+	next_scene.title_scene = title_scene
+	TheRoot.remove_child(this_scene)
+	TheRoot.add_child(next_scene)
+	if ending == 0:
+		next_scene.id = "49"
+	else:
+		next_scene.id = "69"
+	next_scene._start_play()
 
 func _return():
 	var TheRoot = get_node("/root")
