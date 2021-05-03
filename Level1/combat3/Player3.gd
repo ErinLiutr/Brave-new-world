@@ -91,15 +91,20 @@ func add_life():
 		life_points += 1
 		$AddLife.visible = true
 		$AddLife/Timer.start()
-
+		$ItemAudio.play()
+		
 func add_points(pts):
+	if (pts == 1):
+		$CatchBulletAudio.play()
+	else:
+		$ItemAudio.play()
 	points = min(WIN, points + pts)
 	if (points <= WIN):
 		$"../../Label".set_text("SCORE: "+str(points))
 		$"AddPoints".set_text("+ "+str(pts) + " points")
 		$"AddPoints".visible = true
 		$AddPoints/Timer.start()
-		$"SpecialAudio".play()
+#		$"SpecialAudio".play()
 		
 func _bullet_sound(type):
 	if type=="bullet":
