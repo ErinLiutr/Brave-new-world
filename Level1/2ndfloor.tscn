@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://level2 art/environment/2nd floor/Bed2.png" type="Texture" id=1]
 [ext_resource path="res://level2 art/environment/2nd floor/Paper2.png" type="Texture" id=2]
@@ -47,7 +47,6 @@
 [ext_resource path="res://Message.tscn" type="PackedScene" id=45]
 [ext_resource path="res://Message.gd" type="Script" id=46]
 [ext_resource path="res://Scene/PC_Password.tscn" type="PackedScene" id=47]
-[ext_resource path="res://music/ch2_main_scene.wav" type="AudioStream" id=48]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -517,7 +516,3 @@ shape = SubResource( 11 )
 [node name="Sprite2" type="Sprite" parent="YSort/cabinet"]
 position = Vector2( -20, -19 )
 texture = ExtResource( 6 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 48 )
-autoplay = true

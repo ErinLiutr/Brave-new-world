@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://tileset4.tres" type="TileSet" id=1]
 [ext_resource path="res://Room2.gd" type="Script" id=2]
@@ -35,7 +35,6 @@
 [ext_resource path="res://Recording1.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Lydia.gd" type="Script" id=34]
 [ext_resource path="res://Chapter2.tscn" type="PackedScene" id=35]
-[ext_resource path="res://music/ch2_main_scene.wav" type="AudioStream" id=36]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 24 )
@@ -340,7 +339,3 @@ id = "129"
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Block"]
 position = Vector2( 216, 64 )
 shape = SubResource( 7 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 36 )
-autoplay = true

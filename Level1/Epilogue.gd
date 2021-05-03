@@ -9,6 +9,7 @@ func _return():
 	TheRoot.remove_child(this_scene)
 	title_scene.get_node("Sound2/NinePatchRect/HSlider").value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	TheRoot.add_child(title_scene)
+	MusicController.play_title()
 	
 func _start_play():
 	get_node("bed/Player/Camera2D/Ending")._play_fadeout()

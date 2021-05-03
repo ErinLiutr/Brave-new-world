@@ -23,6 +23,7 @@ func _return(win):
 	var this_scene = get_node("/root/Combat2")
 	TheRoot.remove_child(this_scene)
 	TheRoot.add_child(previous_scene)
+	MusicController.play_chapter2()
 	previous_scene.get_node("YSort/Player").canMove = true
 	if win:
 		previous_scene.get_node("YSort/Pearl").hide()

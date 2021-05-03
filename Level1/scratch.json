@@ -986,7 +986,115 @@
   "153": {
     "type": "dialog",
     "role": "Issac",
-    "text": ["..."],
+    "text": ["Hello there."],
+    "next": "154"
+  },
+  "154": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Hello. You must be Isaac."],
+    "next": "155"
+  },
+  "155": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["That is correct."],
+    "next": "156"
+  },
+  "156": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["But...how? You died in the car crash."],
+    "next": "157"
+  },
+  "157": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["I did. But now I’m back in my garden, my favorite place. What a dream.", "How’s Lydia doing?"],
+    "next": "158"
+  },
+  "158": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Not so well, I’d say."],
+    "next": "159"
+  },
+  "159": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["My death would be a shock to her, but I...I just couldn’t come up with another way out."],
+    "next": "160"
+  },
+  "160": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Wait a minute, what do you mean you couldn’t come up with another way out?"],
+    "next": "161"
+  },
+  "161": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["There was no way I could help restore the relationship of Lydia and A. My empathy with Lydia’s misery was constantly torturing me.", "Lydia wanted to murder A and every time I tried to talk her out of it, she just pretended that there never was a plan. When A convinced me to drive in that mountain, I sensed that he found out about Lydia’s plan. It was part of his revenge for me to die there.", "I hated that even though both of them attempted to commit horrible crimes, I could understand their feelings and feel the emotions they were experiencing...their anger, fear, despair...as if those were mine...", "...and there was my own frustration that I wasn’t able to save Lydia from that situation.", "I was desperate so I chose to run away. I took my last trip into a forest and when I looked into that lake, there was nothing but a face distorted by agony.", "That was when I finally made up my mind."],
+    "next": "162"
+  },
+  "162": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["And you decided to commit suicide?"],
+    "next": "163"
+  },
+  "163": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["Lydia would for sure grieve for a while. I bought extra insurance in hope that the money would make her life easier."],
+    "next": "164"
+  },
+  "164": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["It must be hard for you to bear all these. Thank you for telling me, Isaac.", "But I have to inform you that your confession will also change my conclusion on the case, after I wake up from this dream of course."],
+    "next": "165"
+  },
+  "165": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["No, you won’t."],
+    "next": "166"
+  },
+  "166": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["I’m sorry...what?"],
+    "next": "167"
+  },
+  "167": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["You wouldn’t admit that you lent me your car, and you shouldn’t. That avoids all the troubles."],
+    "next": "168"
+  },
+  "168": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["I don’t quite understand what you are talking about."],
+    "next": "169"
+  },
+  "169": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["This may sound crazy, but I don’t blame you for things you’ve done. You are a pathetic and horrible person, but you’ve also taught me a lot of precious things."],
+    "next": "170"
+  },
+  "170": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Isaac, I...", "...", "I was out of my mind...I don’t even understand why I would..."],
+    "next": "171"
+  },
+  "171": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["You know what, I find it hard to even hate you or despise you. Luckily, I wouldn’t be the one to judge.", "Now wake up, A."],
     "next": "ending"
   }
 }

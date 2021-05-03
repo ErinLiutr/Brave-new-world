@@ -19,6 +19,10 @@ config/name="Level1"
 run/main_scene="res://title.tscn"
 config/icon="res://cover_icon.png"
 
+[autoload]
+
+MusicController="*res://MusicController.tscn"
+
 [display]
 
 window/size/width=240

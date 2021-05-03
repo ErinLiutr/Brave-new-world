@@ -15,15 +15,15 @@ script = ExtResource( 6 )
 
 [node name="Description" parent="." instance=ExtResource( 4 )]
 visible = false
-position = Vector2( -42.3013, -53.1401 )
-scale = Vector2( 0.25, 0.25 )
+position = Vector2( -56.1941, -48.6806 )
+scale = Vector2( 0.22, 0.22 )
 script = ExtResource( 2 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-margin_left = 38.7608
-margin_top = -70.091
-margin_right = 125.761
-margin_bottom = 71.909
+margin_left = 17.0
+margin_top = -70.0
+margin_right = 126.0
+margin_bottom = 72.0
 texture = ExtResource( 1 )
 patch_margin_left = 6
 patch_margin_top = 6
@@ -34,15 +34,15 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
-margin_left = 8.39513
-margin_top = 10.3525
-margin_right = 77.3951
-margin_bottom = 129.352
+margin_left = 8.0
+margin_top = 10.0
+margin_right = 100.0
+margin_bottom = 129.0
 custom_constants/vseparation = 22
 custom_constants/hseparation = 25
-columns = 3
+columns = 4
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-col = 3
+col = 4

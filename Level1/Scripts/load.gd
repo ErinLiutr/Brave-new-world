@@ -63,6 +63,7 @@ func _progress():
 	next_scene.get_node("YSort/Player/Camera2D/Inventory").item_ids = get_node("YSort/Player/Camera2D/Inventory").item_ids
 	TheRoot.remove_child(this_scene)
 	TheRoot.add_child(next_scene)
+	MusicController.play_ambience()
 	#next_scene.get_node("YSort/Player/Camera2D/Chapter2")._play_fadeout()
 	
 func _return():
@@ -71,4 +72,5 @@ func _return():
 	TheRoot.remove_child(this_scene)
 	title_scene.get_node("Sound2/NinePatchRect/HSlider").value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	TheRoot.add_child(title_scene)
+	MusicController.play_title()
 

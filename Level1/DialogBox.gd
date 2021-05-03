@@ -96,6 +96,7 @@ func _physics_process(delta):
 					next_scene.previous_scene = this_scene
 					TheRoot.remove_child(this_scene)
 					TheRoot.add_child(next_scene)
+					MusicController.play_battle()
 					hide()
 				elif combat2:
 					var TheRoot = get_node("/root")
@@ -105,6 +106,7 @@ func _physics_process(delta):
 					#next_scene.next_scene = this_scene.base_scene.instance()
 					TheRoot.remove_child(this_scene)
 					TheRoot.add_child(next_scene)
+					MusicController.play_battle2()
 					hide()
 				elif combat3:
 					var TheRoot = get_node("/root")
@@ -114,6 +116,7 @@ func _physics_process(delta):
 					#next_scene.next_scene = this_scene.base_scene.instance()
 					TheRoot.remove_child(this_scene)
 					TheRoot.add_child(next_scene)
+					MusicController.play_battle2()
 					hide()
 				elif animate:
 					animate = false

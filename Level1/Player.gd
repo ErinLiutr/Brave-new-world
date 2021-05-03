@@ -195,6 +195,11 @@ func _physics_process(delta):
 					canMove = false
 					animationPlayer.stop()
 					get_node("/root/Basement")._upstairs()
+				var down_diff1 = position - Vector2(56, 168)
+				if abs(down_diff1.x) < 0.1 and abs(down_diff1.y) < 0.1:
+					canMove = false
+					get_node("Camera2D/DialogBox").show()
+					get_node("Camera2D/DialogBox")._start("153")
 			if get_parent().get_parent().name == "2ndfloor":
 				var up_diff1 = position - Vector2(40, 8)
 				var up_diff2 = position - Vector2(56, 8)

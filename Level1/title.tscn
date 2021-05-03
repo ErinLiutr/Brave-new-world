@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://cover2.png" type="Texture" id=1]
 [ext_resource path="res://Button.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Guide.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/title.gd" type="Script" id=6]
 [ext_resource path="res://Sound.tscn" type="PackedScene" id=7]
-[ext_resource path="res://music/theme1-v3slow.wav" type="AudioStream" id=8]
 [ext_resource path="res://Button2.gd" type="Script" id=9]
 [ext_resource path="res://button.tres" type="StyleBox" id=10]
 [ext_resource path="res://new_dynamicfontsmall.tres" type="DynamicFont" id=11]
@@ -70,11 +69,6 @@ position = Vector2( 121.622, 76.3674 )
 [node name="Guide" parent="." instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 115.052, 58.525 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-volume_db = -20.0
-autoplay = true
 
 [node name="Chapter" type="Sprite" parent="."]
 visible = false

@@ -24,6 +24,7 @@ func _ready():
 
 func _handle_interaction():
 	if currentLabel == 0:
+		MusicController.play_ambience()
 		open = false
 		_close_menu()
 		var TheRoot = get_node("/root")
@@ -36,6 +37,7 @@ func _handle_interaction():
 		TheRoot.remove_child(this_scene)
 		TheRoot.add_child(next_scene)
 	elif currentLabel == 1:
+		MusicController.play_chapter1()
 		open = false
 		_close_menu()
 		var TheRoot = get_node("/root")
@@ -49,6 +51,7 @@ func _handle_interaction():
 		TheRoot.add_child(next_scene)
 		next_scene.get_node("YSort/Player/Camera2D/Chapter1")._play_fadeout()
 	elif currentLabel == 2:
+		MusicController.play_chapter2()
 		open = false
 		_close_menu()
 		var TheRoot = get_node("/root")
@@ -58,12 +61,13 @@ func _handle_interaction():
 		next_scene.get_node("YSort/Player").canMove = false
 		next_scene.get_node("YSort/Player/Sprite").set_frame(8)
 		next_scene.get_node("YSort/Player/Camera2D/Sound/NinePatchRect/HSlider").value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
-		#next_scene.get_node("YSort/Player/Camera2D/Inventory").item_ids = ["101", "102", "103", "104", "407-1", "402", "410", "414", "401", "404", "411"]
-		next_scene.get_node("YSort/Player/Camera2D/Inventory").item_ids = ["101", "102", "103", "104"]
+		next_scene.get_node("YSort/Player/Camera2D/Inventory").item_ids = ["101", "102", "103", "104", "407-1", "402", "410", "414", "401", "404", "411"]
+		#next_scene.get_node("YSort/Player/Camera2D/Inventory").item_ids = ["101", "102", "103", "104"]
 		TheRoot.remove_child(this_scene)
 		TheRoot.add_child(next_scene)
 		next_scene.get_node("YSort/Player/Camera2D/Chapter2")._play_fadeout()
 	elif currentLabel == 3:
+		MusicController.play_ending()
 		open = false
 		_close_menu()
 		var TheRoot = get_node("/root")
@@ -75,6 +79,7 @@ func _handle_interaction():
 		next_scene.id = "49"
 		next_scene._start_play()
 	elif currentLabel == 4:
+		MusicController.play_ending()
 		open = false
 		_close_menu()
 		var TheRoot = get_node("/root")
