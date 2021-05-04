@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://combat3/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://combat/art/bleeding.png" type="Texture" id=2]
@@ -28,6 +28,8 @@
 [ext_resource path="res://combat3/Walls.gd" type="Script" id=26]
 [ext_resource path="res://combat3/ExtraLives.gd" type="Script" id=27]
 [ext_resource path="res://combat2/Enemy.tscn" type="PackedScene" id=28]
+[ext_resource path="res://combat2/catch.wav" type="AudioStream" id=29]
+[ext_resource path="res://combat2/item.wav" type="AudioStream" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 598.828, 10 )
@@ -111,11 +113,25 @@ position = Vector2( 93.6702, 479.292 )
 position = Vector2( 487.285, 1425.05 )
 scale = Vector2( 0.8, 0.8 )
 stream = ExtResource( 21 )
+volume_db = -20.0
+
+[node name="CatchBulletAudio" type="AudioStreamPlayer2D" parent="YSort/Player"]
+position = Vector2( -628.926, -536.307 )
+scale = Vector2( 6.66667, 6.66667 )
+stream = ExtResource( 29 )
+volume_db = -20.0
+
+[node name="ItemAudio" type="AudioStreamPlayer2D" parent="YSort/Player"]
+position = Vector2( -628.926, -536.307 )
+scale = Vector2( 6.66667, 6.66667 )
+stream = ExtResource( 30 )
+volume_db = -20.0
 
 [node name="SpecialAudio" type="AudioStreamPlayer2D" parent="YSort/Player"]
 position = Vector2( 487.285, 1425.05 )
 scale = Vector2( 0.8, 0.8 )
 stream = ExtResource( 20 )
+volume_db = -20.0
 
 [node name="AddLife" type="Label" parent="YSort/Player"]
 visible = false

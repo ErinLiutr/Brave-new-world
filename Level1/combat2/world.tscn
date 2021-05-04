@@ -149,21 +149,25 @@ wait_time = 0.3
 position = Vector2( 487.285, 1425.05 )
 scale = Vector2( 0.8, 0.8 )
 stream = ExtResource( 21 )
+volume_db = -20.0
 
 [node name="SpecialAudio" type="AudioStreamPlayer2D" parent="YSort/Player"]
 position = Vector2( 487.285, 1425.05 )
 scale = Vector2( 0.8, 0.8 )
 stream = ExtResource( 20 )
+volume_db = -20.0
 
 [node name="CatchBulletAudio" type="AudioStreamPlayer2D" parent="YSort/Player"]
 position = Vector2( -628.926, -536.307 )
 scale = Vector2( 6.66667, 6.66667 )
 stream = ExtResource( 31 )
+volume_db = -20.0
 
 [node name="ItemAudio" type="AudioStreamPlayer2D" parent="YSort/Player"]
 position = Vector2( -628.926, -536.307 )
 scale = Vector2( 6.66667, 6.66667 )
 stream = ExtResource( 32 )
+volume_db = -20.0
 
 [node name="Enemy" parent="YSort" instance=ExtResource( 25 )]
 position = Vector2( 253.333, 246.666 )

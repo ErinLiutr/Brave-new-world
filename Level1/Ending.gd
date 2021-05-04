@@ -15,11 +15,17 @@ func _ready():
 func _physics_process(delta):
 	if fadein and !animationPlayer.is_playing():
 		fadein = false
-		get_parent().get_parent().get_parent().get_parent()._ending()
+		if get_parent().get_parent().get_parent().get_parent().name == "Epilogue":
+			get_parent().get_parent().get_parent().get_parent()._prologue()
+		else:
+			get_parent().get_parent().get_parent().get_parent()._ending()
 	elif fadeout and !animationPlayer.is_playing():
 		fadeout = false
 		hide()
-		get_node("/root/Epilogue")._start()
+		if get_parent().get_parent().get_parent().get_parent().name == "Epilogue":
+			get_node("/root/Epilogue")._start()
+		else:
+			get_node("/root/Prologue")._start("88")
 		#get_node("../Guide")._start_show()
 		
 func _play_fadein():

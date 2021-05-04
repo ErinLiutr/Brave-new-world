@@ -570,7 +570,7 @@
   },
   "89": {
     "type": "dialog",
-    "role": "MC1",
+    "role": "MC",
     "text": ["Oh hey, I’m...", "My name is...ah...", " I...I don’t remember...How...how could I forget my name?? I...what happened to me?? What..."],
     "next": "90"
   },
@@ -582,7 +582,7 @@
   },
   "91": {
     "type": "dialog",
-    "role": "MC1",
+    "role": "MC",
     "text": ["I...I remember hearing someone say...a project...It has something to do with a new world..."],
     "next": "92"
   },
@@ -594,7 +594,7 @@
   },
   "93": {
     "type": "dialog",
-    "role": "MC1",
+    "role": "MC",
     "text": ["I think so. What is it about?"],
     "next": "94"
   },
@@ -606,7 +606,7 @@
   },
   "95": {
     "type": "dialog",
-    "role": "MC1",
+    "role": "MC",
     "text": ["There is a man...a criminal...I’m after him...and...he is in this project...", "I need to find him."],
     "next": "title"
   },

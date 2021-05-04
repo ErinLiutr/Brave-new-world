@@ -3,6 +3,8 @@ extends Node2D
 var title_scene
 var room_scene = preload("res://Room.tscn")
 
+var id = "25"
+
 export var player_path = ""
 export var scene_path = ""
 
@@ -65,8 +67,9 @@ func _progress():
 	next_scene.get_node("YSort/Player/Camera2D/Sound/NinePatchRect/HSlider").value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	next_scene.get_node("YSort/Player/Camera2D/Inventory").item_ids = get_node("YSort/Player/Camera2D/Inventory").item_ids
 	
-func _start():
+func _start(dialog_id):
 	print("start")
+	id = dialog_id
 	var player = get_node("YSort/Player")
 	player.canMove = false
 	player.sprite.set_frame(16)

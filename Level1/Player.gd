@@ -70,8 +70,10 @@ func _physics_process(delta):
 	if standing and !animationPlayer.is_playing():
 		standing = false
 		sprite.set_frame(12)
+		var id = get_node("/root/Prologue").id
+		print(id)
 		get_node("/root/Prologue/YSort/Player/Camera2D/DialogBox").show()
-		get_node("/root/Prologue/YSort/Player/Camera2D/DialogBox")._start("25")
+		get_node("/root/Prologue/YSort/Player/Camera2D/DialogBox")._start(id)
 	if !moving and canMove:
 		var resultUp = world.intersect_point(position + Vector2(0, -GRID))
 		var resultDown = world.intersect_point(position + Vector2(0, GRID))

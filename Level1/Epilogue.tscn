@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://ending art/machine.png" type="Texture" id=1]
 [ext_resource path="res://ending art/Left.png" type="Texture" id=2]
@@ -11,8 +11,7 @@
 [ext_resource path="res://DialogBox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Epilogue.gd" type="Script" id=10]
 [ext_resource path="res://Player1.gd" type="Script" id=11]
-[ext_resource path="res://ending art/image.png" type="Texture" id=12]
-[ext_resource path="res://Credit.gd" type="Script" id=13]
+[ext_resource path="res://Credit.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Ending.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Animation" id=1]
@@ -27,35 +26,6 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 2, 3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 1 ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "Anim"
-length = 10.0
-step = 1.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 3, 10 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 5, 10 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 1 ]
@@ -118,16 +88,4 @@ texture = ExtResource( 6 )
 position = Vector2( 25.1136, 67.7682 )
 texture = ExtResource( 3 )
 
-[node name="Credit" type="Node2D" parent="."]
-visible = false
-script = ExtResource( 13 )
-
-[node name="Sprite" type="Sprite" parent="Credit"]
-position = Vector2( 70.0459, 64.0068 )
-scale = Vector2( 0.23219, 0.224084 )
-texture = ExtResource( 12 )
-vframes = 2
-frame = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Credit"]
-anims/Anim = SubResource( 2 )
+[node name="Credit" parent="." instance=ExtResource( 12 )]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Menu.tscn" type="PackedScene" id=2]
@@ -26,6 +26,8 @@
 [ext_resource path="res://guide3.png" type="Texture" id=24]
 [ext_resource path="res://guide1.png" type="Texture" id=25]
 [ext_resource path="res://Chapter1.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Ending.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Credit.tscn" type="PackedScene" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -114,6 +116,15 @@ scene_path = "/root/Prologue"
 [node name="Menu" parent="YSort/Player/Camera2D" instance=ExtResource( 2 )]
 player_path = "/root/Prologue/YSort/Player"
 scene_path = "/root/Prologue"
+
+[node name="Ending" parent="YSort/Player/Camera2D" instance=ExtResource( 27 )]
+position = Vector2( -7.27692, -47.117 )
+scale = Vector2( 0.35, 0.35 )
+
+[node name="Credit" parent="YSort/Player/Camera2D" instance=ExtResource( 28 )]
+position = Vector2( -77.3714, -77.4965 )
+scale = Vector2( 1.1, 1.21 )
+z_index = 1
 
 [node name="Guide1" type="Sprite" parent="YSort/Player/Camera2D"]
 visible = false

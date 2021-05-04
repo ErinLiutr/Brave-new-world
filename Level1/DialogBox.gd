@@ -135,9 +135,13 @@ func _physics_process(delta):
 					get_node("../Guide2")._start_show()
 					_start("00")
 				elif prologue:
+					get_parent().get_node("Ending")._play_fadein()
 					hide()
 				elif title:
-					get_node("/root/Epilogue/Credit")._play()
+					if get_parent().get_parent().get_parent().get_parent().name == "Epilogue":
+						get_node("/root/Epilogue/Credit")._play()
+					else:
+						get_node("/root/Prologue/YSort/Player/Camera2D/Credit")._play()
 					hide()
 				elif ending:
 					get_node("/root/Basement/YSort/Player/Camera2D/Ending")._play_fadein()

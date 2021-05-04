@@ -45,7 +45,7 @@ func _start_show():
 func _stop_show():
 	if id == 0:
 		if !started and scene_path == "/root/Prologue":
-			get_node(scene_path)._start()
+			get_node(scene_path)._start("25")
 			started = true
 	elif id == 1:
 		get_parent().get_parent().guide1 = false

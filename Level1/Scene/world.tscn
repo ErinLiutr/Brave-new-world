@@ -104,9 +104,11 @@ scale = Vector2( 0.8, 0.8 )
 
 [node name="BulletAudio" type="AudioStreamPlayer2D" parent="YSort/Player"]
 stream = ExtResource( 21 )
+volume_db = -20.0
 
 [node name="SpecialAudio" type="AudioStreamPlayer2D" parent="YSort/Player"]
 stream = ExtResource( 20 )
+volume_db = -20.0
 
 [node name="Enemy" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 253.495, 150.678 )
