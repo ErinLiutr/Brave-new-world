@@ -560,7 +560,7 @@
     "type": "dialog",
     "role": "MC1",
     "text": ["...no...I..."],
-    "next": "88"
+    "next": "prologue"
   },
   "88": {
     "type": "dialog",
