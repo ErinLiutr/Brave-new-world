@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/chapter1-theme.mp3-8eb6ab58bead60eb284e30ed81631566.mp3str"
+
+[deps]
+
+source_file="res://music/chapter1-theme.mp3"
+dest_files=[ "res://.import/chapter1-theme.mp3-8eb6ab58bead60eb284e30ed81631566.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

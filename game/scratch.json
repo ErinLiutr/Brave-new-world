@@ -1,0 +1,1100 @@
+{
+  "01": {
+    "title": "CHOOSE TO INTERACT",
+    "type": "choice",
+    "choices": [
+      {"text": "VIEW DESCRIPTION", "go_to": "02"},
+      {"text": "ASK ABOUT HAIR COLOR", "go_to": "03"},
+      {"text": "ASK ABOUT PARENTS", "go_to": "04"},
+      {"text": "ASK ABOUT THE CRIMINAL", "go_to": "18"},
+      {"text": "ASK ABOUT ROPE IN THE WARDROBE", "go_to": "05"},
+      {"text": "ASK ABOUT PROJECT BRAVE NEW WORLD", "go_to": "06"},
+      {"text": "CONFRONT", "go_to": "07"},
+      {"text": "HAND OUT BANK CHECK", "go_to": "19"},
+      {"text": "CLOSE", "go_to": "00"}
+    ],
+    "role": "NPC",
+    "close": true
+  },
+  "02": {
+    "type": "description",
+    "text": "BOY WITH NEON PINK HAIR.",
+    "role": "NPC"
+  },
+  "03": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["It’s called ASH BROWN, I’m trendy!"],
+    "next": "01"
+  },
+  "04": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["My parents are always somewhere outside the country. I live by myself."],
+    "next": "01"
+  },
+  "05": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["What rope? Where?"],
+    "next": "01"
+  },
+  "06": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["That’s how rich people resolve conflicts nowadays, huh? Those hypocrites, ha! If everyone can afford their service then I do agree with their ideals tho..."],
+    "next": "01"
+  },
+  "07": {
+    "type": "game",
+    "role": "NPC",
+    "text": ["I said GET OUT. Well, since you don’t do it yourself, I’ll have to make you leave! "],
+    "name": "combat",
+    "next": "01"
+  },
+  "08": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["I don’t understand...I thought we were friends...",
+      "But turned out he was one of them...making fun of me, calling me names, destroying my stuff, slapping and kicking me...",
+      "I don’t understand...all those things just don't make any sense AT ALL.",
+      "HE WAS THE ONE THAT ASKED ME TO BE HIS FRIEND!",
+      "...",
+      "He said if I dye my hair brown, I would be as popular as him, or even K.K. I told him I was color-blind and couldn’t dye it myself, so he helped me.",
+      "Then everyone was laughing at my hair, even the teachers. I asked him why and he said it was just that people were jealous of my hair. What a ridiculous lie! As if he didn’t bother to convince me! I mean, even I wasn’t fooled by that...",
+      " I...I was furious and was about to scream at him and even hit him-I was always a quiet kid, so you get how mad I was at that moment.",
+      "That’s when he gave that smile.",
+      "It was the sweetest and the most sincere smile I’ve ever seen.",
+      "For a moment, I almost thought I was standing right in front of an angel."
+    ],
+    "next": "10"
+  },
+  "09": {
+    "type": "description",
+    "text": "",
+    "role": "NPC"
+  },
+  "10": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["..."],
+    "next": "11"
+  },
+  "11": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["...",
+      "Though I wanted to believe it was an accident but there really wasn’t any other way to think of it. He knew me so well and yet he made things worse...",
+      "...",
+      "It’s been a really long time since then. Why do you have to bring it all up again to hurt me?"
+    ],
+    "next": "12"
+  },
+  "12": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["I’m really sorry that you have to go through all that."],
+    "next": "13"
+  },
+  "13": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["...",
+      "For god’s sake, save your sympathy!",
+      "YOU",
+      "DISGUST",
+      "ME"
+    ],
+    "next": "14"
+  },
+  "14": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["..."],
+    "next": "15"
+  },
+  "15": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["I need some sleep. Now get out of my sight."],
+    "next": "animation"
+  },
+  "16": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Poor kid. Seems like he commited suicide years ago. What A did was truly unforgivable. We need to find him."],
+    "next": "door1"
+  },
+  "17": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["You should try to gather as much as evidence as possible."],
+    "next": ""
+  },
+  "18": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["I don’t know the guy you’re looking for. Get out and Leave me alone."],
+    "next": "01"
+  },
+  "19": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["You wanna give me 1000 dollars? Nah I can’t take your money but thanks! Btw here’s a coupon I found on the street. Apparently I’m too young for the project but you seem rich so maybe you can use it on people you hate."],
+    "next": "01"
+  },
+  "20": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["After he helped me dye my hair, I went to school the other day everyone was staring at me laughing so hard, even the teachers laughed a little bit. I couldn’t figure out why so I asked him and he said it was just that people were jealous of my hair..."],
+    "next": ""
+  },
+  "21": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["I only told him about this...but later everyone knew...", "I guess they just figured it out themselves somehow...I mean since he promised he wouldn’t tell anyone."],
+    "next": ""
+  },
+  "22": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["He said I would be popular too if I dye my hair brown, as popular as K.K., and people would stop bullying me and be friends with me..."],
+    "next": ""
+  },
+  "23": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["He was always there when I was depressed and scared and he was the only person that listened when I talked. He even told me I was his best friend...", "Unlike me, he was popular and had a lot of friends and he was nice to everyone. He was perfect. I wanted to be just like him."],
+    "next": ""
+  },
+  "24": {
+    "type": "dialog",
+    "role": "NPC",
+    "text": ["Wow congrats you’ve digged out all my little secrets! You’re satisfied, Mr.detective? Now GET OUT!"],
+    "next": ""
+  },
+  "25": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["You are awake, finally. My name’s Pearl, and you are?"],
+    "next": "26"
+  },
+  "26": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Oh hey, I’m...", "My name is...ah...", " I...I don’t remember...How...how could I forget my name?? I...what happened to me?? What..."],
+    "next": "27"
+  },
+  "27": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Calm down, you will be fine. Now close your eyes and take a deep breath. What is the first that pops into your mind?"],
+    "next": "28"
+  },
+  "28": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Ah...your face? I don’t remember a thing! Nothing!"],
+    "next": "29"
+  },
+  "29": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Relax. Focus on your breath."],
+    "next": "30"
+  },
+  "30": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["...", "I...I remember hearing someone say...a project…It has something to do with a new world..."],
+    "next": "31"
+  },
+  "31": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Is it Project Brave New World that you’re hearing?"],
+    "next": "32"
+  },
+  "32": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["I think so. What is it about?"],
+    "next": "33"
+  },
+  "33": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Now try to think of someone, either a name or a face, that is associated with this project."],
+    "next": "34"
+  },
+  "34": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["There is a man...a criminal...I’m after him...and...he is in this project..."],
+    "next": "35"
+  },
+  "35": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Can you recall his name?"],
+    "next": "36"
+  },
+  "36": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["..."],
+    "next": "37"
+  },
+  "37": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Why don’t you walk around a little bit? Maybe picking up these things on the ground will help you remember."],
+    "next": "guide1"
+  },
+  "38": {
+    "title": "CHOOSE TO INTERACT",
+    "type": "choice",
+    "choices": [
+      {"text": "VIEW DESCRIPTION", "go_to": "39"},
+      {"text": "CLOSE", "go_to": "00"}
+    ],
+    "role": "Pearl",
+    "close": true
+  },
+  "39": {
+    "type": "description",
+    "text": "A WOMAN IN WHITE COAT.",
+    "role": "Pearl"
+  },
+  "40": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["The drain seems clogged, can you check on it for me?"],
+    "next": ""
+  },
+  "41": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Oh, something got stuck in the drain? You got the tweezers, can you take it out?"],
+    "next": "guide2"
+  },
+  "42": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["This is him, the criminal I’m after! ", "I...I must find him. I think this might be really important..."],
+    "next": "43"
+  },
+  "43": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["I see. If this man you are after is in Project Brave New World, he must have committed some unforgivable sins. It’s for sure going to be a tough journey tracing him down and you might find yourself in some really dangerous situations.", "Are you sure you want to find this man?"],
+    "next": "44"
+  },
+  "44": {
+    "title": "Are you sure you want to find this man?",
+    "type": "choice",
+    "choices": [
+      {"text": "YES", "go_to": "45"},
+      {"text": "NO", "go_to": "47"}
+    ],
+    "role": "Pearl",
+    "close": false
+  },
+  "45": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["I’ll find him. This seems to be the only way out. Plus, I might start to remember things if I get back to my work."],
+    "next": "46"
+  },
+  "46": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["I believe you’ve made the right decision. Remember, no matter what is out there, don’t let anything or anyone shake your resolve. Nothing should stop you. Gathering evidence and bringing this man to justice is the only way to compensate the victims."],
+    "next": "accept"
+  },
+  "47": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["I still need to think about it..."],
+    "next": "48"
+  },
+  "48": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Don’t worry, there is time for you to think this over. I’ll wait until you’re ready."],
+    "next": "refuse"
+  },
+  "49": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...", "Where am I? Is this reality or a dream?"],
+    "next": "50"
+  },
+  "50": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["You are back from the simulation, A. How are you feeling?"],
+    "next": "51"
+  },
+  "51": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["Ah...awful..."],
+    "next": "52"
+  },
+  "52": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Those past memories you saw in the simulation are hard to process for sure. But congratulations, you’ve made through the first phase of Project Brave New World!"],
+    "next": "53"
+  },
+  "53": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["The first phase?"],
+    "next": "54"
+  },
+  "54": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Project Brave New World aims to purify people’s souls under their own wills. The purpose of the first phase is to have you recognize and confess your sins."],
+    "next": "55"
+  },
+  "55": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["I don’t remember confessing anything, you must’ve got it wrong."],
+    "next": "56"
+  },
+  "56": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["I understand that you just got out of the simulation and are still confused. In fact, we’ve received your signature that indicates your confession.", "We are glad that you are determined to proceed to the next phase."],
+    "next": "57"
+  },
+  "57": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["What is the next phase?"],
+    "next": "58"
+  },
+  "58": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["The next phase will be the actual transformation. After your treatment, you will be born again and all the evilness inside of you are cleansed."],
+    "next": "59"
+  },
+  "59": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...", "You mean there’s a brain surgery or something?"],
+    "next": "60"
+  },
+  "60": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Don’t worry, A. We have the most advanced biomedical technology from all around the world.", "There will be a team of physicians, psychiatrists, philosophers, and lawyers who are the top of their fields that provide you customized services throughout your participation in the program.", "Are you ready for your transformation?"],
+    "next": "61"
+  },
+  "61": {
+    "title": "Are you ready for your transformation?",
+    "type": "choice",
+    "choices": [
+      {"text": "YES", "go_to": "68"},
+      {"text": "NO", "go_to": "62"}
+    ],
+    "role": "Pearl",
+    "close": false
+  },
+  "62": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["This doesn't seem right.", "I didn't confess anything, at least under my own will. I didn't know the criminal I was after was myself."],
+    "next": "63"
+  },
+  "63": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Don’t you think that we are in a better position to reflect on what we’ve done when we regard ourselves as “others”?", "You may find it hard to accept at first, but you’ve made the right choice, A. You are more brave than you thought you are. Our team are all very proud of you."],
+    "next": "64"
+  },
+  "64": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...that’s not true...I..."],
+    "next": "65"
+  },
+  "65": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["You look exhausted. Better get some sleep. Don’t worry, A, we will take care of the rest."],
+    "next": "66"
+  },
+  "66": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...no...I..."],
+    "next": "67"
+  },
+  "67": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Good night, A. See you in the brave new world."],
+    "next": "title"
+  },
+  "68": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["A, you’ve made the right choice. You are more brave than you thought you are. Our team are all very proud of you.", "Now get some sleep. We will take care of the rest.", "See you in the brave new world, A."],
+    "next": "title"
+  },
+  "69": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...", "Where am I? Is this reality or a dream?"],
+    "next": "70"
+  },
+  "70": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["You are back from the simulation, A. How are you feeling?"],
+    "next": "71"
+  },
+  "71": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["Ah...awful..."],
+    "next": "72"
+  },
+  "72": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Those past memories you saw in the simulation are hard to process for sure. Unfortunately, I have some sad news for you.", "You didn't make it through the first phase of Project Brave New World. You will have to go into the simulation again."],
+    "next": "73"
+  },
+  "73": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["What first phase?"],
+    "next": "74"
+  },
+  "74": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Project Brave New World aims to purify people’s souls under their own wills. The purpose of the first phase is to have you recognize and confess your sins."],
+    "next": "75"
+  },
+  "75": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["I don’t have any sins to confess."],
+    "next": "76"
+  },
+  "76": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["That is not what we’ve seen from your past memories. We understand that it takes a lot of courage for people to make up their minds and face their past."],
+    "next": "77"
+  },
+  "77": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["What is the next phase?"],
+    "next": "78"
+  },
+  "78": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["The next phase will be the actual transformation. After your treatment, you will be born again and all the evilness inside of you are cleansed."],
+    "next": "79"
+  },
+  "79": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...", "You mean there’s a brain surgery or something?"],
+    "next": "80"
+  },
+  "80": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["We have the most advanced biomedical technology from all around the world.", "There will be a team of physicians, psychiatrists, philosophers, and lawyers who are the top of their fields that provide you customized services throughout your participation in the program.", "However, you won’t be able to proceed unless you recognize your vice."],
+    "next": "81"
+  },
+  "81": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["I didn’t break any laws or confess any crimes. You got the wrong person."],
+    "next": "82"
+  },
+  "82": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["It’s fine. We got plenty of time and you have plenty of memories. We will now go through the first phase again. Are you ready?"],
+    "next": "83"
+  },
+  "83": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["No I’m not. Like I said, you’ve had the wrong guy. There must be some mistakes. I didn’t choose to join this program.", "I’ll walk myself out.", "What...what are you doing..."],
+    "next": "84"
+  },
+  "84": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["There are reasons why people are chosen in the program. You just got out of the simulation and are still mentally unstable. A, trust me, you are more brave than you thought you are."],
+    "next": "85"
+  },
+  "85": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...no...I..."],
+    "next": "86"
+  },
+  "86": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["You may experience slight nausea when entering the simulation. But that is totally normal. Now lay back and relax."],
+    "next": "87"
+  },
+  "87": {
+    "type": "dialog",
+    "role": "MC1",
+    "text": ["...no...I..."],
+    "next": "prologue"
+  },
+  "88": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["You are awake, finally. My name’s Pearl, and you are?"],
+    "next": "89"
+  },
+  "89": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Oh hey, I’m...", "My name is...ah...", " I...I don’t remember...How...how could I forget my name?? I...what happened to me?? What..."],
+    "next": "90"
+  },
+  "90": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Calm down, you will be fine. Now close your eyes and take a deep breath. What is the first that pops into your mind?"],
+    "next": "91"
+  },
+  "91": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["I...I remember hearing someone say...a project...It has something to do with a new world..."],
+    "next": "92"
+  },
+  "92": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Is it Project Brave New World that you’re hearing?"],
+    "next": "93"
+  },
+  "93": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["I think so. What is it about?"],
+    "next": "94"
+  },
+  "94": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Now try to think of someone, either a name or a face, that is associated with this project."],
+    "next": "95"
+  },
+  "95": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["There is a man...a criminal...I’m after him...and...he is in this project...", "I need to find him."],
+    "next": "title"
+  },
+  "96": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["I’m sorry, are you with the police? Who are you?"],
+    "next": "97"
+  },
+  "97": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Yes, I’m a detective. What happened here?"],
+    "next": "98"
+  },
+  "98": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["My brother is murdered. Poor Issac! He was killed in a car accident, and it was planned by my husband! Didn’t they tell you about it?"],
+    "next": "99"
+  },
+  "99": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["I’m sorry for your loss, ma’am. Looking for a suspect named A. This name rings a bell?"],
+    "next": "100"
+  },
+  "100": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["Oh, of course! I’m his wife!", "You’ve got anything against that psychopath yet? I’ll do whatever it takes to send that bastard to hell! Let me know if you need any help, officer."],
+    "next": ""
+  },
+  "101": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["You guys think A killed Issac?"],
+    "next": "102"
+  },
+  "102": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["You are?"],
+    "next": "103"
+  },
+  "103": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["I’m CJ, A and I’ve been friends for decades. There’s no way he killed Issac. They were close like real brothers.", "That woman got gambling issues. My guessing is that she killed her step-brother for his insurance money."],
+    "next": "104"
+  },
+  "104": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Do you know where A is?"],
+    "next": "105"
+  },
+  "105": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["He’s staying at his cousin’s place until the investigation’s over.", "If you think A’s innocent and want to prove that, I’m here to help."],
+    "next": "door"
+  },
+  "106": {
+    "title": "CHOOSE TO INTERACT",
+    "type": "choice",
+    "choices": [
+      {"text": "VIEW DESCRIPTION", "go_to": "109"},
+      {"text": "ASK ABOUT A", "go_to": "111"},
+      {"text": "ASK ABOUT ISSAC AND LYDIA", "go_to": "112"},
+      {"text": "ASK ABOUT DEATH OF ISSAC", "go_to": "113"},
+      {"text": "ASK ABOUT ISSAC'S MEMO", "go_to": "114"},
+      {"text": "ASK ABOUT LAPTOP PASSWORD", "go_to": "115"},
+      {"text": "CLOSE", "go_to": "00"}
+    ],
+    "role": "Lydia",
+    "close": true
+  },
+  "107": {
+    "title": "CHOOSE TO INTERACT",
+    "type": "choice",
+    "choices": [
+      {"text": "VIEW DESCRIPTION", "go_to": "110"},
+      {"text": "ASK ABOUT A", "go_to": "116"},
+      {"text": "ASK ABOUT LYDIA", "go_to": "117"},
+      {"text": "ASK ABOUT LYDIA AND A", "go_to": "118"},
+      {"text": "ASK ABOUT ISSAC", "go_to": "119"},
+      {"text": "ASK ABOUT THE ACCIDENT", "go_to": "120"},
+      {"text": "ASK ABOUT RECORDING", "go_to": "149"},
+      {"text": "CLOSE", "go_to": "00"}
+    ],
+    "role": "CJ",
+    "close": true
+  },
+  "108": {
+    "title": "CHOOSE TO INTERACT",
+    "type": "choice",
+    "choices": [
+      {"text": "ASK ABOUT THE ACCIDENT", "go_to": "122"},
+      {"text": "ASK ABOUT A", "go_to": "124"},
+      {"text": "ASK ABOUT LYDIA", "go_to": "123"},
+      {"text": "ASK ABOUT CJ", "go_to": "125"},
+      {"text": "ASK ABOUT ISSAC", "go_to": "126"},
+      {"text": "PICK ISSAC'S PHONE", "go_to": "128"},
+      {"text": "CLOSE", "go_to": "00"}
+    ],
+    "role": "Police",
+    "close": true
+  },
+  "109": {
+    "type": "description",
+    "text": "A’s wife. Pale woman with piercing eyes.",
+    "role": "Lydia"
+  },
+  "110": {
+    "type": "description",
+    "text": "A’s friend. Well-dressed and wearing expensive cologne. \nLooks exhausted.",
+    "role": "CJ"
+  },
+  "111": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["Life with that psychopath is simply unbearable! I wanted a divorce but he threatened to kill me and Issac. I was too scared to do anything. He murdered my brother and it must’ve because of that! This time I will fight to the very end and make him pay for what he did!"],
+    "next": "106"
+  },
+  "112": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["There’s not a single person in the universe that is more innocent and happier than Issac. He’s such an angel! He was always there when I felt desperate and he knew how to save me from every suffering."],
+    "next": "106"
+  },
+  "113": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["Oh poor Issac! What happened to him is ridiculously unfair! I think about him all the time after he dies. Sometimes, he would visit me in my dreams and comfort me."],
+    "next": "106"
+  },
+  "114": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["I can’t believe Isaac wrote such depressing words. This really breaks my heart.", "Thank you for telling me all these.", "There’s something you should see. Check my laptop. The password 7013."],
+    "next": "106"
+  },
+  "115": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["You should check my laptop. The password is 7013."],
+    "next": "106"
+  },
+  "116": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["We’ve been friends since college. He’s just a regular guy, like me and everyone else. Maybe a little smarter and funnier than me. And a little bit stubborn sometimes."],
+    "next": "107"
+  },
+  "117": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["She seems fine. I personally don’t know her that much. I heard she doesn’t like us, I mean, me and some other friends of A’s, but I never know why."],
+    "next": "107"
+  },
+  "118": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["They got married a few years ago. Honestly, I don’t think Lydia loves A as much as A loves her. They’ve been fighting a lot recently and A told me that he wanted to divorce her but Lydia wouldn’t let him."],
+    "next": "107"
+  },
+  "119": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["I've seen that kid once and I liked him quite a lot. He was young, energetic, a little unsure about his future, like everyone from his age, and seemed to be a really honest person. I feel sorry for him. May he rest in peace."],
+    "next": "107"
+  },
+  "120": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["Lydia insists A murdered Isaac, but, man, I don’t believe a word she says. A talks about Issac all the time and I know for sure he likes that kid a lot.", "Plus, I wouldn’t be surprised if Lydia murdered Issac. When her dad married Isaac’s mom, she was over 20 and Isaac was still in kindergarten. Do you really think they have bonds like siblings? "],
+    "next": "107"
+  },
+  "121": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["The victim’s phone was found and we are still trying to unlock it. I’ll let you know when it’s done."],
+    "next": "108"
+  },
+  "122": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["The victim’s car crashed into a lake due to brake failure and he died of drowning."],
+    "next": "108"
+  },
+  "123": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["She is the victim’s step-sister. We learned from her friends that she has a gambling issue."],
+    "next": "108"
+  },
+  "124": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["Issac’s friends told us that he was close to Issac and Issac viewed him as a mentor. He had a record of domestic abuse and alcoholism."],
+    "next": "108"
+  },
+  "125": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["He has known A since they were in college and they seem close."],
+    "next": "108"
+  },
+  "126": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["He was a college student. Got many friends and seemed doing great in schoolwork. He lived here with the couple for a year before college."],
+    "next": "108"
+  },
+  "127": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["We couldn’t unlock the phone. Maybe you should help us find the password. There might be some clues in his room."],
+    "next": ""
+  },
+  "128": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["Maybe you should help us find the password. There might be some clues in his room."],
+    "next": "phone"
+  },
+  "129": {
+    "title": "Please summarize on clues you’ve collected.",
+    "type": "choice",
+    "choices": [
+      {"text": "A is guilty", "go_to": "130"},
+      {"text": "Lydia is guilty", "go_to": "132"},
+      {"text": "CLOSE", "go_to": "00"}
+    ],
+    "role": "Pearl",
+    "close": true
+  },
+  "130": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["I don’t think Lydia murdered Isaac. Otherwise, she wouldn’t tell him about the worn out brake.", "It was A that Lydia wanted to kill, but A found out her plan and murdered Isaac."],
+    "next": "131"
+  },
+  "131": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["Oh, come on! Do you really think that’s what happened?", "I’ve known A for a long time and I know for sure he’s not a murderer!", "Now you are gonna talk all that nonsense to the police? Sorry detective, not gonna let that happen."],
+    "next": "combat2"
+  },
+  "132": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["It seems that Lydia left the brake unrepaired on purpose. She lent Isaac her car and murdered him for insurance money."],
+    "next": "133"
+  },
+  "133": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["Seriously? That’s your conclusion?", "Who are you, really? You must be some guy that psychopath hired! You pretended to be a detective, but you are actually destroying the evidence!"],
+    "next": "134"
+  },
+  "134": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Ma’am, I..."],
+    "next": "135"
+  },
+  "135": {
+    "type": "dialog",
+    "role": "Lydia",
+    "text": ["You are not getting away with this!"],
+    "next": "combat3"
+  },
+  "136": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["Some say that my unusual capacity to empathize with people is a bliss. But it became clearer and clearer that it is rather a curse.", "Everyday I am overwhelmed not just by my own but others’ sentiments as well. When I see people suffer, I suffer with them. I’m not always able to help them, even my loved ones, and that’s depressing.", "I wish I could disappear. I wish I could leave everything behind and go live in a forest. I’ll spend everyday listening to the bablling brook and the twittering birds. There will be no scream or shout or the sound of broken glasses.", "Everything will be peaceful."],
+    "next": ""
+  },
+  "137": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["Honestly, that sounds dangerous. You know I’m not good at driving. I prefer hiking in a forest than in a mountain."],
+    "next": "138"
+  },
+  "138": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Me and CJ go there all the time. Yes, the road can be a little bad when it rains, so just pick a sunny day and you’ll be fine."],
+    "next": "139"
+  },
+  "139": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["Hmmm...I don’t know. I still feel like..."],
+    "next": "140"
+  },
+  "140": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Hey you know what? I think you should drive our car! You are not driving a sedan on that muddy road, are you?"],
+    "next": "141"
+  },
+  "141": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["Thank you, but maybe next time..."],
+    "next": "142"
+  },
+  "142": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["You don’t understand, kid. The best season is now. When the weather gets cold, you won’t see the animals and the place becomes foggy.", " What’s wrong? I thought you always wanna go there. You brought it up several times."],
+    "next": "143"
+  },
+  "143": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["Yeah...you’re right. I do wanna go."],
+    "next": "144"
+  },
+  "144": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Sounds good. You can come pick up the car this Saturday."],
+    "next": "145"
+  },
+  "145": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["Sure...Oh, I’ve found the books Lydia’s looking for. I’ll bring them to her on Saturday."],
+    "next": "146"
+  },
+  "146": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["It’s fine, Lydia’s out of town this weekend. You can give it to her when you come back from the trip."],
+    "next": ""
+  },
+  "147": {
+    "type": "dialog",
+    "role": "Police",
+    "text": ["About that contract, our investigation showed that ring belongs to Isaac's grandmother."],
+    "next": ""
+  },
+  "148": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["Mr. Detective, I just realized there’s a recording I forgot to tell you about. Might be helpful."],
+    "next": ""
+  },
+  "149": {
+    "type": "dialog",
+    "role": "CJ",
+    "text": ["You know what I’m thinking? I’m guessing that Lydia bought extra insurance for Isaac too. I mean, we all know she got two amounts of insurance money after Isaac’s death."],
+    "next": "recording"
+  },
+  "150": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["I can tell that you are really close to solving the truth. Come find me when you are ready to summarize on clues you’ve collected."],
+    "next": ""
+  },
+  "151": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["By the way, if you think you’ve collected enough clues, come and find me."],
+    "next": ""
+  },
+  "152": {
+    "type": "dialog",
+    "role": "Pearl",
+    "text": ["Perhaps you should show Isaac’s memo to Lydia. She deserves to know about it."],
+    "next": ""
+  },
+  "153": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["Hello there."],
+    "next": "154"
+  },
+  "154": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Hello. You must be Isaac."],
+    "next": "155"
+  },
+  "155": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["That is correct."],
+    "next": "156"
+  },
+  "156": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["But...how? You died in the car crash."],
+    "next": "157"
+  },
+  "157": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["I did. But now I’m back in my garden, my favorite place. What a dream.", "How’s Lydia doing?"],
+    "next": "158"
+  },
+  "158": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Not so well, I’d say."],
+    "next": "159"
+  },
+  "159": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["My death would be a shock to her, but I...I just couldn’t come up with another way out."],
+    "next": "160"
+  },
+  "160": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Wait a minute, what do you mean you couldn’t come up with another way out?"],
+    "next": "161"
+  },
+  "161": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["There was no way I could help restore the relationship of Lydia and A. My empathy with Lydia’s misery was constantly torturing me.", "Lydia wanted to murder A and every time I tried to talk her out of it, she just pretended that there never was a plan. When A convinced me to drive in that mountain, I sensed that he found out about Lydia’s plan. It was part of his revenge for me to die there.", "I hated that even though both of them attempted to commit horrible crimes, I could understand their feelings and feel the emotions they were experiencing...their anger, fear, despair...as if those were mine...", "...and there was my own frustration that I wasn’t able to save Lydia from that situation.", "I was desperate so I chose to run away. I took my last trip into a forest and when I looked into that lake, there was nothing but a face distorted by agony.", "That was when I finally made up my mind."],
+    "next": "162"
+  },
+  "162": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["And you decided to commit suicide?"],
+    "next": "163"
+  },
+  "163": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["Lydia would for sure grieve for a while. I bought extra insurance in hope that the money would make her life easier."],
+    "next": "164"
+  },
+  "164": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["It must be hard for you to bear all these. Thank you for telling me, Isaac.", "But I have to inform you that your confession will also change my conclusion on the case, after I wake up from this dream of course."],
+    "next": "165"
+  },
+  "165": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["No, you won’t."],
+    "next": "166"
+  },
+  "166": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["I’m sorry...what?"],
+    "next": "167"
+  },
+  "167": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["You wouldn’t admit that you lent me your car, and you shouldn’t. That avoids all the troubles."],
+    "next": "168"
+  },
+  "168": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["I don’t quite understand what you are talking about."],
+    "next": "169"
+  },
+  "169": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["This may sound crazy, but I don’t blame you for things you’ve done. You are a pathetic and horrible person, but you’ve also taught me a lot of precious things."],
+    "next": "170"
+  },
+  "170": {
+    "type": "dialog",
+    "role": "MC",
+    "text": ["Isaac, I...", "...", "I was out of my mind...I don’t even understand why I would..."],
+    "next": "171"
+  },
+  "171": {
+    "type": "dialog",
+    "role": "Issac",
+    "text": ["You know what, I find it hard to even hate you or despise you. Luckily, I wouldn’t be the one to judge.", "Now wake up, A."],
+    "next": "ending"
+  }
+}

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/epilogue.wav-393d9a4a4a12d082cbbc77b449b0b83b.sample"
+
+[deps]
+
+source_file="res://music/epilogue.wav"
+dest_files=[ "res://.import/epilogue.wav-393d9a4a4a12d082cbbc77b449b0b83b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

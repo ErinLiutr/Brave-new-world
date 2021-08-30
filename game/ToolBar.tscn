@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://help.png" type="Texture" id=2]
+[ext_resource path="res://InventItem.tscn" type="PackedScene" id=3]
+[ext_resource path="res://setting.png" type="Texture" id=4]
+[ext_resource path="res://volume.png" type="Texture" id=5]
+
+[node name="ToolBar" type="Sprite"]
+position = Vector2( 1.32295, 71.5826 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Equipment" parent="." groups=[
+"Persist",
+] instance=ExtResource( 3 )]
+margin_left = -123.339
+margin_top = -142.123
+margin_right = -123.339
+margin_bottom = -142.123
+
+[node name="Help" type="Sprite" parent="."]
+position = Vector2( 117.335, -134.6 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="Volume" type="Sprite" parent="."]
+position = Vector2( 102.167, -134.78 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="Menu" type="Sprite" parent="."]
+position = Vector2( 83.7487, -134.738 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 4 )

@@ -1,0 +1,205 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://birthdaygift.png" type="Texture" id=1]
+[ext_resource path="res://bandage-box.png" type="Texture" id=2]
+[ext_resource path="res://hair1.png" type="Texture" id=3]
+[ext_resource path="res://black.jpg" type="Texture" id=4]
+[ext_resource path="res://unequip.png" type="Texture" id=5]
+[ext_resource path="res://key.png" type="Texture" id=6]
+[ext_resource path="res://dirty-shirt.png" type="Texture" id=7]
+[ext_resource path="res://magazine.png" type="Texture" id=8]
+[ext_resource path="res://sketchpad.png" type="Texture" id=9]
+[ext_resource path="res://hair-dye1.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/SaveObjects/SaveEquip.gd" type="Script" id=11]
+[ext_resource path="res://hair2.png" type="Texture" id=12]
+[ext_resource path="res://hair3.png" type="Texture" id=13]
+[ext_resource path="res://ID.png" type="Texture" id=14]
+[ext_resource path="res://Check.png" type="Texture" id=15]
+[ext_resource path="res://Receipt.png" type="Texture" id=16]
+[ext_resource path="res://report.png" type="Texture" id=17]
+[ext_resource path="res://white.jpg" type="Texture" id=18]
+[ext_resource path="res://equip.png" type="Texture" id=19]
+[ext_resource path="res://prologue art/tweezers.png" type="Texture" id=20]
+[ext_resource path="res://level2 art/item/insurance401.png" type="Texture" id=21]
+[ext_resource path="res://level2 art/item/repairReport410.png" type="Texture" id=22]
+[ext_resource path="res://level2 art/item/carReport402.png" type="Texture" id=23]
+[ext_resource path="res://level2 art/item/bill403.png" type="Texture" id=24]
+[ext_resource path="res://level2 art/item/drawing-inventory.png" type="Texture" id=25]
+[ext_resource path="res://level2 art/item/proof404.png" type="Texture" id=26]
+[ext_resource path="res://level2 art/item/photo406.png" type="Texture" id=27]
+[ext_resource path="res://level2 art/phone.png" type="Texture" id=28]
+[ext_resource path="res://recording1.png" type="Texture" id=29]
+
+[node name="InventItem" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="unselected" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 18 )
+
+[node name="selected" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+
+[node name="equip" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 19 )
+
+[node name="unequip" type="Sprite" parent="."]
+position = Vector2( 8, 8 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Key" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 6 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="HairDye" type="Sprite" parent="."]
+visible = false
+position = Vector2( 9, 7 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 10 )
+
+[node name="Hair" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 7.5 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+
+[node name="BleachedHair" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 7.5 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 12 )
+
+[node name="PinkHair" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 7.5 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 13 )
+
+[node name="PuzzleAfter" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8.5, 7 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 8 )
+
+[node name="EyeTestReport" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8.5, 7 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 17 )
+
+[node name="Shirt" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+texture = ExtResource( 7 )
+
+[node name="Gift" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 7 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 1 )
+
+[node name="BandageBox" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Pad" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 7 )
+texture = ExtResource( 9 )
+
+[node name="ID" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+texture = ExtResource( 14 )
+
+[node name="Check" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 15 )
+
+[node name="Receipt" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 16 )
+
+[node name="Coupon" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 16 )
+
+[node name="Tweezers" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 20 )
+
+[node name="Insurance" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+texture = ExtResource( 21 )
+
+[node name="Vehicle" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 23 )
+
+[node name="Maintain" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 22 )
+
+[node name="Photo" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+texture = ExtResource( 27 )
+
+[node name="Painting" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+texture = ExtResource( 25 )
+
+[node name="Bill" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+texture = ExtResource( 24 )
+
+[node name="Pawn" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 26 )
+
+[node name="Phone" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 28 )
+
+[node name="Recording" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 29 )

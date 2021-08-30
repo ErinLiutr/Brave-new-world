@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ambience_prologue.mp3-2c36c75f7181c35aeea74bf10ecdc932.mp3str"
+
+[deps]
+
+source_file="res://music/ambience_prologue.mp3"
+dest_files=[ "res://.import/ambience_prologue.mp3-2c36c75f7181c35aeea74bf10ecdc932.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

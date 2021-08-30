@@ -1,0 +1,241 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Scene/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scene/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://combat/art/background-box.png" type="Texture" id=3]
+[ext_resource path="res://Scene/PlayerLife.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scene/-1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/BulletSpawner.gd" type="Script" id=6]
+[ext_resource path="res://Scene/EnemyLifeBar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scene/Life.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scene/-20.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scene/-10.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scene/Weapon_magazine.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scene/Popup_lose.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scene/Popup_win.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scene/Weapon_hair_dye.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scene/Weapon_report.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scene/Weapon_b_gift.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scene/-30.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scene/-40.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scripts/world_main.gd" type="Script" id=19]
+[ext_resource path="res://combat/sound/specialattack.wav" type="AudioStream" id=20]
+[ext_resource path="res://combat/sound/bullet.wav" type="AudioStream" id=21]
+[ext_resource path="res://newpixel.tres" type="DynamicFont" id=22]
+[ext_resource path="res://script/Popup_lose_main.gd" type="Script" id=23]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 598.828, 10 )
+
+[sub_resource type="Theme" id=2]
+
+[node name="World" type="Node2D"]
+position = Vector2( 80.2883, 8.55224 )
+scale = Vector2( 0.15, 0.15 )
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -531.0
+margin_top = -54.0
+margin_right = 1061.0
+margin_bottom = 840.0
+color = Color( 0.705882, 0.698039, 0.698039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Ground" type="Sprite" parent="Walls"]
+position = Vector2( 244.042, 431.857 )
+scale = Vector2( 0.277398, 0.826368 )
+z_index = -1
+texture = ExtResource( 3 )
+
+[node name="ColorRect2" type="ColorRect" parent="Walls"]
+margin_left = 62.0
+margin_top = 127.0
+margin_right = 426.0
+margin_bottom = 737.0
+color = Color( 0.854902, 0.788235, 0.85098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 356.915, 733.746 )
+shape = SubResource( 1 )
+
+[node name="Top" type="CollisionShape2D" parent="Walls"]
+light_mask = 0
+position = Vector2( 406.149, 136.608 )
+shape = SubResource( 1 )
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 68.9043, 584.643 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 420.504, 626.098 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="wall2" type="StaticBody2D" parent="."]
+collision_layer = 16
+
+[node name="top" type="CollisionShape2D" parent="wall2"]
+light_mask = 0
+position = Vector2( 392.295, 379.57 )
+shape = SubResource( 1 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 214.288, 497.675 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="PlayerLife" parent="YSort/Player" instance=ExtResource( 8 )]
+
+[node name="BulletAudio" type="AudioStreamPlayer2D" parent="YSort/Player"]
+stream = ExtResource( 21 )
+volume_db = -20.0
+
+[node name="SpecialAudio" type="AudioStreamPlayer2D" parent="YSort/Player"]
+stream = ExtResource( 20 )
+volume_db = -20.0
+
+[node name="Enemy" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 253.495, 150.678 )
+scale = Vector2( 1.5, 1.5 )
+collision_layer = 10
+collision_mask = 6
+
+[node name="EnemyLife" parent="YSort/Enemy" instance=ExtResource( 8 )]
+
+[node name="BulletSpawner" type="Node2D" parent="YSort/Enemy"]
+position = Vector2( 1.35139, 0 )
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="YSort/Enemy/BulletSpawner"]
+wait_time = 0.1
+
+[node name="Bleeding" type="AnimationPlayer" parent="YSort/Enemy"]
+
+[node name="-1" parent="YSort/Enemy" instance=ExtResource( 5 )]
+position = Vector2( -126.738, -53.2099 )
+
+[node name="-10" parent="YSort/Enemy" instance=ExtResource( 10 )]
+position = Vector2( -127.415, -55.2491 )
+
+[node name="-20" parent="YSort/Enemy" instance=ExtResource( 9 )]
+position = Vector2( -127.415, -54.0198 )
+
+[node name="-30" parent="YSort/Enemy" instance=ExtResource( 17 )]
+position = Vector2( -127.465, -54.6183 )
+
+[node name="-40" parent="YSort/Enemy" instance=ExtResource( 18 )]
+position = Vector2( -129.015, -54.8932 )
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.47451, 0.145098, 0.407843, 1 )
+margin_left = 617.333
+margin_top = 53.6667
+margin_right = 677.333
+margin_bottom = 73.6667
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 22 )
+text = "HP: 200"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyLifeBar" parent="." instance=ExtResource( 7 )]
+margin_left = 364.0
+margin_top = 63.0
+margin_right = 878.0
+margin_bottom = 119.0
+rect_min_size = Vector2( 300, 40 )
+rect_scale = Vector2( 0.45, 0.45 )
+
+[node name="Bag" type="CenterContainer" parent="."]
+margin_left = 410.0
+margin_top = 133.333
+margin_right = 530.0
+margin_bottom = 677.333
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="Bag"]
+margin_left = 60.0
+margin_top = 92.0
+margin_right = 60.0
+margin_bottom = 452.0
+custom_constants/vseparation = 120
+custom_constants/hseparation = 100
+
+[node name="Magazine" parent="Bag/Grid" instance=ExtResource( 11 )]
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="Gift" parent="Bag/Grid" instance=ExtResource( 16 )]
+margin_top = 120.0
+margin_right = 0.0
+margin_bottom = 120.0
+
+[node name="Dye" parent="Bag/Grid" instance=ExtResource( 14 )]
+margin_top = 240.0
+margin_right = 0.0
+margin_bottom = 240.0
+
+[node name="Report" parent="Bag/Grid" instance=ExtResource( 15 )]
+margin_top = 360.0
+margin_right = 0.0
+margin_bottom = 360.0
+
+[node name="PlayerLives" type="Node2D" parent="."]
+position = Vector2( -573.335, -220 )
+
+[node name="Life2" parent="PlayerLives" instance=ExtResource( 4 )]
+position = Vector2( 575.724, 634.674 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Life5" parent="PlayerLives" instance=ExtResource( 4 )]
+position = Vector2( 575.08, 754.727 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Life6" parent="PlayerLives" instance=ExtResource( 4 )]
+position = Vector2( 574.707, 794.271 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Life1" parent="PlayerLives" instance=ExtResource( 4 )]
+position = Vector2( 576.436, 595.147 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Life3" parent="PlayerLives" instance=ExtResource( 4 )]
+position = Vector2( 575.042, 674.333 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Life4" parent="PlayerLives" instance=ExtResource( 4 )]
+position = Vector2( 575.957, 714.669 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="Lose" parent="." instance=ExtResource( 12 )]
+visible = false
+position = Vector2( -20, 160 )
+script = ExtResource( 23 )
+
+[node name="Win" parent="." instance=ExtResource( 13 )]
+visible = false
+position = Vector2( 186.667, 293.334 )
+[connection signal="changed" from="YSort/Enemy/EnemyLife" to="YSort/Enemy/EnemyLife" method="_on_EnemyLife_changed"]
+[connection signal="changed" from="YSort/Enemy/EnemyLife" to="EnemyLifeBar" method="set_value"]
+[connection signal="timeout" from="YSort/Enemy/BulletSpawner/Timer" to="YSort/Enemy/BulletSpawner" method="_on_Timer_timeout"]

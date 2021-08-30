@@ -1,0 +1,229 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://crumpled_magazine.png" type="Texture" id=1]
+[ext_resource path="res://bandage_box.png" type="Texture" id=2]
+[ext_resource path="res://detailed_image/Hair1.png" type="Texture" id=3]
+[ext_resource path="res://shirt.png" type="Texture" id=4]
+[ext_resource path="res://item_box.png" type="Texture" id=5]
+[ext_resource path="res://detailed_image/sketchpad.png" type="Texture" id=6]
+[ext_resource path="res://hair-bleach.png" type="Texture" id=7]
+[ext_resource path="res://hair-dye.png" type="Texture" id=8]
+[ext_resource path="res://Choices.tscn" type="PackedScene" id=9]
+[ext_resource path="res://detailed_image/key 2.png" type="Texture" id=10]
+[ext_resource path="res://detailed_image/open.png" type="Texture" id=11]
+[ext_resource path="res://glass-bottle.png" type="Texture" id=12]
+[ext_resource path="res://BottleDesc.gd" type="Script" id=13]
+[ext_resource path="res://detailed_image/Hair3.png" type="Texture" id=14]
+[ext_resource path="res://detailed_image/birthday-gift.png" type="Texture" id=15]
+[ext_resource path="res://detailed_image/report.png" type="Texture" id=16]
+[ext_resource path="res://detailed_image/magzine.jpg" type="Texture" id=17]
+[ext_resource path="res://detailed_image/Hair2.png" type="Texture" id=18]
+[ext_resource path="res://detailed_image/Stained_ID.png" type="Texture" id=19]
+[ext_resource path="res://detailed_image/Torn_Check.png" type="Texture" id=20]
+[ext_resource path="res://detailed_image/Crumpled_Receipt.png" type="Texture" id=21]
+[ext_resource path="res://detailed_image/close.png" type="Texture" id=22]
+[ext_resource path="res://with_key.png" type="Texture" id=23]
+[ext_resource path="res://prologue art/tweezers-.png" type="Texture" id=24]
+[ext_resource path="res://level2 art/item/photo.png" type="Texture" id=25]
+[ext_resource path="res://level2 art/item/insurance.png" type="Texture" id=26]
+[ext_resource path="res://level2 art/item/proof.png" type="Texture" id=27]
+[ext_resource path="res://level2 art/item/bill.png" type="Texture" id=28]
+[ext_resource path="res://level2 art/item/carReport.png" type="Texture" id=29]
+[ext_resource path="res://level2 art/item/drawing.png" type="Texture" id=30]
+[ext_resource path="res://level2 art/item/repairReport.png" type="Texture" id=31]
+[ext_resource path="res://level2 art/phone1.png" type="Texture" id=32]
+[ext_resource path="res://recording.png" type="Texture" id=33]
+
+[node name="Description" type="Sprite"]
+position = Vector2( 0, -48 )
+scale = Vector2( 0.3, 0.3 )
+z_index = 1
+texture = ExtResource( 5 )
+script = ExtResource( 13 )
+
+[node name="Choices" parent="." instance=ExtResource( 9 )]
+
+[node name="Bottle" type="Sprite" parent="."]
+visible = false
+position = Vector2( -237.503, 4.33853 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 12 )
+
+[node name="Bottle_key" type="Sprite" parent="."]
+visible = false
+position = Vector2( -237.503, 4.33853 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 23 )
+
+[node name="PuzzleAfter" type="Sprite" parent="."]
+visible = false
+position = Vector2( -239.509, 0 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 17 )
+
+[node name="Pad" type="Sprite" parent="."]
+visible = false
+position = Vector2( -239.509, 0 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 6 )
+
+[node name="HairBleach" type="Sprite" parent="."]
+visible = false
+position = Vector2( -239.509, 0 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 7 )
+
+[node name="HairDye" type="Sprite" parent="."]
+visible = false
+position = Vector2( -239.509, 0 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 8 )
+
+[node name="Shirt" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240.912, -0.301697 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
+
+[node name="BandageBox" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240.912, -0.301697 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="Hair" type="Sprite" parent="."]
+visible = false
+position = Vector2( -239, -0.302 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+
+[node name="PuzzleBefore" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240.033, 2.02211 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 1 )
+
+[node name="EyeTestReport" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 0 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 16 )
+
+[node name="BleachedHair" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 0 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 18 )
+
+[node name="PinkHair" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 0 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 14 )
+
+[node name="Gift" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 0 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 15 )
+
+[node name="Key" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, -80 )
+texture = ExtResource( 10 )
+
+[node name="Drawer" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 11 )
+
+[node name="Close" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 22 )
+
+[node name="ID" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 19 )
+
+[node name="Check" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 20 )
+
+[node name="Receipt" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 21 )
+
+[node name="Coupon" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 21 )
+
+[node name="Tweezers" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 24 )
+
+[node name="Photo" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 25 )
+
+[node name="Maintain" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 31 )
+
+[node name="Bill" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 28 )
+
+[node name="Painting" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 30 )
+
+[node name="Vehicle" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 29 )
+
+[node name="Pawn" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 27 )
+
+[node name="Insurance" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 3.05176e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 26 )
+
+[node name="Phone" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 6.10352e-05 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 32 )
+
+[node name="Recording" type="Sprite" parent="."]
+visible = false
+position = Vector2( -240, 6.10352e-05 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 33 )

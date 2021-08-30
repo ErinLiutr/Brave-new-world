@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/battle-draft.mp3-f16235531921a38006574d70279ae582.mp3str"
+
+[deps]
+
+source_file="res://music/battle-draft.mp3"
+dest_files=[ "res://.import/battle-draft.mp3-f16235531921a38006574d70279ae582.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

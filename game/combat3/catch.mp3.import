@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/catch.mp3-1a33f1937f0f265f6e464e78e6c4da3d.mp3str"
+
+[deps]
+
+source_file="res://combat3/catch.mp3"
+dest_files=[ "res://.import/catch.mp3-1a33f1937f0f265f6e464e78e6c4da3d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

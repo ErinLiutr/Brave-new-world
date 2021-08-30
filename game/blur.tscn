@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scene/PopupLose.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scene/PopupWin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://wall.png" type="Texture" id=3]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float blur : hint_range(0, 6) = 0.5;
+
+void fragment() {
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV, blur);
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/blur = 1.259
+
+[node name="blur" type="TextureRect"]
+visible = false
+material = SubResource( 2 )
+margin_left = -200.0
+margin_top = -114.0
+margin_right = 259.0
+margin_bottom = 118.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupLose" parent="." instance=ExtResource( 1 )]
+rect_scale = Vector2( 0.2, 0.2 )
+
+[node name="PopupWin" parent="." instance=ExtResource( 2 )]

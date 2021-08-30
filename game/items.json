@@ -1,0 +1,391 @@
+{
+  "201": {
+    "name": "HairBleach",
+    "item_name": "Hair bleach",
+    "description": "Hair bleach.",
+    "options": ["combine"],
+    "combine": {
+      "with": "204",
+      "to": "201"
+    },
+    "picture": "HairBleach",
+    "path": "/root/Room/YSort/desk1/hair-bleach"
+  },
+  "202": {
+    "name": "BottleOfLiquid",
+    "item_name": "Bottle of liquid with ammonia-like smell",
+    "description": "Smell is strong. Can’t tell from the bottle what it is.",
+    "options": ["combine"],
+    "combine": {
+      "with": "205",
+      "to": "203"
+    },
+    "picture": "HairDye",
+    "path": "/root/Room/hair-dye"
+  },
+  "203": {
+    "name": "PinkHairDye",
+    "item_name": "Pink hair dye",
+    "description": "Pink hair dye.",
+    "options": ["pick"],
+    "picture": "HairDye",
+    "path": "/root/Room/hair-dye"
+  },
+  "204": {
+    "name": "BlackHair",
+    "item_name": "A lock of black hair",
+    "description": "Wonder whose hair this is.",
+    "options": ["pick"],
+    "combine": {
+      "with": "201",
+      "to": "205"
+    },
+    "picture": "Hair",
+    "path": "/root/Room/YSort/hair"
+  },
+  "205": {
+    "name": "BleachedHair",
+    "item_name": "A lock of bleached hair",
+    "description": "Wonder whose hair this is.",
+    "options": [],
+    "combine": {
+      "with": "202",
+      "to": "206"
+    },
+    "picture": "BleachedHair",
+    "path": "/root/Room/YSort/hair"
+  },
+  "206": {
+    "name": "PinkHair",
+    "item_name": "A lock of pink hair",
+    "description": "Wonder whose hair this is.",
+    "options": [],
+    "picture": "PinkHair",
+    "path": "/root/Room/YSort/hair"
+  },
+  "207": {
+    "name": "EyeTestReport",
+    "item_name": "Eye test report",
+    "description": "Results says ‘color-blind’, name is covered by brown stain.",
+    "options": ["pick"],
+    "picture": "EyeTestReport",
+    "path": ""
+  },
+  "208": {
+    "name": "MagazineCover",
+    "item_name": "Crumpled magazine cover with brown hair movie star",
+    "description": "Cover of an old third-rate magazine, featuring a movie star with ash brown hair. “Interview with K.K: secrets of being popular”, “20 best hair color trends and ideas” says the cover.",
+    "options": ["pick"],
+    "picture": "PuzzleAfter",
+    "path": "/root/Room/cabinet3/magazine"
+  },
+  "209": {
+    "name": "BandageBox",
+    "item_name": "Bandage boxes",
+    "description": "Two Empty bandage boxes",
+    "options": ["pick"],
+    "picture": "BandageBox",
+    "path": "/root/Room/YSort/bandage"
+  },
+  "210": {
+    "name": "DirtyShirt",
+    "item_name": "Dirty shirt with red stain",
+    "description": "Covered in dirt, red dark stain on the collar.",
+    "options": ["pick"],
+    "picture": "Shirt",
+    "path": "/root/Room/YSort/shirt"
+  },
+  "211": {
+    "name": "SketchPad",
+    "item_name": "Taped sketch pad",
+    "description": "Carefully taped after torn. Someone must cherish those drawings. The drawings used bright and contrast colors.",
+    "options": ["pick"],
+    "picture": "Pad",
+    "path": "/root/Room/YSort/table/pad"
+  },
+  "212": {
+    "name": "Drawing",
+    "item_name": "Drawings with contrast colors",
+    "description": "Used bright and contrast colors.",
+    "options": ["pick"],
+    "picture": "",
+    "path": "/root/Room/hair"
+  },
+  "213": {
+    "name": "BirthdayGift",
+    "item_name": "Birthday gift to A",
+    "description": "Signed “Happy birthday, A, June 6, 20xx”.",
+    "options": ["pick"],
+    "picture": "Gift",
+    "path": "/root/Room/gift"
+  },
+  "214": {
+    "name": "Receipt",
+    "item_name": "Receipt",
+    "description": "Hair bleach - 1 item\nHair dye - 1 item\nApple cider - 2 bottles\n",
+    "options": ["pick"],
+    "picture": "Receipt",
+    "path": "/root/Room/YSort/receipt"
+  },
+  "215": {
+    "name": "Key",
+    "item_name": "A key",
+    "description": "A key.",
+    "options": ["pick"],
+    "picture": "Key",
+    "path": "/root/Room/YSort/table/bottle/Sprite/key"
+  },
+  "216": {
+    "name": "Bottle",
+    "item_name": "Glass bottle",
+    "description": "This is a bottle with a cipher lock on it.",
+    "options": ["open"],
+    "picture": "Bottle_key",
+    "path": "/root/Room/YSort/table/bottle"
+  },
+  "216-2": {
+    "name": "Bottle",
+    "item_name": "Glass bottle",
+    "description": "This is an empty bottle",
+    "options": [],
+    "picture": "Bottle",
+    "path": "/root/Room/YSort/table/bottle"
+  },
+  "216-1": {
+    "name": "Bottle",
+    "item_name": "Glass bottle",
+    "description": "This is a bottle, the cipher lock on it is unlocked.",
+    "options": ["key"],
+    "picture": "Bottle_key",
+    "path": "/root/Room/YSort/table/bottle"
+  },
+  "217-1": {
+    "name": "Drawer",
+    "item_name": "Drawer",
+    "description": "Drawer is locked. A key is needed.",
+    "options": ["unlock"],
+    "picture": "Close",
+    "path": "/root/Room/YSort/table/bottle"
+  },
+  "217-2": {
+    "name": "Drawer",
+    "item_name": "Drawer",
+    "description": "Drawer is open.",
+    "options": ["report"],
+    "picture": "Drawer",
+    "path": "/root/Room/YSort/table/bottle"
+  },
+  "217-3": {
+    "name": "Drawer",
+    "item_name": "Drawer",
+    "description": "Drawer is empty.",
+    "options": [],
+    "picture": "Drawer",
+    "path": "/root/Room/YSort/table/bottle"
+  },
+  "218": {
+    "name": "FakeCoupon",
+    "item_name": "Crumpled fake coupon",
+    "description": "“20% off discount for Project Brave New World” writes the coupon. Probably made as a joke by someone cynical.",
+    "options": [],
+    "picture": "Coupon",
+    "path": ""
+  },
+  "219": {
+    "name": "ShreddedMagazineCover",
+    "item_name": "Shredded magazine cover",
+    "description": "Shredded magazine cover.",
+    "options": ["game"],
+    "game": {
+      "name": "slidingPuzzle",
+      "to": "208"
+    },
+    "picture": "PuzzleBefore",
+    "path": "/root/Room/cabinet3/cabinet2"
+  },
+  "101": {
+    "name": "StainedID",
+    "item_name": "Stained ID",
+    "description": "Photo is covered by scratches. \nName: A\nBirthday: June, 06, 19xx\n",
+    "options": ["pick"],
+    "picture": "ID",
+    "path": ""
+  },
+  "102": {
+    "name": "Receipt",
+    "item_name": "Crumpled receipt",
+    "description": "Hair bleach - 1 item\nHair dye - 1 item",
+    "options": ["pick"],
+    "picture": "Receipt",
+    "path": "/root/Prologue/YSort/Receipt"
+  },
+  "103": {
+    "name": "Check",
+    "item_name": "Torn check",
+    "description": "A check of 1000 USD written to Issac. Wonder who wrote it.",
+    "options": ["pick"],
+    "picture": "Check",
+    "path": "/root/Prologue/YSort/Check"
+  },
+  "104": {
+    "name": "Tweezers",
+    "item_name": "A pair of tweezers",
+    "description": "A pair of tweezers.",
+    "options": ["pick"],
+    "picture": "Tweezers",
+    "path": "/root/Prologue/YSort/Tweezers"
+  },
+  "105": {
+    "name": "Drain",
+    "item_name": "A muddy drain",
+    "description": "The drain is clogged. Something seems stuck in the drain. Looks like a card.",
+    "options": ["tweezers"],
+    "picture": "",
+    "path": ""
+  },
+  "105-1": {
+    "name": "Drain",
+    "item_name": "A muddy drain",
+    "description": "The drain is clogged.",
+    "options": [],
+    "picture": "",
+    "path": ""
+  },
+  "401": {
+    "name": "Insurance",
+    "item_name": "A’s accident insurance",
+    "description": "A confirmation mail of A’s accident insurance. Purchased recently.",
+    "options": ["pick"],
+    "picture": "Insurance",
+    "path": "/root/3rdfloor/YSort/paper"
+  },
+  "402": {
+    "name": "Vehicle",
+    "item_name": "Vehicle inspection report",
+    "description": "Shows problems in brakes, air filter, and broken side mirror.",
+    "options": ["pick"],
+    "picture": "Vehicle",
+    "path": "/root/2ndfloor/YSort/shelf1/paper"
+  },
+  "403": {
+    "name": "Bill",
+    "item_name": "Credit card bills",
+    "description": "Belong to Lydia. Several cards are frozen due to unpaid debts.",
+    "options": ["pick"],
+    "picture": "Bill",
+    "path": "/root/2ndfloor/YSort/shelf2/bill"
+  },
+  "404": {
+    "name": "Pawn",
+    "item_name": "Pawn agreement",
+    "description": "Pawn contract on an emerald ring.\nAmount: $3,500\nCustomer: Lydia. M\n",
+    "options": ["pick"],
+    "picture": "Pawn",
+    "path": "/root/2ndfloor/YSort/table/pawn"
+  },
+  "405": {
+    "name": "Painting",
+    "item_name": "Unfinished painting",
+    "description": "A poem was written on the canvas, most of which was already covered by paint. \nThe visible part writes: \n“He whose thoughts, like skylarks, Toward the morning sky take flight\n— Who hovers over life and understands with ease. \nThe language of flowers and silent things!”",
+    "options": [],
+    "picture": "",
+    "path": ""
+  },
+  "406": {
+    "name": "Photo",
+    "item_name": "Issac’s photo",
+    "description": "Photo of a young man with a bright smile.",
+    "options": ["pick"],
+    "picture": "Photo",
+    "path": "/root/Room2/YSort/Photo"
+  },
+  "407-1": {
+    "name": "Phone",
+    "item_name": "Issac’s phone",
+    "description": "Isaac’s phone, locked.",
+    "options": ["phonepw"],
+    "picture": "Phone",
+    "path": ""
+  },
+  "407-2": {
+    "name": "Phone",
+    "item_name": "Issac’s phone",
+    "description": "Isaac’s phone, unlocked.",
+    "options": ["memo", "recording"],
+    "picture": "Phone",
+    "path": ""
+  },
+  "408-1": {
+    "name": "Laptop",
+    "item_name": "Lydia’s laptop",
+    "description": "Lydia’s laptop. Locked.",
+    "options": ["laptoppw"],
+    "picture": "",
+    "path": ""
+  },
+  "408-2": {
+    "name": "Laptop",
+    "item_name": "Lydia’s laptop",
+    "description": "Lydia’s laptop. Unlocked.",
+    "options": ["message"],
+    "picture": "",
+    "path": ""
+  },
+  "410": {
+    "name": "Maintain",
+    "item_name": "Vehicle maintenance report",
+    "description": "Repaired left side mirror and replaced air filter. ",
+    "options": ["pick"],
+    "picture": "Maintain",
+    "path": "/root/2ndfloor/YSort/desk1/maintain"
+  },
+  "411": {
+    "name": "Recording",
+    "item_name": "CJ’s recording",
+    "description": "CJ’s recording",
+    "options": ["recording1"],
+    "picture": "Recording",
+    "path": ""
+  },
+  "412": {
+    "name": "Portrait",
+    "item_name": "Portrait",
+    "description": "The man’s face in the portrait looks similar to Isaac’s. There is a sharp contrast between the grotesque dark wound on his chest and the white wings on his back. Red tears streamed down the character’s face. Painting is signed by A.",
+    "options": [],
+    "picture": "Painting",
+    "path": ""
+  },
+  "420-1": {
+    "name": "Light",
+    "item_name": "Light",
+    "description": "The lights are off.",
+    "options": ["lightup"],
+    "picture": "",
+    "path": ""
+  },
+  "420-2": {
+    "name": "Light",
+    "item_name": "Light",
+    "description": "The lights are on.",
+    "options": [],
+    "picture": "",
+    "path": ""
+  },
+  "416-1": {
+    "name": "Wardrobe",
+    "item_name": "Wardrobe",
+    "description": "A wardrobe. Seems there is something under.",
+    "options": ["inspection"],
+    "picture": "",
+    "path": ""
+  },
+  "416-2": {
+    "name": "Wardrobe",
+    "item_name": "Wardrobe",
+    "description": "A wardrobe.",
+    "options": [],
+    "picture": "",
+    "path": ""
+  }
+
+}

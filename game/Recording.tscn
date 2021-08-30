@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://new_dynamicfont_minimini.tres" type="DynamicFont" id=1]
+[ext_resource path="res://new_dynamicfontmini.tres" type="DynamicFont" id=2]
+[ext_resource path="res://new_dynamicfontsmall.tres" type="DynamicFont" id=3]
+[ext_resource path="res://menu.png" type="Texture" id=4]
+[ext_resource path="res://Memo.gd" type="Script" id=5]
+
+[node name="Recording" type="Node2D"]
+visible = false
+z_index = 1
+script = ExtResource( 5 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = -104.0
+margin_top = -56.0
+margin_right = 104.0
+margin_bottom = 56.0
+texture = ExtResource( 4 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="NinePatchRect"]
+margin_left = 8.0
+margin_top = 4.0
+margin_right = 72.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Recording"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="NinePatchRect"]
+margin_left = 177.335
+margin_top = 99.3371
+margin_right = 241.335
+margin_bottom = 113.337
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "[Esc] Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+margin_left = 8.0
+margin_top = 20.0
+margin_right = 200.0
+margin_bottom = 132.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Isaac: Honestly, that sounds dangerous. You know I’m not good at driving. I prefer hiking in a forest than in a mountain.
+A: Me and CJ go there all the time. Yes, the road can be a little bad when it rains, so just pick a sunny day and you’ll be fine.
+Isaac: Hmmm...I don’t know. I still feel like…
+A: Hey you know what? I think you should drive our car! You are not driving a sedan on that muddy road, are you?
+Isaac: Thank you, but maybe next time...
+A: You don’t understand, kid. The best season is now. When the weather gets cold, you won’t see the animals and the place becomes foggy.
+A: What’s wrong? I thought you always wanna go there. You brought it up several times. Isaac: Yeah...you’re right. I do wanna go.
+A: Sounds good. You can come pick up the car this Saturday. 
+Isaac: Sure...Oh, I’ve found the books Lydia’s looking for. I’ll bring them to her on Saturday. 
+A: It’s fine, Lydia’s out of town this weekend. You can give it to her when you come back from the trip. "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

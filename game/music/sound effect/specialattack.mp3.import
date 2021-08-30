@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/specialattack.mp3-4a21beb404c3dc53ab10fd7a904d41b7.mp3str"
+
+[deps]
+
+source_file="res://music/sound effect/specialattack.mp3"
+dest_files=[ "res://.import/specialattack.mp3-4a21beb404c3dc53ab10fd7a904d41b7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

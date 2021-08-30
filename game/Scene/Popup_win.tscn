@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/PopupWin.gd" type="Script" id=1]
+[ext_resource path="res://win.jpeg" type="Texture" id=2]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=5]
+
+[node name="PopupWin" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -206.861
+margin_top = -127.638
+margin_right = 422.139
+margin_bottom = 267.362
+color = Color( 0.227451, 0.219608, 0.219608, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 107.215, 68.0919 )
+scale = Vector2( 1.502, 1.234 )
+texture = ExtResource( 2 )
+
+[node name="win" type="Label" parent="."]
+margin_left = 239.982
+margin_top = 219.136
+margin_right = 367.982
+margin_bottom = 242.136
+rect_scale = Vector2( 1.3, 1.3 )
+custom_fonts/font = ExtResource( 5 )
+text = "[Enter] Continue "
+__meta__ = {
+"_edit_use_anchors_": false
+}
